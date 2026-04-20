@@ -114,9 +114,10 @@ body {
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center center;
   display: block;
+  background: #0a0908;
 }
 
 .splash-gradient {
@@ -245,7 +246,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 56px;
+  min-height: 62px;
   gap: 12px;
   border-bottom: 1px solid rgba(255,255,255,0.05);
 }
@@ -260,7 +261,7 @@ body {
 .header-title {
   font-family: 'Syne', sans-serif;
   font-weight: 800;
-  font-size: 13px;
+  font-size: 15px;
   color: #fff;
   letter-spacing: -0.2px;
   line-height: 1.1;
@@ -308,8 +309,8 @@ body {
   border-radius: 10px;
   color: #fff;
   font-family: 'DM Sans', sans-serif;
-  font-size: 13px;
-  padding: 8px 10px 8px 32px;
+  font-size: 14px;
+  padding: 10px 10px 10px 36px;
   outline: none;
   transition: all 0.2s;
 }
@@ -328,7 +329,7 @@ body {
 }
 
 #count-badge {
-  font-size: 10px;
+  font-size: 11px;
   color: rgba(255,255,255,0.35);
   white-space: nowrap;
   display: none;
@@ -362,7 +363,7 @@ body {
   background: var(--bg-filter);
   border-bottom: 1px solid var(--border);
   position: sticky;
-  top: 56px;
+  top: 62px;
   z-index: 90;
   padding: 0 14px;
   transition: all 0.3s;
@@ -371,15 +372,15 @@ body {
 .filter-row {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   overflow-x: auto;
-  padding: 10px 0;
+  padding: 12px 0;
   scrollbar-width: none;
 }
 .filter-row::-webkit-scrollbar { display: none; }
 
 .filter-label {
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 700;
   color: var(--text-muted);
   text-transform: uppercase;
@@ -393,13 +394,13 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  padding: 6px 13px;
+  padding: 8px 15px;
   border-radius: 100px;
   border: 1.5px solid var(--border-md);
   background: transparent;
   font-family: 'DM Sans', sans-serif;
-  font-size: 11px;
-  font-weight: 500;
+  font-size: 13px;
+  font-weight: 600;
   color: var(--text-secondary);
   cursor: pointer;
   white-space: nowrap;
@@ -424,13 +425,13 @@ body {
 }
 .results-title {
   font-family: 'Syne', sans-serif;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 800;
   color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 1px;
 }
-.results-count { font-size: 12px; color: var(--text-muted); }
+.results-count { font-size: 13px; color: var(--text-muted); font-weight: 600; }
 
 /* ══════════════════════════════════════════
    GRID
@@ -500,9 +501,9 @@ body {
 .badge-cod {
   background: rgba(28,27,24,0.8);
   color: #fff;
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 700;
-  padding: 4px 8px;
+  padding: 4px 9px;
   border-radius: 6px;
   letter-spacing: 0.3px;
   backdrop-filter: blur(6px);
@@ -510,9 +511,9 @@ body {
 .badge-promo {
   background: var(--red);
   color: #fff;
-  font-size: 8px;
+  font-size: 9px;
   font-weight: 700;
-  padding: 3px 7px;
+  padding: 3px 8px;
   border-radius: 6px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -524,9 +525,9 @@ body {
   position: absolute;
   bottom: 8px;
   right: 8px;
-  font-size: 8px;
+  font-size: 9px;
   font-weight: 600;
-  padding: 3px 8px;
+  padding: 3px 9px;
   border-radius: 6px;
   text-transform: uppercase;
   letter-spacing: 0.3px;
@@ -544,22 +545,28 @@ body {
 [data-theme="dark"] .tipo-SECO      { background:rgba(106,88,64,0.3); color:#c8b89a; }
 
 .card-body {
-  padding: 11px 12px 12px;
+  padding: 13px 14px 14px;
   flex: 1;
   display: flex;
   flex-direction: column;
 }
 .card-marca {
-  font-size: 8px;
+  font-size: 9px;
   font-weight: 700;
   color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.8px;
   margin-bottom: 4px;
 }
+.card-marca-logo {
+  width: 24px;
+  height: auto;
+  margin-bottom: 6px;
+  opacity: 0.7;
+}
 .card-nome {
   font-family: 'Syne', sans-serif;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
   color: var(--text-primary);
   line-height: 1.3;
@@ -582,9 +589,9 @@ body {
   padding: 7px 10px;
   border: 1px solid var(--border);
 }
-.card-peso { font-size: 10px; font-weight: 600; color: var(--text-secondary); }
+.card-peso { font-size: 11px; font-weight: 700; color: var(--text-secondary); }
 .card-btn {
-  width: 20px; height: 20px;
+  width: 24px; height: 24px;
   background: var(--red);
   border-radius: 6px;
   border: none;
@@ -607,14 +614,14 @@ body {
   grid-column: 1 / -1;
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: 20px 0 12px;
-  margin-top: 6px;
+  gap: 16px;
+  padding: 24px 0 16px;
+  margin-top: 8px;
 }
 .empresa-line { flex:1; height:1px; background:var(--border); }
 .empresa-logo {
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -632,7 +639,7 @@ body {
 }
 .empresa-badge {
   font-family: 'Syne', sans-serif;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 800;
   color: var(--text-primary);
   text-transform: uppercase;
@@ -649,15 +656,15 @@ body {
   padding: 80px 20px;
   color: var(--text-muted);
 }
-.empty-icon { font-size: 50px; margin-bottom: 14px; }
+.empty-icon { font-size: 56px; margin-bottom: 16px; }
 .empty h3 {
   font-family:'Syne',sans-serif;
-  font-size:17px;
+  font-size:18px;
   font-weight:800;
   color:var(--text-secondary);
-  margin-bottom:8px;
+  margin-bottom:10px;
 }
-.empty p { font-size:13px; line-height:1.5; }
+.empty p { font-size:14px; line-height:1.5; }
 
 /* ══════════════════════════════════════════
    MODAL OVERLAY
@@ -801,9 +808,9 @@ body {
 }
 .modal-tags { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:14px; }
 .m-tag {
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 700;
-  padding: 4px 10px;
+  padding: 5px 11px;
   border-radius: 6px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -814,7 +821,7 @@ body {
 
 .modal-nome {
   font-family: 'Syne', sans-serif;
-  font-size: 22px;
+  font-size: 26px;
   font-weight: 800;
   color: var(--text-primary);
   line-height: 1.2;
@@ -823,7 +830,7 @@ body {
   letter-spacing: -0.4px;
 }
 .modal-desc {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.65;
   color: var(--text-secondary);
   padding-left: 14px;
@@ -848,7 +855,7 @@ body {
   background: var(--bg-surface);
 }
 .spec-label {
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 700;
   color: var(--text-muted);
   text-transform: uppercase;
@@ -858,7 +865,7 @@ body {
 }
 .spec-val {
   font-family: 'Syne', sans-serif;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 700;
   color: var(--text-primary);
   line-height: 1.3;
@@ -1051,11 +1058,10 @@ function conservaIcon(tipo) {
   return { CONGELADO:'❄', RESFRIADO:'🧊', TEMPERADO:'🌿', DEFUMADOS:'🔥', SECO:'📦' }[tipo] || '📦';
 }
 
-// ── LOGOS DAS EMPRESAS ─────────────────────────────────────
-const logoEmpresas = {
-  'ACREAVES': 'https://i.postimg.cc/ydjBT4qc/logo-acreaves.png',
-  'Dom Porquito': 'https://i.postimg.cc/rmjc9X6S/Mister-Pig-logo-fundo-marrom.png',
-  'Fripal': 'https://i.postimg.cc/769DN8vM/FRIPAL-LOGO.jpg'
+// ── LOGOS DAS MARCAS ───────────────────────────────────────
+const logoMarcas = {
+  'SABBOR': 'https://i.postimg.cc/d16v9PMR/SABBOR-logo-para-outros-fundos.png',
+  'Mister Pig': 'https://i.postimg.cc/rmjc9X6S/Mister-Pig-logo-fundo-marrom.png'
 };
 
 // ── FILTRAR ─────────────────────────────────────────────────
@@ -1108,6 +1114,7 @@ function renderGrid(lista) {
     }
     prods.forEach(p => {
       const img = (p.imgs && p.imgs[0]) ? p.imgs[0] : '';
+      const logoMarca = logoMarcas[p.marca] || '';
       html += `
         <div class="card" onclick="abrirModal('${p.cod}')" role="button" tabindex="0" aria-label="${p.nome}">
           <div class="card-img-wrap">
@@ -1119,6 +1126,7 @@ function renderGrid(lista) {
             <span class="badge-tipo tipo-${p.tipo}">${p.tipo}</span>
           </div>
           <div class="card-body">
+            ${logoMarca ? `<img class="card-marca-logo" src="${logoMarca}" alt="${p.marca}">` : ''}
             <div class="card-marca">${p.marca || ''}</div>
             <div class="card-nome">${p.nome}</div>
             <div class="card-footer">
