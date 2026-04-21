@@ -1,724 +1,254 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>Catálogo Grupo DP</title>
+<title>Catálogo Comercial | Acreaves · Dom Porquito · Fripal</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --red: #C0392B;
-    --red-dark: #962d22;
-    --red-light: #fdf0ee;
-    --amber: #E67E22;
-    --amber-light: #fef6ec;
-    --blue: #1a6fa8;
-    --blue-light: #eaf3fb;
-    --green: #1e7e5a;
-    --green-light: #eaf5f0;
-    --gray-100: #f7f7f5;
-    --gray-200: #eeede9;
-    --gray-400: #b5b3ab;
-    --gray-600: #6b6960;
-    --gray-900: #1c1b18;
-    --white: #ffffff;
-    --shadow-sm: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
-    --shadow-md: 0 4px 12px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04);
-    --shadow-lg: 0 20px 60px rgba(0,0,0,0.15), 0 8px 20px rgba(0,0,0,0.08);
-    --radius-sm: 10px;
-    --radius-md: 16px;
-    --radius-lg: 24px;
-    --radius-xl: 32px;
-  }
+:root{--red:#C0392B;--red-dark:#962d22;--bg-page:#f4f3f0;--bg-surface:#fff;--bg-card:#fff;--bg-header:#111110;--bg-filter:#fff;--bg-img:#f0efeb;--text-primary:#1c1b18;--text-secondary:#6b6960;--text-muted:#b5b3ab;--border:#e8e6e1;--border-md:#d8d6d0;--shadow-sm:0 1px 4px rgba(0,0,0,.07);--shadow-md:0 6px 20px rgba(0,0,0,.09);--radius-sm:10px;--radius-md:16px;--radius-lg:22px;--radius-xl:32px}
+[data-theme="dark"]{--bg-page:#0f0e0c;--bg-surface:#1c1b18;--bg-card:#242320;--bg-header:#080807;--bg-filter:#1c1b18;--bg-img:#2a2927;--text-primary:#f0efe9;--text-secondary:#9a9890;--text-muted:#58564f;--border:#2c2b28;--border-md:#38372f;--shadow-sm:0 1px 4px rgba(0,0,0,.3);--shadow-md:0 6px 20px rgba(0,0,0,.4)}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:'DM Sans',sans-serif;background:var(--bg-page);color:var(--text-primary);min-height:100vh;padding-bottom:48px;overscroll-behavior:none;transition:background .3s,color .3s}
+::-webkit-scrollbar{width:4px;height:4px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--border-md);border-radius:4px}
 
-  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+/* SPLASH */
+#splash{position:fixed;inset:0;z-index:1000;background:#0a0908;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;overflow:hidden;transition:opacity .5s ease,visibility .5s ease}
+#splash.hidden{opacity:0;visibility:hidden;pointer-events:none}
+.splash-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.splash-grad{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.02) 0%,rgba(0,0,0,.08) 40%,rgba(0,0,0,.78) 68%,rgba(0,0,0,.95) 100%)}
+.splash-content{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;padding:0 24px 52px;width:100%;max-width:520px;margin:0 auto;text-align:center}
+.splash-eyebrow{font-size:10px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:10px}
+.splash-title{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(22px,6vw,36px);color:#fff;letter-spacing:-.5px;line-height:1.05;margin-bottom:6px}
+.splash-sub{font-size:13px;color:rgba(255,255,255,.5);letter-spacing:.4px;margin-bottom:32px}
+.splash-btn{background:var(--red);color:#fff;border:none;font-family:'Syne',sans-serif;font-size:15px;font-weight:700;padding:14px 44px;border-radius:100px;cursor:pointer;display:flex;align-items:center;gap:9px;box-shadow:0 8px 28px rgba(192,57,43,.45);transition:background .15s,transform .12s}
+.splash-btn:hover{background:var(--red-dark)}.splash-btn:active{transform:scale(.97)}
+.splash-arrow{transition:transform .2s}.splash-btn:hover .splash-arrow{transform:translateX(5px)}
 
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--gray-100);
-    color: var(--gray-900);
-    min-height: 100vh;
-    padding-bottom: 40px;
-    overscroll-behavior: none;
-  }
+/* HEADER */
+.header{background:var(--bg-header);padding:0 16px;position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;min-height:52px;gap:10px;border-bottom:1px solid rgba(255,255,255,.04)}
+.header-logo{display:flex;flex-direction:column;flex-shrink:0;min-width:0}
+.header-title{font-family:'Syne',sans-serif;font-weight:800;font-size:13px;color:#fff;letter-spacing:-.2px;line-height:1.1;white-space:nowrap}
+.header-subs{display:flex;align-items:center;gap:5px;margin-top:3px}
+.header-sub-chip{font-size:8px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;padding:2px 6px;border-radius:5px;white-space:nowrap}
+.chip-acreaves{background:rgba(30,126,90,.22);color:#5ecba1}
+.chip-dom{background:rgba(192,57,43,.22);color:#f0836f}
+.chip-fripal{background:rgba(26,111,168,.22);color:#6db8f0}
+.search-wrap{flex:1;max-width:280px;position:relative}
+.search-wrap svg{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:rgba(255,255,255,.28);pointer-events:none}
+#search{width:100%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.09);border-radius:10px;color:#fff;font-family:'DM Sans',sans-serif;font-size:13px;padding:7px 10px 7px 32px;outline:none;transition:background .2s,border-color .2s}
+#search::placeholder{color:rgba(255,255,255,.28)}
+#search:focus{background:rgba(255,255,255,.11);border-color:rgba(255,255,255,.2)}
+.header-right{display:flex;align-items:center;gap:8px;flex-shrink:0}
+#count-badge{font-size:10px;color:rgba(255,255,255,.3);white-space:nowrap;display:none}
+@media(min-width:480px){#count-badge{display:block}}
+.theme-btn{width:32px;height:32px;border-radius:9px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.06);color:rgba(255,255,255,.65);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .15s,color .15s;flex-shrink:0}
+.theme-btn:hover{background:rgba(255,255,255,.12);color:#fff}
+[data-theme="light"] .icon-moon{display:none}[data-theme="dark"] .icon-sun{display:none}
 
-  /* ── SCROLLBAR ── */
-  ::-webkit-scrollbar { width: 4px; height: 4px; }
-  ::-webkit-scrollbar-track { background: transparent; }
-  ::-webkit-scrollbar-thumb { background: var(--gray-400); border-radius: 4px; }
+/* FILTROS */
+.filters-outer{background:var(--bg-filter);border-bottom:1px solid var(--border);position:sticky;top:52px;z-index:90;padding:12px 16px 10px;transition:background .3s,border-color .3s}
 
-  /* ── HEADER ── */
-  .header {
-    background: var(--gray-900);
-    padding: 0 20px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    min-height: 56px;
-    gap: 12px;
-  }
+/* ROW 1 — empresa cards */
+.empresa-row{display:flex;gap:10px;overflow-x:auto;padding-bottom:12px;scrollbar-width:none;margin-bottom:10px;border-bottom:1px solid var(--border)}
+.empresa-row::-webkit-scrollbar{display:none}
+.empresa-card{flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:5px;background:var(--bg-page);border:2px solid var(--border);border-radius:var(--radius-md);padding:9px 12px 7px;cursor:pointer;transition:border-color .15s,background .15s,transform .1s;min-width:74px;user-select:none}
+.empresa-card:hover{border-color:var(--border-md);transform:translateY(-1px)}
+.empresa-card.active{border-color:var(--red);background:var(--bg-surface);box-shadow:0 2px 12px rgba(192,57,43,.15)}
+.empresa-card-logo{width:50px;height:30px;object-fit:contain;display:block}
+.empresa-card-fb{width:50px;height:30px;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:10px;color:var(--text-secondary);letter-spacing:-.2px;text-align:center;line-height:1.25}
+.empresa-card-nome{font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--text-muted);text-align:center;white-space:nowrap}
+.empresa-card.active .empresa-card-nome{color:var(--red)}
+.empresa-card-todas .empresa-card-fb{font-size:20px}
 
-  .header-logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-shrink: 0;
-  }
+/* ROW 2 — tipo chips */
+.tipo-row{display:flex;align-items:center;gap:7px;overflow-x:auto;scrollbar-width:none}
+.tipo-row::-webkit-scrollbar{display:none}
+.filter-label{font-size:9px;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:1.2px;white-space:nowrap;flex-shrink:0;padding-right:2px}
+.chip{display:inline-flex;align-items:center;gap:5px;padding:5px 12px;border-radius:100px;border:1.5px solid var(--border-md);background:transparent;font-family:'DM Sans',sans-serif;font-size:11px;font-weight:500;color:var(--text-secondary);cursor:pointer;white-space:nowrap;flex-shrink:0;transition:all .15s;-webkit-user-select:none}
+.chip:hover{border-color:var(--text-muted);color:var(--text-primary)}
+.chip.active{background:var(--text-primary);border-color:var(--text-primary);color:var(--bg-surface)}
+.chip.active-red{background:var(--red);border-color:var(--red);color:#fff}
 
-  .logo-mark {
-    width: 34px;
-    height: 34px;
-    background: var(--red);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    font-size: 13px;
-    color: #fff;
-    letter-spacing: -0.5px;
-  }
+/* RESULTS */
+.results-header{padding:12px 16px 4px;display:flex;align-items:center;justify-content:space-between}
+.results-title{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;color:var(--text-muted);text-transform:uppercase;letter-spacing:.8px}
+.results-count{font-size:12px;color:var(--text-muted)}
 
-  .logo-text {
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    font-size: 15px;
-    color: #fff;
-    letter-spacing: -0.3px;
-    line-height: 1.1;
-  }
+/* GRID */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;padding:8px 14px 24px;max-width:1200px;margin:0 auto}
+@media(min-width:640px){.grid{grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:14px;padding:12px 20px 32px}}
 
-  .logo-sub {
-    font-size: 9px;
-    font-weight: 400;
-    color: var(--gray-400);
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    display: block;
-    margin-top: 1px;
-  }
+/* CARD */
+.card{background:var(--bg-card);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm);cursor:pointer;transition:transform .15s ease,box-shadow .15s ease;border:1px solid var(--border)}
+.card:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}.card:active{transform:scale(.97)}
+.card-img-wrap{position:relative;width:100%;aspect-ratio:1/1;background:var(--bg-img);overflow:hidden}
+.card-img{width:100%;height:100%;object-fit:contain;display:block;padding:8px;transition:transform .3s ease}
+.card:hover .card-img{transform:scale(1.04)}
+.card-badges{position:absolute;top:8px;left:8px;display:flex;flex-direction:column;gap:4px}
+.badge-cod{background:rgba(17,17,16,.72);color:#fff;font-size:9px;font-weight:700;padding:3px 7px;border-radius:6px;backdrop-filter:blur(4px)}
+.badge-promo{background:var(--red);color:#fff;font-size:8px;font-weight:700;padding:2px 6px;border-radius:6px;text-transform:uppercase;animation:blink 2.2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.7}}
+.badge-tipo{position:absolute;bottom:8px;right:8px;font-size:8px;font-weight:600;padding:2px 7px;border-radius:6px;text-transform:uppercase}
+.tipo-CONGELADO{background:#dceefa;color:#1a5a90}.tipo-RESFRIADO{background:#ddeaf7;color:#155080}
+.tipo-TEMPERADO{background:#feecd4;color:#a05a10}.tipo-DEFUMADOS{background:#f0e8de;color:#7a5030}
+[data-theme="dark"] .tipo-CONGELADO{background:rgba(26,90,144,.3);color:#7bc4f5}
+[data-theme="dark"] .tipo-RESFRIADO{background:rgba(21,80,128,.3);color:#6ab4f0}
+[data-theme="dark"] .tipo-TEMPERADO{background:rgba(160,90,16,.3);color:#f5b46a}
+[data-theme="dark"] .tipo-DEFUMADOS{background:rgba(122,80,48,.3);color:#d4a07a}
+.card-body{padding:10px 12px 12px}
+.card-marca{font-size:8px;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:3px}
+.card-nome{font-family:'Syne',sans-serif;font-size:11px;font-weight:700;color:var(--text-primary);line-height:1.3;min-height:2.6em;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;text-transform:uppercase}
+.card-footer{margin-top:8px;display:flex;align-items:center;justify-content:space-between;background:var(--bg-page);border-radius:9px;padding:5px 9px;border:1px solid var(--border)}
+.card-peso{font-size:10px;font-weight:600;color:var(--text-secondary)}
+.card-btn{width:20px;height:20px;background:var(--red);border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 
-  /* ── SEARCH ── */
-  .search-wrap {
-    flex: 1;
-    max-width: 320px;
-    position: relative;
-  }
+/* DIVIDERS */
+.emp-header{grid-column:1/-1;display:flex;align-items:center;gap:12px;padding:6px 0 2px}
+.emp-line{flex:1;height:1px;background:var(--border)}
+.emp-badge{font-family:'Syne',sans-serif;font-size:9px;font-weight:800;color:var(--text-muted);text-transform:uppercase;letter-spacing:1.5px;white-space:nowrap}
 
-  .search-wrap svg {
-    position: absolute;
-    left: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--gray-400);
-    pointer-events: none;
-  }
+/* EMPTY */
+.empty{grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--text-muted)}
+.empty-icon{font-size:44px;margin-bottom:12px}
+.empty h3{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;color:var(--text-secondary);margin-bottom:6px}
+.empty p{font-size:13px}
 
-  #search {
-    width: 100%;
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 10px;
-    color: #fff;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 13px;
-    padding: 7px 10px 7px 34px;
-    outline: none;
-    transition: background 0.2s, border-color 0.2s;
-  }
-  #search::placeholder { color: rgba(255,255,255,0.35); }
-  #search:focus { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.25); }
-
-  #count-badge {
-    font-family: 'DM Sans', sans-serif;
-    font-size: 11px;
-    color: var(--gray-400);
-    white-space: nowrap;
-  }
-
-  /* ── FILTERS ── */
-  .filters-outer {
-    background: var(--white);
-    border-bottom: 1px solid var(--gray-200);
-    position: sticky;
-    top: 56px;
-    z-index: 90;
-    padding: 0 16px;
-  }
-
-  .filter-row {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    overflow-x: auto;
-    padding: 10px 0;
-    scrollbar-width: none;
-  }
-  .filter-row::-webkit-scrollbar { display: none; }
-
-  .filter-label {
-    font-size: 9px;
-    font-weight: 500;
-    color: var(--gray-400);
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-    white-space: nowrap;
-    flex-shrink: 0;
-    padding-right: 4px;
-  }
-
-  .chip {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
-    padding: 5px 12px;
-    border-radius: 100px;
-    border: 1.5px solid var(--gray-200);
-    background: transparent;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 11px;
-    font-weight: 500;
-    color: var(--gray-600);
-    cursor: pointer;
-    white-space: nowrap;
-    flex-shrink: 0;
-    transition: all 0.15s;
-    -webkit-user-select: none;
-  }
-  .chip:hover { border-color: var(--gray-400); color: var(--gray-900); }
-  .chip.active {
-    background: var(--gray-900);
-    border-color: var(--gray-900);
-    color: #fff;
-  }
-  .chip.active-red {
-    background: var(--red);
-    border-color: var(--red);
-    color: #fff;
-  }
-  .chip.active-amber {
-    background: var(--amber);
-    border-color: var(--amber);
-    color: #fff;
-  }
-  .chip-dot {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    flex-shrink: 0;
-  }
-
-  /* ── RESULTS HEADER ── */
-  .results-header {
-    padding: 14px 16px 4px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .results-title {
-    font-family: 'Syne', sans-serif;
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--gray-600);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-  .results-count {
-    font-size: 12px;
-    color: var(--gray-400);
-  }
-
-  /* ── GRID ── */
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 12px;
-    padding: 8px 16px 24px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  @media (min-width: 640px) {
-    .grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 16px; padding: 12px 20px 32px; }
-  }
-
-  /* ── CARD ── */
-  .card {
-    background: var(--white);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-    box-shadow: var(--shadow-sm);
-    cursor: pointer;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
-    position: relative;
-    border: 1px solid var(--gray-200);
-  }
-  .card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
-  .card:active { transform: scale(0.97); }
-
-  .card-img-wrap {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 1 / 1;
-    background: var(--gray-100);
-    overflow: hidden;
-  }
-
-  .card-img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    display: block;
-    padding: 8px;
-    transition: transform 0.3s ease;
-  }
-  .card:hover .card-img { transform: scale(1.04); }
-
-  .card-badges {
-    position: absolute;
-    top: 8px;
-    left: 8px;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-
-  .badge-cod {
-    background: var(--gray-900);
-    color: #fff;
-    font-size: 9px;
-    font-weight: 700;
-    padding: 3px 7px;
-    border-radius: 6px;
-    letter-spacing: 0.3px;
-  }
-
-  .badge-promo {
-    background: var(--red);
-    color: #fff;
-    font-size: 8px;
-    font-weight: 700;
-    padding: 2px 6px;
-    border-radius: 6px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    animation: pulse-promo 2s infinite;
-  }
-
-  @keyframes pulse-promo {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.75; }
-  }
-
-  .badge-tipo {
-    position: absolute;
-    bottom: 8px;
-    right: 8px;
-    font-size: 8px;
-    font-weight: 600;
-    padding: 2px 7px;
-    border-radius: 6px;
-    text-transform: uppercase;
-    letter-spacing: 0.3px;
-  }
-  .tipo-CONGELADO { background: var(--blue-light); color: var(--blue); }
-  .tipo-RESFRIADO { background: #e8f4fd; color: #1565a0; }
-  .tipo-TEMPERADO { background: var(--amber-light); color: var(--amber); }
-  .tipo-DEFUMADOS { background: #f5f0eb; color: #7a5c3a; }
-  .tipo-SECO      { background: #f7f5f0; color: #7a6a55; }
-
-  .card-body {
-    padding: 10px 12px 12px;
-  }
-
-  .card-marca {
-    font-size: 8px;
-    font-weight: 600;
-    color: var(--gray-400);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 3px;
-  }
-
-  .card-nome {
-    font-family: 'Syne', sans-serif;
-    font-size: 11px;
-    font-weight: 700;
-    color: var(--gray-900);
-    line-height: 1.3;
-    min-height: 2.6em;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-transform: uppercase;
-  }
-
-  .card-footer {
-    margin-top: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: var(--gray-100);
-    border-radius: 10px;
-    padding: 6px 10px;
-  }
-
-  .card-peso {
-    font-size: 10px;
-    font-weight: 600;
-    color: var(--gray-600);
-  }
-
-  .card-btn {
-    width: 20px; height: 20px;
-    background: var(--red);
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-  }
-
-  /* ── EMPTY ── */
-  .empty {
-    grid-column: 1 / -1;
-    text-align: center;
-    padding: 60px 20px;
-    color: var(--gray-400);
-  }
-  .empty-icon { font-size: 48px; margin-bottom: 12px; }
-  .empty h3 { font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 700; color: var(--gray-600); margin-bottom: 6px; }
-  .empty p { font-size: 13px; }
-
-  /* ── MODAL OVERLAY ── */
-  .overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(28,27,24,0.85);
-    z-index: 200;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.25s ease;
-    padding: 0;
-  }
-  .overlay.open {
-    opacity: 1;
-    pointer-events: all;
-  }
-
-  @media (min-width: 600px) {
-    .overlay { align-items: center; padding: 20px; }
-  }
-
-  /* ── MODAL BOX ── */
-  .modal {
-    background: var(--white);
-    width: 100%;
-    max-width: 500px;
-    border-radius: var(--radius-xl) var(--radius-xl) 0 0;
-    overflow: hidden;
-    transform: translateY(40px);
-    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-    max-height: 92vh;
-    display: flex;
-    flex-direction: column;
-  }
-  .overlay.open .modal {
-    transform: translateY(0);
-  }
-
-  @media (min-width: 600px) {
-    .modal { border-radius: var(--radius-xl); max-height: 85vh; }
-  }
-
-  .modal-drag {
-    width: 40px; height: 4px;
-    background: var(--gray-200);
-    border-radius: 2px;
-    margin: 12px auto 0;
-    flex-shrink: 0;
-    display: block;
-  }
-
-  @media (min-width: 600px) {
-    .modal-drag { display: none; }
-  }
-
-  /* ── GALERIA ── */
-  .gallery {
-    position: relative;
-    background: var(--gray-100);
-    flex-shrink: 0;
-    overflow: hidden;
-  }
-
-  .gallery-slides {
-    display: flex;
-    transition: transform 0.3s ease;
-  }
-
-  .gallery-slide {
-    min-width: 100%;
-    aspect-ratio: 4 / 3;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px;
-  }
-
-  .gallery-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    display: block;
-  }
-
-  .gallery-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(28,27,24,0.5);
-    border: none;
-    color: #fff;
-    width: 32px; height: 32px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    backdrop-filter: blur(4px);
-    z-index: 5;
-    transition: background 0.15s;
-  }
-  .gallery-nav:hover { background: rgba(28,27,24,0.75); }
-  .gallery-nav.prev { left: 10px; }
-  .gallery-nav.next { right: 10px; }
-  .gallery-nav.hidden { display: none; }
-
-  .gallery-dots {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 5px;
-  }
-  .gallery-dot {
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: rgba(255,255,255,0.4);
-    cursor: pointer;
-    transition: background 0.15s, transform 0.15s;
-  }
-  .gallery-dot.active { background: #fff; transform: scale(1.3); }
-
-  .modal-close {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    background: rgba(28,27,24,0.5);
-    border: none;
-    color: #fff;
-    width: 32px; height: 32px;
-    border-radius: 50%;
-    font-size: 16px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10;
-    backdrop-filter: blur(4px);
-    line-height: 1;
-  }
-
-  /* ── MODAL BODY ── */
-  .modal-body {
-    padding: 20px 20px 28px;
-    overflow-y: auto;
-    flex: 1;
-  }
-
-  .modal-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-bottom: 12px;
-  }
-
-  .m-tag {
-    font-size: 9px;
-    font-weight: 700;
-    padding: 3px 9px;
-    border-radius: 6px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-  .m-tag-cod { background: var(--gray-900); color: #fff; }
-  .m-tag-empresa { background: var(--gray-200); color: var(--gray-600); }
-  .m-tag-promo { background: var(--red); color: #fff; }
-
-  .modal-nome {
-    font-family: 'Syne', sans-serif;
-    font-size: 20px;
-    font-weight: 800;
-    color: var(--gray-900);
-    line-height: 1.2;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-    letter-spacing: -0.3px;
-  }
-
-  .modal-desc {
-    font-size: 13px;
-    line-height: 1.65;
-    color: var(--gray-600);
-    padding-left: 12px;
-    border-left: 3px solid var(--gray-200);
-    margin-bottom: 20px;
-  }
-
-  .modal-specs {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-
-  .spec-card {
-    background: var(--gray-100);
-    border-radius: var(--radius-sm);
-    padding: 12px;
-    text-align: center;
-    border: 1px solid var(--gray-200);
-  }
-
-  .spec-label {
-    font-size: 9px;
-    font-weight: 600;
-    color: var(--gray-400);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 4px;
-    display: block;
-  }
-
-  .spec-val {
-    font-family: 'Syne', sans-serif;
-    font-size: 13px;
-    font-weight: 700;
-    color: var(--gray-900);
-    line-height: 1.3;
-  }
-
-  .conserva-icon {
-    font-size: 16px;
-    display: block;
-    margin-bottom: 2px;
-  }
-
-  /* ── TOAST ── */
-  .toast {
-    position: fixed;
-    bottom: 24px;
-    left: 50%;
-    transform: translateX(-50%) translateY(80px);
-    background: var(--gray-900);
-    color: #fff;
-    font-size: 13px;
-    font-weight: 500;
-    padding: 10px 18px;
-    border-radius: 100px;
-    z-index: 300;
-    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-    white-space: nowrap;
-  }
-  .toast.show { transform: translateX(-50%) translateY(0); }
-
-  /* ── EMPRESA DIVIDERS ── */
-  .empresa-header {
-    grid-column: 1 / -1;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 8px 0 4px;
-  }
-
-  .empresa-line {
-    flex: 1;
-    height: 1px;
-    background: var(--gray-200);
-  }
-
-  .empresa-badge {
-    font-family: 'Syne', sans-serif;
-    font-size: 10px;
-    font-weight: 800;
-    color: var(--gray-400);
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    white-space: nowrap;
-  }
+/* MODAL */
+.overlay{position:fixed;inset:0;background:rgba(10,9,8,.87);z-index:200;display:flex;align-items:flex-end;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s ease}
+.overlay.open{opacity:1;pointer-events:all}
+@media(min-width:600px){.overlay{align-items:center;padding:20px}}
+.modal{background:var(--bg-surface);width:100%;max-width:500px;border-radius:var(--radius-xl) var(--radius-xl) 0 0;overflow:hidden;transform:translateY(40px);transition:transform .3s cubic-bezier(.34,1.56,.64,1);max-height:92vh;display:flex;flex-direction:column;border:1px solid var(--border)}
+.overlay.open .modal{transform:translateY(0)}
+@media(min-width:600px){.modal{border-radius:var(--radius-xl);max-height:88vh}}
+.modal-drag{width:40px;height:4px;background:var(--border-md);border-radius:2px;margin:12px auto 0;flex-shrink:0}
+@media(min-width:600px){.modal-drag{display:none}}
+.gallery{position:relative;background:var(--bg-img);flex-shrink:0;overflow:hidden}
+.gallery-slides{display:flex;transition:transform .3s ease}
+.gallery-slide{min-width:100%;aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;padding:16px}
+.gallery-slide img{width:100%;height:100%;object-fit:contain;display:block}
+.g-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(17,17,16,.5);border:none;color:#fff;width:32px;height:32px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:5;transition:background .15s}
+.g-nav:hover{background:rgba(17,17,16,.8)}.g-nav.prev{left:10px}.g-nav.next{right:10px}.g-nav.hidden{display:none}
+.g-dots{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:5px}
+.g-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.35);cursor:pointer;transition:background .15s,transform .15s}
+.g-dot.active{background:#fff;transform:scale(1.35)}
+.modal-close{position:absolute;top:10px;right:10px;background:rgba(17,17,16,.5);border:none;color:#fff;width:30px;height:30px;border-radius:50%;font-size:15px;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:10;backdrop-filter:blur(4px)}
+.modal-body{padding:18px 20px 28px;overflow-y:auto;flex:1}
+.modal-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.m-tag{font-size:9px;font-weight:700;padding:3px 9px;border-radius:6px;text-transform:uppercase;letter-spacing:.5px}
+.m-tag-cod{background:var(--text-primary);color:var(--bg-surface)}
+.m-tag-emp{background:var(--bg-page);color:var(--text-secondary);border:1px solid var(--border-md)}
+.m-tag-promo{background:var(--red);color:#fff}
+.modal-nome{font-family:'Syne',sans-serif;font-size:19px;font-weight:800;color:var(--text-primary);line-height:1.2;text-transform:uppercase;margin-bottom:10px;letter-spacing:-.3px}
+.modal-desc{font-size:13px;line-height:1.65;color:var(--text-secondary);padding-left:12px;border-left:3px solid var(--border-md);margin-bottom:18px}
+.modal-specs{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.spec-card{background:var(--bg-page);border-radius:var(--radius-sm);padding:11px;text-align:center;border:1px solid var(--border)}
+.spec-label{font-size:9px;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;display:block}
+.spec-val{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;color:var(--text-primary);line-height:1.3;display:block}
+.conserva-icon{font-size:16px;display:block;margin-bottom:2px}
 </style>
 </head>
 <body>
 
+<!-- SPLASH -->
+<div id="splash" role="dialog">
+  <!--
+    INSTRUÇÃO CAPA:
+    1. Acesse postimg.com e faça upload da imagem da capa
+    2. Copie o link direto da imagem
+    3. Cole no src abaixo substituindo o placeholder
+  -->
+  <img class="splash-bg"
+       src="COLE_AQUI_URL_DA_CAPA_NO_POSTIMG"
+       alt="Catálogo Comercial"
+       onerror="this.style.display='none'">
+  <div class="splash-grad"></div>
+  <div class="splash-content">
+    <p class="splash-eyebrow">Catálogo Comercial Unificado</p>
+    <h1 class="splash-title">Acreaves · Dom Porquito · Fripal</h1>
+    <p class="splash-sub">Qualidade que une. Do campo à mesa.</p>
+    <button class="splash-btn" id="btn-entrar">Ver Catálogo <span class="splash-arrow">→</span></button>
+  </div>
+</div>
+
 <!-- HEADER -->
 <header class="header">
   <div class="header-logo">
-    <div class="logo-mark">DP</div>
-    <div class="logo-text">
-      GRUPO DP
-      <span class="logo-sub">Catálogo Comercial</span>
+    <span class="header-title">Catálogo Comercial</span>
+    <div class="header-subs">
+      <span class="header-sub-chip chip-acreaves">Acreaves</span>
+      <span class="header-sub-chip chip-dom">Dom Porquito</span>
+      <span class="header-sub-chip chip-fripal">Fripal</span>
     </div>
   </div>
   <div class="search-wrap">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
-    </svg>
-    <input id="search" type="search" placeholder="Buscar produto ou código..." autocomplete="off">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    <input id="search" type="search" placeholder="Buscar produto ou código…" autocomplete="off">
   </div>
-  <span id="count-badge">0 itens</span>
+  <div class="header-right">
+    <span id="count-badge">0 itens</span>
+    <button class="theme-btn" id="btn-theme" aria-label="Tema claro/escuro">
+      <svg class="icon-sun" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      <svg class="icon-moon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+    </button>
+  </div>
 </header>
 
-<!-- FILTERS -->
+<!-- FILTROS -->
 <div class="filters-outer">
-  <!-- Empresa -->
-  <div class="filter-row" id="row-empresa">
-    <span class="filter-label">Empresa</span>
-    <button class="chip active" data-filter="empresa" data-val="TUDO">Todas</button>
-    <button class="chip" data-filter="empresa" data-val="ACREAVES">
-      <span class="chip-dot" style="background:#1e7e5a"></span>ACREAVES
-    </button>
-    <button class="chip" data-filter="empresa" data-val="Dom Porquito">
-      <span class="chip-dot" style="background:#C0392B"></span>Dom Porquito
-    </button>
-    <button class="chip" data-filter="empresa" data-val="Fripal">
-      <span class="chip-dot" style="background:#1a6fa8"></span>Fripal
-    </button>
+
+  <!-- ROW 1: Empresa com logo (estilo Aurora) -->
+  <div class="empresa-row" id="empresa-row">
+
+    <div class="empresa-card empresa-card-todas active" data-empresa="TUDO">
+      <div class="empresa-card-fb">⊞</div>
+      <span class="empresa-card-nome">Todas</span>
+    </div>
+
+    <div class="empresa-card" data-empresa="ACREAVES">
+      <!--
+        Quando tiver a logo: descomente o <img> e delete o <div class="empresa-card-fb">
+        <img class="empresa-card-logo" src="URL_LOGO_ACREAVES" alt="Acreaves">
+      -->
+      <div class="empresa-card-fb">ACRE<br>AVES</div>
+      <span class="empresa-card-nome">Acreaves</span>
+    </div>
+
+    <div class="empresa-card" data-empresa="Dom Porquito">
+      <!--
+        <img class="empresa-card-logo" src="URL_LOGO_DOM_PORQUITO" alt="Dom Porquito">
+      -->
+      <div class="empresa-card-fb">Dom<br>Porquito</div>
+      <span class="empresa-card-nome">Dom Porquito</span>
+    </div>
+
+    <div class="empresa-card" data-empresa="Fripal">
+      <!--
+        <img class="empresa-card-logo" src="URL_LOGO_FRIPAL" alt="Fripal">
+      -->
+      <div class="empresa-card-fb">FRIPAL</div>
+      <span class="empresa-card-nome">Fripal</span>
+    </div>
+
   </div>
-  <!-- Tipo / Linha -->
-  <div class="filter-row" id="row-tipo">
+
+  <!-- ROW 2: Tipo -->
+  <div class="tipo-row">
     <span class="filter-label">Tipo</span>
     <button class="chip active" data-filter="tipo" data-val="TUDO">Todos</button>
     <button class="chip" data-filter="tipo" data-val="CONGELADO">❄ Congelado</button>
     <button class="chip" data-filter="tipo" data-val="RESFRIADO">🧊 Resfriado</button>
     <button class="chip" data-filter="tipo" data-val="TEMPERADO">🌿 Temperado</button>
     <button class="chip" data-filter="tipo" data-val="DEFUMADOS">🔥 Defumados</button>
-    <button class="chip active-red" data-filter="promo" data-val="SIM" id="chip-promo" style="border-color:var(--red);color:var(--red);">
-      ★ Promoção
-    </button>
+    <button class="chip" data-filter="grupo" data-val="FATIADO">🔪 Fatiados</button>
+    <button class="chip" data-filter="grupo" data-val="LINGUIÇAS">🌭 Linguiças</button>
+    <button class="chip" id="chip-promo" data-filter="promo" data-val="SIM" style="border-color:var(--red);color:var(--red)">★ Promoção</button>
   </div>
+
 </div>
 
-<!-- RESULTS INFO -->
+<!-- RESULTS -->
 <div class="results-header">
   <span class="results-title" id="results-title">Todos os produtos</span>
   <span class="results-count" id="results-count"></span>
@@ -728,307 +258,176 @@
 <div class="grid" id="grid"></div>
 
 <!-- MODAL -->
-<div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-label="Detalhes do produto">
-  <div class="modal" id="modal-box">
+<div class="overlay" id="overlay" role="dialog" aria-modal="true">
+  <div class="modal">
     <span class="modal-drag"></span>
-
-    <!-- GALERIA -->
     <div class="gallery" id="modal-gallery">
-      <button class="modal-close" id="btn-close" aria-label="Fechar">✕</button>
-      <div class="gallery-slides" id="gallery-slides"></div>
-      <button class="gallery-nav prev hidden" id="g-prev" aria-label="Foto anterior">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-      </button>
-      <button class="gallery-nav next hidden" id="g-next" aria-label="Próxima foto">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
-      </button>
-      <div class="gallery-dots" id="gallery-dots"></div>
+      <button class="modal-close" id="btn-close">✕</button>
+      <div class="gallery-slides" id="g-slides"></div>
+      <button class="g-nav prev hidden" id="g-prev"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+      <button class="g-nav next hidden" id="g-next"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
+      <div class="g-dots" id="g-dots"></div>
     </div>
-
-    <!-- BODY -->
     <div class="modal-body">
-      <div class="modal-tags" id="modal-tags"></div>
-      <h2 class="modal-nome" id="modal-nome"></h2>
-      <p class="modal-desc" id="modal-desc"></p>
+      <div class="modal-tags" id="m-tags"></div>
+      <h2 class="modal-nome" id="m-nome"></h2>
+      <p class="modal-desc" id="m-desc"></p>
       <div class="modal-specs">
-        <div class="spec-card">
-          <span class="spec-label">Peso padrão</span>
-          <span class="spec-val" id="modal-peso"></span>
-        </div>
-        <div class="spec-card">
-          <span class="spec-label">Conservação</span>
-          <span class="conserva-icon" id="modal-conserva-icon"></span>
-          <span class="spec-val" id="modal-conserva"></span>
-        </div>
-        <div class="spec-card">
-          <span class="spec-label">Empresa</span>
-          <span class="spec-val" id="modal-empresa"></span>
-        </div>
-        <div class="spec-card">
-          <span class="spec-label">Linha</span>
-          <span class="spec-val" id="modal-marca"></span>
-        </div>
+        <div class="spec-card"><span class="spec-label">Embalagem</span><span class="spec-val" id="m-emb"></span></div>
+        <div class="spec-card"><span class="spec-label">Peso / Cx</span><span class="spec-val" id="m-peso"></span></div>
+        <div class="spec-card" style="grid-column:1/-1"><span class="spec-label">Conservação</span><span class="conserva-icon" id="m-icon"></span><span class="spec-val" id="m-conserva"></span></div>
+        <div class="spec-card"><span class="spec-label">Empresa</span><span class="spec-val" id="m-empresa"></span></div>
+        <div class="spec-card"><span class="spec-label">Marca</span><span class="spec-val" id="m-marca"></span></div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- TOAST -->
-<div class="toast" id="toast"></div>
-
-<!-- DADOS DOS PRODUTOS -->
 <script src="produtos.js"></script>
-
 <script>
-// ── ESTADO ──
-let filtros = { empresa: 'TUDO', tipo: 'TUDO', promo: false };
-let busca = '';
-let galIdx = 0;
-let galImgs = [];
+const html=document.documentElement;
+const savedTheme=localStorage.getItem('dp-theme')||'light';
+html.setAttribute('data-theme',savedTheme);
+document.getElementById('btn-theme').addEventListener('click',()=>{
+  const next=html.getAttribute('data-theme')==='light'?'dark':'light';
+  html.setAttribute('data-theme',next);localStorage.setItem('dp-theme',next);
+});
 
-// ── ÍCONES DE CONSERVAÇÃO ──
-function conservaIcon(tipo) {
-  const m = { CONGELADO:'❄', RESFRIADO:'🧊', TEMPERADO:'🌿', DEFUMADOS:'🔥', SECO:'📦' };
-  return m[tipo] || '📦';
-}
+const splash=document.getElementById('splash');
+if(sessionStorage.getItem('dp-splash')){splash.classList.add('hidden')}
+else{document.body.style.overflow='hidden'}
+document.getElementById('btn-entrar').addEventListener('click',()=>{
+  sessionStorage.setItem('dp-splash','1');splash.classList.add('hidden');document.body.style.overflow='';
+});
 
-// ── FILTRAR ──
-function filtrar() {
-  let lista = PRODUTOS;
+let filtros={empresa:'TUDO',tipo:'TUDO',grupo:'TUDO',promo:false};
+let busca='',galIdx=0,galImgs=[];
+const ICON={CONGELADO:'❄',RESFRIADO:'🧊',TEMPERADO:'🌿',DEFUMADOS:'🔥'};
 
-  if (filtros.empresa !== 'TUDO')
-    lista = lista.filter(p => p.empresa === filtros.empresa);
-
-  if (filtros.promo)
-    lista = lista.filter(p => p.promo === true);
-  else if (filtros.tipo !== 'TUDO')
-    lista = lista.filter(p => p.tipo === filtros.tipo);
-
-  if (busca.trim()) {
-    const q = busca.toLowerCase();
-    lista = lista.filter(p =>
-      p.nome.toLowerCase().includes(q) ||
-      String(p.cod).includes(q) ||
-      (p.marca && p.marca.toLowerCase().includes(q)) ||
-      (p.grupo && p.grupo.toLowerCase().includes(q))
-    );
+function filtrar(){
+  let lista=PRODUTOS;
+  if(filtros.empresa!=='TUDO')lista=lista.filter(p=>p.empresa===filtros.empresa);
+  if(filtros.promo){lista=lista.filter(p=>p.promo===true)}
+  else{
+    if(filtros.tipo!=='TUDO')lista=lista.filter(p=>p.tipo===filtros.tipo);
+    if(filtros.grupo!=='TUDO')lista=lista.filter(p=>p.grupo===filtros.grupo);
   }
-
+  if(busca.trim()){const q=busca.toLowerCase();lista=lista.filter(p=>p.nome.toLowerCase().includes(q)||String(p.cod).includes(q)||(p.marca&&p.marca.toLowerCase().includes(q)))}
   renderGrid(lista);
-  document.getElementById('count-badge').textContent = lista.length + ' ' + (lista.length === 1 ? 'item' : 'itens');
-
-  // título
-  let titulo = 'Todos os produtos';
-  if (filtros.promo) titulo = '★ Em promoção';
-  else if (filtros.empresa !== 'TUDO') titulo = filtros.empresa;
-  if (filtros.tipo !== 'TUDO' && !filtros.promo) titulo += ' · ' + filtros.tipo;
-  document.getElementById('results-title').textContent = titulo;
-  document.getElementById('results-count').textContent = lista.length + ' produto' + (lista.length !== 1 ? 's' : '');
+  document.getElementById('count-badge').textContent=lista.length+(lista.length===1?' item':' itens');
+  let t='Todos os produtos';
+  if(filtros.promo)t='★ Em promoção';
+  else if(filtros.empresa!=='TUDO')t=filtros.empresa;
+  if(filtros.tipo!=='TUDO'&&!filtros.promo)t+=' · '+filtros.tipo;
+  if(filtros.grupo!=='TUDO'&&!filtros.promo)t+=' · '+filtros.grupo;
+  document.getElementById('results-title').textContent=t;
+  document.getElementById('results-count').textContent=lista.length+' produto'+(lista.length!==1?'s':'');
 }
 
-// ── RENDER GRID ──
-function renderGrid(lista) {
-  const grid = document.getElementById('grid');
-
-  if (!lista.length) {
-    grid.innerHTML = `
-      <div class="empty">
-        <div class="empty-icon">🔍</div>
-        <h3>Nenhum produto encontrado</h3>
-        <p>Tente outros filtros ou limpe a busca.</p>
+function renderGrid(lista){
+  const grid=document.getElementById('grid');
+  if(!lista.length){grid.innerHTML='<div class="empty"><div class="empty-icon">🔍</div><h3>Nenhum produto encontrado</h3><p>Tente outros filtros ou limpe a busca.</p></div>';return}
+  const grupos={};lista.forEach(p=>{if(!grupos[p.empresa])grupos[p.empresa]=[];grupos[p.empresa].push(p)});
+  const showSep=Object.keys(grupos).length>1;
+  let out='';
+  Object.entries(grupos).forEach(([emp,prods])=>{
+    if(showSep)out+=`<div class="emp-header"><span class="emp-line"></span><span class="emp-badge">${emp}</span><span class="emp-line"></span></div>`;
+    prods.forEach(p=>{
+      const img=(p.imgs&&p.imgs[0])?p.imgs[0]:'';
+      out+=`<div class="card" onclick="abrirModal('${p.cod}')" role="button" tabindex="0" aria-label="${p.nome}">
+        <div class="card-img-wrap">
+          <img class="card-img" src="${img}" alt="${p.nome}" loading="lazy">
+          <div class="card-badges"><span class="badge-cod">${p.cod}</span>${p.promo?'<span class="badge-promo">Promoção</span>':''}</div>
+          <span class="badge-tipo tipo-${p.tipo}">${p.tipo}</span>
+        </div>
+        <div class="card-body">
+          <div class="card-marca">${p.marca||''}</div>
+          <div class="card-nome">${p.nome}</div>
+          <div class="card-footer"><span class="card-peso">${p.embalagem||p.peso}</span>
+            <span class="card-btn"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+          </div>
+        </div>
       </div>`;
-    return;
-  }
-
-  // Agrupar por empresa para exibir separadores
-  const grupos = {};
-  lista.forEach(p => {
-    if (!grupos[p.empresa]) grupos[p.empresa] = [];
-    grupos[p.empresa].push(p);
-  });
-
-  const showSep = Object.keys(grupos).length > 1 || filtros.empresa === 'TUDO';
-
-  let html = '';
-  Object.entries(grupos).forEach(([emp, prods]) => {
-    if (showSep) {
-      html += `
-        <div class="empresa-header">
-          <span class="empresa-badge">${emp}</span>
-          <span class="empresa-line"></span>
-        </div>`;
-    }
-    prods.forEach(p => {
-      const img = p.imgs[0] || '';
-      html += `
-        <div class="card" onclick="abrirModal('${p.cod}')" role="button" tabindex="0" aria-label="${p.nome}">
-          <div class="card-img-wrap">
-            <img class="card-img" src="${img}" alt="${p.nome}" loading="lazy">
-            <div class="card-badges">
-              <span class="badge-cod">${p.cod}</span>
-              ${p.promo ? '<span class="badge-promo">Promoção</span>' : ''}
-            </div>
-            <span class="badge-tipo tipo-${p.tipo}">${p.tipo}</span>
-          </div>
-          <div class="card-body">
-            <div class="card-marca">${p.marca}</div>
-            <div class="card-nome">${p.nome}</div>
-            <div class="card-footer">
-              <span class="card-peso">${p.peso}</span>
-              <span class="card-btn">
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </span>
-            </div>
-          </div>
-        </div>`;
     });
   });
-
-  grid.innerHTML = html;
+  grid.innerHTML=out;
 }
 
-// ── MODAL ──
-function abrirModal(cod) {
-  const p = PRODUTOS.find(x => x.cod === cod);
-  if (!p) return;
-
-  galImgs = p.imgs || [];
-  galIdx = 0;
-  renderGaleria();
-
-  // Tags
-  const tagsEl = document.getElementById('modal-tags');
-  tagsEl.innerHTML = `
-    <span class="m-tag m-tag-cod">${p.cod}</span>
-    <span class="m-tag m-tag-empresa">${p.empresa}</span>
-    ${p.promo ? '<span class="m-tag m-tag-promo">★ Promoção</span>' : ''}
-  `;
-
-  document.getElementById('modal-nome').textContent = p.nome;
-  document.getElementById('modal-desc').textContent = p.desc;
-  document.getElementById('modal-peso').textContent = p.peso;
-  document.getElementById('modal-conserva').textContent = p.conserva;
-  document.getElementById('modal-conserva-icon').textContent = conservaIcon(p.tipo);
-  document.getElementById('modal-empresa').textContent = p.empresa;
-  document.getElementById('modal-marca').textContent = p.marca;
-
+function abrirModal(cod){
+  const p=PRODUTOS.find(x=>x.cod===cod);if(!p)return;
+  galImgs=p.imgs||[];galIdx=0;renderGaleria();
+  document.getElementById('m-tags').innerHTML=`<span class="m-tag m-tag-cod">${p.cod}</span><span class="m-tag m-tag-emp">${p.empresa}</span>${p.promo?'<span class="m-tag m-tag-promo">★ Promoção</span>':''}`;
+  document.getElementById('m-nome').textContent=p.nome;
+  document.getElementById('m-desc').textContent=p.desc||'';
+  document.getElementById('m-emb').textContent=p.embalagem||'—';
+  document.getElementById('m-peso').textContent=p.peso||'—';
+  document.getElementById('m-conserva').textContent=p.conserva||'—';
+  document.getElementById('m-icon').textContent=ICON[p.tipo]||'📦';
+  document.getElementById('m-empresa').textContent=p.empresa;
+  document.getElementById('m-marca').textContent=p.marca||'—';
   document.getElementById('overlay').classList.add('open');
-  document.body.style.overflow = 'hidden';
+  document.body.style.overflow='hidden';
 }
+function fecharModal(){document.getElementById('overlay').classList.remove('open');document.body.style.overflow=''}
 
-function fecharModal() {
-  document.getElementById('overlay').classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-// ── GALERIA ──
-function renderGaleria() {
-  const slidesEl = document.getElementById('gallery-slides');
-  const dotsEl   = document.getElementById('gallery-dots');
-  const btnPrev  = document.getElementById('g-prev');
-  const btnNext  = document.getElementById('g-next');
-
-  slidesEl.innerHTML = galImgs.map((url, i) => `
-    <div class="gallery-slide">
-      <img src="${url}" alt="Foto ${i+1}" loading="${i===0?'eager':'lazy'}">
-    </div>
-  `).join('');
-
-  dotsEl.innerHTML = galImgs.length > 1
-    ? galImgs.map((_, i) => `<span class="gallery-dot${i===0?' active':''}" onclick="irSlide(${i})"></span>`).join('')
-    : '';
-
-  btnPrev.classList.toggle('hidden', galImgs.length <= 1);
-  btnNext.classList.toggle('hidden', galImgs.length <= 1);
-
+function renderGaleria(){
+  const slides=document.getElementById('g-slides');const dots=document.getElementById('g-dots');
+  slides.innerHTML=galImgs.map((url,i)=>`<div class="gallery-slide"><img src="${url}" alt="Foto ${i+1}" loading="${i===0?'eager':'lazy'}"></div>`).join('');
+  dots.innerHTML=galImgs.length>1?galImgs.map((_,i)=>`<span class="g-dot${i===0?' active':''}" onclick="irSlide(${i})"></span>`).join(''):'';
+  document.getElementById('g-prev').classList.toggle('hidden',galImgs.length<=1);
+  document.getElementById('g-next').classList.toggle('hidden',galImgs.length<=1);
   irSlide(0);
 }
-
-function irSlide(idx) {
-  galIdx = idx;
-  const total = galImgs.length;
-  document.getElementById('gallery-slides').style.transform = `translateX(-${idx * 100}%)`;
-  document.querySelectorAll('.gallery-dot').forEach((d, i) => d.classList.toggle('active', i === idx));
-  document.getElementById('g-prev').classList.toggle('hidden', idx === 0 || total <= 1);
-  document.getElementById('g-next').classList.toggle('hidden', idx === total - 1 || total <= 1);
+function irSlide(idx){
+  galIdx=Math.max(0,Math.min(idx,galImgs.length-1));
+  document.getElementById('g-slides').style.transform=`translateX(-${galIdx*100}%)`;
+  document.querySelectorAll('.g-dot').forEach((d,i)=>d.classList.toggle('active',i===galIdx));
+  document.getElementById('g-prev').classList.toggle('hidden',galIdx===0||galImgs.length<=1);
+  document.getElementById('g-next').classList.toggle('hidden',galIdx===galImgs.length-1||galImgs.length<=1);
 }
-
-document.getElementById('g-prev').onclick = () => galIdx > 0 && irSlide(galIdx - 1);
-document.getElementById('g-next').onclick = () => galIdx < galImgs.length - 1 && irSlide(galIdx + 1);
-
-// Swipe na galeria
-(function() {
-  let startX = 0, startY = 0;
-  const gal = document.getElementById('modal-gallery');
-  gal.addEventListener('touchstart', e => {
-    startX = e.touches[0].clientX;
-    startY = e.touches[0].clientY;
-  }, { passive: true });
-  gal.addEventListener('touchend', e => {
-    const dx = e.changedTouches[0].clientX - startX;
-    const dy = e.changedTouches[0].clientY - startY;
-    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
-      if (dx < 0 && galIdx < galImgs.length - 1) irSlide(galIdx + 1);
-      if (dx > 0 && galIdx > 0) irSlide(galIdx - 1);
-    }
-  }, { passive: true });
+document.getElementById('g-prev').onclick=()=>irSlide(galIdx-1);
+document.getElementById('g-next').onclick=()=>irSlide(galIdx+1);
+(function(){let sx=0,sy=0;const gal=document.getElementById('modal-gallery');
+  gal.addEventListener('touchstart',e=>{sx=e.touches[0].clientX;sy=e.touches[0].clientY},{passive:true});
+  gal.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx;const dy=e.changedTouches[0].clientY-sy;if(Math.abs(dx)>Math.abs(dy)&&Math.abs(dx)>40)irSlide(galIdx+(dx<0?1:-1))},{passive:true});
 })();
 
-// ── EVENTOS ──
+document.querySelectorAll('.empresa-card').forEach(card=>{
+  card.addEventListener('click',()=>{
+    document.querySelectorAll('.empresa-card').forEach(c=>c.classList.remove('active'));
+    card.classList.add('active');filtros.empresa=card.dataset.empresa;
+    filtros.promo=false;
+    const pc=document.getElementById('chip-promo');
+    pc.classList.remove('active-red');pc.style.color='var(--red)';pc.style.borderColor='var(--red)';
+    filtrar();
+  });
+});
 
-// Chips de filtro
-document.querySelectorAll('.chip[data-filter]').forEach(chip => {
-  chip.addEventListener('click', () => {
-    const filter = chip.dataset.filter;
-    const val = chip.dataset.val;
-
-    if (filter === 'promo') {
-      // toggle promoção
-      filtros.promo = !filtros.promo;
-      chip.classList.toggle('active-red', filtros.promo);
-      chip.style.color = filtros.promo ? '' : 'var(--red)';
-    } else {
-      // reset promo ao trocar outros filtros
-      document.getElementById('chip-promo').classList.remove('active-red');
-      document.getElementById('chip-promo').style.color = 'var(--red)';
-      filtros.promo = false;
-
-      filtros[filter] = val;
-      document.querySelectorAll(`.chip[data-filter="${filter}"]`).forEach(c => {
-        c.classList.remove('active');
-      });
+document.querySelectorAll('.chip[data-filter]').forEach(chip=>{
+  chip.addEventListener('click',()=>{
+    const filter=chip.dataset.filter;const val=chip.dataset.val;
+    if(filter==='promo'){
+      filtros.promo=!filtros.promo;
+      chip.classList.toggle('active-red',filtros.promo);
+      chip.style.color=filtros.promo?'':'var(--red)';chip.style.borderColor=filtros.promo?'':'var(--red)';
+    }else{
+      filtros.promo=false;
+      const pc=document.getElementById('chip-promo');pc.classList.remove('active-red');pc.style.color='var(--red)';pc.style.borderColor='var(--red)';
+      filtros[filter]=val;
+      if(filter==='tipo')filtros.grupo='TUDO';
+      if(filter==='grupo')filtros.tipo='TUDO';
+      document.querySelectorAll('.chip[data-filter="tipo"],.chip[data-filter="grupo"]').forEach(c=>c.classList.remove('active'));
       chip.classList.add('active');
     }
     filtrar();
   });
 });
 
-// Busca
-document.getElementById('search').addEventListener('input', e => {
-  busca = e.target.value;
-  filtrar();
-});
+document.getElementById('search').addEventListener('input',e=>{busca=e.target.value;filtrar()});
+document.getElementById('btn-close').addEventListener('click',fecharModal);
+document.getElementById('overlay').addEventListener('click',e=>{if(e.target===document.getElementById('overlay'))fecharModal()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')fecharModal()});
 
-// Fechar modal
-document.getElementById('btn-close').addEventListener('click', fecharModal);
-document.getElementById('overlay').addEventListener('click', e => {
-  if (e.target === document.getElementById('overlay')) fecharModal();
-});
-
-// Teclado
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') fecharModal();
-});
-
-// Teclado nos cards
-document.getElementById('grid').addEventListener('keydown', e => {
-  if ((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('card')) {
-    e.preventDefault();
-    e.target.click();
-  }
-});
-
-// ── INIT ──
 filtrar();
 </script>
 </body>
