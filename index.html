@@ -5,27 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <title>Catálogo Comercial | Grupo DP</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
     
     <style>
         :root {
             --red: #C0392B;
-            --red-dark: #962d22;
             --bg-page: #f7f7f5;
             --text-main: #1c1b18;
-            --text-muted: #6b6960;
-            --radius: 20px;
+            --radius: 24px;
         }
 
-        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; margin: 0; padding: 0; }
         body { 
             font-family: 'DM Sans', sans-serif; 
             background-color: var(--bg-page); 
             color: var(--text-main);
-            margin: 0; padding-bottom: 50px;
+            padding-bottom: 40px;
         }
 
-        /* CAPA ADAPTÁVEL */
+        /* 1. CAPA INTELIGENTE (RESPONSIVA) */
         .capa-container { width: 100%; max-width: 1200px; margin: 10px auto; padding: 0 15px; }
         .capa-wrapper { 
             width: 100%; background: #fff; border-radius: 30px; 
@@ -35,7 +33,7 @@
         .capa-img { width: 100%; display: block; height: 180px; object-fit: cover; }
         @media (min-width: 1024px) { .capa-img { height: 420px; object-fit: contain; } }
 
-        /* HEADER E FILTROS */
+        /* 2. HEADER FIXO E BUSCA */
         .sticky-header { 
             position: sticky; top: 0; z-index: 100; 
             background: rgba(247, 247, 245, 0.9); 
@@ -44,25 +42,39 @@
         }
         .search-box {
             width: 100%; max-width: 500px; margin: 0 auto 15px;
-            padding: 12px 20px; border-radius: 15px;
-            border: 1px solid #ddd; display: block; outline: none;
+            padding: 14px 20px; border-radius: 18px;
+            border: 1px solid #ddd; display: block; outline: none; font-size: 16px;
         }
+
+        /* 3. FILTROS COM LOGO */
         .filter-bar { 
-            display: flex; gap: 8px; overflow-x: auto; 
+            display: flex; gap: 10px; overflow-x: auto; 
             max-width: 1200px; margin: 0 auto; padding-bottom: 5px;
+            align-items: center;
         }
         .filter-bar::-webkit-scrollbar { display: none; }
         
-        .chip {
-            padding: 8px 18px; border-radius: 50px; background: #fff;
-            border: 1px solid #ddd; font-size: 13px; font-weight: 700;
+        .chip-text {
+            padding: 10px 20px; border-radius: 15px; background: #fff;
+            border: 2px solid #eee; font-size: 12px; font-weight: 800;
             cursor: pointer; white-space: nowrap; transition: 0.2s;
         }
-        .chip.active { background: var(--red); color: #fff; border-color: var(--red); }
-        .chip-promo { color: var(--red); border-color: var(--red); }
-        .chip-promo.active { background: var(--red); color: #fff; }
+        .chip-text.active { background: var(--red); color: #fff; border-color: var(--red); }
 
-        /* GRID 2 COLUNAS MOBILE / 4 COLUNAS PC */
+        .chip-logo {
+            min-width: 90px; height: 45px; padding: 5px 12px;
+            border-radius: 15px; background: #fff; border: 2px solid #eee;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; transition: 0.3s; flex-shrink: 0;
+        }
+        .chip-logo img { 
+            max-width: 100%; max-height: 100%; object-fit: contain; 
+            filter: grayscale(100%); opacity: 0.5; 
+        }
+        .chip-logo.active { border-color: var(--red); box-shadow: 0 4px 10px rgba(192,57,43,0.1); }
+        .chip-logo.active img { filter: grayscale(0%); opacity: 1; }
+
+        /* 4. GRID: 2 COLUNAS MOBILE / 4 COLUNAS PC */
         .grid-produtos {
             display: grid; max-width: 1200px; margin: 20px auto; padding: 0 15px;
             grid-template-columns: repeat(2, 1fr); gap: 15px;
@@ -71,29 +83,31 @@
             .grid-produtos { grid-template-columns: repeat(4, 1fr); gap: 25px; }
         }
 
-        /* CARD */
+        /* 5. CARDS */
         .card {
             background: #fff; border-radius: var(--radius); padding: 12px;
             border: 1px solid #efefef; transition: 0.3s; cursor: pointer;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
         }
         .card:hover { transform: translateY(-5px); border-color: var(--red); }
-        .card img { width: 100%; aspect-ratio: 1; object-fit: contain; border-radius: 12px; background: #f9f9f9; }
+        .card img { width: 100%; aspect-ratio: 1; object-fit: contain; border-radius: 15px; background: #f9f9f9; }
         .cod-text { font-size: 10px; font-weight: 800; color: var(--red); margin-top: 8px; display: block; }
-        .card-title { font-size: 13px; font-weight: 800; margin: 4px 0; text-transform: uppercase; height: 32px; overflow: hidden; }
+        .card-title { 
+            font-size: 13px; font-weight: 800; margin: 4px 0; 
+            text-transform: uppercase; height: 32px; overflow: hidden;
+            display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+        }
 
-        /* MODAL */
+        /* 6. MODAL */
         #overlay {
-            position: fixed; inset: 0; background: rgba(0,0,0,0.7);
+            position: fixed; inset: 0; background: rgba(0,0,0,0.8);
             display: none; align-items: center; justify-content: center; z-index: 1000; padding: 20px;
         }
         .modal {
             background: #fff; width: 100%; max-width: 500px; border-radius: 30px;
             position: relative; overflow-y: auto; max-height: 90vh; padding: 25px;
         }
-        .btn-close { position: absolute; top: 20px; right: 20px; border: none; background: #eee; border-radius: 50%; width: 35px; height: 35px; font-weight: bold; cursor: pointer; }
+        .btn-close { position: absolute; top: 15px; right: 15px; border: none; background: #f0f0f0; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-weight: bold; }
         .modal-img { width: 100%; border-radius: 20px; margin-bottom: 15px; }
-        .modal-tag { display: inline-block; padding: 4px 10px; border-radius: 6px; font-size: 11px; font-weight: 800; margin-bottom: 10px; margin-right: 5px; }
     </style>
 </head>
 <body>
@@ -105,19 +119,32 @@
     </div>
 
     <div class="sticky-header">
-        <input type="text" id="search" placeholder="Pesquisar por nome ou código..." class="search-box">
+        <input type="text" id="search" placeholder="Buscar por nome ou código..." class="search-box">
+        
         <div class="filter-bar">
-            <div class="chip active" onclick="setFiltro('empresa', 'TODOS', this)">Todos</div>
-            <div class="chip" onclick="setFiltro('empresa', 'ACREAVES', this)">Acreaves</div>
-            <div class="chip" onclick="setFiltro('empresa', 'Dom Porquito', this)">Dom Porquito</div>
-            <div class="chip" onclick="setFiltro('empresa', 'Fripal', this)">Fripal</div>
-            <div class="chip chip-promo" onclick="setFiltro('promo', true, this)">Promoções %</div>
+            <div class="chip-text active" onclick="setFiltro('empresa', 'TODOS', this)">TODOS</div>
+            
+            <div class="chip-logo" onclick="setFiltro('empresa', 'ACREAVES', this)">
+                <img src="https://i.postimg.cc/85zM6z8V/logo-acreaves.png" alt="Acreaves">
+            </div>
+            
+            <div class="chip-logo" onclick="setFiltro('empresa', 'Dom Porquito', this)">
+                <img src="https://i.postimg.cc/7L7y5Z9G/DOM-PORQUITO-removebg-preview.jpg" alt="Dom Porquito">
+            </div>
+            
+            <div class="chip-logo" onclick="setFiltro('empresa', 'Fripal', this)">
+                <img src="https://i.postimg.cc/mD7XmS1Y/FRIPAL-LOGO.jpg" alt="Fripal">
+            </div>
+
+            <div class="chip-text" style="color: var(--red); border-color: var(--red);" onclick="setFiltro('promo', true, this)">
+                PROMO %
+            </div>
         </div>
     </div>
 
     <main id="grid-produtos" class="grid-produtos"></main>
 
-    <div id="overlay" onclick="fecharModal(event)">
+    <div id="overlay" onclick="fecharModal()">
         <div class="modal" onclick="event.stopPropagation()">
             <button class="btn-close" onclick="fecharModal()">✕</button>
             <div id="modal-content"></div>
@@ -135,7 +162,9 @@
                 el.classList.toggle('active');
             } else {
                 filtroAtivo.empresa = valor;
-                document.querySelectorAll('.chip:not(.chip-promo)').forEach(c => c.classList.remove('active'));
+                document.querySelectorAll('.chip-text, .chip-logo').forEach(c => {
+                    if(!c.classList.contains('chip-promo')) c.classList.remove('active');
+                });
                 el.classList.add('active');
             }
             filtrar();
@@ -150,8 +179,8 @@
                 return matchBusca && matchEmpresa && matchPromo;
             });
 
-            container.innerHTML = filtrados.map((p, index) => `
-                <div class="card shadow-sm" onclick="abrirModal(${JSON.stringify(p).replace(/"/g, '&quot;')})">
+            container.innerHTML = filtrados.map(p => `
+                <div class="card" onclick='abrirModal(${JSON.stringify(p)})'>
                     <img src="${p.imgs[0]}" loading="lazy">
                     <span class="cod-text">CÓD. ${p.cod}</span>
                     <h3 class="card-title">${p.nome}</h3>
@@ -164,14 +193,13 @@
             const content = document.getElementById('modal-content');
             content.innerHTML = `
                 <img src="${p.imgs[0]}" class="modal-img">
-                <span class="modal-tag" style="background:#fdf0ee; color:var(--red)">CÓD. ${p.cod}</span>
-                <span class="modal-tag" style="background:#eee;">${p.empresa}</span>
-                <h2 style="font-size:22px; font-weight:800; margin:10px 0; text-transform:uppercase;">${p.nome}</h2>
-                <p style="color:#666; font-size:14px; line-height:1.5; margin-bottom:20px;">${p.desc || 'Sem descrição disponível.'}</p>
-                <div style="background:#f9f9f9; padding:15px; border-radius:15px; font-size:13px;">
+                <p style="color:var(--red); font-weight:800; font-size:12px;">CÓD. ${p.cod}</p>
+                <h2 style="font-size:20px; font-weight:800; margin:10px 0; text-transform:uppercase;">${p.nome}</h2>
+                <p style="color:#666; font-size:14px; margin-bottom:15px;">${p.desc || 'Sem descrição.'}</p>
+                <div style="background:#f9f9f9; padding:15px; border-radius:15px; font-size:13px; line-height:1.6;">
+                    <p><b>Empresa:</b> ${p.empresa}</p>
                     <p><b>Marca:</b> ${p.marca}</p>
                     <p><b>Peso:</b> ${p.peso || 'N/A'}</p>
-                    <p><b>Embalagem:</b> ${p.embalagem || 'N/A'}</p>
                     <p><b>Conservação:</b> ${p.conserva || 'N/A'}</p>
                 </div>
             `;
@@ -180,7 +208,11 @@
 
         function fecharModal() { document.getElementById('overlay').style.display = 'none'; }
 
-        document.getElementById('search').addEventListener('input', (e) => { busca = e.target.value; filtrar(); });
+        document.getElementById('search').addEventListener('input', (e) => { 
+            busca = e.target.value; 
+            filtrar(); 
+        });
+
         window.onload = filtrar;
     </script>
 </body>
