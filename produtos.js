@@ -99,7 +99,7 @@ const PRODUTOS = [
     cod: "115", nome: "AVE NATALINA SABBOR",
     empresa: "ACREAVES", marca: "SABBOR", grupo: "INTEIRO", tipo: "TEMPERADO",
     embalagem: "CX C/ 20 KG", peso: "20 KG",
-    conserva: "MANTER CONGELADO A -12°C", promo: false,
+    conserva: "MANTER CONGELADO A -12°C", promo: true,
     imgs: ["https://i.postimg.cc/gjJST0bD/021-V02-SABBOR-AVE-NATALINA-mockup.jpg"],
     desc: "A estrela das celebrações. Ave selecionada com tempero especial Sabbor, garantindo carne suculenta, pele dourada e sabor inconfundível."
   },
