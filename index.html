@@ -22,6 +22,25 @@
             color: var(--text-main);
             padding-bottom: 40px;
         }
+        /* Container do card precisa ser relative para o selo ficar no lugar certo */
+.card { position: relative; }
+
+.badge-promo {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--red);
+    color: white;
+    font-size: 10px;
+    font-weight: 900;
+    padding: 4px 10px;
+    border-radius: 50px;
+    z-index: 10;
+    box-shadow: 0 4px 8px rgba(192, 57, 43, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: 2px solid white;
+}
 
         /* 1. CAPA INTELIGENTE (RESPONSIVA) */
         .capa-container { width: 100%; max-width: 1200px; margin: 10px auto; padding: 0 15px; }
@@ -179,14 +198,19 @@
                 return matchBusca && matchEmpresa && matchPromo;
             });
 
-            container.innerHTML = filtrados.map(p => `
-                <div class="card" onclick='abrirModal(${JSON.stringify(p)})'>
-                    <img src="${p.imgs[0]}" loading="lazy">
-                    <span class="cod-text">CÓD. ${p.cod}</span>
-                    <h3 class="card-title">${p.nome}</h3>
-                    <p style="font-size: 11px; color: #888; font-weight: 700;">${p.marca}</p>
-                </div>
-            `).join('');
+          container.innerHTML = filtrados.map(p => {
+    // Lógica para o selo
+    const seloPromo = p.promo ? `<div class="badge-promo">PROMO</div>` : '';
+
+    return `
+        <div class="card shadow-sm" onclick='abrirModal(${JSON.stringify(p)})'>
+            ${seloPromo} <img src="${p.imgs[0]}" loading="lazy">
+            <span class="cod-text">CÓD. ${p.cod}</span>
+            <h3 class="card-title">${p.nome}</h3>
+            <p style="font-size: 11px; color: #888; font-weight: 700;">${p.marca}</p>
+        </div>
+    `;
+}).join('');
         }
 
         function abrirModal(p) {
