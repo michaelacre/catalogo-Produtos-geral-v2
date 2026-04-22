@@ -42,6 +42,25 @@
 
         @media(min-width:1024px){ .capa-img{ height:420px; object-fit:contain; } }
 
+        /* AJUSTE DA CAPA: Para preencher sem cortes e remover margens extras */
+.capa-container { width: 100%; max-width: 100%; margin: 0 auto; padding: 0; }
+.capa-wrapper { width: 100%; border-radius: 0; border: none; box-shadow: none; }
+.capa-img { 
+    width: 100%; 
+    height: auto; 
+    max-height: 500px; 
+    display: block; 
+    object-fit: cover; /* Faz preencher o espaço */
+    object-position: center; 
+}
+
+/* ZOOM NA GALERIA */
+.gal-slide { overflow: hidden; cursor: zoom-in; }
+.gal-slide img { transition: transform 0.3s ease; pointer-events: none; }
+/* Classe que será aplicada via JS */
+.gal-slide.zoomed { cursor: zoom-out; }
+.gal-slide.zoomed img { transform: scale(2.5); } /* Nível de zoom */
+
 
 
         /* HEADER */
