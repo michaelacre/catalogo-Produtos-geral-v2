@@ -43,16 +43,40 @@
         @media(min-width:1024px){ .capa-img{ height:420px; object-fit:contain; } }
 
         /* AJUSTE DA CAPA: Para preencher sem cortes e remover margens extras */
-.capa-container { width: 100%; max-width: 100%; margin: 0 auto; padding: 0; }
-.capa-wrapper { width: 100%; border-radius: 0; border: none; box-shadow: none; }
-.capa-img { 
-    width: 100%; 
-    height: auto; 
-    max-height: 500px; 
-    display: block; 
-    object-fit: cover; /* Faz preencher o espaço */
-    object-position: center; 
-}
+/* CAPA ATUALIZADA (PC E CELULAR) */
+        .capa-container { 
+            width: 100%; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 0; 
+        }
+        .capa-wrapper { 
+            width: 100%; 
+            background: #fff; 
+            overflow: hidden; 
+        }
+        .capa-img { 
+            width: 100%; 
+            display: block; 
+            height: auto; 
+        }
+
+        /* Ajuste para Celular: Preenche a tela */
+        @media (max-width: 768px) {
+            .capa-img {
+                min-height: 180px;
+                object-fit: cover;
+            }
+        }
+
+        /* Ajuste para Computador: Mostra a imagem inteira sem cortes */
+        @media (min-width: 769px) {
+            .capa-img {
+                max-height: 450px;
+                object-fit: contain;
+                background-color: #fff;
+            }
+        }
 
 /* ZOOM NA GALERIA */
 .gal-slide { overflow: hidden; cursor: zoom-in; }
