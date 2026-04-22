@@ -242,24 +242,52 @@
         }
 
         /* ── GALERIA ── */
-        function renderGaleria() {
-            document.getElementById('gal-track').innerHTML = galImgs.map((url, i) =>
-                `<div class="gal-slide"><img src="${url}" alt="Foto ${i+1}" loading="${i===0?'eager':'lazy'}"></div>`
-            ).join('');
-            document.getElementById('gal-dots').innerHTML = galImgs.length > 1
-                ? galImgs.map((_,i) => `<span class="gal-dot${i===0?' active':''}" onclick="irSlide(${i})"></span>`).join('') : '';
-            document.getElementById('gal-prev').classList.toggle('hidden', galImgs.length <= 1);
-            document.getElementById('gal-next').classList.toggle('hidden', galImgs.length <= 1);
-            irSlide(0);
-        }
+        /* Substitua sua renderGaleria por esta */
+function renderGaleria() {
+    const track = document.getElementById('gal-track');
+    track.innerHTML = galImgs.map((url, i) =>
+        `<div class="gal-slide" onclick="toggleZoom(this, event)">
+            <img src="${url}" alt="Foto ${i+1}" loading="${i===0?'eager':'lazy'}">
+        </div>`
+    ).join('');
+    
+    document.getElementById('gal-dots').innerHTML = galImgs.length > 1
+        ? galImgs.map((_,i) => `<span class="gal-dot${i===0?' active':''}" onclick="irSlide(${i})"></span>`).join('') : '';
+    
+    document.getElementById('gal-prev').classList.toggle('hidden', galImgs.length <= 1);
+    document.getElementById('gal-next').classList.toggle('hidden', galImgs.length <= 1);
+    irSlide(0);
+}
 
-        function irSlide(idx) {
-            galIdx = Math.max(0, Math.min(idx, galImgs.length - 1));
-            document.getElementById('gal-track').style.transform = `translateX(-${galIdx*100}%)`;
-            document.querySelectorAll('.gal-dot').forEach((d,i) => d.classList.toggle('active', i===galIdx));
-            document.getElementById('gal-prev').classList.toggle('hidden', galIdx === 0 || galImgs.length <= 1);
-            document.getElementById('gal-next').classList.toggle('hidden', galIdx === galImgs.length-1 || galImgs.length <= 1);
-        }
+/* Nova função de Zoom */
+function toggleZoom(el, e) {
+    // Se houver arraste (swipe), não ativa o zoom
+    if (el.parentElement.dataset.swiping === 'true') return;
+    
+    const img = el.querySelector('img');
+    el.classList.toggle('zoomed');
+    
+    if (el.classList.contains('zoomed')) {
+        const rect = el.getBoundingClientRect();
+        const x = (e.clientX || e.touches[0].clientX) - rect.left;
+        const y = (e.clientY || e.touches[0].clientY) - rect.top;
+        img.style.transformOrigin = `${(x / rect.width) * 100}% ${(y / rect.height) * 100}%`;
+    } else {
+        img.style.transformOrigin = 'center';
+    }
+}
+
+/* Ajuste na função irSlide para resetar o zoom ao mudar de foto */
+function irSlide(idx) {
+    // Remove zoom de todos os slides antes de mudar
+    document.querySelectorAll('.gal-slide').forEach(s => s.classList.remove('zoomed'));
+    
+    galIdx = Math.max(0, Math.min(idx, galImgs.length - 1));
+    document.getElementById('gal-track').style.transform = `translateX(-${galIdx*100}%)`;
+    document.querySelectorAll('.gal-dot').forEach((d,i) => d.classList.toggle('active', i===galIdx));
+    document.getElementById('gal-prev').classList.toggle('hidden', galIdx === 0 || galImgs.length <= 1);
+    document.getElementById('gal-next').classList.toggle('hidden', galIdx === galImgs.length-1 || galImgs.length <= 1);
+}
 
         document.getElementById('gal-prev').onclick = () => irSlide(galIdx - 1);
         document.getElementById('gal-next').onclick = () => irSlide(galIdx + 1);
