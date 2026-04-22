@@ -1,618 +1,441 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-
-    <title>Catálogo Comercial | Acreaves | Dom Porquito | Fripal </title>
-
+    <title>Catálogo Comercial | Acreaves | Dom Porquito | Fripal</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet">
-
     <style>
-
-        :root { --red:#C0392B; --bg-page:#f7f7f5; --text-main:#1c1b18; --radius:24px; }
-
+        :root { --red:#C0392B; --green-wa:#25D366; --bg-page:#f7f7f5; --text-main:#1c1b18; --radius:24px; }
         *{ box-sizing:border-box; -webkit-tap-highlight-color:transparent; margin:0; padding:0; }
+        body{ font-family:'DM Sans',sans-serif; background:var(--bg-page); color:var(--text-main); padding-bottom:80px; }
 
-        body{ font-family:'DM Sans',sans-serif; background:var(--bg-page); color:var(--text-main); padding-bottom:40px; }
-
-
-
-        /* BADGE PROMO */
-
+        /* ── BADGE PROMO ── */
         .card{ position:relative; }
-
         .badge-promo{ position:absolute; top:10px; right:10px; background:var(--red); color:#fff; font-size:10px; font-weight:900; padding:4px 10px; border-radius:50px; z-index:10; box-shadow:0 4px 8px rgba(192,57,43,.3); text-transform:uppercase; letter-spacing:.5px; border:2px solid #fff; }
 
+        /* ── CAPA ── */
+        .capa-container{ width:100%; max-width:1200px; margin:0 auto; padding:0; }
+        .capa-wrapper{ width:100%; background:#fff; overflow:hidden; }
+        .capa-img{ width:100%; display:block; height:auto; }
+        @media(max-width:768px){ .capa-img{ min-height:180px; object-fit:cover; } }
+        @media(min-width:769px){ .capa-img{ max-height:450px; object-fit:contain; background:#fff; } }
 
-
-        /* CAPA */
-
-        .capa-container{ width:100%; max-width:1200px; margin:10px auto; padding:0 15px; }
-
-        .capa-wrapper{ width:100%; background:#fff; border-radius:30px; overflow:hidden; box-shadow:0 4px 15px rgba(0,0,0,.05); border:1px solid #eee; }
-
-        .capa-img{ width:100%; display:block; height:180px; object-fit:cover; }
-
-        @media(min-width:1024px){ .capa-img{ height:420px; object-fit:contain; } }
-
-        /* AJUSTE DA CAPA: Para preencher sem cortes e remover margens extras */
-/* CAPA ATUALIZADA (PC E CELULAR) */
-        .capa-container { 
-            width: 100%; 
-            max-width: 1200px; 
-            margin: 0 auto; 
-            padding: 0; 
-        }
-        .capa-wrapper { 
-            width: 100%; 
-            background: #fff; 
-            overflow: hidden; 
-        }
-        .capa-img { 
-            width: 100%; 
-            display: block; 
-            height: auto; 
-        }
-
-        /* Ajuste para Celular: Preenche a tela */
-        @media (max-width: 768px) {
-            .capa-img {
-                min-height: 180px;
-                object-fit: cover;
-            }
-        }
-
-        /* Ajuste para Computador: Mostra a imagem inteira sem cortes */
-        @media (min-width: 769px) {
-            .capa-img {
-                max-height: 450px;
-                object-fit: contain;
-                background-color: #fff;
-            }
-        }
-
-/* ZOOM NA GALERIA */
-.gal-slide { overflow: hidden; cursor: zoom-in; }
-.gal-slide img { transition: transform 0.3s ease; pointer-events: none; }
-/* Classe que será aplicada via JS */
-.gal-slide.zoomed { cursor: zoom-out; }
-.gal-slide.zoomed img { transform: scale(2.5); } /* Nível de zoom */
-
-
-
-        /* HEADER */
-
+        /* ── HEADER ── */
         .sticky-header{ position:sticky; top:0; z-index:100; background:rgba(247,247,245,.95); backdrop-filter:blur(15px); padding:15px; border-bottom:1px solid #e2e2e2; }
-
         .search-box{ width:100%; max-width:500px; margin:0 auto 15px; padding:14px 20px; border-radius:18px; border:1px solid #ddd; display:block; outline:none; font-size:16px; font-family:'DM Sans',sans-serif; }
 
-
-
-        /* FILTROS */
-
+        /* ── FILTROS ── */
         .filter-bar{ display:flex; gap:10px; overflow-x:auto; max-width:1200px; margin:0 auto; padding-bottom:5px; align-items:center; scrollbar-width:none; }
-
         .filter-bar::-webkit-scrollbar{ display:none; }
-
         .chip-text{ padding:10px 20px; border-radius:15px; background:#fff; border:2px solid #eee; font-size:12px; font-weight:800; cursor:pointer; white-space:nowrap; transition:.2s; }
-
         .chip-text.active{ background:var(--red); color:#fff; border-color:var(--red); }
-
         .chip-logo{ min-width:90px; height:45px; padding:5px 12px; border-radius:15px; background:#fff; border:2px solid #eee; display:flex; align-items:center; justify-content:center; cursor:pointer; transition:.3s; flex-shrink:0; }
-
         .chip-logo img{ max-width:100%; max-height:100%; object-fit:contain; filter:grayscale(100%); opacity:.5; }
-
         .chip-logo.active{ border-color:var(--red); box-shadow:0 4px 10px rgba(192,57,43,.1); }
-
         .chip-logo.active img{ filter:grayscale(0%); opacity:1; }
 
-
-
-        /* GRID */
-
+        /* ── GRID ── */
         .grid-produtos{ display:grid; max-width:1200px; margin:20px auto; padding:0 15px; grid-template-columns:repeat(2,1fr); gap:15px; }
-
         @media(min-width:1024px){ .grid-produtos{ grid-template-columns:repeat(4,1fr); gap:25px; } }
 
-
-
-        /* CARDS */
-
+        /* ── CARDS ── */
         .card{ background:#fff; border-radius:var(--radius); padding:12px; border:1px solid #efefef; transition:.3s; cursor:pointer; }
-
         .card:hover{ transform:translateY(-5px); border-color:var(--red); }
-
         .cod-text{ font-size:10px; font-weight:800; color:var(--red); margin-top:8px; display:block; }
-
         .card-title{ font-size:13px; font-weight:800; margin:4px 0; text-transform:uppercase; height:32px; overflow:hidden; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; }
 
-
-
-        /* SKELETON LOADER nas imagens dos cards */
-
+        /* ── SKELETON LOADER ── */
         .img-wrap{ width:100%; aspect-ratio:1; border-radius:15px; background:linear-gradient(90deg,#f0efeb 25%,#e8e6e1 50%,#f0efeb 75%); background-size:200% 100%; animation:shimmer 1.4s infinite; overflow:hidden; }
-
         .img-wrap.loaded{ background:#f9f9f9; animation:none; }
-
         .img-wrap img{ width:100%; height:100%; object-fit:contain; opacity:0; transition:opacity .3s ease; display:block; }
-
         .img-wrap img.vis{ opacity:1; }
-
         @keyframes shimmer{ to{ background-position:-200% 0; } }
 
+        /* ── BOTÃO FLUTUANTE COMPARTILHAR CATÁLOGO ── */
+        .fab-share{
+            position:fixed; bottom:24px; right:20px; z-index:200;
+            background:var(--green-wa); color:#fff;
+            border:none; border-radius:50px;
+            padding:13px 20px;
+            display:flex; align-items:center; gap:8px;
+            font-family:'DM Sans',sans-serif; font-size:13px; font-weight:800;
+            cursor:pointer; box-shadow:0 6px 20px rgba(37,211,102,.4);
+            transition:transform .15s, box-shadow .15s;
+            white-space:nowrap;
+        }
+        .fab-share:hover{ transform:translateY(-2px); box-shadow:0 10px 28px rgba(37,211,102,.5); }
+        .fab-share:active{ transform:scale(.96); }
+        .fab-share svg{ flex-shrink:0; }
 
-
-        /* MODAL OVERLAY */
-
+        /* ── MODAL OVERLAY ── */
         #overlay{ position:fixed; inset:0; background:rgba(10,9,8,.88); display:none; align-items:flex-end; justify-content:center; z-index:1000; }
-
         #overlay.show{ display:flex; }
-
         @media(min-width:600px){ #overlay{ align-items:center; padding:20px; } }
 
-
-
-        /* MODAL BOX */
-
-        .modal{ background:#fff; width:100%; max-width:500px; border-radius:32px 32px 0 0; overflow:hidden; max-height:92vh; display:flex; flex-direction:column; transform:translateY(50px); transition:transform .35s cubic-bezier(.34,1.56,.64,1); }
-
+        /* ── MODAL BOX ──
+           Celular  : sobe da base, ocupa até 92% da altura, borda arredondada no topo
+           Desktop  : centralizado, max 500px, bordas todas arredondadas, máx 88vh
+        ── */
+        .modal{
+            background:#fff; width:100%; max-width:500px;
+            /* CELULAR: folha que sobe de baixo */
+            border-radius:28px 28px 0 0;
+            overflow:hidden;
+            max-height:92dvh;          /* dvh = dynamic viewport height, sem barra do browser */
+            height:92dvh;              /* ocupa tudo disponível no celular */
+            display:flex; flex-direction:column;
+            transform:translateY(60px);
+            transition:transform .35s cubic-bezier(.34,1.56,.64,1);
+        }
         #overlay.show .modal{ transform:translateY(0); }
 
-        @media(min-width:600px){ .modal{ border-radius:32px; max-height:88vh; } }
+        /* DESKTOP: janela flutuante compacta */
+        @media(min-width:600px){
+            .modal{
+                border-radius:28px;
+                height:auto;           /* no desktop altura é pelo conteúdo */
+                max-height:88vh;
+            }
+        }
 
         .modal-drag{ width:40px; height:4px; background:#ddd; border-radius:2px; margin:12px auto 0; flex-shrink:0; }
-
         @media(min-width:600px){ .modal-drag{ display:none; } }
 
-
-
-        /* GALERIA */
-
+        /* ── GALERIA ── */
         .modal-gallery{ position:relative; background:#f4f3f0; flex-shrink:0; overflow:hidden; }
-
         .gal-track{ display:flex; transition:transform .3s ease; }
-
-        .gal-slide{ min-width:100%; aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; padding:16px; }
-
-        .gal-slide img{ width:100%; height:100%; object-fit:contain; display:block; }
+        .gal-slide{ min-width:100%; aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; padding:16px; overflow:hidden; cursor:zoom-in; }
+        .gal-slide img{ width:100%; height:100%; object-fit:contain; display:block; transition:transform .3s ease; pointer-events:none; }
+        .gal-slide.zoomed{ cursor:zoom-out; }
+        .gal-slide.zoomed img{ transform:scale(2.5); }
 
         .gal-btn{ position:absolute; top:50%; transform:translateY(-50%); background:rgba(17,17,16,.5); border:none; color:#fff; width:32px; height:32px; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; z-index:5; }
-
         .gal-btn:hover{ background:rgba(17,17,16,.8); }
-
         .gal-btn.prev{ left:10px; } .gal-btn.next{ right:10px; } .gal-btn.hidden{ display:none; }
-
         .gal-dots{ position:absolute; bottom:10px; left:50%; transform:translateX(-50%); display:flex; gap:5px; }
-
         .gal-dot{ width:6px; height:6px; border-radius:50%; background:rgba(255,255,255,.35); cursor:pointer; transition:.15s; }
-
         .gal-dot.active{ background:#fff; transform:scale(1.35); }
-
         .btn-close{ position:absolute; top:10px; right:10px; background:rgba(17,17,16,.5); border:none; color:#fff; width:30px; height:30px; border-radius:50%; cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:14px; z-index:10; backdrop-filter:blur(4px); }
 
-
-
-        /* MODAL BODY */
-
-        .modal-body{ padding:18px 20px 28px; overflow-y:auto; flex:1; }
-
+        /* ── MODAL BODY ── */
+        .modal-body{ padding:16px 20px 24px; overflow-y:auto; flex:1; }
         .modal-tags{ display:flex; flex-wrap:wrap; gap:6px; margin-bottom:12px; }
-
         .m-tag{ font-size:9px; font-weight:700; padding:3px 9px; border-radius:6px; text-transform:uppercase; letter-spacing:.5px; }
-
         .m-tag-cod{ background:#1c1b18; color:#fff; }
-
         .m-tag-emp{ background:#f0efeb; color:#6b6960; border:1px solid #ddd; }
-
         .m-tag-promo{ background:var(--red); color:#fff; }
-
-        .modal-nome{ font-family:'Syne',sans-serif; font-size:19px; font-weight:800; color:#1c1b18; line-height:1.2; text-transform:uppercase; margin-bottom:10px; letter-spacing:-.3px; }
-
-        .modal-desc{ font-size:13px; line-height:1.65; color:#6b6960; padding-left:12px; border-left:3px solid #e8e6e1; margin-bottom:18px; }
-
-        .modal-specs{ display:grid; grid-template-columns:1fr 1fr; gap:8px; }
-
+        .modal-nome{ font-family:'Syne',sans-serif; font-size:18px; font-weight:800; color:#1c1b18; line-height:1.2; text-transform:uppercase; margin-bottom:10px; letter-spacing:-.3px; }
+        .modal-desc{ font-size:13px; line-height:1.65; color:#6b6960; padding-left:12px; border-left:3px solid #e8e6e1; margin-bottom:16px; }
+        .modal-specs{ display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:16px; }
         .spec-card{ background:#f7f7f5; border-radius:10px; padding:11px; text-align:center; border:1px solid #e8e6e1; }
-
         .spec-label{ font-size:9px; font-weight:600; color:#b5b3ab; text-transform:uppercase; letter-spacing:1px; margin-bottom:4px; display:block; }
-
         .spec-val{ font-family:'Syne',sans-serif; font-size:12px; font-weight:700; color:#1c1b18; line-height:1.3; display:block; }
-
         .conserva-icon{ font-size:16px; display:block; margin-bottom:2px; }
 
+        /* ── BOTÕES DE COMPARTILHAR NO MODAL ── */
+        .share-row{
+            display:grid; grid-template-columns:1fr 1fr; gap:10px;
+        }
+        .btn-share-wa{
+            background:var(--green-wa); color:#fff; border:none;
+            border-radius:14px; padding:13px 10px;
+            display:flex; align-items:center; justify-content:center; gap:7px;
+            font-family:'DM Sans',sans-serif; font-size:12px; font-weight:800;
+            cursor:pointer; transition:.2s; text-decoration:none;
+        }
+        .btn-share-wa:hover{ filter:brightness(1.08); }
+        .btn-share-wa:active{ transform:scale(.97); }
+        .btn-share-cat{
+            background:#f0efeb; color:#1c1b18; border:none;
+            border-radius:14px; padding:13px 10px;
+            display:flex; align-items:center; justify-content:center; gap:7px;
+            font-family:'DM Sans',sans-serif; font-size:12px; font-weight:800;
+            cursor:pointer; transition:.2s; text-decoration:none;
+        }
+        .btn-share-cat:hover{ background:#e8e6e0; }
+        .btn-share-cat:active{ transform:scale(.97); }
     </style>
-
 </head>
-
 <body>
 
-
-
+    <!-- CAPA -->
     <div class="capa-container">
-
         <div class="capa-wrapper">
-
-            <img src="https://i.postimg.cc/4xgLXKHh/Gemini-Generated-Image-q2fofcq2fofcq2fo.png" class="capa-img" alt="Catálogo  DP">
-
+            <img src="https://i.postimg.cc/4xgLXKHh/Gemini-Generated-Image-q2fofcq2fofcq2fo.png" class="capa-img" alt="Catálogo DP">
         </div>
-
     </div>
 
-
-
+    <!-- HEADER + FILTROS -->
     <div class="sticky-header">
-
         <input type="text" id="search" placeholder="Buscar por nome ou código..." class="search-box">
-
         <div class="filter-bar">
-
             <div class="chip-text active" onclick="setFiltro('empresa','TODOS',this)">TODOS</div>
-
             <div class="chip-logo" onclick="setFiltro('empresa','ACREAVES',this)">
-
                 <img src="https://i.postimg.cc/ydjBT4qc/logo-acreaves.png" alt="Acreaves">
-
             </div>
-
             <div class="chip-logo" onclick="setFiltro('empresa','Dom Porquito',this)">
-
                 <img src="https://i.postimg.cc/769DN8vS/LOGO-DOMPORQUITO.png" alt="Dom Porquito">
-
             </div>
-
             <div class="chip-logo" onclick="setFiltro('empresa','Fripal',this)">
-
                 <img src="https://i.postimg.cc/769DN8vM/FRIPAL-LOGO.jpg" alt="Fripal">
-
             </div>
-
             <div class="chip-text" style="color:var(--red);border-color:var(--red);" onclick="setFiltro('promo',true,this)">★ PROMO</div>
-
         </div>
-
     </div>
 
-
-
+    <!-- GRID -->
     <main id="grid-produtos" class="grid-produtos"></main>
 
-
+    <!-- BOTÃO FLUTUANTE COMPARTILHAR CATÁLOGO -->
+    <button class="fab-share" onclick="compartilharCatalogo()" title="Compartilhar Catálogo">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+            <path d="M12 0C5.374 0 0 5.373 0 12c0 2.117.549 4.107 1.505 5.836L.057 23.882a.5.5 0 0 0 .61.61l6.047-1.449A11.934 11.934 0 0 0 12 24c6.626 0 12-5.373 12-12S18.626 0 12 0zm0 21.818a9.808 9.808 0 0 1-5.032-1.384l-.36-.214-3.733.894.908-3.63-.234-.374A9.86 9.86 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/>
+        </svg>
+        Compartilhar Catálogo
+    </button>
 
     <!-- MODAL -->
-
     <div id="overlay" onclick="fecharModal()">
-
         <div class="modal" onclick="event.stopPropagation()">
-
             <span class="modal-drag"></span>
 
-
-
             <div class="modal-gallery" id="modal-gallery">
-
                 <button class="btn-close" onclick="fecharModal()">✕</button>
-
                 <div class="gal-track" id="gal-track"></div>
-
                 <button class="gal-btn prev hidden" id="gal-prev">
-
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-
                 </button>
-
                 <button class="gal-btn next hidden" id="gal-next">
-
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
-
                 </button>
-
                 <div class="gal-dots" id="gal-dots"></div>
-
             </div>
-
-
 
             <div class="modal-body">
-
                 <div class="modal-tags" id="m-tags"></div>
-
                 <h2 class="modal-nome" id="m-nome"></h2>
-
                 <p class="modal-desc" id="m-desc"></p>
-
                 <div class="modal-specs">
-
                     <div class="spec-card"><span class="spec-label">Embalagem</span><span class="spec-val" id="m-emb"></span></div>
-
                     <div class="spec-card"><span class="spec-label">Peso / Cx</span><span class="spec-val" id="m-peso"></span></div>
-
                     <div class="spec-card" style="grid-column:1/-1">
-
                         <span class="spec-label">Conservação</span>
-
                         <span class="conserva-icon" id="m-icon"></span>
-
                         <span class="spec-val" id="m-conserva"></span>
-
                     </div>
-
                     <div class="spec-card"><span class="spec-label">Empresa</span><span class="spec-val" id="m-empresa"></span></div>
-
                     <div class="spec-card"><span class="spec-label">Marca</span><span class="spec-val" id="m-marca"></span></div>
-
                 </div>
 
+                <!-- BOTÕES DE COMPARTILHAR -->
+                <div class="share-row">
+                    <button class="btn-share-wa" id="btn-wa" onclick="compartilharProduto()">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.374 0 0 5.373 0 12c0 2.117.549 4.107 1.505 5.836L.057 23.882a.5.5 0 0 0 .61.61l6.047-1.449A11.934 11.934 0 0 0 12 24c6.626 0 12-5.373 12-12S18.626 0 12 0zm0 21.818a9.808 9.808 0 0 1-5.032-1.384l-.36-.214-3.733.894.908-3.63-.234-.374A9.86 9.86 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+                        Enviar Produto
+                    </button>
+                    <button class="btn-share-cat" onclick="compartilharCatalogo()">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                        Compartilhar
+                    </button>
+                </div>
             </div>
-
         </div>
-
     </div>
 
-
-
     <script src="produtos.js"></script>
-
     <script>
-
         let busca = "", galIdx = 0, galImgs = [];
-
         let filtroAtivo = { empresa: 'TODOS', promo: false };
-
+        let produtoAtual = null;
         const ICON = { CONGELADO:'❄', RESFRIADO:'🧊', TEMPERADO:'🌿', DEFUMADOS:'🔥' };
 
-
+        /* ── URL DO CATÁLOGO ── 
+           Quando publicar no Vercel, o link será preenchido automaticamente.
+           Se quiser fixar, troque window.location.href por sua URL. */
+        const URL_CATALOGO = window.location.href.split('?')[0];
 
         /* ── LAZY LOAD com IntersectionObserver ── */
-
         const observer = new IntersectionObserver(entries => {
-
             entries.forEach(entry => {
-
                 if (!entry.isIntersecting) return;
-
                 const wrap = entry.target;
-
                 const img  = wrap.querySelector('img[data-src]');
-
                 if (!img) return;
-
                 img.src = img.dataset.src;
-
                 img.onload  = () => { wrap.classList.add('loaded'); img.classList.add('vis'); };
-
                 img.onerror = () => { wrap.classList.add('loaded'); img.classList.add('vis'); };
-
                 observer.unobserve(wrap);
-
             });
-
         }, { rootMargin: '250px' });
 
-
-
         /* ── FILTROS ── */
-
         function setFiltro(tipo, valor, el) {
-
             if (tipo === 'promo') {
-
                 filtroAtivo.promo = !filtroAtivo.promo;
-
                 el.classList.toggle('active');
-
             } else {
-
                 filtroAtivo.empresa = valor;
-
                 document.querySelectorAll('.chip-text,.chip-logo').forEach(c => c.classList.remove('active'));
-
                 el.classList.add('active');
-
             }
-
             filtrar();
-
         }
-
-
 
         /* ── GRID ── */
-
         function filtrar() {
-
             const q = busca.toLowerCase();
-
             const lista = PRODUTOS.filter(p =>
-
                 (p.nome.toLowerCase().includes(q) || String(p.cod).includes(q)) &&
-
                 (filtroAtivo.empresa === 'TODOS' || p.empresa === filtroAtivo.empresa) &&
-
                 (!filtroAtivo.promo || p.promo === true)
-
             );
-
-
-
             document.getElementById('grid-produtos').innerHTML = lista.map(p => {
-
                 const img = (p.imgs && p.imgs[0]) ? p.imgs[0] : '';
-
                 return `
-
                 <div class="card" onclick='abrirModal("${p.cod}")'>
-
                     ${p.promo ? '<div class="badge-promo">PROMO</div>' : ''}
-
                     <div class="img-wrap"><img data-src="${img}" alt="${p.nome}"></div>
-
                     <span class="cod-text">CÓD. ${p.cod}</span>
-
                     <h3 class="card-title">${p.nome}</h3>
-
                     <p style="font-size:11px;color:#888;font-weight:700;">${p.marca||''}</p>
-
                 </div>`;
-
             }).join('');
-
-
-
             document.querySelectorAll('.img-wrap').forEach(w => observer.observe(w));
-
         }
-
-
 
         /* ── MODAL ── */
-
         function abrirModal(cod) {
-
             const p = PRODUTOS.find(x => String(x.cod) === String(cod));
-
             if (!p) return;
-
+            produtoAtual = p;
             galImgs = (p.imgs && p.imgs.length) ? p.imgs : [''];
-
             galIdx  = 0;
-
             renderGaleria();
-
             document.getElementById('m-tags').innerHTML =
-
                 `<span class="m-tag m-tag-cod">${p.cod}</span>
-
                  <span class="m-tag m-tag-emp">${p.empresa}</span>
-
                  ${p.promo ? '<span class="m-tag m-tag-promo">★ Promoção</span>' : ''}`;
-
             document.getElementById('m-nome').textContent     = p.nome;
-
             document.getElementById('m-desc').textContent     = p.desc || 'Sem descrição.';
-
             document.getElementById('m-emb').textContent      = p.embalagem || p.complemento || '—';
-
             document.getElementById('m-peso').textContent     = p.peso || '—';
-
             document.getElementById('m-conserva').textContent = p.conserva || '—';
-
             document.getElementById('m-icon').textContent     = ICON[p.tipo] || '📦';
-
             document.getElementById('m-empresa').textContent  = p.empresa;
-
             document.getElementById('m-marca').textContent    = p.marca || '—';
-
             document.getElementById('overlay').classList.add('show');
-
             document.body.style.overflow = 'hidden';
-
         }
-
-
 
         function fecharModal() {
-
             document.getElementById('overlay').classList.remove('show');
-
             document.body.style.overflow = '';
-
         }
 
+        /* ── GALERIA com ZOOM ── */
+        function renderGaleria() {
+            const track = document.getElementById('gal-track');
+            track.innerHTML = galImgs.map((url, i) =>
+                `<div class="gal-slide" onclick="toggleZoom(this, event)">
+                    <img src="${url}" alt="Foto ${i+1}" loading="${i===0?'eager':'lazy'}">
+                </div>`
+            ).join('');
+            document.getElementById('gal-dots').innerHTML = galImgs.length > 1
+                ? galImgs.map((_,i) => `<span class="gal-dot${i===0?' active':''}" onclick="irSlide(${i})"></span>`).join('') : '';
+            document.getElementById('gal-prev').classList.toggle('hidden', galImgs.length <= 1);
+            document.getElementById('gal-next').classList.toggle('hidden', galImgs.length <= 1);
+            irSlide(0);
+        }
 
+        function toggleZoom(el, e) {
+            if (el.parentElement.dataset.swiping === 'true') return;
+            const img = el.querySelector('img');
+            el.classList.toggle('zoomed');
+            if (el.classList.contains('zoomed')) {
+                const rect = el.getBoundingClientRect();
+                const cx   = (e.clientX || (e.touches && e.touches[0].clientX) || rect.left + rect.width/2);
+                const cy   = (e.clientY || (e.touches && e.touches[0].clientY) || rect.top + rect.height/2);
+                img.style.transformOrigin = `${((cx - rect.left) / rect.width)*100}% ${((cy - rect.top) / rect.height)*100}%`;
+            } else {
+                img.style.transformOrigin = 'center';
+            }
+        }
 
-        /* ── GALERIA ── */
+        function irSlide(idx) {
+            document.querySelectorAll('.gal-slide').forEach(s => s.classList.remove('zoomed'));
+            galIdx = Math.max(0, Math.min(idx, galImgs.length - 1));
+            document.getElementById('gal-track').style.transform = `translateX(-${galIdx*100}%)`;
+            document.querySelectorAll('.gal-dot').forEach((d,i) => d.classList.toggle('active', i===galIdx));
+            document.getElementById('gal-prev').classList.toggle('hidden', galIdx === 0 || galImgs.length <= 1);
+            document.getElementById('gal-next').classList.toggle('hidden', galIdx === galImgs.length-1 || galImgs.length <= 1);
+        }
 
-     /* Substitua sua renderGaleria por esta */
-function renderGaleria() {
-    const track = document.getElementById('gal-track');
-    track.innerHTML = galImgs.map((url, i) =>
-        `<div class="gal-slide" onclick="toggleZoom(this, event)">
-            <img src="${url}" alt="Foto ${i+1}" loading="${i===0?'eager':'lazy'}">
-        </div>`
-    ).join('');
-    
-    document.getElementById('gal-dots').innerHTML = galImgs.length > 1
-        ? galImgs.map((_,i) => `<span class="gal-dot${i===0?' active':''}" onclick="irSlide(${i})"></span>`).join('') : '';
-    
-    document.getElementById('gal-prev').classList.toggle('hidden', galImgs.length <= 1);
-    document.getElementById('gal-next').classList.toggle('hidden', galImgs.length <= 1);
-    irSlide(0);
-}
+        document.getElementById('gal-prev').onclick = () => irSlide(galIdx - 1);
+        document.getElementById('gal-next').onclick = () => irSlide(galIdx + 1);
 
-/* Nova função de Zoom */
-function toggleZoom(el, e) {
-    // Se houver arraste (swipe), não ativa o zoom
-    if (el.parentElement.dataset.swiping === 'true') return;
-    
-    const img = el.querySelector('img');
-    el.classList.toggle('zoomed');
-    
-    if (el.classList.contains('zoomed')) {
-        const rect = el.getBoundingClientRect();
-        const x = (e.clientX || e.touches[0].clientX) - rect.left;
-        const y = (e.clientY || e.touches[0].clientY) - rect.top;
-        img.style.transformOrigin = `${(x / rect.width) * 100}% ${(y / rect.height) * 100}%`;
-    } else {
-        img.style.transformOrigin = 'center';
-    }
-}
-
-/* Ajuste na função irSlide para resetar o zoom ao mudar de foto */
-function irSlide(idx) {
-    // Remove zoom de todos os slides antes de mudar
-    document.querySelectorAll('.gal-slide').forEach(s => s.classList.remove('zoomed'));
-    
-    galIdx = Math.max(0, Math.min(idx, galImgs.length - 1));
-    document.getElementById('gal-track').style.transform = `translateX(-${galIdx*100}%)`;
-    document.querySelectorAll('.gal-dot').forEach((d,i) => d.classList.toggle('active', i===galIdx));
-    document.getElementById('gal-prev').classList.toggle('hidden', galIdx === 0 || galImgs.length <= 1);
-    document.getElementById('gal-next').classList.toggle('hidden', galIdx === galImgs.length-1 || galImgs.length <= 1);
-}
-
-
-
-
-
-
-        /* swipe */
-
+        /* swipe galeria */
         (function(){
-
-            let sx=0, sy=0;
-
+            let sx=0, sy=0, swiping=false;
             const gal = document.getElementById('modal-gallery');
-
-            gal.addEventListener('touchstart', e => { sx=e.touches[0].clientX; sy=e.touches[0].clientY; }, {passive:true});
-
-            gal.addEventListener('touchend',   e => {
-
-                const dx = e.changedTouches[0].clientX - sx;
-
-                const dy = e.changedTouches[0].clientY - sy;
-
-                if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) irSlide(galIdx + (dx<0?1:-1));
-
+            gal.addEventListener('touchstart', e => {
+                sx=e.touches[0].clientX; sy=e.touches[0].clientY; swiping=false;
+                gal.querySelector('.gal-track').dataset.swiping='false';
             }, {passive:true});
-
+            gal.addEventListener('touchmove', e => {
+                const dx=Math.abs(e.touches[0].clientX-sx);
+                const dy=Math.abs(e.touches[0].clientY-sy);
+                if(dx>10){ swiping=true; gal.querySelector('.gal-track').dataset.swiping='true'; }
+            }, {passive:true});
+            gal.addEventListener('touchend', e => {
+                const dx = e.changedTouches[0].clientX - sx;
+                const dy = e.changedTouches[0].clientY - sy;
+                if (swiping && Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) irSlide(galIdx + (dx<0?1:-1));
+                setTimeout(()=>{ if(gal.querySelector('.gal-track')) gal.querySelector('.gal-track').dataset.swiping='false'; },100);
+            }, {passive:true});
         })();
 
+        /* ── COMPARTILHAR PRODUTO via WhatsApp ── */
+        function compartilharProduto() {
+            if (!produtoAtual) return;
+            const p = produtoAtual;
+            const img = (p.imgs && p.imgs[0]) ? p.imgs[0] : '';
+            const promoTexto = p.promo ? '🔥 *PRODUTO EM PROMOÇÃO!*\n' : '';
 
+            const texto =
+`${promoTexto}🛒 *${p.nome}*
+Cód: ${p.cod} | ${p.empresa} — ${p.marca}
+
+📦 Embalagem: ${p.embalagem || p.complemento || '—'}
+⚖️ Peso: ${p.peso || '—'}
+${ICON[p.tipo]||'📦'} Conservação: ${p.conserva || '—'}
+
+${p.desc || ''}
+
+${img ? '📸 Foto do produto:\n' + img : ''}
+
+🌐 Catálogo completo: ${URL_CATALOGO}`;
+
+            window.open('https://wa.me/?text=' + encodeURIComponent(texto), '_blank');
+        }
+
+        /* ── COMPARTILHAR CATÁLOGO via WhatsApp ── */
+        function compartilharCatalogo() {
+            const texto =
+`📋 *Catálogo Comercial — Acreaves | Dom Porquito | Fripal*
+
+Acesse nosso catálogo completo com todos os produtos, fotos e especificações:
+
+👉 ${URL_CATALOGO}`;
+
+            window.open('https://wa.me/?text=' + encodeURIComponent(texto), '_blank');
+        }
 
         document.getElementById('search').addEventListener('input', e => { busca=e.target.value; filtrar(); });
-
         document.addEventListener('keydown', e => { if(e.key==='Escape') fecharModal(); });
-
         window.onload = filtrar;
-
     </script>
-
 </body>
-
-</html> 
+</html>
