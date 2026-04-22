@@ -56,7 +56,7 @@ const PRODUTOS = [
     desc: "Cortes padronizados para o petisco perfeito. Facilidade total: do freezer direto para a panela ou airfryer."
   },
   {
-    cod: "234", nome: "COXINHA DA ASA CONGELADA NA BANDEJA",
+    cod: "249", nome: "COXINHA DA ASA CONGELADA NA BANDEJA",
     empresa: "ACREAVES", marca: "SABBOR", grupo: "CORTE", tipo: "CONGELADO",
    complemento: "CX C/ 6 UND", peso: "6 KG",
     conserva: "MANTER CONGELADO A -12°C", promo: false,
@@ -64,7 +64,7 @@ const PRODUTOS = [
     desc: "O corte favorito do churrasco e do happy hour. Carnuda e saborosa, com padronização de tamanho na bandeja."
   },
   {
-    cod: "233", nome: "FILÉ DA COXA CONGELADO NA BANDEJA",
+    cod: "248", nome: "FILÉ DA COXA CONGELADO NA BANDEJA",
     empresa: "ACREAVES", marca: "SABBOR", grupo: "CORTE", tipo: "CONGELADO",
    complemento: "CX C/ 6 UND", peso: "6 KG",
     conserva: "MANTER CONGELADO A -12°C", promo: false,
@@ -72,7 +72,7 @@ const PRODUTOS = [
     desc: "Sabor da coxa com a praticidade do filé. Sem ossos e peles, ideal para grelhados rápidos e estrogonofe suculento."
   },
   {
-    cod: "232", nome: "COXA E SOBRECOXA CONGELADA NA BANDEJA",
+    cod: "247", nome: "COXA E SOBRECOXA CONGELADA NA BANDEJA",
     empresa: "ACREAVES", marca: "SABBOR", grupo: "CORTE", tipo: "CONGELADO",
    complemento: "CX C/ 6 UND", peso: "6 KG",
     conserva: "MANTER CONGELADO A -12°C", promo: false,
@@ -80,7 +80,7 @@ const PRODUTOS = [
     desc: "O combo perfeito de rendimento e sabor. Peças selecionadas que garantem uma refeição completa para toda a família."
   },
   {
-    cod: "231", nome: "MEIO DA ASA CONGELADA NA BANDEJA",
+    cod: "246", nome: "MEIO DA ASA CONGELADA NA BANDEJA",
     empresa: "ACREAVES", marca: "SABBOR", grupo: "CORTE", tipo: "CONGELADO",
    complemento: "CX C/ 6 UND", peso: "6 KG",
     conserva: "MANTER CONGELADO A -12°C", promo: false,
@@ -88,7 +88,7 @@ const PRODUTOS = [
     desc: "Qualidade premium para quem busca o melhor da asa (Tulipa). Ideal para receitas especiais e preparos crocantes."
   },
   {
-    cod: "230", nome: "FILÉ DE PEITO CONGELADO NA BANDEJA",
+    cod: "245", nome: "FILÉ DE PEITO CONGELADO NA BANDEJA",
     empresa: "ACREAVES", marca: "SABBOR", grupo: "CORTE", tipo: "CONGELADO",
    complemento: "CX C/ 6 UND", peso: "6 KG",
     conserva: "CONGELADO A -12°C", promo: false,
