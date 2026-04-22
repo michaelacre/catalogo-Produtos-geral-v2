@@ -779,34 +779,8 @@ const PRODUTOS = [
     imgs: ["https://i.postimg.cc/59ZJBGS5/20942-V00-Mister-Pig-Bisteca-Suina-Congelada-mockup.png"],
     desc: "Corte tradicional suíno, versátil e saboroso, ideal para fritar ou grelhar."
   },
-  {
-    cod: "20677",
-    nome: "MINI MORTADELA TIPO BOLOGNA",
-    empresa: "Dom Porquito",
-    marca: "MISTER PIG",
-    grupo: "CORTE",
-    tipo: "DEFUMADOS",
-    complemento: "PV (CX C/ 10 KG)",
-    peso: "10 KG",
-    conserva: "MANTENHA RESFRIADO DE 0°C A +7°C",
-    promo: false,
-    imgs: ["https://i.postimg.cc/769DN8vS/LOGO-DOMPORQUITO.png"],
-    desc: "Tradição em formato prático. Sabor marcante e textura delicada, perfeita para tábuas de frios e lanches gourmet"
-  },
-  {
-    cod: "20856",
-    nome: "FRALDINHA SUINA TEMPERADA",
-    empresa: "Dom Porquito",
-    marca: "MISTER PIG",
-    grupo: "CORTE",
-    tipo: "TEMPERADO",
-    complemento: "PV (CX C/ 10 KG)",
-    peso: "10 KG",
-    conserva: "MATENHA RESFRIADO DE 0°C A +7°C",
-    promo: false,
-    imgs: ["https://i.postimg.cc/769DN8vS/LOGO-DOMPORQUITO.png"],
-    desc: "Corte nobre e extremamente macio. O tempero suave realça o sabor natural da carne suína. Sucesso garantido na brasa"
-  },
+  
+
   {
     cod: "20947",
     nome: "LINGUICA SUINA CHURRASCO",
@@ -821,20 +795,7 @@ const PRODUTOS = [
     imgs: ["https://i.postimg.cc/66DKrSfz/20947-V01-Mister-Pig-Linguica-Churrasco-4-kg-Resfriada.png"],
     desc: "Linguiça suína ideal para churrasco, com sabor marcante e ótima suculência."
   },
-  {
-    cod: "20930",
-    nome: "BACON PALETA MISTER PIG",
-    empresa: "Dom Porquito",
-    marca: "MISTER PIG",
-    grupo: "CORTE",
-    tipo: "DEFUMADOS",
-    complemento: "PV (CX C/ 15 KG)",
-    peso: "15 KG",
-    conserva: "MANTENHA FRESCO ATE 25°C",
-    promo: false,
-    imgs: ["https://i.postimg.cc/769DN8vS/LOGO-DOMPORQUITO.png"],
-    desc: "A qualidade Mister Pig em cada fatia. Defumação artesanal que garante aroma e sabor inigualáveis para seus pratos"
-  },
+  
   {
     cod: "20948",
     nome: "LINGUICA CHURRASCO SUINA CONG.",
@@ -863,20 +824,7 @@ const PRODUTOS = [
     imgs: ["https://i.postimg.cc/CMW0Gt4T/20949-V00-Mister-Pig-Linguica-Suina-Fina-Apimentada-3-kg.png"],
     desc: "Linguiça suína fina e apimentada em embalagem econômica, ideal para grande consumo."
   },
-  {
-    cod: "20902",
-    nome: "LINGUICA SUINA FINA APIMENTADA RESF. 4KG",
-    empresa: "Dom Porquito",
-    marca: "MISTER PIG",
-    grupo: "LINGUIÇAS",
-    tipo: "RESFRIADO",
-    complemento: "PV (CX C/ 16 KG)",
-    peso: "16 KG",
-    conserva: "MANTENHA RESFRIADO  DE 0°C A +7°C",
-    promo: false,
-    imgs: ["https://i.postimg.cc/769DN8vS/LOGO-DOMPORQUITO.png"],
-    desc: "O equilíbrio perfeito entre a suculência da carne suína selecionada e um toque de pimenta na medida certa. Com formato fino, é ideal para grelhas, chapas ou como aperitivo diferenciado em churrascos. Produto resfriado, garantindo frescor máximo e sabor intenso do primeiro ao último pedaço"
-  },
+
   {
     cod: "20986",
     nome: "FRALDINHA SUINA TEMPERADA",
