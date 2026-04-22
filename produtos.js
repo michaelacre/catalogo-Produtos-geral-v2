@@ -204,14 +204,7 @@ const PRODUTOS = [
     imgs: ["https://i.postimg.cc/9X9PN84J/20916.jpg"],
     desc: "Carne magra, macia e já temperada. Uma opção saudável e sofisticada que vai direto do pacote para o forno."
   },
-  {
-    cod: "20930", nome: "BACON PALETA MISTER PIG",
-    empresa: "Dom Porquito", marca: "MISTER PIG", grupo: "CORTE", tipo: "DEFUMADOS",
-   complemento: "PV CX C/ 15 KG", peso: "15 KG",
-    conserva: "MANTER FRESCO ATÉ 25°C", promo: false,
-    imgs: ["https://i.postimg.cc/MZB0rPcD/20930.jpg"],
-    desc: "A qualidade Mister Pig em cada fatia. Defumação artesanal que garante aroma e sabor inigualáveis para seus pratos."
-  },
+  
   {
     cod: "20942", nome: "BISTECA SUÍNA",
     empresa: "Dom Porquito", marca: "MISTER PIG", grupo: "CORTE", tipo: "CONGELADO",
