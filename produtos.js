@@ -344,7 +344,7 @@ const PRODUTOS = [
   // ══════════════════════════════════════════
   //  DOM PORQUITO
   // ══════════════════════════════════════════
-  ══════════════════════════════════════════  
+  //══════════════════════════════════════════  
 {
     cod: "20510",
     nome: "LINGUICA DE FRANGO FINA APIMENTADA",
@@ -905,7 +905,7 @@ const PRODUTOS = [
     imgs: ["https://i.postimg.cc/63mjNkQp/20503-V01-SABBOR-Linguica-de-Frango-Fina-Apimentada-Congelada-2-5-kg.png"],
     desc: "Linguiça de frango levemente apimentada, prática e saborosa, ideal para petiscos e aperitivos. Produto congelado."
   },
-══════════════════════════════════════════
+//══════════════════════════════════════════
 
   {
     cod: "20510",
