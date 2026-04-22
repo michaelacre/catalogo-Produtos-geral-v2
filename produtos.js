@@ -537,7 +537,7 @@ const PRODUTOS = [
     peso: "10 KG",
     conserva: "",
     promo: false,
-    imgs: ["https://i.postimg.cc/c6qFvfYD/20638-V01-Mister-Pig-Mortadela-Tipo-Bologna-GRANDE.png",
+    imgs: ["https://i.postimg.cc/c6qFvfYD/20638-V01-Mister-Pig-Mortadela-Tipo-Bologna-GRANDE.png"],
     desc: "MANTENHA RESFRIADO ATE +7\A7C"
   },
   {
