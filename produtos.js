@@ -337,6 +337,13 @@ const PRODUTOS = [
     empresa: "ACREAVES", marca: "ACREAVES", grupo: "CORTE", tipo: "CONGELADO",
    complemento: "CX C/ 18 KG", peso: "18 KG",
     conserva: "MANTER CONGELADO A -12°C", promo: false,
+    imgs: ["https://i.postimg.cc/GthjHrXQ/105-Galinha-congelada-Acreaves-Copia-removebg-preview.png"],
+    desc: "Sabor autêntico e marcante para receitas tradicionais. Ideal para caldos ricos e cozidos de cozimento lento que exigem mais consistência e aroma."
+  },
+      {cod: "104", nome: "FRANGO CONGELADO SABBORA",
+    empresa: "ACREAVES", marca: "SABBOR", grupo: "CORTE", tipo: "CONGELADO",
+   complemento: "CX C/ 18 KG", peso: "18 KG",
+    conserva: "MANTER CONGELADO A -12°C", promo: false,
     imgs: ["https://i.postimg.cc/vTBqNmwf/001-V01-SABBOR-Frango-Congelado-mockup.jpg"],
     desc: "Sabor autêntico e marcante para receitas tradicionais. Ideal para caldos ricos e cozidos de cozimento lento que exigem mais consistência e aroma."
   },
