@@ -24,19 +24,20 @@ const PRODUTOS = [
   // ══════════════════════════════════════════
 
   {
-    cod: ""321"",
-    nome: ""MOELA CONGELADA SABBOR"",
-    empresa: ""ACREAVES"",
-    marca: ""SABBOR"",
-    grupo: ""CORTE"",
-    tipo: ""CONGELADO"",
-    complemento: ""CX C/ 10 KG"",
-    peso: ""10 KG"",
-    conserva: ""MANTENHA CONGELADO A -12°C"",
+    cod: "321",
+    nome: "MOELA CONGELADA SABBOR",
+    empresa: "ACREAVES",
+    marca: "SABBOR",
+    grupo: "CORTE",
+    tipo: "CONGELADO",
+    complemento: "CX C/ 10 KG",
+    peso: "10 KG",
+    conserva: "MANTENHA CONGELADO A -12°C",
     promo: false,
-    imgs: [""https://i.postimg.cc/BbZmHJwM/SABBOR-Miudos-Moela-321.png""],
-    desc: ""Moela de frango congelada, ideal para cozidos e receitas tradicionais, com textura firme e sabor intenso.""
-  },{
+    imgs: ["https://i.postimg.cc/BbZmHJwM/SABBOR-Miudos-Moela-321.png"],
+    desc: "Moela de frango congelada, ideal para cozidos e receitas tradicionais, com textura firme e sabor intenso."
+  },
+  {
     cod: "238", nome: "SOBRECOXA CONGELADA NA BANDEJA",
     empresa: "ACREAVES", marca: "SABBOR", grupo: "CORTE", tipo: "CONGELADO",
    complemento: "CX C/ 6 UND", peso: "6 KG",
