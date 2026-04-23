@@ -24,6 +24,7 @@ const PRODUTOS = [
   // ══════════════════════════════════════════
 
   {
+   {
     cod: "106",
     nome: "FRANGO RESFRIADO TEMPERADO (ASSAR) S/MÍUDOS",
     empresa: "ACREAVES",
@@ -32,12 +33,15 @@ const PRODUTOS = [
     tipo: "RESFRIADO",
     complemento: "CX C/ 20 KG",
     peso: "20 KG",
-    conserva: "MANTENHA RESFRIADO  DE 0°C A 7°C",
+    conserva: "MANTENHA RESFRIADO DE 0°C A 7°C",
     promo: false,
-    imgs: ["https://i.postimg.cc/g2TVSyBd/106.png"],
-    imgs: ["https://i.postimg.cc/FzkPFTfk/20615-SABBOR-Presunto-3-6-kg-mockup.png"],
+    imgs: [
+        "https://i.postimg.cc/g2TVSyBd/106.png",
+        "https://link-da-segunda-imagem.png",
+        "https://i.postimg.cc/FzkPFTfk/20615-SABBOR-Presunto-3-6-kg-mockup.png"],"
+    ],
     desc: "Frango inteiro resfriado, já temperado e pronto para assar, sem miúdos, garantindo praticidade, sabor e suculência no preparo."
-  },
+},
   {
     cod: "225",
     nome: "COXA E SOBRECOXA  CONGELADA SABBOR",
