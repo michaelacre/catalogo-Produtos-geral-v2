@@ -25,7 +25,7 @@ const PRODUTOS = [
 
   {
     cod: "106",
-    nome: "FRANGO RESFRIADO TEMPERADO (ASSAR) S/MIU",
+    nome: "FRANGO RESFRIADO TEMPERADO (ASSAR) S/MÍUDOS",
     empresa: "ACREAVES",
     marca: "ACREAVES",
     grupo: "INTEIRO",
@@ -340,7 +340,7 @@ const PRODUTOS = [
     imgs: ["https://i.postimg.cc/GthjHrXQ/105-Galinha-congelada-Acreaves-Copia-removebg-preview.png"],
     desc: "Sabor autêntico e marcante para receitas tradicionais. Ideal para caldos ricos e cozidos de cozimento lento que exigem mais consistência e aroma."
   },
-      {cod: "104", nome: "FRANGO CONGELADO SABBORA",
+      {cod: "104", nome: "FRANGO CONGELADO SABBOR",
     empresa: "ACREAVES", marca: "SABBOR", grupo: "CORTE", tipo: "CONGELADO",
    complemento: "CX C/ 18 KG", peso: "18 KG",
     conserva: "MANTER CONGELADO A -12°C", promo: false,
