@@ -269,14 +269,7 @@ const PRODUTOS = [
     imgs: ["https://i.postimg.cc/gjJST0bD/021-V02-SABBOR-AVE-NATALINA-mockup.jpg"],
     desc: "A estrela das celebrações. Ave selecionada com tempero especial Sabbor, garantindo carne suculenta, pele dourada e sabor inconfundível."
   },
-  {
-    cod: "106", nome: "FRANGO RESFRIADO TEMPERADO (ASSAR) S/MIÚDOS",
-    empresa: "ACREAVES", marca: "ACREAVES", grupo: "INTEIRO", tipo: "RESFRIADO",
-   complemento: "CX C/ 20 KG", peso: "20 KG",
-    conserva: "MANTER RESFRIADO 0°C A +7°C", promo: false,
-    imgs: ["https://i.postimg.cc/g2TVSyBd/106.png"],
-    desc: "Frango inteiro temperado, pronto para ir ao forno. Sem miúdos, com tempero especial que garante carne suculenta e dourada."
-  },
+ 
   {
     cod: "105", nome: "GALINHA CONGELADA C/ MIÚDOS",
     empresa: "ACREAVES", marca: "ACREAVES", grupo: "CORTE", tipo: "CONGELADO",
