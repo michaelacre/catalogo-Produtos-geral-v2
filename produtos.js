@@ -34,7 +34,7 @@ const PRODUTOS = [
     peso: "20 KG",
     conserva: "MANTENHA RESFRIADO  DE 0°C A 7°C",
     promo: false,
-    imgs: ["https://i.postimg.cc/g2TVSyBd/106.png"],
+    imgs: ["https://i.postimg.cc/tRzTZJpp/106-Frango-de-Temperado-de-Assar-Copia.png.png"],
     desc: "Frango inteiro resfriado, já temperado e pronto para assar, sem miúdos, garantindo praticidade, sabor e suculência no preparo."
   },
   {
@@ -337,9 +337,37 @@ const PRODUTOS = [
     empresa: "ACREAVES", marca: "ACREAVES", grupo: "CORTE", tipo: "CONGELADO",
    complemento: "CX C/ 18 KG", peso: "18 KG",
     conserva: "MANTER CONGELADO A -12°C", promo: false,
-    imgs: ["https://i.postimg.cc/GthjHrXQ/105-Galinha-congelada-Acreaves-Copia-removebg-preview.png"],
+    imgs: ["https://i.postimg.cc/mZSDzkRK/105-Galinha-congelada-Acreaves-Copia-removebg-preview.png"],
     desc: "Sabor autêntico e marcante para receitas tradicionais. Ideal para caldos ricos e cozidos de cozimento lento que exigem mais consistência e aroma."
   },
+  {
+    cod: "101",
+    nome: "FRANGO CONGELADO C/MIUDOS",
+    empresa: "FRIPAL",
+    marca: "ACREAVES",
+    grupo: "INTEIRO",
+    tipo: "CONGELADO",
+    complemento: "CX C/ 20 KG",
+    peso: "20 KG",
+    conserva: "MANTENHA CONGELADO A -12°C",
+    promo: false,
+    imgs: ["https://i.postimg.cc/Hn3sfZBS/101-Frango-Congelado-Acreaves-2-Copia-removebg-preview.png"],
+    desc: "Frango inteiro de alta qualidade, com miúdos inclusos, congelado através de processo que preserva o sabor e os nutrientes. Ideal para estoques domésticos ou comerciais, garantindo praticidade e segurança alimentar por mais tempo."
+  },
+  {
+    cod: "102",
+    nome: "FRANGO RESFRIADO C/MIUDOS",
+    empresa: "FRIPAL",
+    marca: "ACREAVES",
+    grupo: "INTEIRO",
+    tipo: "RESFRIADO",
+    complemento: "CX C/ 20 KG",
+    peso: "20 KG",
+    conserva: "MANTENHA RESFRIADO  DE 0°C A 7°C",
+    promo: false,
+    imgs: ["https://i.postimg.cc/FFxRdzNt/102-Frango-Resfriado-Acreaves-Copia-removebg-preview.png"],
+    desc: "Frango inteiro selecionado, mantido em baixas temperaturas sem congelamento. Por ser resfriado, mantém a textura da carne mais macia e está pronto para o preparo imediato, facilitando o tempero e o cozimento."
+  }
       {cod: "104", nome: "FRANGO CONGELADO SABBOR",
     empresa: "ACREAVES", marca: "SABBOR", grupo: "CORTE", tipo: "CONGELADO",
    complemento: "CX C/ 18 KG", peso: "18 KG",
@@ -1186,8 +1214,92 @@ const PRODUTOS = [
   // ══════════════════════════════════════════
   //  FRIPAL
   // ══════════════════════════════════════════
-
+{
+    cod: "481",
+    nome: "BATATA CRISPY COATED PREMIUM 10mm 12kg",
+    empresa: "FRIPAL",
+    marca: "FARM FRITE",
+    grupo: "BATATA",
+    tipo: "CONGELADO",
+    complemento: "CX (6 x 2 KG)",
+    peso: "12 KG",
+    conserva: "MANTENHA CONGELADO A -18°C",
+    promo: false,
+    imgs: ["https://i.postimg.cc/bYRJDrpy/481.png"],
+    desc: "Batatas palito de corte super fino (7mm), garantindo uma crocância excepcional e fritura rápida. Ideais para quem busca elegância no prato e alto rendimento."
+  },
   {
+    cod: "488",
+    nome: "BATATA FARM FRITES FRIES 7mm 12.5kg",
+    empresa: "FRIPAL",
+    marca: "FARM FRITE",
+    grupo: "BATATA",
+    tipo: "CONGELADO",
+    complemento: "CX (5x2,5KG)",
+    peso: "15,5 KG",
+    conserva: "MANTENHA CONGELADO A -18°C",
+    promo: false,
+    imgs: ["https://i.postimg.cc/DfcZJ0nb/488.png"],
+    desc: "A clássica batata palito de 10mm, com o equilíbrio perfeito entre o interior macio e a casca dourada. Versátil, é a escolha ideal para acompanhar porções e pratos principais"
+  },
+  {
+    cod: "60108",
+    nome: "BATATA FARM FRITES TRAD 10MM 12kg",
+    empresa: "FRIPAL",
+    marca: "FARM FRITE",
+    grupo: "BATATA",
+    tipo: "CONGELADO",
+    complemento: "CX (6x2KG)",
+    peso: "12 KG",
+    conserva: "MANTENHA CONGELADO A -18°C",
+    promo: false,
+    imgs: ["https://i.postimg.cc/1RKtnXs4/60108.png"],
+    desc: "Batatas pré-fritas de 10mm que oferecem o melhor custo-benefício para o seu negócio. Mantêm a consistência e o sabor após a fritura, sendo perfeitas para delivery e lanchonetes."
+  },
+  {
+    cod: "60109",
+    nome: "BATATA STAR FRITES 10 MM 10kg",
+    empresa: "FRIPAL",
+    marca: "FARM FRITE",
+    grupo: "BATATA",
+    tipo: "CONGELADO",
+    complemento: "CX (5X2KG)",
+    peso: "10 KG",
+    conserva: "MANTENHA CONGELADO A -18°C",
+    promo: false,
+    imgs: ["https://i.postimg.cc/1RKtnXsX/60109.png"],
+    desc: "A qualidade Star Frites em embalagem prática de 2kg. Batatas palito de 10mm, ideais para operações menores ou controle rígido de estoque, garantindo sempre um produto fresquinho."
+  },
+  {
+    cod: "460",
+    nome: "MANTEIGA SABBOR 500G",
+    empresa: "FRIPAL",
+    marca: "SABBOR",
+    grupo: "MANTEIGA",
+    tipo: "RESFRIADO",
+    complemento: "CX (12x500g)",
+    peso: "4,5 KG",
+    conserva: "MANTENHA REFRIGERADO DE 1°C A 10°C",
+    promo: false,
+    imgs: ["https://i.postimg.cc/v8vBgTbQ/460-MANTEIGA-SABBOR-500G.png"],
+    desc: "Manteiga de qualidade superior com sabor autêntico e textura cremosa. A embalagem de 500g é ideal para famílias e transformadores que buscam rendimento e praticidade na cozinha, seja para passar no pão ou para receitas culinárias."
+  },
+  {
+    cod: "461",
+    nome: "MANTEIGA SABBOR 200G",
+    empresa: "FRIPAL",
+    marca: "SABBOR",
+    grupo: "MANTEIGA",
+    tipo: "RESFRIADO",
+    complemento: "CX (24x200g)",
+    peso: "6 KG",
+    conserva: "MANTENHA REFRIGERADO DE 1°C A 10°C",
+    promo: false,
+    imgs: ["https://i.postimg.cc/RCTF6h4v/461-MANTEIGA-SABBOR-200G.png"],
+    desc: "A clássica Manteiga Sabbor em embalagem compacta e prática. Perfeita para o consumo diário, garante frescor e cremosidade em cada uso. Possui o equilíbrio ideal de sal para realçar o sabor dos seus cafés da manhã e lanches."
+  },
+  
+{
     cod: "624", nome: "BACON FATIADO CONGELADO",
     empresa: "Fripal", marca: "MISTER PIG", grupo: "FATIADO", tipo: "CONGELADO",
    complemento: "Aprox. 900g", peso: "18 KG",
