@@ -27,7 +27,7 @@ const PRODUTOS = [
     cod: "106",
     nome: "FRANGO RESFRIADO TEMPERADO (ASSAR) S/MÍUDOS",
     empresa: "ACREAVES",
-    marca: "ACREAVES",
+    marca: "SABBOR",
     grupo: "INTEIRO",
     tipo: "RESFRIADO",
     complemento: "CX C/ 20 KG",
