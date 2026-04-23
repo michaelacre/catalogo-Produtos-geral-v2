@@ -133,8 +133,13 @@
         }
         .hero-cta {
             display: inline-flex; align-items: center; gap: 10px;
-            background: var(--red); color: #fff;
-            border: none; border-radius: 50px;
+            /* Linha 136: Cor de fundo sólida */
+    background: #c0392b; /* Ou mantenha var(--red) se ela for esse vermelho */
+    color: #fff;
+
+    /* Linha 137: Arredondamento total */
+    border: none;
+    border-radius: 50px;
             padding: 16px 36px; font-family: 'Outfit', sans-serif;
             font-size: 15px; font-weight: 700; letter-spacing: .5px;
             cursor: pointer; transition: .2s;
