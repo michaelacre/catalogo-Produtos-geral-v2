@@ -35,10 +35,7 @@ const PRODUTOS = [
     peso: "20 KG",
     conserva: "MANTENHA RESFRIADO DE 0°C A 7°C",
     promo: false,
-    imgs: [
-        "https://i.postimg.cc/g2TVSyBd/106.png",
-        "https://i.postimg.cc/FzkPFTfk/20615-SABBOR-Presunto-3-6-kg-mockup.png"
-    ],
+    imgs: ["https://i.postimg.cc/g2TVSyBd/106.png"],
     desc: "Frango inteiro resfriado, já temperado e pronto para assar, sem miúdos, garantindo praticidade, sabor e suculência no preparo."
 },
   {
