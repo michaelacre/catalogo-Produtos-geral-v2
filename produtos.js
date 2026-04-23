@@ -343,7 +343,7 @@ const PRODUTOS = [
   {
     cod: "101",
     nome: "FRANGO CONGELADO C/MIUDOS",
-    empresa: "FRIPAL",
+    empresa: "ACREAVES",
     marca: "ACREAVES",
     grupo: "INTEIRO",
     tipo: "CONGELADO",
@@ -357,7 +357,7 @@ const PRODUTOS = [
   {
     cod: "102",
     nome: "FRANGO RESFRIADO C/MIUDOS",
-    empresa: "FRIPAL",
+    empresa: "ACREAVES",
     marca: "ACREAVES",
     grupo: "INTEIRO",
     tipo: "RESFRIADO",
