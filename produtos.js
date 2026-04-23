@@ -354,7 +354,7 @@ const PRODUTOS = [
   //══════════════════════════════════════════  
 {
     cod: "20510",
-    nome: "LINGUICA DE FRANGO FINA APIMENTADA",
+    nome: "LINGUIÇAA DE FRANGO FINA APIMENTADA",
     empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "LINGUIÇAS",
@@ -368,7 +368,7 @@ const PRODUTOS = [
   },
   {
     cod: "20511",
-    nome: "LINGUICA TIPO PAIO",
+    nome: "LINGUIÇA TIPO PAIO 12kg",
     empresa: "Dom Porquito",
     marca: "SABBOR",
     grupo: "LINGUIÇAS",
@@ -382,7 +382,7 @@ const PRODUTOS = [
   },
   {
     cod: "20512",
-    nome: "LINGUICA TIPO PAIO",
+    nome: "LINGUIÇA TIPO PAIO 10KG",
     empresa: "Dom Porquito",
     marca: "SABBOR",
     grupo: "LINGUIÇAS",
