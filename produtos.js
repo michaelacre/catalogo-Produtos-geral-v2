@@ -24,7 +24,6 @@ const PRODUTOS = [
   // ══════════════════════════════════════════
 
   {
-   {
     cod: "106",
     nome: "FRANGO RESFRIADO TEMPERADO (ASSAR) S/MÍUDOS",
     empresa: "ACREAVES",
@@ -33,11 +32,11 @@ const PRODUTOS = [
     tipo: "RESFRIADO",
     complemento: "CX C/ 20 KG",
     peso: "20 KG",
-    conserva: "MANTENHA RESFRIADO DE 0°C A 7°C",
+    conserva: "MANTENHA RESFRIADO  DE 0°C A 7°C",
     promo: false,
     imgs: ["https://i.postimg.cc/g2TVSyBd/106.png"],
     desc: "Frango inteiro resfriado, já temperado e pronto para assar, sem miúdos, garantindo praticidade, sabor e suculência no preparo."
-},
+  },
   {
     cod: "225",
     nome: "COXA E SOBRECOXA  CONGELADA SABBOR",
@@ -321,7 +320,7 @@ const PRODUTOS = [
     cod: "115", nome: "AVE NATALINA SABBOR",
     empresa: "ACREAVES", marca: "SABBOR", grupo: "INTEIRO", tipo: "TEMPERADO",
    complemento: "CX C/ 20 KG", peso: "20 KG",
-    conserva: "MANTER CONGELADO A -12°C", promo: false,
+    conserva: "MANTER CONGELADO A -12°C", promo: true,
     imgs: ["https://i.postimg.cc/gjJST0bD/021-V02-SABBOR-AVE-NATALINA-mockup.jpg"],
     desc: "A estrela das celebrações. Ave selecionada com tempero especial Sabbor, garantindo carne suculenta, pele dourada e sabor inconfundível."
   },
@@ -355,7 +354,7 @@ const PRODUTOS = [
   //══════════════════════════════════════════  
 {
     cod: "20510",
-    nome: "LINGUIÇAA DE FRANGO FINA APIMENTADA",
+    nome: "LINGUICA DE FRANGO FINA APIMENTADA",
     empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "LINGUIÇAS",
@@ -369,7 +368,7 @@ const PRODUTOS = [
   },
   {
     cod: "20511",
-    nome: "LINGUIÇA TIPO PAIO 12kg",
+    nome: "LINGUICA TIPO PAIO",
     empresa: "Dom Porquito",
     marca: "SABBOR",
     grupo: "LINGUIÇAS",
@@ -383,7 +382,7 @@ const PRODUTOS = [
   },
   {
     cod: "20512",
-    nome: "LINGUIÇA TIPO PAIO 10KG",
+    nome: "LINGUICA TIPO PAIO",
     empresa: "Dom Porquito",
     marca: "SABBOR",
     grupo: "LINGUIÇAS",
