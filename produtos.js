@@ -233,49 +233,7 @@ const PRODUTOS = [
     imgs: ["https://i.postimg.cc/MTSPZ77N/SABBOR-Cortes-Coxa-e-sobrecoxa-dorsal-324.png"],
     desc: "Cortes de coxa e sobrecoxa com porção dorsal, congelados, oferecendo ótimo custo-benefício e sabor."
   },
-  {
-    cod: "238", nome: "SOBRECOXA CONGELADA NA BANDEJA",
-    empresa: "ACREAVES", marca: "SABBOR", grupo: "CORTE", tipo: "CONGELADO",
-   complemento: "CX C/ 6 UND", peso: "6 KG",
-    conserva: "MANTER CONGELADO A -12°C", promo: false,
-    imgs: ["https://i.postimg.cc/rsmnPp2B/238-V00-SABBOR-Sobrecoxa-Congelada-mockup-243.jpg"],
-    desc: "Corte suculento e macio, ideal para assados.complemento prática que preserva o frescor e facilita a exposição no freezer."
-  },
-
-{
-    cod: "238", nome: "SOBRECOXA CONGELADA NA BANDEJA",
-    empresa: "ACREAVES", marca: "SABBOR", grupo: "CORTE", tipo: "CONGELADO",
-   complemento: "CX C/ 6 UND", peso: "6 KG",
-    conserva: "MANTER CONGELADO A -12°C", promo: false,
-    imgs: ["https://i.postimg.cc/rsmnPp2B/238-V00-SABBOR-Sobrecoxa-Congelada-mockup-243.jpg"],
-    desc: "Corte suculento e macio, ideal para assados.complemento prática que preserva o frescor e facilita a exposição no freezer."
-  },
-
-  
-  {
-    cod: "237", nome: "PEITO CONGELADO NA BANDEJA",
-    empresa: "ACREAVES", marca: "SABBOR", grupo: "CORTE", tipo: "CONGELADO",
-   complemento: "CX C/ 6 UND", peso: "6 KG",
-    conserva: "CONGELADO A -12°C", promo: false,
-    imgs: ["https://i.postimg.cc/T1w74PvZ/237-V00-SABBOR-Peito-Congelado-mockup-237.jpg"],
-    desc: "O corte mais versátil da cozinha. Peito selecionado com baixo teor de gordura, perfeito para dietas equilibradas e receitas variadas."
-  },
-  {
-    cod: "236", nome: "COXA CONGELADA DE FRANGO NA BANDEJA",
-    empresa: "ACREAVES", marca: "SABBOR", grupo: "CORTE", tipo: "CONGELADO",
-   complemento: "CX C/ 6 UND", peso: "6 KG",
-    conserva: "MANTER CONGELADO A -12°C", promo: false,
-    imgs: ["https://i.postimg.cc/ZnR7MqzX/236-V00-SABBOR-Coxa-Congelada-coxa.jpg"],
-    desc: "Clássico indispensável no dia a dia. Coxas de frango com textura firme e sabor marcante, prontas para o preparo."
-  },
-  {
-    cod: "235", nome: "FRANGO A PASSARINHO CONGELADO NA BANDEJA",
-    empresa: "ACREAVES", marca: "SABBOR", grupo: "CORTE", tipo: "CONGELADO",
-   complemento: "CX C/ 6 UND", peso: "6 KG",
-    conserva: "MANTER CONGELADO A -12°C", promo: false,
-    imgs: ["https://i.postimg.cc/C51PQKpX/235-V00-SABBOR-Frango-a-Passarinho-Congelado-mockup.jpg"],
-    desc: "Cortes padronizados para o petisco perfeito. Facilidade total: do freezer direto para a panela ou airfryer."
-  },
+ 
   {
     cod: "249", nome: "COXINHA DA ASA CONGELADA NA BANDEJA",
     empresa: "ACREAVES", marca: "SABBOR", grupo: "CORTE", tipo: "CONGELADO",
@@ -403,7 +361,7 @@ const PRODUTOS = [
   },
   {
     cod: "20511",
-    nome: "LINGUICA TIPO PAIO",
+    nome: "LINGUIÇA TIPO PAIO 1 KG",
     empresa: "Dom Porquito",
     marca: "SABBOR",
     grupo: "LINGUIÇAS",
@@ -417,7 +375,7 @@ const PRODUTOS = [
   },
   {
     cod: "20512",
-    nome: "LINGUICA TIPO PAIO",
+    nome: "LINGUIÇA TIPO PAIO 3 GOMOS",
     empresa: "Dom Porquito",
     marca: "SABBOR",
     grupo: "LINGUIÇAS",
@@ -445,7 +403,7 @@ const PRODUTOS = [
   },
   {
     cod: "20603",
-    nome: "LINGUICA APERITIVO APIMEN. DE FRANGO RESF.",
+    nome: "LINGUIÇA APERITIVO APIMEN. DE FRANGO RESF.",
     empresa: "Dom Porquito",
     marca: "SABBOR",
     grupo: "LINGUIÇAS",
@@ -459,7 +417,7 @@ const PRODUTOS = [
   },
   {
     cod: "20604",
-    nome: "LINGUICA TIPO CALABRESA SABBOR 2,5 KG",
+    nome: "LINGUIÇA TIPO CALABRESA SABBOR 2,5 KG",
     empresa: "Dom Porquito",
     marca: "SABBOR",
     grupo: "LINGUIÇAS",
@@ -473,7 +431,7 @@ const PRODUTOS = [
   },
   {
     cod: "20606",
-    nome: "LINGUICA TIPO CALABRESA",
+    nome: "LINGUIÇA TIPO CALABRESA 2 GOMOS",
     empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "LINGUIÇAS",
@@ -585,7 +543,7 @@ const PRODUTOS = [
   },
   {
     cod: "20640",
-    nome: "LINGUICA DE FRANGO FINA APIMENTADA 800G",
+    nome: "LINGUIÇA DE FRANGO FINA APIMENTADA 800G",
     empresa: "Dom Porquito",
     marca: "SABBOR",
     grupo: "LINGUIÇAS",
@@ -627,7 +585,7 @@ const PRODUTOS = [
   },
   {
     cod: "20905",
-    nome: "LINGUICA CHURRASCO CONGELADA 800G",
+    nome: "LINGUIÇA CHURRASCO CONGELADA 800G",
     empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "LINGUIÇAS",
@@ -897,21 +855,7 @@ const PRODUTOS = [
   },
 //══════════════════════════════════════════
 
-  {
-    cod: "20510",
-    nome: "LINGUICA DE FRANGO FINA APIMENTADA",
-    empresa: "Dom Porquito",
-    marca: "MISTER PIG",
-    grupo: "LINGUIÇAS",
-    tipo: "CONGELADO",
-    complemento: "(CX C/ 14,40 KG)",
-    peso: "0 KG",
-    conserva: "",
-    promo: false,
-    imgs: ["https://i.postimg.cc/9Mn8j6fM/20510-V00-Mister-Pig-Linguica-de-Frango-Fina-Apimentada-800-g-Congelada-mockup.png"],
-    desc: "MANTENHA CONGELADO A -12\A7C"
-  },
-  
+   
   {
     cod: "20511",
     nome: "LINGUICA TIPO PAIO",
@@ -1052,20 +996,7 @@ const PRODUTOS = [
     imgs: ["https://i.postimg.cc/Vs3wqTWh/20948-V01-Mister-Pig-Linguica-Churrasco-4-kg-Congelada.png"],
     desc: "Linguiça suína para churrasco, congelada para melhor conservação e praticidade."
   },
-  {
-    cod: "20949",
-    nome: "LINGUICA SUINA FINA APIMENTADA 3KG",
-    empresa: "Dom Porquito",
-    marca: "MISTER PIG",
-    grupo: "LINGUIÇAS",
-    tipo: "CONGELADO",
-    complemento: "PV (CX C/ 9 KG)",
-    peso: "15 KG",
-    conserva: "MANTENHA CONGELADA  A -12°C",
-    promo: false,
-    imgs: ["https://i.postimg.cc/CMW0Gt4T/20949-V00-Mister-Pig-Linguica-Suina-Fina-Apimentada-3-kg.png"],
-    desc: "Linguiça suína fina e apimentada em embalagem econômica, ideal para grande consumo."
-  },
+  
   {
     cod: "20986",
     nome: "FRALDINHA SUINA TEMPERADA",
@@ -1161,14 +1092,7 @@ const PRODUTOS = [
     desc: "Carne magra, macia e já temperada. Uma opção saudável e sofisticada que vai direto do pacote para o forno."
   },
   
-  {
-    cod: "20942", nome: "BISTECA SUÍNA",
-    empresa: "Dom Porquito", marca: "MISTER PIG", grupo: "CORTE", tipo: "CONGELADO",
-   complemento: "PV CX C/ 10 KG", peso: "10 KG",
-    conserva: "MANTER CONGELADO A -12°C", promo: false,
-    imgs: ["https://i.postimg.cc/2jWdXcqH/20942.jpg"],
-    desc: "O corte mais tradicional do dia a dia. Carne suculenta com osso, ideal para grelhar ou fritar rapidamente."
-  },
+
   {
     cod: "20949", nome: "LINGUIÇA SUÍNA FINA APIMENTADA 3KG",
     empresa: "Dom Porquito", marca: "MISTER PIG", grupo: "LINGUIÇAS", tipo: "CONGELADO",
@@ -1185,14 +1109,7 @@ const PRODUTOS = [
     imgs: ["https://i.postimg.cc/y6RhrQJr/20986.jpg"],
     desc: "Maciez extrema e tempero pronto para elevar o nível do seu churrasco."
   },
-  {
-    cod: "20948", nome: "LINGUIÇA CHURRASCO SUÍNA CONG.",
-    empresa: "Dom Porquito", marca: "MISTER PIG", grupo: "LINGUIÇAS", tipo: "CONGELADO",
-   complemento: "PV CX C/ 16 KG", peso: "16 KG",
-    conserva: "MANTER CONGELADO A -12°C", promo: false,
-    imgs: ["https://i.postimg.cc/8c5y7Y7p/20948.jpg"],
-    desc: "O sabor clássico do verdadeiro churrasco. Suculenta, bem temperada e com textura ideal para a brasa."
-  },
+
   {
     cod: "20902", nome: "LINGUIÇA SUÍNA FINA APIMENTADA RESF. 4KG",
     empresa: "Dom Porquito", marca: "MISTER PIG", grupo: "LINGUIÇAS", tipo: "RESFRIADO",
