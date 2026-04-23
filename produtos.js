@@ -39,7 +39,6 @@ const PRODUTOS = [
         "https://i.postimg.cc/g2TVSyBd/106.png",
         "https://link-da-segunda-imagem.png",
         "https://i.postimg.cc/FzkPFTfk/20615-SABBOR-Presunto-3-6-kg-mockup.png"],"
-    ],
     desc: "Frango inteiro resfriado, já temperado e pronto para assar, sem miúdos, garantindo praticidade, sabor e suculência no preparo."
 },
   {
