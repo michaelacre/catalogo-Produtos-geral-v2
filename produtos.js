@@ -327,7 +327,7 @@ const PRODUTOS = [
   //══════════════════════════════════════════  
 {
     cod: "20510",
-    nome: "LINGUICA DE FRANGO FINA APIMENTADA",
+    nome: "LINGUIÇA DE FRANGO FINA APIMENTADA",
     empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "LINGUIÇAS",
@@ -579,7 +579,7 @@ const PRODUTOS = [
   },
   {
     cod: "20907",
-    nome: "LINGUICA TIPO CALABRESA MISTER PIG",
+    nome: "LINGUIÇA TIPO CALABRESA MISTER PIG",
     empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "LINGUIÇAS",
@@ -663,7 +663,7 @@ const PRODUTOS = [
   },
   {
     cod: "20943",
-    nome: "LINGUICA SUINA  APIMENTADA RESF. PCT 4 Kg",
+    nome: "LINGUIÇA SUINA  APIMENTADA RESF. PCT 4 Kg",
     empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "LINGUIÇAS",
@@ -677,7 +677,7 @@ const PRODUTOS = [
   },
   {
     cod: "20944",
-    nome: "LINGUICA SUINA  APIMENTADA CONG. PCT 4 Kg",
+    nome: "LINGUIÇA SUINA  APIMENTADA CONG. PCT 4 Kg",
     empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "LINGUIÇAS",
@@ -691,7 +691,7 @@ const PRODUTOS = [
   },
   {
     cod: "20901",
-    nome: "LINGUICA SUINA FINA APIMENTADA 800G",
+    nome: "LINGUIÇA SUINA FINA APIMENTADA 800G",
     empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "LINGUIÇAS",
@@ -705,7 +705,7 @@ const PRODUTOS = [
   },
   {
     cod: "20903",
-    nome: "LINGUICA SUINA  APIMENTADA CONGELADA 800G",
+    nome: "LINGUIÇA SUINA  APIMENTADA CONGELADA 800G",
     empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "LINGUIÇAS",
@@ -763,7 +763,7 @@ const PRODUTOS = [
 
   {
     cod: "20947",
-    nome: "LINGUICA SUINA CHURRASCO",
+    nome: "LINGUIÇA SUINA CHURRASCO",
     empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "LINGUIÇAS",
@@ -778,7 +778,7 @@ const PRODUTOS = [
   
   {
     cod: "20948",
-    nome: "LINGUICA CHURRASCO SUINA CONG.",
+    nome: "LINGUIÇA CHURRASCO SUINA CONG.",
     empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "LINGUIÇAS",
@@ -792,7 +792,7 @@ const PRODUTOS = [
   },
   {
     cod: "20949",
-    nome: "LINGUICA SUINA FINA APIMENTADA 3KG",
+    nome: "LINGUIÇA SUINA FINA APIMENTADA 3KG",
     empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "LINGUIÇAS",
@@ -821,7 +821,7 @@ const PRODUTOS = [
   },
   {
     cod: "20503",
-    nome: "LINGUICA APERITIVO APIMEN. DE FRANGO CONG.",
+    nome: "LINGUIÇA APERITIVO APIMEN. DE FRANGO CONG.",
     empresa: "Dom Porquito",
     marca: "SABBOR",
     grupo: "LINGUIÇAS",
@@ -838,7 +838,7 @@ const PRODUTOS = [
    
   {
     cod: "20511",
-    nome: "LINGUICA TIPO PAIO",
+    nome: "LINGUIÇA TIPO PAIO",
     empresa: "Dom Porquito",
     marca: "SABBOR",
     grupo: "LINGUIÇAS",
@@ -894,7 +894,7 @@ const PRODUTOS = [
   },
   {
     cod: "20901",
-    nome: "LINGUICA SUINA FINA APIMENTADA 800G",
+    nome: "LINGUIÇA SUINA FINA APIMENTADA 800G",
     empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "LINGUIÇAS",
@@ -908,7 +908,7 @@ const PRODUTOS = [
   },
   {
     cod: "20903",
-    nome: "LINGUICA SUINA  APIMENTADA CONGELADA 800G",
+    nome: "LINGUIÇA SUINA  APIMENTADA CONGELADA 800G",
     empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "LINGUIÇAS",
@@ -964,7 +964,7 @@ const PRODUTOS = [
   },
   {
     cod: "20948",
-    nome: "LINGUICA CHURRASCO SUINA CONG.",
+    nome: "LINGUIÇA CHURRASCO SUINA CONG.",
     empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "LINGUIÇAS",
