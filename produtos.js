@@ -349,7 +349,7 @@ const PRODUTOS = [
     nome: "FRANGO CONGELADO SABBOR",
     empresa: "ACREAVES",
     marca: "SABBOR",
-    grupo: "CORTE",
+    grupo: "INTEIRO",
     tipo: "CONGELADO",
     complemento: "CX C/ 18 KG",
     peso: "18 KG",
