@@ -18,12 +18,10 @@
 // ============================================================
 
 const PRODUTOS = [
-
   // ══════════════════════════════════════════
   //  ACREAVES
   // ══════════════════════════════════════════
 
-  
   {
     cod: "225",
     nome: "COXA E SOBRECOXA  CONGELADA SABBOR",
@@ -220,61 +218,101 @@ const PRODUTOS = [
     imgs: ["https://i.postimg.cc/MTSPZ77N/SABBOR-Cortes-Coxa-e-sobrecoxa-dorsal-324.png"],
     desc: "Cortes de coxa e sobrecoxa com porção dorsal, congelados, oferecendo ótimo custo-benefício e sabor."
   },
- 
   {
-    cod: "249", nome: "COXINHA DA ASA CONGELADA NA BANDEJA",
-    empresa: "ACREAVES", marca: "SABBOR", grupo: "CORTE", tipo: "CONGELADO",
-   complemento: "CX C/ 6 UND", peso: "6 KG",
-    conserva: "MANTER CONGELADO A -12°C", promo: false,
+    cod: "249",
+    nome: "COXINHA DA ASA CONGELADA NA BANDEJA",
+    empresa: "ACREAVES",
+    marca: "SABBOR",
+    grupo: "CORTE",
+    tipo: "CONGELADO",
+    complemento: "CX C/ 6 UND",
+    peso: "6 KG",
+    conserva: "MANTER CONGELADO A -12°C",
+    promo: false,
     imgs: ["https://i.postimg.cc/kG41p5PH/234-V00-SABBOR-Coxinha-da-Asa-Congelada-mockup.jpg"],
     desc: "O corte favorito do churrasco e do happy hour. Carnuda e saborosa, com padronização de tamanho na bandeja."
   },
   {
-    cod: "248", nome: "FILÉ DA COXA CONGELADO NA BANDEJA",
-    empresa: "ACREAVES", marca: "SABBOR", grupo: "CORTE", tipo: "CONGELADO",
-   complemento: "CX C/ 6 UND", peso: "6 KG",
-    conserva: "MANTER CONGELADO A -12°C", promo: false,
+    cod: "248",
+    nome: "FILÉ DA COXA CONGELADO NA BANDEJA",
+    empresa: "ACREAVES",
+    marca: "SABBOR",
+    grupo: "CORTE",
+    tipo: "CONGELADO",
+    complemento: "CX C/ 6 UND",
+    peso: "6 KG",
+    conserva: "MANTER CONGELADO A -12°C",
+    promo: false,
     imgs: ["https://i.postimg.cc/nrzRPLfw/233-V00-SABBOR-File-de-Coxa-e-Sobrecoxa-Congelado-mockup.jpg"],
     desc: "Sabor da coxa com a praticidade do filé. Sem ossos e peles, ideal para grelhados rápidos e estrogonofe suculento."
   },
   {
-    cod: "247", nome: "COXA E SOBRECOXA CONGELADA NA BANDEJA",
-    empresa: "ACREAVES", marca: "SABBOR", grupo: "CORTE", tipo: "CONGELADO",
-   complemento: "CX C/ 6 UND", peso: "6 KG",
-    conserva: "MANTER CONGELADO A -12°C", promo: false,
+    cod: "247",
+    nome: "COXA E SOBRECOXA CONGELADA NA BANDEJA",
+    empresa: "ACREAVES",
+    marca: "SABBOR",
+    grupo: "CORTE",
+    tipo: "CONGELADO",
+    complemento: "CX C/ 6 UND",
+    peso: "6 KG",
+    conserva: "MANTER CONGELADO A -12°C",
+    promo: false,
     imgs: ["https://i.postimg.cc/4ydLS3R8/232-V00-SABBOR-Coxa-e-Sobrecoxa-Congelada-mockup.jpg"],
     desc: "O combo perfeito de rendimento e sabor. Peças selecionadas que garantem uma refeição completa para toda a família."
   },
   {
-    cod: "246", nome: "MEIO DA ASA CONGELADA NA BANDEJA",
-    empresa: "ACREAVES", marca: "SABBOR", grupo: "CORTE", tipo: "CONGELADO",
-   complemento: "CX C/ 6 UND", peso: "6 KG",
-    conserva: "MANTER CONGELADO A -12°C", promo: false,
+    cod: "246",
+    nome: "MEIO DA ASA CONGELADA NA BANDEJA",
+    empresa: "ACREAVES",
+    marca: "SABBOR",
+    grupo: "CORTE",
+    tipo: "CONGELADO",
+    complemento: "CX C/ 6 UND",
+    peso: "6 KG",
+    conserva: "MANTER CONGELADO A -12°C",
+    promo: false,
     imgs: ["https://i.postimg.cc/QCt4yMZS/231-V00-SABBOR-Meio-da-Asa-Congelada-mockup.jpg"],
     desc: "Qualidade premium para quem busca o melhor da asa (Tulipa). Ideal para receitas especiais e preparos crocantes."
   },
   {
-    cod: "245", nome: "FILÉ DE PEITO CONGELADO NA BANDEJA",
-    empresa: "ACREAVES", marca: "SABBOR", grupo: "CORTE", tipo: "CONGELADO",
-   complemento: "CX C/ 6 UND", peso: "6 KG",
-    conserva: "CONGELADO A -12°C", promo: false,
+    cod: "245",
+    nome: "FILÉ DE PEITO CONGELADO NA BANDEJA",
+    empresa: "ACREAVES",
+    marca: "SABBOR",
+    grupo: "CORTE",
+    tipo: "CONGELADO",
+    complemento: "CX C/ 6 UND",
+    peso: "6 KG",
+    conserva: "CONGELADO A -12°C",
+    promo: false,
     imgs: ["https://i.postimg.cc/90M8nfHY/230-V00-SABBOR-File-de-Peito-Congelado-mockup.jpg"],
     desc: "Praticidade máxima: filés limpos e padronizados. Ideal para o consumidor que busca rapidez e zero desperdício."
   },
   {
-    cod: "115", nome: "AVE NATALINA SABBOR",
-    empresa: "ACREAVES", marca: "SABBOR", grupo: "INTEIRO", tipo: "TEMPERADO",
-   complemento: "CX C/ 20 KG", peso: "20 KG",
-    conserva: "MANTER CONGELADO A -12°C", promo: false,
+    cod: "115",
+    nome: "AVE NATALINA SABBOR",
+    empresa: "ACREAVES",
+    marca: "SABBOR",
+    grupo: "INTEIRO",
+    tipo: "TEMPERADO",
+    complemento: "CX C/ 20 KG",
+    peso: "20 KG",
+    conserva: "MANTER CONGELADO A -12°C",
+    promo: false,
     imgs: ["https://i.postimg.cc/gjJST0bD/021-V02-SABBOR-AVE-NATALINA-mockup.jpg"],
     desc: "A estrela das celebrações. Ave selecionada com tempero especial Sabbor, garantindo carne suculenta, pele dourada e sabor inconfundível."
   },
- 
   {
-    cod: "105", nome: "GALINHA CONGELADA C/ MIÚDOS",
-    empresa: "ACREAVES", marca: "ACREAVES", grupo: "CORTE", tipo: "CONGELADO",
-   complemento: "CX C/ 18 KG", peso: "18 KG",
-    conserva: "MANTER CONGELADO A -12°C", promo: false,
+    cod: "105",
+    nome: "GALINHA CONGELADA C/ MIÚDOS",
+    empresa: "ACREAVES",
+    marca: "ACREAVES",
+    grupo: "CORTE",
+    tipo: "CONGELADO",
+    complemento: "CX C/ 18 KG",
+    peso: "18 KG",
+    conserva: "MANTER CONGELADO A -12°C",
+    promo: false,
     imgs: ["https://i.postimg.cc/mZSDzkRK/105-Galinha-congelada-Acreaves-Copia-removebg-preview.png"],
     desc: "Sabor autêntico e marcante para receitas tradicionais. Ideal para caldos ricos e cozidos de cozimento lento que exigem mais consistência e aroma."
   },
@@ -324,8 +362,8 @@ const PRODUTOS = [
   // ══════════════════════════════════════════
   //  DOM PORQUITO
   // ══════════════════════════════════════════
-  //══════════════════════════════════════════  
-{
+
+  {
     cod: "20510",
     nome: "LINGUIÇA DE FRANGO FINA APIMENTADA",
     empresa: "Dom Porquito",
@@ -759,8 +797,6 @@ const PRODUTOS = [
     imgs: ["https://i.postimg.cc/59ZJBGS5/20942-V00-Mister-Pig-Bisteca-Suina-Congelada-mockup.png"],
     desc: "Corte tradicional suíno, versátil e saboroso, ideal para fritar ou grelhar."
   },
-  
-
   {
     cod: "20947",
     nome: "LINGUIÇA SUINA CHURRASCO",
@@ -775,7 +811,6 @@ const PRODUTOS = [
     imgs: ["https://i.postimg.cc/66DKrSfz/20947-V01-Mister-Pig-Linguica-Churrasco-4-kg-Resfriada.png"],
     desc: "Linguiça suína ideal para churrasco, com sabor marcante e ótima suculência."
   },
-  
   {
     cod: "20948",
     nome: "LINGUIÇA CHURRASCO SUINA CONG.",
@@ -804,7 +839,6 @@ const PRODUTOS = [
     imgs: ["https://i.postimg.cc/CMW0Gt4T/20949-V00-Mister-Pig-Linguica-Suina-Fina-Apimentada-3-kg.png"],
     desc: "Linguiça suína fina e apimentada em embalagem econômica, ideal para grande consumo."
   },
-
   {
     cod: "20986",
     nome: "FRALDINHA SUINA TEMPERADA",
@@ -833,279 +867,54 @@ const PRODUTOS = [
     imgs: ["https://i.postimg.cc/63mjNkQp/20503-V01-SABBOR-Linguica-de-Frango-Fina-Apimentada-Congelada-2-5-kg.png"],
     desc: "Linguiça de frango levemente apimentada, prática e saborosa, ideal para petiscos e aperitivos. Produto congelado."
   },
-//══════════════════════════════════════════
-
-   
-  
   {
-    cod: "20561",
-    nome: "FILE DA PANCETA SUINA TEMPERADA",
-    empresa: "Dom Porquito",
-    marca: "MISTER PIG",
-    grupo: "CORTE",
-    tipo: "TEMPERADO",
-    complemento: "PV (CX C/ 10 KG)",
-    peso: "16 KG",
-    conserva: "MANTENHA CONGELADO A -12°C",
-    promo: false,
-    imgs: ["https://i.postimg.cc/NF2NGdyB/20561-V01-Mister-Pig-File-de-Panceta-Suina-Temperada-Congelada-mockup.png"],
-    desc: "Corte nobre da panceta suína, já temperado, ideal para assados crocantes e suculentos."
-  },
-  {
-    cod: "20562",
-    nome: "PERNIL SUINO TEMPERADO",
-    empresa: "Dom Porquito",
-    marca: "MISTER PIG",
-    grupo: "CORTE",
-    tipo: "TEMPERADO",
-    complemento: "PV (CX C/ 20 KG)",
-    peso: "16 KG",
-    conserva: "MANTENHA CONGELADO A -12°C",
-    promo: false,
-    imgs: ["https://i.postimg.cc/Vv07sKSY/20562-V01-Mister-Pig-Pernil-Suino-Temperado-Congelado.png"],
-    desc: "Pernil suíno selecionado e temperado, pronto para assar, garantindo maciez e sabor caseiro."
-  },
-  {
-    cod: "20615",
-    nome: "PRESUNTO COZIDO SABBOR 3.6KG",
-    empresa: "Dom Porquito",
-    marca: "SABBOR",
-    grupo: "CORTE",
-    tipo: "RESFRIADO",
-    complemento: "PV (CX  C/ 10,80 KG)",
-    peso: "10,8 KG",
-    conserva: "MANTENHA RESFRIADO  DE 0°C A +7°C",
-    promo: false,
-    imgs: ["https://i.postimg.cc/FzkPFTfk/20615-SABBOR-Presunto-3-6-kg-mockup.png"],
-    desc: "Presunto cozido de alta qualidade, sabor suave e textura macia, ideal para fatiamento."
-  },
-  {
-    cod: "20901",
-    nome: "LINGUIÇA SUINA FINA APIMENTADA 800G",
-    empresa: "Dom Porquito",
-    marca: "MISTER PIG",
-    grupo: "LINGUIÇAS",
-    tipo: "CONGELADO",
-    complemento: "PV (CX C/ 14.4 KG)",
-    peso: "14,4 KG",
-    conserva: "MANTENHA CONGELADO A -12°C",
-    promo: false,
-    imgs: ["https://i.postimg.cc/MXk9n1Rg/20901-V01-Mister-Pig-Linguica-Suina-Fina-Apimentada-800-g-Congelada-mockup.png"],
-    desc: "Linguiça suína fina com toque picante, ideal para churrascos e grelhados."
-  },
-  {
-    cod: "20903",
-    nome: "LINGUIÇA SUINA  APIMENTADA CONGELADA 800G",
-    empresa: "Dom Porquito",
-    marca: "MISTER PIG",
-    grupo: "LINGUIÇAS",
-    tipo: "CONGELADO",
-    complemento: "(CX C/ 14.4 KG)",
-    peso: "14,4 KG",
-    conserva: "MANTENHA CONGELADO A -12°C",
-    promo: false,
-    imgs: ["https://i.postimg.cc/PNGSC1Yk/20903-V01-Mister-Pig-Linguica-Suina-Apimentada-800-g-Congelada-mockup.png"],
-    desc: "Linguiça suína apimentada, congelada para maior conservação, com sabor marcante."
-  },
-  {
-    cod: "20916",
-    nome: "LOMBO SUINO TEMPERADO",
-    empresa: "Dom Porquito",
-    marca: "MISTER PIG",
-    grupo: "CORTE",
-    tipo: "TEMPERADO",
-    complemento: "PV (CX C/ 10 KG)",
-    peso: "10 KG",
-    conserva: "MANTENHA CONGEADA A -12°C",
-    promo: false,
-    imgs: ["https://i.postimg.cc/2jqmBmhd/20916-V01-Mister-Pig-Lombo-Suino-Temperado-Congelado.png"],
-    desc: "Lombo suíno selecionado, já temperado, ideal para assar ou grelhar."
-  },
-  {
-    cod: "20931",
-    nome: "BACON EM MANTA MISTER PIG",
+    cod: "20677",
+    nome: "MINI MORTADELA TIPO BOLOGNA",
     empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "CORTE",
     tipo: "DEFUMADOS",
-    complemento: "PV (CX C/ 15 KG)",
-    peso: "15 KG",
-    conserva: "MANTENHA EM LOCAL SECO E FRESCO ATE 25°C",
-    promo: false,
-    imgs: ["https://i.postimg.cc/v81M6Mfv/20931-V01-Mister-Pig-Bacon-Manta.png"],
-    desc: "Bacon em manta de alta qualidade, ideal para cortes personalizados e diversas receitas."
-  },
-  {
-    cod: "20942",
-    nome: "BISTECA SUINA",
-    empresa: "Dom Porquito",
-    marca: "MISTER PIG",
-    grupo: "CORTE",
-    tipo: "CONGELADO",
-    complemento: "PV (CX C/ 10 KG)",
-    peso: "10 CX",
-    conserva: "MANTENHA CONGELADO A -12°C",
-    promo: false,
-    imgs: ["https://i.postimg.cc/59ZJBGS5/20942-V00-Mister-Pig-Bisteca-Suina-Congelada-mockup.png"],
-    desc: "Corte tradicional suíno, versátil e saboroso, ideal para fritar ou grelhar."
-  },
-  {
-    cod: "20948",
-    nome: "LINGUIÇA CHURRASCO SUINA CONG.",
-    empresa: "Dom Porquito",
-    marca: "MISTER PIG",
-    grupo: "LINGUIÇAS",
-    tipo: "CONGELADO",
-    complemento: "PV (CX C/ 16 KG)",
-    peso: "16 KG",
-    conserva: "MANTENHA CONGELADO A -12°C",
-    promo: false,
-    imgs: ["https://i.postimg.cc/Vs3wqTWh/20948-V01-Mister-Pig-Linguica-Churrasco-4-kg-Congelada.png"],
-    desc: "Linguiça suína para churrasco, congelada para melhor conservação e praticidade."
-  },
-  
-  {
-    cod: "20986",
-    nome: "FRALDINHA SUINA TEMPERADA",
-    empresa: "Dom Porquito",
-    marca: "MISTER PIG",
-    grupo: "CORTE",
-    tipo: "TEMPERADO",
-    complemento: "PV (CX C/ 10 KG)",
+    complemento: "PV CX C/ 10 KG",
     peso: "10 KG",
-    conserva: "MANTENHA CONGELADO A -12°C",
+    conserva: "MANTER RESFRIADO 0°C A +7°C",
     promo: false,
-    imgs: ["https://i.postimg.cc/8kqGR3bT/20986-V01-Mister-Pig-Fraldinha-Suina-Temperada-Congelada-mockup.png"],
-    desc: "Corte suíno selecionado, já temperado, ideal para preparo rápido com sabor marcante e suculência garantida."
-  },
-  {
-    cod: "20510", nome: "LINGUIÇA DE FRANGO FINA APIMENTADA",
-    empresa: "Dom Porquito", marca: "MISTER PIG", grupo: "LINGUIÇAS", tipo: "CONGELADO",
-   complemento: "CX C/ 14,40 KG", peso: "14,40 KG",
-    conserva: "MANTER CONGELADO A -12°C", promo: false,
-    imgs: ["https://i.postimg.cc/3N2g4N5x/20510.jpg"],
-    desc: "Equilíbrio perfeito entre a leveza do frango e o toque picante. Ideal para aperitivos rápidos e grelhados."
-  },
-  {
-    cod: "20511", nome: "LINGUIÇA TIPO PAIO",
-    empresa: "Dom Porquito", marca: "SABBOR", grupo: "LINGUIÇAS", tipo: "DEFUMADOS",
-   complemento: "CX C/ 12,00 KG", peso: "12 KG",
-    conserva: "LOCAL SECO E FRESCO ATÉ +22°C", promo: false,
-    imgs: ["https://i.postimg.cc/rs5S0sXz/20511.jpg"],
-    desc: "Sabor defumado intenso e textura firme. Ingrediente indispensável para uma feijoada de respeito ou caldos encorpados."
-  },
-  {
-    cod: "20561", nome: "FILÉ DA PANCETA SUÍNA TEMPERADA",
-    empresa: "Dom Porquito", marca: "MISTER PIG", grupo: "CORTE", tipo: "TEMPERADO",
-   complemento: "PV CX C/ 10 KG", peso: "16 KG",
-    conserva: "MANTER CONGELADO A -12°C", promo: false,
-    imgs: ["https://i.postimg.cc/HnbQcnDL/20561.jpg"],
-    desc: "A estrela do churrasco: suculência da panceta com tempero exclusivo. Pronta para assar até atingir a pururuca perfeita."
-  },
-  {
-    cod: "20562", nome: "PERNIL SUÍNO TEMPERADO",
-    empresa: "Dom Porquito", marca: "MISTER PIG", grupo: "CORTE", tipo: "TEMPERADO",
-   complemento: "PV CX C/ 20 KG", peso: "16 KG",
-    conserva: "MANTER CONGELADO A -12°C", promo: false,
-    imgs: ["https://i.postimg.cc/Gtvk8twt/20562.jpg"],
-    desc: "Corte clássico e macio com tempero de ervas finas. Praticidade total para o almoço de domingo ou ocasiões especiais."
-  },
-  {
-    cod: "20618", nome: "LANCHE",
-    empresa: "Dom Porquito", marca: "SABBOR", grupo: "CORTE", tipo: "RESFRIADO",
-   complemento: "PV CX C/ 10 KG", peso: "10 KG",
-    conserva: "MANTER RESFRIADO 0°C A +7°C", promo: false,
-    imgs: ["https://i.postimg.cc/T1nrL1Mp/20618.jpg"],
-    desc: "Qualidade e rendimento para o dia a dia. Ideal para fatiar e utilizar em sanduíches, pizzas e receitas rápidas."
-  },
-  {
-    cod: "20677", nome: "MINI MORTADELA TIPO BOLOGNA",
-    empresa: "Dom Porquito", marca: "MISTER PIG", grupo: "CORTE", tipo: "DEFUMADOS",
-   complemento: "PV CX C/ 10 KG", peso: "10 KG",
-    conserva: "MANTER RESFRIADO 0°C A +7°C", promo: false,
     imgs: ["https://i.postimg.cc/D01qJ0kW/20677.jpg"],
     desc: "Tradição em formato prático. Sabor marcante e textura delicada, perfeita para tábuas de frios e lanches gourmet."
   },
   {
-    cod: "20856", nome: "FRALDINHA SUÍNA TEMPERADA",
-    empresa: "Dom Porquito", marca: "MISTER PIG", grupo: "CORTE", tipo: "TEMPERADO",
-   complemento: "PV CX C/ 10 KG", peso: "10 KG",
-    conserva: "MANTER RESFRIADO 0°C A +7°C", promo: false,
+    cod: "20856",
+    nome: "FRALDINHA SUÍNA TEMPERADA",
+    empresa: "Dom Porquito",
+    marca: "MISTER PIG",
+    grupo: "CORTE",
+    tipo: "TEMPERADO",
+    complemento: "PV CX C/ 10 KG",
+    peso: "10 KG",
+    conserva: "MANTER RESFRIADO 0°C A +7°C",
+    promo: false,
     imgs: ["https://i.postimg.cc/VvXjrvQr/20856.jpg"],
     desc: "Corte nobre e extremamente macio. O tempero suave realça o sabor natural da carne suína. Sucesso garantido na brasa."
   },
   {
-    cod: "20901", nome: "LINGUIÇA SUÍNA FINA APIMENTADA 800G",
-    empresa: "Dom Porquito", marca: "MISTER PIG", grupo: "LINGUIÇAS", tipo: "CONGELADO",
-   complemento: "PV CX C/ 14,4 KG", peso: "14,4 KG",
-    conserva: "MANTER CONGELADO A -12°C", promo: false,
-    imgs: ["https://i.postimg.cc/rs5S0sXR/20901.jpg"],
-    desc: "Formato fino que garante cozimento uniforme e rápido. Picância na medida certa para quem busca um sabor extra."
-  },
-  {
-    cod: "20903", nome: "LINGUIÇA SUÍNA APIMENTADA CONGELADA 800G",
-    empresa: "Dom Porquito", marca: "MISTER PIG", grupo: "LINGUIÇAS", tipo: "CONGELADO",
-   complemento: "CX C/ 14,4 KG", peso: "14,4 KG",
-    conserva: "MANTER CONGELADO A -12°C", promo: false,
-    imgs: ["https://i.postimg.cc/kMSNh1VN/20903.jpg"],
-    desc: "Tradicional e picante. Ideal para o churrasco entre amigos, comcomplemento de tamanho ideal."
-  },
-  {
-    cod: "20916", nome: "LOMBO SUÍNO TEMPERADO",
-    empresa: "Dom Porquito", marca: "MISTER PIG", grupo: "CORTE", tipo: "TEMPERADO",
-   complemento: "PV CX C/ 10 KG", peso: "10 KG",
-    conserva: "MANTER CONGELADO A -12°C", promo: false,
-    imgs: ["https://i.postimg.cc/9X9PN84J/20916.jpg"],
-    desc: "Carne magra, macia e já temperada. Uma opção saudável e sofisticada que vai direto do pacote para o forno."
-  },
-  
-
-  {
-    cod: "20949", nome: "LINGUIÇA SUÍNA FINA APIMENTADA 3KG",
-    empresa: "Dom Porquito", marca: "MISTER PIG", grupo: "LINGUIÇAS", tipo: "CONGELADO",
-   complemento: "PV CX C/ 9 KG", peso: "15 KG",
-    conserva: "MANTER CONGELADO A -12°C", promo: false,
-    imgs: ["https://i.postimg.cc/2jWdXcqc/20949.jpg"],
-    desc: "Embalagem institucional com o melhor custo-benefício. Perfeita para eventos, bares e restaurantes."
-  },
-  {
-    cod: "20986", nome: "FRALDINHA SUÍNA TEMPERADA",
-    empresa: "Dom Porquito", marca: "MISTER PIG", grupo: "CORTE", tipo: "TEMPERADO",
-   complemento: "PV CX C/ 10 KG", peso: "10 KG",
-    conserva: "MANTER CONGELADO A -12°C", promo: false,
-    imgs: ["https://i.postimg.cc/y6RhrQJr/20986.jpg"],
-    desc: "Maciez extrema e tempero pronto para elevar o nível do seu churrasco."
-  },
-
-  {
-    cod: "20902", nome: "LINGUIÇA SUÍNA FINA APIMENTADA RESF. 4KG",
-    empresa: "Dom Porquito", marca: "MISTER PIG", grupo: "LINGUIÇAS", tipo: "RESFRIADO",
-   complemento: "PV CX C/ 16 KG", peso: "16 KG",
-    conserva: "MANTER RESFRIADO 0°C A +7°C", promo: false,
+    cod: "20902",
+    nome: "LINGUIÇA SUÍNA FINA APIMENTADA RESF. 4KG",
+    empresa: "Dom Porquito",
+    marca: "MISTER PIG",
+    grupo: "LINGUIÇAS",
+    tipo: "RESFRIADO",
+    complemento: "PV CX C/ 16 KG",
+    peso: "16 KG",
+    conserva: "MANTER RESFRIADO 0°C A +7°C",
+    promo: false,
     imgs: ["https://i.postimg.cc/dVx2HRSw/20902.png"],
     desc: "Equilíbrio perfeito entre a suculência da carne suína selecionada e um toque de pimenta na medida certa. Formato fino, ideal para grelhas, chapas ou como aperitivo diferenciado em churrascos."
-  },
-  {
-    cod: "20615", nome: "PRESUNTO COZIDO SABBOR 3,6KG",
-    empresa: "Dom Porquito", marca: "SABBOR", grupo: "CORTE", tipo: "RESFRIADO",
-   complemento: "PV CX C/ 10,80 KG", peso: "10,8 KG",
-    conserva: "MANTER RESFRIADO 0°C A +7°C", promo: false,
-    imgs: ["https://i.postimg.cc/x14vxGF2/20615.png"],
-    desc: "Presunto de alta qualidade com cortes selecionados, textura macia e fatiamento perfeito. Sabor suave e tradicional, ideal para lanches, tábuas de frios e receitas gastronômicas."
-  },
-  {
-    cod: "20931", nome: "BACON EM MANTA MISTER PIG",
-    empresa: "Dom Porquito", marca: "MISTER PIG", grupo: "CORTE", tipo: "DEFUMADOS",
-   complemento: "PV CX C/ 15 KG", peso: "15 KG",
-    conserva: "LOCAL SECO E FRESCO ATÉ 25°C", promo: false,
-    imgs: ["https://i.postimg.cc/D0ZCSNSw/20931.jpg"],
-    desc: "Corte nobre com defumação artesanal superior. Proporção perfeita entre carne e gordura, garantindo muito mais sabor e aroma."
   },
 
   // ══════════════════════════════════════════
   //  FRIPAL
   // ══════════════════════════════════════════
-{
+
+  {
     cod: "481",
     nome: "BATATA CRISPY COATED PREMIUM 10mm 12kg",
     empresa: "FRIPAL",
@@ -1189,7 +998,6 @@ const PRODUTOS = [
     imgs: ["https://i.postimg.cc/RCTF6h4v/461-MANTEIGA-SABBOR-200G.png"],
     desc: "A clássica Manteiga Sabbor em embalagem compacta e prática. Perfeita para o consumo diário, garante frescor e cremosidade em cada uso. Possui o equilíbrio ideal de sal para realçar o sabor dos seus cafés da manhã e lanches."
   },
-  
   {
     cod: "624",
     nome: "BACON FATIADO CONGELADO",
@@ -1305,5 +1113,4 @@ const PRODUTOS = [
   //   imgs: ["URL_DA_FOTO"],
   //   desc: "Descrição comercial."
   // },
-
 ];
