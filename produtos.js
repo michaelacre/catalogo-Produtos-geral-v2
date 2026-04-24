@@ -316,20 +316,7 @@ const PRODUTOS = [
     imgs: ["https://i.postimg.cc/mZSDzkRK/105-Galinha-congelada-Acreaves-Copia-removebg-preview.png"],
     desc: "Sabor autêntico e marcante para receitas tradicionais. Ideal para caldos ricos e cozidos de cozimento lento que exigem mais consistência e aroma."
   },
-  {
-    cod: "101",
-    nome: "FRANGO CONGELADO C/MIUDOS",
-    empresa: "ACREAVES",
-    marca: "ACREAVES",
-    grupo: "INTEIRO",
-    tipo: "CONGELADO",
-    complemento: "CX C/ 20 KG",
-    peso: "20 KG",
-    conserva: "MANTENHA CONGELADO A -12°C",
-    promo: false,
-    imgs: ["https://i.postimg.cc/Hn3sfZBS/101-Frango-Congelado-Acreaves-2-Copia-removebg-preview.png"],
-    desc: "Frango inteiro de alta qualidade, com miúdos inclusos, congelado através de processo que preserva o sabor e os nutrientes. Ideal para estoques domésticos ou comerciais, garantindo praticidade e segurança alimentar por mais tempo."
-  },
+ 
   {
     cod: "102",
     nome: "FRANGO RESFRIADO C/MIUDOS",
