@@ -899,7 +899,7 @@ const PRODUTOS = [
     cod: "20902",
     nome: "LINGUIÇA SUÍNA FINA APIMENTADA RESF. 4KG",
     empresa: "Dom Porquito",
-    marca: "MISTER PIG",
+    marca: "SABBOR",
     grupo: "LINGUIÇAS",
     tipo: "RESFRIADO",
     complemento: "PV CX C/ 16 KG",
