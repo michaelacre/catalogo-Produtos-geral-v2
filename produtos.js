@@ -836,20 +836,7 @@ const PRODUTOS = [
 //══════════════════════════════════════════
 
    
-  {
-    cod: "20511",
-    nome: "LINGUIÇA TIPO PAIO",
-    empresa: "Dom Porquito",
-    marca: "SABBOR",
-    grupo: "LINGUIÇAS",
-    tipo: "DEFUMADOS",
-    complemento: "(CX C/ 12,00 KG)",
-    peso: "0 KG",
-    conserva: "MANTENHA EM LOCAL SECO E FRESCO ATE +22°C",
-    promo: false,
-    imgs: ["https://i.postimg.cc/rmPnLBpp/20511-V01-SABBOR-Linguica-Paio-1-kg.png"],
-    desc: "Linguiça tipo paio, sabor defumado tradicional, ideal para feijoadas e pratos típicos."
-  },
+  
   {
     cod: "20561",
     nome: "FILE DA PANCETA SUINA TEMPERADA",
