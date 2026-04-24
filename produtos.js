@@ -307,7 +307,7 @@ const PRODUTOS = [
     nome: "GALINHA CONGELADA C/ MIÚDOS",
     empresa: "ACREAVES",
     marca: "ACREAVES",
-    grupo: "CORTE",
+    grupo: "INTEIRO",
     tipo: "CONGELADO",
     complemento: "CX C/ 18 KG",
     peso: "18 KG",
