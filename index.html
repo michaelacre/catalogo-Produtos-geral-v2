@@ -23,29 +23,84 @@
             --radius: 20px;
             --shadow: 0 4px 24px rgba(0,0,0,.07);
             --shadow-hover: 0 12px 40px rgba(0,0,0,.14);
+            --nav-h: 68px;
         }
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
         html { scroll-behavior: auto; }
-        body { font-family: 'Outfit', sans-serif; background: var(--bg); color: var(--text); padding-bottom: 100px; }
-        /* Desabilitar scroll suave ao fazer busca */
-        body.searching { scroll-behavior: auto; }
+        body { font-family: 'Outfit', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
 
         /* ══════════════════════════════════════
-           CAPA HERO — CSS PURO, SEM IMAGEM
+           SISTEMA DE ABAS — telas independentes
         ══════════════════════════════════════ */
+        .tela {
+            display: none;
+            opacity: 0;
+            transition: opacity .28s ease;
+            min-height: calc(100vh - var(--nav-h));
+            padding-bottom: calc(var(--nav-h) + 20px);
+        }
+        .tela.ativa {
+            display: block;
+            animation: fadeIn .28s ease forwards;
+        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* ══════════════════════════════════════
+           BOTTOM NAVIGATION
+        ══════════════════════════════════════ */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0; left: 0; right: 0;
+            height: var(--nav-h);
+            background: rgba(26,8,5,.97);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(200,151,58,.2);
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            z-index: 500;
+            padding: 0 8px;
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+        .nav-btn {
+            display: flex; flex-direction: column; align-items: center; gap: 4px;
+            background: none; border: none; cursor: pointer;
+            padding: 8px 20px; border-radius: 14px;
+            transition: all .2s ease; flex: 1; max-width: 120px;
+            color: rgba(255,255,255,.35);
+            font-family: 'Outfit', sans-serif;
+        }
+        .nav-btn svg { transition: all .2s ease; }
+        .nav-btn span {
+            font-size: 10px; font-weight: 700; letter-spacing: .5px;
+            text-transform: uppercase; transition: all .2s;
+        }
+        .nav-btn.ativo {
+            color: var(--gold);
+            background: rgba(200,151,58,.1);
+        }
+        .nav-btn.ativo svg { filter: drop-shadow(0 0 6px rgba(200,151,58,.6)); }
+        .nav-btn:active { transform: scale(.92); }
+
+        /* ══════════════════════════════════════
+           TELA HOME — CAPA HERO
+        ══════════════════════════════════════ */
+        #tela-home {
+            min-height: 100vh;
+            background: #1a0a05;
+        }
         .hero {
             position: relative;
             width: 100%;
-            min-height: 100svh;
+            min-height: calc(100vh - var(--nav-h));
             background: #1a0a05;
             overflow: hidden;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 40px 20px;
+            padding: 40px 20px 60px;
         }
-        /* Fundo textura */
         .hero::before {
             content: '';
             position: absolute; inset: 0;
@@ -55,7 +110,6 @@
                 radial-gradient(ellipse 50% 50% at 0% 60%, rgba(192,57,43,.2) 0%, transparent 60%);
             z-index: 0;
         }
-        /* Grade decorativa */
         .hero::after {
             content: '';
             position: absolute; inset: 0;
@@ -101,59 +155,26 @@
             margin-bottom: 44px;
         }
         .hero-brand-pill {
-            background: rgba(255,255,255,0.05); 
+            background: rgba(255,255,255,0.05);
             border: 1px solid rgba(255,255,255,0.1);
-            color: rgba(255,255,255,0.8); 
-            font-size: 11px; 
-            font-weight: 700; 
-            letter-spacing: 1px;
-            text-transform: uppercase; 
-            padding: 15px; 
-            border-radius: 18px; 
-            backdrop-filter: blur(4px);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 12px; 
-            min-width: 125px;
-            transition: all 0.3s ease;
+            color: rgba(255,255,255,0.8);
+            font-size: 11px; font-weight: 700; letter-spacing: 1px;
+            text-transform: uppercase; padding: 15px;
+            border-radius: 18px; backdrop-filter: blur(4px);
+            display: flex; flex-direction: column; align-items: center; gap: 12px;
+            min-width: 125px; transition: all 0.3s ease;
         }
-
-        .hero-brand-pill:hover {
-            background: rgba(255,255,255,0.1);
-            transform: translateY(-3px);
-        }
-
-        .hero-brand-pill img {
-            height: 45px; /* Aumentamos para as logos aparecerem melhor */
-            width: auto;
-            object-fit: contain;
-            /* Removido o filtro de inversão para manter as cores */
-            display: block;
-        }
-
+        .hero-brand-pill:hover { background: rgba(255,255,255,0.1); transform: translateY(-3px); }
+        .hero-brand-pill img { height: 45px; width: auto; object-fit: contain; display: block; }
         .hero-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    background: #c0392b;
-    color: #fff;
-    border: none;
-    border-radius: 50px;
-    padding: 16px 36px;
-    font-family: 'Outfit', sans-serif;
-    font-size: 15px;
-    font-weight: 700;
-    letter-spacing: .5px;
-    cursor: pointer;
-    transition: .2s;
-    box-shadow: 0 8px 32px rgba(192,57,43,.5);
-    text-decoration: none;
-}
+            display: inline-flex; align-items: center; gap: 10px;
+            background: #c0392b; color: #fff; border: none; border-radius: 50px;
+            padding: 16px 36px; font-family: 'Outfit', sans-serif;
+            font-size: 15px; font-weight: 700; letter-spacing: .5px;
+            cursor: pointer; transition: .2s;
+            box-shadow: 0 8px 32px rgba(192,57,43,.5); text-decoration: none;
+        }
         .hero-cta:hover { background: var(--red-dark); transform: translateY(-2px); box-shadow: 0 14px 40px rgba(192,57,43,.6); }
-        .hero-cta svg { transition: transform .2s; }
-        .hero-cta:hover svg { transform: translateY(3px); }
-        /* Contador de produtos */
         .hero-stats {
             display: flex; gap: 32px; justify-content: center; flex-wrap: wrap;
             margin-top: 52px; padding-top: 40px;
@@ -165,58 +186,27 @@
             color: var(--gold); line-height: 1;
         }
         .hero-stat-lbl { font-size: 11px; font-weight: 600; color: rgba(255,255,255,.35); letter-spacing: 1.5px; text-transform: uppercase; margin-top: 4px; }
-        /* Seta scroll */
-        .hero-scroll {
-            position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
-            z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 6px;
-            color: rgba(255,255,255,.3); font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
-            animation: bounce 2s ease-in-out infinite;
-        }
-        @keyframes bounce { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(6px); } }
-        .hero-scroll svg { opacity: .4; }
 
         /* ══════════════════════════════════════
-           STICKY HEADER
+           TELA CATÁLOGO — STICKY HEADER
         ══════════════════════════════════════ */
+        #tela-catalogo { padding-bottom: calc(var(--nav-h) + 20px); }
+
         .sticky-header {
             position: sticky; top: 0; z-index: 100;
             background: rgba(250,249,247,.96); backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--border);
-            padding: 0;
+            padding: 12px 16px 10px;
         }
-        .sticky-header-top {
-            display: flex;
-            align-items: center;
-            padding: 10px 16px;
-            border-bottom: 1px solid rgba(0,0,0,.03);
-            background: linear-gradient(to right, rgba(242,240,236,.5), rgba(250,249,247,.96));
+        .search-row {
+            display: flex; align-items: center; gap: 8px;
+            max-width: 860px; margin: 0 auto 10px;
         }
-        .btn-home {
-            display: flex;
-            align-items: center;
-            gap: 7px;
-            background: var(--red);
-            color: #fff;
-            border: none;
-            padding: 8px 14px;
-            border-radius: 10px;
-            font-size: 12px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all .2s ease;
-            flex-shrink: 0;
-        }
-        .btn-home:hover {
-            background: var(--red-dark);
-            transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(192,57,43,.2);
-        }
-        .btn-home svg { flex-shrink: 0; }
-        .search-wrap { position: relative; max-width: 560px; margin: 12px auto 12px; padding: 0 16px; }
-        .search-icon { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); pointer-events: none; opacity: .4; }
+        .search-wrap { position: relative; flex: 1; }
+        .search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); pointer-events: none; opacity: .4; }
         .search-box {
-            width: 100%; padding: 13px 20px 13px 46px;
-            border-radius: 14px; border: 1.5px solid var(--border);
+            width: 100%; padding: 11px 18px 11px 42px;
+            border-radius: 12px; border: 1.5px solid var(--border);
             background: var(--white); color: var(--text);
             font-family: 'Outfit', sans-serif; font-size: 15px; font-weight: 500;
             outline: none; transition: border-color .2s, box-shadow .2s;
@@ -224,7 +214,7 @@
         .search-box:focus { border-color: var(--red); box-shadow: 0 0 0 3px rgba(192,57,43,.1); }
         .search-box::placeholder { color: var(--text-muted); font-weight: 400; }
         .search-clear {
-            position: absolute; right: 14px; top: 50%; transform: translateY(-50%);
+            position: absolute; right: 12px; top: 50%; transform: translateY(-50%);
             background: var(--bg2); border: none; border-radius: 50%;
             width: 24px; height: 24px; display: none; align-items: center; justify-content: center;
             cursor: pointer; font-size: 12px; color: var(--text-muted); transition: .15s;
@@ -232,12 +222,24 @@
         .search-clear.show { display: flex; }
         .search-clear:hover { background: var(--border); }
 
-        /* ── FILTER BAR ── */
-        .filter-bar { display: flex; gap: 8px; overflow-x: auto; max-width: 1200px; margin: 0 auto; padding-bottom: 4px; scrollbar-width: none; align-items: center; }
+        /* Botão limpar filtros */
+        .btn-limpar-filtros {
+            display: none; align-items: center; gap: 5px;
+            background: var(--red-light); border: 1.5px solid rgba(192,57,43,.2);
+            border-radius: 10px; padding: 8px 12px;
+            font-family: 'Outfit', sans-serif; font-size: 11px; font-weight: 800;
+            color: var(--red); cursor: pointer; white-space: nowrap; flex-shrink: 0;
+            letter-spacing: .3px; text-transform: uppercase; transition: .15s;
+        }
+        .btn-limpar-filtros.visivel { display: flex; }
+        .btn-limpar-filtros:hover { background: var(--red); color: #fff; }
+
+        /* FILTER BAR */
+        .filter-bar { display: flex; gap: 8px; overflow-x: auto; max-width: 860px; margin: 0 auto; padding-bottom: 2px; scrollbar-width: none; align-items: center; }
         .filter-bar::-webkit-scrollbar { display: none; }
         .filter-sep { width: 1px; height: 30px; background: var(--border); flex-shrink: 0; margin: 0 4px; }
         .chip {
-            padding: 8px 16px; border-radius: 10px; border: 1.5px solid var(--border);
+            padding: 7px 14px; border-radius: 10px; border: 1.5px solid var(--border);
             background: var(--white); font-size: 12px; font-weight: 700; letter-spacing: .3px;
             cursor: pointer; white-space: nowrap; transition: .2s; color: var(--text-muted);
             flex-shrink: 0;
@@ -245,7 +247,7 @@
         .chip:hover { border-color: var(--red); color: var(--red); }
         .chip.active { background: var(--red); color: #fff; border-color: var(--red); }
         .chip-logo-wrap {
-            min-width: 80px; height: 40px; padding: 5px 10px;
+            min-width: 72px; height: 36px; padding: 4px 8px;
             border-radius: 10px; background: var(--white); border: 1.5px solid var(--border);
             display: flex; align-items: center; justify-content: center;
             cursor: pointer; transition: .2s; flex-shrink: 0;
@@ -260,19 +262,15 @@
            SEÇÕES POR EMPRESA/GRUPO
         ══════════════════════════════════════ */
         #catalogo { max-width: 1200px; margin: 0 auto; padding: 0 14px; }
-        .secao-empresa {
-            margin-top: 40px;
-        }
+        .secao-empresa { margin-top: 36px; }
         .secao-empresa-header {
             display: flex; align-items: center; gap: 16px;
-            padding: 20px 0 16px; border-bottom: 2px solid var(--border);
+            padding: 16px 0 14px; border-bottom: 2px solid var(--border);
             margin-bottom: 20px;
         }
-        .secao-empresa-logo {
-            height: 40px; width: auto; max-width: 120px; object-fit: contain;
-        }
+        .secao-empresa-logo { height: 38px; width: auto; max-width: 110px; object-fit: contain; }
         .secao-empresa-nome {
-            font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700;
+            font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700;
             color: var(--text); letter-spacing: -.5px;
         }
         .secao-empresa-count {
@@ -280,14 +278,8 @@
             background: var(--bg2); padding: 5px 12px; border-radius: 50px;
             letter-spacing: .5px; white-space: nowrap;
         }
-        /* Sub-seções por grupo */
-        .secao-grupo {
-            margin-bottom: 28px;
-        }
-        .secao-grupo-header {
-            display: flex; align-items: center; gap: 12px;
-            margin-bottom: 14px;
-        }
+        .secao-grupo { margin-bottom: 24px; }
+        .secao-grupo-header { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
         .secao-grupo-tag {
             font-size: 10px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;
             color: var(--red); background: var(--red-light);
@@ -311,7 +303,6 @@
         }
         .card:hover { transform: translateY(-4px); border-color: var(--red); box-shadow: var(--shadow-hover); }
         .card:active { transform: scale(.97); }
-
         .badge-promo {
             position: absolute; top: 10px; right: 10px; z-index: 5;
             background: var(--gold); color: #fff; font-size: 9px; font-weight: 800;
@@ -328,7 +319,6 @@
         .img-wrap img { width: 100%; height: 100%; object-fit: contain; opacity: 0; transition: opacity .3s; display: block; }
         .img-wrap img.vis { opacity: 1; }
         @keyframes shimmer { to { background-position: -200% 0; } }
-
         .card-cod { font-size: 10px; font-weight: 800; color: var(--red); letter-spacing: .5px; text-transform: uppercase; margin-bottom: 4px; }
         .card-nome {
             font-size: 12px; font-weight: 700; line-height: 1.35;
@@ -346,13 +336,8 @@
         .tipo-TEMPERADO { background: #fdf5e8; color: #e67e22; }
         .tipo-DEFUMADOS { background: #fdf0e8; color: #c0392b; }
 
-        /* ══════════════════════════════════════
-           ESTADO VAZIO
-        ══════════════════════════════════════ */
-        .empty-state {
-            text-align: center; padding: 80px 20px;
-            grid-column: 1/-1;
-        }
+        /* Estado vazio */
+        .empty-state { text-align: center; padding: 80px 20px; grid-column: 1/-1; }
         .empty-state-icon { font-size: 56px; margin-bottom: 16px; opacity: .3; }
         .empty-state h3 { font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 8px; }
         .empty-state p { font-size: 14px; color: var(--text-muted); }
@@ -361,21 +346,37 @@
         #busca-flat { max-width: 1200px; margin: 0 auto; padding: 0 14px; display: none; }
         #busca-flat .busca-label {
             display: flex; align-items: center; gap: 10px;
-            padding: 20px 0 16px; font-size: 14px; color: var(--text-muted);
+            padding: 18px 0 14px; font-size: 14px; color: var(--text-muted);
             border-bottom: 1px solid var(--border); margin-bottom: 16px;
         }
         #busca-flat .busca-label strong { color: var(--text); font-weight: 800; }
         #busca-flat .busca-label .qtd { margin-left: auto; font-size: 12px; font-weight: 700; background: var(--bg2); padding: 4px 12px; border-radius: 50px; }
+        .secao-empresa.oculta { display: none; }
+        .secao-grupo.oculta { display: none; }
 
         /* ══════════════════════════════════════
-           MODAL
+           FAB WHATSAPP (acima da nav)
+        ══════════════════════════════════════ */
+        .fab-share {
+            position: fixed; bottom: calc(var(--nav-h) + 14px); right: 18px; z-index: 400;
+            background: var(--green-wa); color: #fff; border: none; border-radius: 50px;
+            padding: 12px 18px; display: flex; align-items: center; gap: 8px;
+            font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 700;
+            cursor: pointer; box-shadow: 0 6px 24px rgba(37,211,102,.4);
+            transition: .15s; white-space: nowrap;
+        }
+        .fab-share:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(37,211,102,.5); }
+        .fab-share:active { transform: scale(.96); }
+
+        /* ══════════════════════════════════════
+           MODAL — MOBILE (default)
         ══════════════════════════════════════ */
         #overlay {
             position: fixed; inset: 0; background: rgba(10,8,6,.85); backdrop-filter: blur(4px);
-            display: none; align-items: flex-end; justify-content: center; z-index: 1000;
+            display: none; align-items: flex-end; justify-content: center;
+            z-index: 1000;
         }
         #overlay.show { display: flex; }
-        @media (min-width: 768px) { #overlay { align-items: center; padding: 20px; } }
         .modal {
             background: var(--white); width: 100%; max-width: 540px;
             border-radius: 28px 28px 0 0; overflow: hidden;
@@ -384,38 +385,44 @@
             transform: translateY(60px); transition: transform .35s cubic-bezier(.34,1.4,.64,1);
         }
         #overlay.show .modal { transform: translateY(0); }
-        
-        /* LAYOUT HORIZONTAL PARA DESKTOP */
-        @media (min-width: 768px) {
-            .modal {
-                border-radius: 28px;
-                height: auto;
-                max-height: 90vh;
-                max-width: 900px;
-                width: 90vw;
-                flex-direction: row;
-                overflow: hidden;
-            }
-        }
-        
         .modal-drag { width: 36px; height: 4px; background: var(--border); border-radius: 2px; margin: 10px auto 0; flex-shrink: 0; }
-        @media (min-width: 768px) { .modal-drag { display: none; } }
 
-        .modal-gallery {
-            position: relative;
-            background: var(--bg2);
-            flex-shrink: 0;
-            overflow: hidden;
-            min-height: 320px;
-        }
-        @media (min-width: 768px) {
+        /* MODAL DESKTOP — horizontal ≥900px */
+        @media (min-width: 900px) {
+            #overlay { align-items: center; padding: 30px; }
+            .modal {
+                flex-direction: row;
+                max-width: 920px; width: 90vw;
+                height: auto; max-height: 88vh;
+                border-radius: 28px;
+            }
+            .modal-drag { display: none; }
             .modal-gallery {
-                min-height: auto;
-                width: 50%;
-                min-width: 400px;
+                width: 46%; flex-shrink: 0;
+                border-radius: 0;
+                display: flex; flex-direction: column;
+            }
+            .modal-gallery .gal-track { flex: 1; }
+            .modal-gallery .gal-slide {
+                aspect-ratio: unset;
+                min-height: 420px;
+                flex: 1;
+            }
+            .modal-body {
+                width: 54%; overflow-y: auto;
+                max-height: 88vh;
+                padding: 28px 26px 28px;
             }
         }
-        .gal-track { display: flex; transition: transform .3s ease; }
+        @media (min-width: 600px) and (max-width: 899px) {
+            #overlay { align-items: center; padding: 20px; }
+            .modal { border-radius: 28px; height: auto; max-height: 92vh; }
+            .modal-drag { display: none; }
+        }
+
+        .modal-gallery { position: relative; background: var(--bg2); flex-shrink: 0; overflow: hidden; min-height: 300px; }
+        @media (min-width: 600px) and (max-width: 899px) { .modal-gallery { min-height: 380px; } }
+        .gal-track { display: flex; transition: transform .3s ease; height: 100%; }
         .gal-slide { min-width: 100%; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; padding: 20px; overflow: hidden; cursor: zoom-in; }
         .gal-slide img { width: 100%; height: 100%; object-fit: contain; display: block; transition: transform .3s ease; pointer-events: none; }
         .gal-slide.zoomed { cursor: zoom-out; }
@@ -429,21 +436,7 @@
         .btn-close { position: absolute; top: 10px; right: 10px; background: rgba(26,24,20,.5); border: none; color: #fff; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 10; transition: .15s; backdrop-filter: blur(4px); }
         .btn-close:hover { background: rgba(26,24,20,.85); }
 
-        .modal-body {
-            padding: 16px 18px 20px;
-            overflow-y: auto;
-            flex: 1;
-        }
-        @media (min-width: 768px) {
-            .modal-body {
-                padding: 20px 24px;
-                width: 50%;
-                overflow-y: auto;
-                display: flex;
-                flex-direction: column;
-                justify-content: flex-start;
-            }
-        }
+        .modal-body { padding: 16px 18px 20px; overflow-y: auto; flex: 1; }
         .modal-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
         .m-tag { font-size: 10px; font-weight: 700; padding: 5px 11px; border-radius: 6px; text-transform: uppercase; letter-spacing: .7px; }
         .m-tag-cod { background: var(--text); color: #fff; }
@@ -458,14 +451,6 @@
         .spec-val { font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 700; color: var(--text); line-height: 1.3; display: block; }
         .conserva-icon { font-size: 20px; display: block; margin-bottom: 4px; }
         .share-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-        @media (min-width: 768px) {
-            .share-row {
-                grid-template-columns: 1fr;
-                margin-top: auto;
-                padding-top: 14px;
-                border-top: 1px solid var(--border);
-            }
-        }
         .btn-share-wa {
             background: var(--green-wa); color: #fff; border: none; border-radius: 12px;
             padding: 13px 10px; display: flex; align-items: center; justify-content: center; gap: 7px;
@@ -482,252 +467,320 @@
         .btn-share-cat:hover { background: var(--border); }
 
         /* ══════════════════════════════════════
-           FAB WHATSAPP
+           TELA CONTATO
         ══════════════════════════════════════ */
-        .fab-share {
-            position: fixed; bottom: 22px; right: 18px; z-index: 200;
-            background: var(--green-wa); color: #fff; border: none; border-radius: 50px;
-            padding: 13px 20px; display: flex; align-items: center; gap: 8px;
-            font-family: 'Outfit', sans-serif; font-size: 13px; font-weight: 700;
-            cursor: pointer; box-shadow: 0 6px 24px rgba(37,211,102,.4);
-            transition: .15s; white-space: nowrap;
+        #tela-contato {
+            background: linear-gradient(160deg, #1a0a05 0%, #2d1410 60%, #1a0a05 100%);
+            min-height: calc(100vh - var(--nav-h));
         }
-        .fab-share:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(37,211,102,.5); }
-        .fab-share:active { transform: scale(.96); }
-
-        /* Sem resultados dentro da seção */
-        .sem-resultados { display: none; }
-
-        /* Quando seção inteira está oculta */
-        .secao-empresa.oculta { display: none; }
-        .secao-grupo.oculta { display: none; }
-
-        /* ══════════════════════════════════════
-           FOOTER — REDES SOCIAIS E CONTATO
-        ══════════════════════════════════════ */
-        .footer {
-            background: linear-gradient(135deg, #1a0a05 0%, #2d1410 100%);
-            border-top: 1px solid rgba(200,151,58,.2);
-            margin-top: 80px;
-            padding: 60px 20px 40px;
-            color: rgba(255,255,255,.7);
-            font-size: 14px;
+        .contato-wrap {
+            max-width: 700px; margin: 0 auto;
+            padding: 50px 24px 40px;
         }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+        .contato-eyebrow {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
+            color: var(--gold); background: rgba(200,151,58,.12); border: 1px solid rgba(200,151,58,.3);
+            padding: 6px 16px; border-radius: 50px; margin-bottom: 24px;
         }
-
-        .footer-section h3 {
+        .contato-title {
             font-family: 'Playfair Display', serif;
-            font-size: 18px;
-            color: #fff;
-            margin-bottom: 20px;
-            font-weight: 700;
+            font-size: clamp(32px, 6vw, 52px);
+            font-weight: 900; color: #fff;
+            letter-spacing: -1px; line-height: 1;
+            margin-bottom: 10px;
         }
-
-        .footer-contact {
-            display: flex;
-            flex-direction: column;
-            gap: 14px;
+        .contato-title span { color: var(--gold); }
+        .contato-sub {
+            font-size: 14px; color: rgba(255,255,255,.45);
+            line-height: 1.7; margin-bottom: 36px;
         }
-
-        .footer-contact a,
-        .footer-contact p {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            color: rgba(255,255,255,.7);
+        .contato-cards {
+            display: grid; gap: 14px; margin-bottom: 36px;
+        }
+        .contato-card {
+            background: rgba(255,255,255,.04);
+            border: 1px solid rgba(200,151,58,.2);
+            border-radius: 18px; padding: 20px 22px;
+            display: flex; align-items: center; gap: 18px;
             text-decoration: none;
-            transition: all 0.2s ease;
-            line-height: 1.4;
+            transition: all .25s ease;
         }
-
-        .footer-contact a:hover {
-            color: var(--gold);
+        .contato-card:hover {
+            background: rgba(255,255,255,.08);
+            border-color: rgba(200,151,58,.5);
             transform: translateX(4px);
         }
-
-        .footer-contact svg {
-            width: 18px;
-            height: 18px;
-            flex-shrink: 0;
-            color: var(--gold);
+        .contato-card-icon {
+            width: 46px; height: 46px; border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            flex-shrink: 0; font-size: 20px;
         }
+        .icon-wa { background: rgba(37,211,102,.15); }
+        .icon-phone { background: rgba(200,151,58,.15); }
+        .icon-email { background: rgba(192,57,43,.15); }
+        .contato-card-info { flex: 1; }
+        .contato-card-label { font-size: 10px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,.3); margin-bottom: 4px; }
+        .contato-card-val { font-size: 15px; font-weight: 700; color: #fff; }
+        .contato-card-arrow { color: rgba(255,255,255,.2); transition: .2s; }
+        .contato-card:hover .contato-card-arrow { color: var(--gold); transform: translateX(4px); }
 
-        .footer-social {
-            display: flex;
-            gap: 14px;
-            flex-wrap: wrap;
+        .contato-divider {
+            height: 1px; background: rgba(255,255,255,.08);
+            margin: 30px 0;
         }
+        .contato-social-title {
+            font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;
+            color: rgba(255,255,255,.3); margin-bottom: 16px;
+        }
+        .contato-social {
+            display: flex; gap: 12px; flex-wrap: wrap;
+        }
+        .social-pill {
+            display: flex; align-items: center; gap: 10px;
+            background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
+            border-radius: 50px; padding: 10px 18px;
+            text-decoration: none; color: rgba(255,255,255,.7);
+            font-size: 12px; font-weight: 700;
+            transition: all .2s ease;
+        }
+        .social-pill:hover { background: rgba(200,151,58,.15); border-color: var(--gold); color: var(--gold); }
+        .social-pill svg { width: 16px; height: 16px; }
 
-        .footer-social a {
-            width: 42px;
-            height: 42px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(200,151,58,.15);
-            border: 1px solid rgba(200,151,58,.3);
-            border-radius: 50%;
-            color: var(--gold);
-            text-decoration: none;
-            transition: all 0.3s ease;
+        .contato-sobre {
+            background: rgba(255,255,255,.03);
+            border: 1px solid rgba(255,255,255,.07);
+            border-radius: 18px; padding: 24px;
+            margin-top: 24px;
         }
-
-        .footer-social a:hover {
-            background: var(--gold);
-            color: #1a0a05;
-            transform: translateY(-3px);
+        .contato-sobre h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px; color: #fff; font-weight: 700; margin-bottom: 10px;
         }
-
-        .footer-divider {
-            border-top: 1px solid rgba(255,255,255,.08);
-            margin: 40px 0;
+        .contato-sobre p {
+            font-size: 14px; color: rgba(255,255,255,.45); line-height: 1.7;
         }
-
-        .footer-bottom {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,.08);
-            font-size: 12px;
-            color: rgba(255,255,255,.5);
+        .contato-footer {
+            text-align: center; margin-top: 36px;
+            font-size: 12px; color: rgba(255,255,255,.2);
         }
-
-        .footer-bottom p {
-            margin: 0;
-        }
-
-        @media (max-width: 768px) {
-            .footer {
-                padding: 40px 20px 30px;
-            }
-            .footer-content {
-                gap: 30px;
-            }
-            .footer-bottom {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
+        .contato-footer span { color: var(--red); }
     </style>
 </head>
 <body>
 
-<!-- ══════════════ HERO CAPA ══════════════ -->
-<section class="hero" id="hero">
-    <div class="hero-noise"></div>
-    <div class="hero-content">
-        <div class="hero-eyebrow">Catálogo Comercial 2026</div>
-        <h1 class="hero-title">
-            Qualidade
-            <span>que se Prova</span>
-        </h1>
-        <p class="hero-subtitle">
-            Proteínas selecionadas, tradição e sabor.<br>
-            Do campo à mesa com qualidade certificada.
-        </p>
-        <div class="hero-brands">
-            <div class="hero-brand-pill">
+<!-- ════════════════════════════════════════════
+     TELA 1 — HOME / CAPA
+════════════════════════════════════════════ -->
+<div class="tela ativa" id="tela-home">
+    <section class="hero">
+        <div class="hero-noise"></div>
+        <div class="hero-content">
+            <div class="hero-eyebrow">Catálogo Comercial 2026</div>
+            <h1 class="hero-title">
+                Qualidade
+                <span>que se Prova</span>
+            </h1>
+            <p class="hero-subtitle">
+                Proteínas selecionadas, tradição e sabor.<br>
+                Do campo à mesa com qualidade certificada.
+            </p>
+            <div class="hero-brands">
+                <div class="hero-brand-pill">
+                    <img src="https://i.postimg.cc/ydjBT4qc/logo-acreaves.png" alt="Acreaves">
+                    Acreaves
+                </div>
+                <div class="hero-brand-pill">
+                    <img src="https://i.postimg.cc/769DN8vS/LOGO-DOMPORQUITO.png" alt="Dom Porquito">
+                    Dom Porquito
+                </div>
+                <div class="hero-brand-pill">
+                    <img src="https://i.postimg.cc/769DN8vM/FRIPAL-LOGO.jpg" alt="Fripal">
+                    Fripal
+                </div>
+            </div>
+            <button class="hero-cta" onclick="irParaAba('catalogo')">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+                Ver Catálogo Completo
+            </button>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="hero-stat-num" id="stat-total">—</div>
+                    <div class="hero-stat-lbl">Produtos</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-num">3</div>
+                    <div class="hero-stat-lbl">Empresas</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-num">4</div>
+                    <div class="hero-stat-lbl">Marcas</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-num" id="stat-grupos">—</div>
+                    <div class="hero-stat-lbl">Categorias</div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- ════════════════════════════════════════════
+     TELA 2 — CATÁLOGO
+════════════════════════════════════════════ -->
+<div class="tela" id="tela-catalogo">
+
+    <!-- HEADER FIXO -->
+    <div class="sticky-header">
+        <div class="search-row">
+            <div class="search-wrap">
+                <svg class="search-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+                <input type="text" id="search" class="search-box" placeholder="Buscar produto, código, marca…" autocomplete="off">
+                <button class="search-clear" id="search-clear" onclick="limparBusca()">✕</button>
+            </div>
+            <button class="btn-limpar-filtros" id="btn-limpar" onclick="limparTudo()">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                Limpar
+            </button>
+        </div>
+        <div class="filter-bar" id="filter-bar">
+            <div class="chip active" id="chip-todos" onclick="setFiltroEmpresa('TODOS', this)">Todos</div>
+            <div class="chip-logo-wrap" id="chip-acreaves" onclick="setFiltroEmpresa('ACREAVES', this)">
                 <img src="https://i.postimg.cc/ydjBT4qc/logo-acreaves.png" alt="Acreaves">
-                Acreaves
             </div>
-            <div class="hero-brand-pill">
+            <div class="chip-logo-wrap" id="chip-domporquito" onclick="setFiltroEmpresa('Dom Porquito', this)">
                 <img src="https://i.postimg.cc/769DN8vS/LOGO-DOMPORQUITO.png" alt="Dom Porquito">
-                Dom Porquito
             </div>
-            <div class="hero-brand-pill">
+            <div class="chip-logo-wrap" id="chip-fripal" onclick="setFiltroEmpresa('Fripal', this)">
                 <img src="https://i.postimg.cc/769DN8vM/FRIPAL-LOGO.jpg" alt="Fripal">
-                Fripal
             </div>
-        </div>
-        <a href="#catalogo-section" class="hero-cta">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-            Ver Catálogo Completo
-        </a>
-        <div class="hero-stats">
-            <div class="hero-stat">
-                <div class="hero-stat-num" id="stat-total">—</div>
-                <div class="hero-stat-lbl">Produtos</div>
-            </div>
-            <div class="hero-stat">
-                <div class="hero-stat-num">3</div>
-                <div class="hero-stat-lbl">Empresas</div>
-            </div>
-            <div class="hero-stat">
-                <div class="hero-stat-num">4</div>
-                <div class="hero-stat-lbl">Marcas</div>
-            </div>
-            <div class="hero-stat">
-                <div class="hero-stat-num" id="stat-grupos">—</div>
-                <div class="hero-stat-lbl">Categorias</div>
-            </div>
+            <div class="filter-sep"></div>
+            <div class="chip" data-grupo="CORTE" onclick="setFiltroGrupo('CORTE', this)">Corte</div>
+            <div class="chip" data-grupo="INTEIRO" onclick="setFiltroGrupo('INTEIRO', this)">Inteiro</div>
+            <div class="chip" data-grupo="LINGUIÇAS" onclick="setFiltroGrupo('LINGUIÇAS', this)">Linguiças</div>
+            <div class="chip" data-grupo="FATIADO" onclick="setFiltroGrupo('FATIADO', this)">Fatiado</div>
+            <div class="filter-sep"></div>
+            <div class="chip chip-promo" id="chip-promo" onclick="togglePromo(this)">★ Promo</div>
         </div>
     </div>
-    <div class="hero-scroll">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-        Scroll
-    </div>
-</section>
 
-<!-- ══════════════ HEADER FIXO ══════════════ -->
-<div class="sticky-header" id="catalogo-section">
-    <div class="sticky-header-top">
-        <button class="btn-home" onclick="voltarCapa()" title="Voltar à capa">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-            Início
-        </button>
+    <!-- RESULTADO DE BUSCA (flat) -->
+    <div id="busca-flat">
+        <div class="busca-label">
+            Resultados para: <strong id="busca-termo"></strong>
+            <span class="qtd" id="busca-qtd">0 produtos</span>
+        </div>
+        <div class="grid" id="grid-busca"></div>
     </div>
-    <div class="search-wrap">
-        <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
-        <input type="text" id="search" class="search-box" placeholder="Buscar por nome, código, marca, tipo…" autocomplete="off">
-        <button class="search-clear" id="search-clear" onclick="limparBusca()">✕</button>
-    </div>
-    <div class="filter-bar">
-        <div class="chip active" onclick="setFiltro('empresa','TODOS',this)">Todos</div>
-        <div class="chip-logo-wrap" onclick="setFiltro('empresa','ACREAVES',this)">
-            <img src="https://i.postimg.cc/ydjBT4qc/logo-acreaves.png" alt="Acreaves">
+
+    <!-- CATÁLOGO POR SEÇÕES -->
+    <div id="catalogo"></div>
+
+</div>
+
+<!-- ════════════════════════════════════════════
+     TELA 3 — CONTATO
+════════════════════════════════════════════ -->
+<div class="tela" id="tela-contato">
+    <div class="contato-wrap">
+        <div class="contato-eyebrow">◆ Fale Conosco ◆</div>
+        <h2 class="contato-title">Entre em<br><span>Contato</span></h2>
+        <p class="contato-sub">
+            Estamos prontos para atender você com agilidade.<br>
+            Consulte nossos representantes para pedidos e informações.
+        </p>
+
+        <div class="contato-cards">
+            <a href="https://wa.me/5500000000000" target="_blank" class="contato-card">
+                <div class="contato-card-icon icon-wa">💬</div>
+                <div class="contato-card-info">
+                    <div class="contato-card-label">WhatsApp</div>
+                    <div class="contato-card-val">Falar com Representante</div>
+                </div>
+                <div class="contato-card-arrow">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
+                </div>
+            </a>
+            <a href="tel:+5500000000000" class="contato-card">
+                <div class="contato-card-icon icon-phone">📞</div>
+                <div class="contato-card-info">
+                    <div class="contato-card-label">Telefone</div>
+                    <div class="contato-card-val">(00) 0000-0000</div>
+                </div>
+                <div class="contato-card-arrow">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
+                </div>
+            </a>
+            <a href="mailto:contato@email.com" class="contato-card">
+                <div class="contato-card-icon icon-email">✉️</div>
+                <div class="contato-card-info">
+                    <div class="contato-card-label">E-mail</div>
+                    <div class="contato-card-val">contato@email.com</div>
+                </div>
+                <div class="contato-card-arrow">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
+                </div>
+            </a>
         </div>
-        <div class="chip-logo-wrap" onclick="setFiltro('empresa','Dom Porquito',this)">
-            <img src="https://i.postimg.cc/769DN8vS/LOGO-DOMPORQUITO.png" alt="Dom Porquito">
+
+        <div class="contato-divider"></div>
+
+        <div class="contato-social-title">Nos Siga nas Redes</div>
+        <div class="contato-social">
+            <a href="https://www.instagram.com/domporquitobr/" target="_blank" class="social-pill">
+                <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.057-1.645.069-4.849.069-3.206 0-3.584-.012-4.849-.069-3.259-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM12 5.838c-3.403 0-6.162 2.759-6.162 6.162 0 3.403 2.759 6.162 6.162 6.162 3.403 0 6.162-2.759 6.162-6.162 0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44 1.44-.645 1.44-1.44-.644-1.44-1.44-1.44z"/></svg>
+                Dom Porquito
+            </a>
+            <a href="https://www.instagram.com/acreaves/" target="_blank" class="social-pill">
+                <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.057-1.645.069-4.849.069-3.206 0-3.584-.012-4.849-.069-3.259-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM12 5.838c-3.403 0-6.162 2.759-6.162 6.162 0 3.403 2.759 6.162 6.162 6.162 3.403 0 6.162-2.759 6.162-6.162 0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44 1.44-.645 1.44-1.44-.644-1.44-1.44-1.44z"/></svg>
+                Acreaves
+            </a>
+            <a href="https://facebook.com/domporquitobr/" target="_blank" class="social-pill">
+                <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg>
+                Facebook
+            </a>
         </div>
-        <div class="chip-logo-wrap" onclick="setFiltro('empresa','Fripal',this)">
-            <img src="https://i.postimg.cc/769DN8vM/FRIPAL-LOGO.jpg" alt="Fripal">
+
+        <div class="contato-sobre">
+            <h3>Sobre Nós</h3>
+            <p>Acreaves, Dom Porquito e Fripal trabalham juntas para oferecer ao mercado os melhores produtos de origem animal, com qualidade certificada, rastreabilidade e comprometimento com o cliente.</p>
         </div>
-        <div class="filter-sep"></div>
-        <div class="chip" onclick="setFiltroGrupo('CORTE',this)">Corte</div>
-        <div class="chip" onclick="setFiltroGrupo('BANDEJA',this)">Bandeja</div>
-        <div class="chip" onclick="setFiltroGrupo('INTEIRO',this)">Inteiro</div>
-        <div class="chip" onclick="setFiltroGrupo('LINGUIÇAS',this)">Linguiças</div>
-        <div class="chip" onclick="setFiltroGrupo('FATIADO',this)">Fatiado</div>
-        <div class="filter-sep"></div>
-        <div class="chip chip-promo" onclick="setFiltro('promo',true,this)">★ Promo</div>
+
+        <div class="contato-footer">
+            <p>&copy; 2024 Acreaves • Dom Porquito • Fripal. Todos os direitos reservados.</p>
+            <p style="margin-top:6px">Desenvolvido Por: Michael Andrade <span>🤖</span></p>
+        </div>
     </div>
 </div>
 
-<!-- ══════════════ RESULTADO DE BUSCA (flat) ══════════════ -->
-<div id="busca-flat">
-    <div class="busca-label">
-        Resultados para: <strong id="busca-termo"></strong>
-        <span class="qtd" id="busca-qtd">0 produtos</span>
-    </div>
-    <div class="grid" id="grid-busca"></div>
-</div>
+<!-- ════════════════════════════════════════════
+     BOTTOM NAVIGATION
+════════════════════════════════════════════ -->
+<nav class="bottom-nav">
+    <button class="nav-btn ativo" id="nav-home" onclick="irParaAba('home')">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+        <span>Home</span>
+    </button>
+    <button class="nav-btn" id="nav-catalogo" onclick="irParaAba('catalogo')">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/>
+            <rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+        </svg>
+        <span>Catálogo</span>
+    </button>
+    <button class="nav-btn" id="nav-contato" onclick="irParaAba('contato')">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+        </svg>
+        <span>Contato</span>
+    </button>
+</nav>
 
-<!-- ══════════════ CATÁLOGO POR SEÇÕES ══════════════ -->
-<div id="catalogo"></div>
-
-<!-- BOTÃO FLUTUANTE -->
-<button class="fab-share" onclick="compartilharCatalogo()">
+<!-- BOTÃO FLUTUANTE WHATSAPP (acima da nav) -->
+<button class="fab-share" id="fab-share" onclick="compartilharCatalogo()">
     <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
         <path d="M12 0C5.374 0 0 5.373 0 12c0 2.117.549 4.107 1.505 5.836L.057 23.882a.5.5 0 0 0 .61.61l6.047-1.449A11.934 11.934 0 0 0 12 24c6.626 0 12-5.373 12-12S18.626 0 12 0zm0 21.818a9.808 9.808 0 0 1-5.032-1.384l-.36-.214-3.733.894.908-3.63-.234-.374A9.86 9.86 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/>
@@ -735,7 +788,7 @@
     Compartilhar
 </button>
 
-<!-- ══════════════ MODAL ══════════════ -->
+<!-- MODAL PRODUTO -->
 <div id="overlay" onclick="fecharModal()">
     <div class="modal" onclick="event.stopPropagation()">
         <span class="modal-drag"></span>
@@ -779,387 +832,411 @@
     </div>
 </div>
 
-</div>
-
-<!-- ═══════════════════════════════════════════════════════════
-     FOOTER — REDES SOCIAIS E CONTATO
-     ═══════════════════════════════════════════════════════════ -->
-<footer class="footer">
-    <div class="footer-content">
-        <!-- Seção de Contato -->
-        <div class="footer-section">
-            <h3>Contato</h3>
-            <div class="footer-contact">
-                <a href="tel:seu-telefone-aqui">
-                    <svg fill="currentColor" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
-                    <span>email.com</span>
-                </a>
-                <a href="https://wa.me/email.com" target="_blank">
-                    <svg fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
-                    <span>email.com</span>
-                </a>
-                <a href="mailto:email.com">
-                    <svg fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                    <span>email.com</span>
-                </a>
-            </div>
-        </div>
-
-        <!-- Redes Sociais -->
-     <div class="footer-section">
-    <h3>Nos Siga</h3>
-    <div class="footer-social">
-        <a href="https://www.instagram.com/domporquitobr/" target="_blank" title="Instagram Dom Porquito">
-            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.057-1.645.069-4.849.069-3.206 0-3.584-.012-4.849-.069-3.259-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM12 5.838c-3.403 0-6.162 2.759-6.162 6.162 0 3.403 2.759 6.162 6.162 6.162 3.403 0 6.162-2.759 6.162-6.162 0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44 1.44-.645 1.44-1.44-.644-1.44-1.44-1.44z"/></svg>
-        </a>
-
-        <a href="https://www.instagram.com/acreaves/" target="_blank" title="Instagram Acreaves">
-            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.057-1.645.069-4.849.069-3.206 0-3.584-.012-4.849-.069-3.259-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057-1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM12 5.838c-3.403 0-6.162 2.759-6.162 6.162 0 3.403 2.759 6.162 6.162 6.162 3.403 0 6.162-2.759 6.162-6.162 0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44 1.44-.645 1.44-1.44-.644-1.44-1.44-1.44z"/></svg>
-        </a>
-
-        <a href="https://facebook.com/domporquitobr/" target="_blank" title="Facebook">
-            <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg>
-        </a>
-    </div>
-</div>>
-
-        <!-- Sobre -->
-        <div class="footer-section">
-            <h3>Sobre</h3>
-            <p style="line-height: 1.6; color: rgba(255,255,255,.6);">
-                Sua empresa de confiança em produtos de alta qualidade. Acreaves, Dom Porquito e Fripal trabalham juntas para oferecer os melhores produtos ao mercado.
-            </p>
-        </div>
-    </div>
-
-    <div class="footer-divider"></div>
-
-    <div class="footer-bottom">
-        <p>&copy; 2024 Acreaves • Dom Porquito • Fripal. Todos os direitos reservados.</p>
-        <p>Desenvolvido Por: Michael Andrade <span style="color: var(--red);">🤖</span></p>
-    </div>
-</footer>
-
 <script src="produtos.js"></script>
 <script>
-    // ══════════════════════════════════════════
-    //  ESTADO
-    // ══════════════════════════════════════════
-    let busca = "";
-    let galIdx = 0, galImgs = [];
-    let produtoAtual = null;
-    let filtroAtivo = { empresa: 'TODOS', grupo: null, promo: false };
-    const ICON = { CONGELADO: '❄️', RESFRIADO: '🌡️', TEMPERADO: '🌿', DEFUMADOS: '🔥' };
-    const EMPRESA_LOGOS = {
-        'ACREAVES': 'https://i.postimg.cc/ydjBT4qc/logo-acreaves.png',
-        'Dom Porquito': 'https://i.postimg.cc/769DN8vS/LOGO-DOMPORQUITO.png',
-        'Fripal': 'https://i.postimg.cc/769DN8vM/FRIPAL-LOGO.jpg'
-    };
-    const URL_CATALOGO = window.location.href.split('?')[0];
+// ══════════════════════════════════════════
+//  ESTADO GLOBAL
+// ══════════════════════════════════════════
+let busca = '';
+let galIdx = 0, galImgs = [];
+let produtoAtual = null;
 
-    // ══════════════════════════════════════════
-    //  LAZY LOAD
-    // ══════════════════════════════════════════
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (!entry.isIntersecting) return;
-            const wrap = entry.target;
-            const img = wrap.querySelector('img[data-src]');
-            if (!img) return;
-            img.src = img.dataset.src;
-            img.onload = () => { wrap.classList.add('loaded'); img.classList.add('vis'); };
-            img.onerror = () => { wrap.classList.add('loaded'); img.classList.add('vis'); };
-            observer.unobserve(wrap);
-        });
-    }, { rootMargin: '300px' });
+// Estado de filtros — hierarquia inteligente
+let filtroAtivo = {
+    empresa: 'TODOS',
+    grupo: null,
+    promo: false
+};
 
-    // ══════════════════════════════════════════
-    //  FILTROS
-    // ══════════════════════════════════════════
-    function setFiltro(tipo, valor, el) {
-        if (tipo === 'promo') {
-            filtroAtivo.promo = !filtroAtivo.promo;
-            el.classList.toggle('active');
-        } else if (tipo === 'empresa') {
-            filtroAtivo.empresa = valor;
-            // limpa chips empresa
-            document.querySelectorAll('.chip, .chip-logo-wrap').forEach(c => {
-                if (!c.classList.contains('chip-promo') && !c.dataset.grupo) c.classList.remove('active');
-            });
-            el.classList.add('active');
-        }
-        renderizar();
-    }
+const ICON = { CONGELADO: '❄️', RESFRIADO: '🌡️', TEMPERADO: '🌿', DEFUMADOS: '🔥' };
+const EMPRESA_LOGOS = {
+    'ACREAVES': 'https://i.postimg.cc/ydjBT4qc/logo-acreaves.png',
+    'Dom Porquito': 'https://i.postimg.cc/769DN8vS/LOGO-DOMPORQUITO.png',
+    'Fripal': 'https://i.postimg.cc/769DN8vM/FRIPAL-LOGO.jpg'
+};
+const URL_CATALOGO = window.location.href.split('?')[0];
 
-    function setFiltroGrupo(grupo, el) {
-        if (filtroAtivo.grupo === grupo) {
-            filtroAtivo.grupo = null;
-            el.classList.remove('active');
-        } else {
-            // limpa outros grupos
-            document.querySelectorAll('[onclick^="setFiltroGrupo"]').forEach(c => c.classList.remove('active'));
-            filtroAtivo.grupo = grupo;
-            el.classList.add('active');
-        }
-        renderizar();
-    }
+// ══════════════════════════════════════════
+//  SISTEMA DE ABAS
+// ══════════════════════════════════════════
+let abaAtual = 'home';
 
-    function limparBusca() {
-        document.getElementById('search').value = '';
+function irParaAba(aba) {
+    if (abaAtual === aba) return;
+
+    // Esconde tela atual
+    const telaAnterior = document.getElementById('tela-' + abaAtual);
+    telaAnterior.classList.remove('ativa');
+
+    // Atualiza nav botões
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('ativo'));
+    document.getElementById('nav-' + aba).classList.add('ativo');
+
+    // Mostra nova tela
+    abaAtual = aba;
+    const telaNova = document.getElementById('tela-' + aba);
+    telaNova.classList.add('ativa');
+
+    // Scroll para o topo da tela
+    window.scrollTo({ top: 0, behavior: 'instant' });
+
+    // FAB só aparece no catálogo
+    document.getElementById('fab-share').style.display = aba === 'catalogo' ? '' : 'none';
+}
+
+// ══════════════════════════════════════════
+//  LAZY LOAD
+// ══════════════════════════════════════════
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const wrap = entry.target;
+        const img = wrap.querySelector('img[data-src]');
+        if (!img) return;
+        img.src = img.dataset.src;
+        img.onload = () => { wrap.classList.add('loaded'); img.classList.add('vis'); };
+        img.onerror = () => { wrap.classList.add('loaded'); img.classList.add('vis'); };
+        observer.unobserve(wrap);
+    });
+}, { rootMargin: '300px' });
+
+// ══════════════════════════════════════════
+//  FILTROS — LÓGICA HIERÁRQUICA INTELIGENTE
+// ══════════════════════════════════════════
+
+// Filtro empresa: limpa grupo mas mantém promo
+function setFiltroEmpresa(empresa, el) {
+    filtroAtivo.empresa = empresa;
+    filtroAtivo.grupo = null; // não limpa — empresa pode coexistir com grupo
+    busca = '';
+    document.getElementById('search').value = '';
+    document.getElementById('search-clear').classList.remove('show');
+
+    // Atualiza chips de empresa
+    document.querySelectorAll('.chip-logo-wrap, #chip-todos').forEach(c => c.classList.remove('active'));
+    el.classList.add('active');
+
+    // Limpa seleção de grupo
+    document.querySelectorAll('[data-grupo]').forEach(c => c.classList.remove('active'));
+    filtroAtivo.grupo = null;
+
+    atualizarBotaoLimpar();
+    renderizar();
+}
+
+// Filtro grupo: limpa empresa (mostra produto do grupo em TODAS marcas)
+function setFiltroGrupo(grupo, el) {
+    if (filtroAtivo.grupo === grupo) {
+        // Toggle off
+        filtroAtivo.grupo = null;
+        el.classList.remove('active');
+    } else {
+        // Limpa empresa ao selecionar categoria (ver todas as marcas)
+        filtroAtivo.empresa = 'TODOS';
+        document.querySelectorAll('.chip-logo-wrap, #chip-todos').forEach(c => c.classList.remove('active'));
+        document.getElementById('chip-todos').classList.add('active');
+
+        // Limpa outros grupos
+        document.querySelectorAll('[data-grupo]').forEach(c => c.classList.remove('active'));
+        filtroAtivo.grupo = grupo;
+        el.classList.add('active');
+
+        // Limpa busca textual
         busca = '';
+        document.getElementById('search').value = '';
         document.getElementById('search-clear').classList.remove('show');
-        renderizar();
     }
 
-    // ══════════════════════════════════════════
-    //  BUSCA INTELIGENTE — todos os campos
-    // ══════════════════════════════════════════
-    function matchBusca(p, q) {
-        if (!q) return true;
-        const campos = [
-            String(p.cod), p.nome, p.empresa, p.marca,
-            p.grupo, p.tipo, p.complemento, p.peso,
-            p.conserva, p.desc
-        ].map(c => (c || '').toLowerCase());
-        return campos.some(c => c.includes(q));
+    atualizarBotaoLimpar();
+    renderizar();
+}
+
+function togglePromo(el) {
+    filtroAtivo.promo = !filtroAtivo.promo;
+    el.classList.toggle('active');
+    atualizarBotaoLimpar();
+    renderizar();
+}
+
+// Limpar TUDO
+function limparTudo() {
+    busca = '';
+    filtroAtivo = { empresa: 'TODOS', grupo: null, promo: false };
+
+    document.getElementById('search').value = '';
+    document.getElementById('search-clear').classList.remove('show');
+
+    document.querySelectorAll('.chip-logo-wrap, #chip-todos').forEach(c => c.classList.remove('active'));
+    document.getElementById('chip-todos').classList.add('active');
+    document.querySelectorAll('[data-grupo]').forEach(c => c.classList.remove('active'));
+    document.getElementById('chip-promo').classList.remove('active');
+
+    atualizarBotaoLimpar();
+    renderizar();
+}
+
+// Limpar só busca
+function limparBusca() {
+    busca = '';
+    document.getElementById('search').value = '';
+    document.getElementById('search-clear').classList.remove('show');
+    atualizarBotaoLimpar();
+    renderizar();
+}
+
+// Verifica se algum filtro está ativo e mostra/esconde botão Limpar
+function atualizarBotaoLimpar() {
+    const ativo = busca.trim() !== '' ||
+                  filtroAtivo.empresa !== 'TODOS' ||
+                  filtroAtivo.grupo !== null ||
+                  filtroAtivo.promo;
+    document.getElementById('btn-limpar').classList.toggle('visivel', ativo);
+}
+
+// ══════════════════════════════════════════
+//  BUSCA — limpa filtros ao digitar
+// ══════════════════════════════════════════
+document.getElementById('search').addEventListener('input', e => {
+    busca = e.target.value;
+    document.getElementById('search-clear').classList.toggle('show', busca.length > 0);
+
+    // Prioridade da busca: limpa empresa e grupo ao digitar
+    if (busca.trim().length > 0) {
+        filtroAtivo.empresa = 'TODOS';
+        filtroAtivo.grupo = null;
+        document.querySelectorAll('.chip-logo-wrap, #chip-todos').forEach(c => c.classList.remove('active'));
+        document.getElementById('chip-todos').classList.add('active');
+        document.querySelectorAll('[data-grupo]').forEach(c => c.classList.remove('active'));
     }
 
-    function filtrarProdutos() {
-        return PRODUTOS.filter(p =>
-            matchBusca(p, busca.toLowerCase()) &&
-            (filtroAtivo.empresa === 'TODOS' || p.empresa === filtroAtivo.empresa) &&
-            (!filtroAtivo.grupo || p.grupo === filtroAtivo.grupo) &&
-            (!filtroAtivo.promo || p.promo === true)
-        );
-    }
+    atualizarBotaoLimpar();
+    renderizar();
+});
 
-    // ══════════════════════════════════════════
-    //  CARD HTML
-    // ══════════════════════════════════════════
-    function cardHTML(p) {
-        const img = (p.imgs && p.imgs[0]) ? p.imgs[0] : '';
-        return `
-        <div class="card" onclick='abrirModal("${p.cod}")'>
-            ${p.promo ? '<div class="badge-promo">★ Promo</div>' : ''}
-            <div class="img-wrap"><img data-src="${img}" alt="${p.nome}"></div>
-            <div class="card-cod">Cód. ${p.cod}</div>
-            <div class="card-nome">${p.nome}</div>
-            <div class="card-footer">
-                <span class="card-marca">${p.marca || ''}</span>
-                <span class="card-tipo-badge tipo-${p.tipo}">${p.tipo}</span>
-            </div>
-        </div>`;
-    }
+// ══════════════════════════════════════════
+//  FILTRO E BUSCA
+// ══════════════════════════════════════════
+function matchBusca(p, q) {
+    if (!q) return true;
+    const campos = [
+        String(p.cod), p.nome, p.empresa, p.marca,
+        p.grupo, p.tipo, p.complemento, p.peso,
+        p.conserva, p.desc
+    ].map(c => (c || '').toLowerCase());
+    return campos.some(c => c.includes(q));
+}
 
-    // ══════════════════════════════════════════
-    //  RENDERIZAR CATÁLOGO
-    // ══════════════════════════════════════════
-    function renderizar() {
-        const lista = filtrarProdutos();
-        const modoFlat = busca.trim().length > 0;
+function filtrarProdutos() {
+    return PRODUTOS.filter(p =>
+        matchBusca(p, busca.toLowerCase()) &&
+        (filtroAtivo.empresa === 'TODOS' || p.empresa === filtroAtivo.empresa) &&
+        (!filtroAtivo.grupo || p.grupo === filtroAtivo.grupo) &&
+        (!filtroAtivo.promo || p.promo === true)
+    );
+}
 
-        // flat (busca ativa)
-        const buscaDiv = document.getElementById('busca-flat');
-        const catalogoDiv = document.getElementById('catalogo');
+// ══════════════════════════════════════════
+//  CARD HTML
+// ══════════════════════════════════════════
+function cardHTML(p) {
+    const img = (p.imgs && p.imgs[0]) ? p.imgs[0] : '';
+    return `
+    <div class="card" onclick='abrirModal("${p.cod}")'>
+        ${p.promo ? '<div class="badge-promo">★ Promo</div>' : ''}
+        <div class="img-wrap"><img data-src="${img}" alt="${p.nome}"></div>
+        <div class="card-cod">Cód. ${p.cod}</div>
+        <div class="card-nome">${p.nome}</div>
+        <div class="card-footer">
+            <span class="card-marca">${p.marca || ''}</span>
+            <span class="card-tipo-badge tipo-${p.tipo}">${p.tipo}</span>
+        </div>
+    </div>`;
+}
 
-        if (modoFlat) {
-            buscaDiv.style.display = 'block';
-            catalogoDiv.style.display = 'none';
-            document.getElementById('busca-termo').textContent = `"${busca}"`;
-            document.getElementById('busca-qtd').textContent = `${lista.length} produto${lista.length !== 1 ? 's' : ''}`;
-            if (lista.length === 0) {
-                document.getElementById('grid-busca').innerHTML = `
-                <div class="empty-state">
-                    <div class="empty-state-icon">🔍</div>
-                    <h3>Nenhum produto encontrado</h3>
-                    <p>Tente buscar por nome, código, marca ou tipo.</p>
-                </div>`;
-            } else {
-                document.getElementById('grid-busca').innerHTML = lista.map(cardHTML).join('');
-                document.querySelectorAll('#grid-busca .img-wrap').forEach(w => observer.observe(w));
-            }
-            return;
+// ══════════════════════════════════════════
+//  RENDERIZAR CATÁLOGO
+// ══════════════════════════════════════════
+function renderizar() {
+    const lista = filtrarProdutos();
+    const modoFlat = busca.trim().length > 0;
+
+    const buscaDiv = document.getElementById('busca-flat');
+    const catalogoDiv = document.getElementById('catalogo');
+
+    if (modoFlat) {
+        buscaDiv.style.display = 'block';
+        catalogoDiv.style.display = 'none';
+        document.getElementById('busca-termo').textContent = `"${busca}"`;
+        document.getElementById('busca-qtd').textContent = `${lista.length} produto${lista.length !== 1 ? 's' : ''}`;
+        if (lista.length === 0) {
+            document.getElementById('grid-busca').innerHTML = `
+            <div class="empty-state">
+                <div class="empty-state-icon">🔍</div>
+                <h3>Nenhum produto encontrado</h3>
+                <p>Tente buscar por nome, código, marca ou tipo.</p>
+            </div>`;
+        } else {
+            document.getElementById('grid-busca').innerHTML = lista.map(cardHTML).join('');
+            document.querySelectorAll('#grid-busca .img-wrap').forEach(w => observer.observe(w));
         }
+        return;
+    }
 
-        // modo seções
-        buscaDiv.style.display = 'none';
-        catalogoDiv.style.display = 'block';
+    buscaDiv.style.display = 'none';
+    catalogoDiv.style.display = 'block';
 
-        const empresas = [...new Set(PRODUTOS.map(p => p.empresa))];
+    const empresas = [...new Set(PRODUTOS.map(p => p.empresa))];
 
-        catalogoDiv.innerHTML = empresas.map(empresa => {
-            const prodEmpresa = lista.filter(p => p.empresa === empresa);
-            if (prodEmpresa.length === 0) return `<div class="secao-empresa oculta" data-empresa="${empresa}"></div>`;
+    catalogoDiv.innerHTML = empresas.map(empresa => {
+        const prodEmpresa = lista.filter(p => p.empresa === empresa);
+        if (prodEmpresa.length === 0) return `<div class="secao-empresa oculta" data-empresa="${empresa}"></div>`;
 
-            const grupos = [...new Set(prodEmpresa.map(p => p.grupo))];
-
-            const gruposHTML = grupos.map(grupo => {
-                const prods = prodEmpresa.filter(p => p.grupo === grupo);
-                return `
-                <div class="secao-grupo">
-                    <div class="secao-grupo-header">
-                        <span class="secao-grupo-tag">${grupo}</span>
-                        <div class="secao-grupo-line"></div>
-                        <span class="secao-grupo-count">${prods.length} produto${prods.length !== 1 ? 's' : ''}</span>
-                    </div>
-                    <div class="grid">${prods.map(cardHTML).join('')}</div>
-                </div>`;
-            }).join('');
-
-            const logoSrc = EMPRESA_LOGOS[empresa] || '';
+        const grupos = [...new Set(prodEmpresa.map(p => p.grupo))];
+        const gruposHTML = grupos.map(grupo => {
+            const prods = prodEmpresa.filter(p => p.grupo === grupo);
             return `
-            <div class="secao-empresa" data-empresa="${empresa}">
-                <div class="secao-empresa-header">
-                    ${logoSrc ? `<img src="${logoSrc}" class="secao-empresa-logo" alt="${empresa}">` : ''}
-                    <span class="secao-empresa-nome">${empresa}</span>
-                    <span class="secao-empresa-count">${prodEmpresa.length} produtos</span>
+            <div class="secao-grupo">
+                <div class="secao-grupo-header">
+                    <span class="secao-grupo-tag">${grupo}</span>
+                    <div class="secao-grupo-line"></div>
+                    <span class="secao-grupo-count">${prods.length} produto${prods.length !== 1 ? 's' : ''}</span>
                 </div>
-                ${gruposHTML}
+                <div class="grid">${prods.map(cardHTML).join('')}</div>
             </div>`;
         }).join('');
 
-        document.querySelectorAll('#catalogo .img-wrap').forEach(w => observer.observe(w));
+        const logoSrc = EMPRESA_LOGOS[empresa] || '';
+        return `
+        <div class="secao-empresa" data-empresa="${empresa}">
+            <div class="secao-empresa-header">
+                ${logoSrc ? `<img src="${logoSrc}" class="secao-empresa-logo" alt="${empresa}">` : ''}
+                <span class="secao-empresa-nome">${empresa}</span>
+                <span class="secao-empresa-count">${prodEmpresa.length} produtos</span>
+            </div>
+            ${gruposHTML}
+        </div>`;
+    }).join('');
+
+    document.querySelectorAll('#catalogo .img-wrap').forEach(w => observer.observe(w));
+}
+
+// ══════════════════════════════════════════
+//  MODAL
+// ══════════════════════════════════════════
+function abrirModal(cod) {
+    const p = PRODUTOS.find(x => String(x.cod) === String(cod));
+    if (!p) return;
+    produtoAtual = p;
+    galImgs = (p.imgs && p.imgs.length) ? p.imgs : [''];
+    galIdx = 0;
+    renderGaleria();
+    document.getElementById('m-tags').innerHTML =
+        `<span class="m-tag m-tag-cod">Cód. ${p.cod}</span>
+         <span class="m-tag m-tag-emp">${p.empresa}</span>
+         <span class="m-tag m-tag-grupo">${p.grupo}</span>
+         ${p.promo ? '<span class="m-tag m-tag-promo">★ Promoção</span>' : ''}`;
+    document.getElementById('m-nome').textContent = p.nome;
+    document.getElementById('m-desc').textContent = p.desc || 'Sem descrição.';
+    document.getElementById('m-emb').textContent = p.embalagem || p.complemento || '—';
+    document.getElementById('m-peso').textContent = p.peso || '—';
+    document.getElementById('m-conserva').textContent = p.conserva || '—';
+    document.getElementById('m-icon').textContent = ICON[p.tipo] || '📦';
+    document.getElementById('m-empresa').textContent = p.empresa;
+    document.getElementById('m-marca').textContent = p.marca || '—';
+    document.getElementById('overlay').classList.add('show');
+    document.body.style.overflow = 'hidden';
+}
+
+function fecharModal() {
+    document.getElementById('overlay').classList.remove('show');
+    document.body.style.overflow = '';
+}
+
+function renderGaleria() {
+    const track = document.getElementById('gal-track');
+    track.innerHTML = galImgs.map((url, i) =>
+        `<div class="gal-slide" onclick="toggleZoom(this,event)">
+            <img src="${url}" alt="Foto ${i + 1}" loading="${i === 0 ? 'eager' : 'lazy'}">
+        </div>`
+    ).join('');
+    document.getElementById('gal-dots').innerHTML = galImgs.length > 1
+        ? galImgs.map((_, i) => `<span class="gal-dot${i === 0 ? ' active' : ''}" onclick="irSlide(${i})"></span>`).join('') : '';
+    document.getElementById('gal-prev').classList.toggle('hidden', galImgs.length <= 1);
+    document.getElementById('gal-next').classList.toggle('hidden', galImgs.length <= 1);
+    irSlide(0);
+}
+
+function toggleZoom(el, e) {
+    if (el.parentElement.dataset.swiping === 'true') return;
+    const img = el.querySelector('img');
+    el.classList.toggle('zoomed');
+    if (el.classList.contains('zoomed')) {
+        const rect = el.getBoundingClientRect();
+        const cx = (e.clientX || (e.touches && e.touches[0].clientX) || rect.left + rect.width / 2);
+        const cy = (e.clientY || (e.touches && e.touches[0].clientY) || rect.top + rect.height / 2);
+        img.style.transformOrigin = `${((cx - rect.left) / rect.width) * 100}% ${((cy - rect.top) / rect.height) * 100}%`;
+    } else {
+        img.style.transformOrigin = 'center';
     }
+}
 
-    // ══════════════════════════════════════════
-    //  MODAL
-    // ══════════════════════════════════════════
-    function abrirModal(cod) {
-        const p = PRODUTOS.find(x => String(x.cod) === String(cod));
-        if (!p) return;
-        produtoAtual = p;
-        galImgs = (p.imgs && p.imgs.length) ? p.imgs : [''];
-        galIdx = 0;
-        renderGaleria();
-        document.getElementById('m-tags').innerHTML =
-            `<span class="m-tag m-tag-cod">Cód. ${p.cod}</span>
-             <span class="m-tag m-tag-emp">${p.empresa}</span>
-             <span class="m-tag m-tag-grupo">${p.grupo}</span>
-             ${p.promo ? '<span class="m-tag m-tag-promo">★ Promoção</span>' : ''}`;
-        document.getElementById('m-nome').textContent = p.nome;
-        document.getElementById('m-desc').textContent = p.desc || 'Sem descrição.';
-        document.getElementById('m-emb').textContent = p.embalagem || p.complemento || '—';
-        document.getElementById('m-peso').textContent = p.peso || '—';
-        document.getElementById('m-conserva').textContent = p.conserva || '—';
-        document.getElementById('m-icon').textContent = ICON[p.tipo] || '📦';
-        document.getElementById('m-empresa').textContent = p.empresa;
-        document.getElementById('m-marca').textContent = p.marca || '—';
-        document.getElementById('overlay').classList.add('show');
-        document.body.style.overflow = 'hidden';
-    }
+function irSlide(idx) {
+    document.querySelectorAll('.gal-slide').forEach(s => s.classList.remove('zoomed'));
+    galIdx = Math.max(0, Math.min(idx, galImgs.length - 1));
+    document.getElementById('gal-track').style.transform = `translateX(-${galIdx * 100}%)`;
+    document.querySelectorAll('.gal-dot').forEach((d, i) => d.classList.toggle('active', i === galIdx));
+    document.getElementById('gal-prev').classList.toggle('hidden', galIdx === 0 || galImgs.length <= 1);
+    document.getElementById('gal-next').classList.toggle('hidden', galIdx === galImgs.length - 1 || galImgs.length <= 1);
+}
 
-    function voltarCapa() {
-        // Fazer scroll para o topo (capa hero)
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-        // Fechar modal se estiver aberto
-        fecharModal();
-        // Limpar busca se houver
-        document.getElementById('search').value = '';
-        document.getElementById('search-clear').classList.remove('show');
-        busca = '';
-        renderizar();
-    }
+document.getElementById('gal-prev').onclick = () => irSlide(galIdx - 1);
+document.getElementById('gal-next').onclick = () => irSlide(galIdx + 1);
 
-    function fecharModal() {
-        document.getElementById('overlay').classList.remove('show');
-        document.body.style.overflow = '';
-    }
+// Swipe galeria
+(function () {
+    let sx = 0, sy = 0, swiping = false;
+    const gal = document.getElementById('modal-gallery');
+    gal.addEventListener('touchstart', e => { sx = e.touches[0].clientX; sy = e.touches[0].clientY; swiping = false; gal.querySelector('.gal-track').dataset.swiping = 'false'; }, { passive: true });
+    gal.addEventListener('touchmove', e => { const dx = Math.abs(e.touches[0].clientX - sx); if (dx > 10) { swiping = true; gal.querySelector('.gal-track').dataset.swiping = 'true'; } }, { passive: true });
+    gal.addEventListener('touchend', e => {
+        const dx = e.changedTouches[0].clientX - sx;
+        const dy = e.changedTouches[0].clientY - sy;
+        if (swiping && Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) irSlide(galIdx + (dx < 0 ? 1 : -1));
+        setTimeout(() => { if (gal.querySelector('.gal-track')) gal.querySelector('.gal-track').dataset.swiping = 'false'; }, 100);
+    }, { passive: true });
+})();
 
-    // Galeria
-    function renderGaleria() {
-        const track = document.getElementById('gal-track');
-        track.innerHTML = galImgs.map((url, i) =>
-            `<div class="gal-slide" onclick="toggleZoom(this,event)">
-                <img src="${url}" alt="Foto ${i + 1}" loading="${i === 0 ? 'eager' : 'lazy'}">
-            </div>`
-        ).join('');
-        document.getElementById('gal-dots').innerHTML = galImgs.length > 1
-            ? galImgs.map((_, i) => `<span class="gal-dot${i === 0 ? ' active' : ''}" onclick="irSlide(${i})"></span>`).join('') : '';
-        document.getElementById('gal-prev').classList.toggle('hidden', galImgs.length <= 1);
-        document.getElementById('gal-next').classList.toggle('hidden', galImgs.length <= 1);
-        irSlide(0);
-    }
+// ══════════════════════════════════════════
+//  COMPARTILHAR
+// ══════════════════════════════════════════
+function compartilharProduto() {
+    if (!produtoAtual) return;
+    const p = produtoAtual;
+    const img = (p.imgs && p.imgs[0]) ? p.imgs[0] : '';
+    const texto =
+        `${p.promo ? '🔥 *PRODUTO EM PROMOÇÃO!*\n' : ''}🛒 *${p.nome}*\nCód: ${p.cod} | ${p.empresa} — ${p.marca}\n\n📦 Embalagem: ${p.embalagem || p.complemento || '—'}\n⚖️ Peso: ${p.peso || '—'}\n${ICON[p.tipo] || '📦'} Conservação: ${p.conserva || '—'}\n\n${p.desc || ''}\n${img ? '\n📸 Foto:\n' + img : ''}\n\n🌐 Catálogo: ${URL_CATALOGO}`;
+    window.open('https://wa.me/?text=' + encodeURIComponent(texto), '_blank');
+}
 
-    function toggleZoom(el, e) {
-        if (el.parentElement.dataset.swiping === 'true') return;
-        const img = el.querySelector('img');
-        el.classList.toggle('zoomed');
-        if (el.classList.contains('zoomed')) {
-            const rect = el.getBoundingClientRect();
-            const cx = (e.clientX || (e.touches && e.touches[0].clientX) || rect.left + rect.width / 2);
-            const cy = (e.clientY || (e.touches && e.touches[0].clientY) || rect.top + rect.height / 2);
-            img.style.transformOrigin = `${((cx - rect.left) / rect.width) * 100}% ${((cy - rect.top) / rect.height) * 100}%`;
-        } else {
-            img.style.transformOrigin = 'center';
-        }
-    }
+function compartilharCatalogo() {
+    const texto = `📋 *Catálogo Comercial — Acreaves | Dom Porquito | Fripal*\n\nAcesse nosso catálogo completo com todos os produtos, fotos e especificações:\n\n👉 ${URL_CATALOGO}`;
+    window.open('https://wa.me/?text=' + encodeURIComponent(texto), '_blank');
+}
 
-    function irSlide(idx) {
-        document.querySelectorAll('.gal-slide').forEach(s => s.classList.remove('zoomed'));
-        galIdx = Math.max(0, Math.min(idx, galImgs.length - 1));
-        document.getElementById('gal-track').style.transform = `translateX(-${galIdx * 100}%)`;
-        document.querySelectorAll('.gal-dot').forEach((d, i) => d.classList.toggle('active', i === galIdx));
-        document.getElementById('gal-prev').classList.toggle('hidden', galIdx === 0 || galImgs.length <= 1);
-        document.getElementById('gal-next').classList.toggle('hidden', galIdx === galImgs.length - 1 || galImgs.length <= 1);
-    }
+// Fechar modal com Escape
+document.addEventListener('keydown', e => { if (e.key === 'Escape') fecharModal(); });
 
-    document.getElementById('gal-prev').onclick = () => irSlide(galIdx - 1);
-    document.getElementById('gal-next').onclick = () => irSlide(galIdx + 1);
-
-    // Swipe galeria
-    (function () {
-        let sx = 0, sy = 0, swiping = false;
-        const gal = document.getElementById('modal-gallery');
-        gal.addEventListener('touchstart', e => { sx = e.touches[0].clientX; sy = e.touches[0].clientY; swiping = false; gal.querySelector('.gal-track').dataset.swiping = 'false'; }, { passive: true });
-        gal.addEventListener('touchmove', e => { const dx = Math.abs(e.touches[0].clientX - sx); if (dx > 10) { swiping = true; gal.querySelector('.gal-track').dataset.swiping = 'true'; } }, { passive: true });
-        gal.addEventListener('touchend', e => {
-            const dx = e.changedTouches[0].clientX - sx;
-            const dy = e.changedTouches[0].clientY - sy;
-            if (swiping && Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) irSlide(galIdx + (dx < 0 ? 1 : -1));
-            setTimeout(() => { if (gal.querySelector('.gal-track')) gal.querySelector('.gal-track').dataset.swiping = 'false'; }, 100);
-        }, { passive: true });
-    })();
-
-    // ══════════════════════════════════════════
-    //  COMPARTILHAR
-    // ══════════════════════════════════════════
-    function compartilharProduto() {
-        if (!produtoAtual) return;
-        const p = produtoAtual;
-        const img = (p.imgs && p.imgs[0]) ? p.imgs[0] : '';
-        const texto =
-            `${p.promo ? '🔥 *PRODUTO EM PROMOÇÃO!*\n' : ''}🛒 *${p.nome}*\nCód: ${p.cod} | ${p.empresa} — ${p.marca}\n\n📦 Embalagem: ${p.embalagem || p.complemento || '—'}\n⚖️ Peso: ${p.peso || '—'}\n${ICON[p.tipo] || '📦'} Conservação: ${p.conserva || '—'}\n\n${p.desc || ''}\n${img ? '\n📸 Foto:\n' + img : ''}\n\n🌐 Catálogo: ${URL_CATALOGO}`;
-        window.open('https://wa.me/?text=' + encodeURIComponent(texto), '_blank');
-    }
-
-    function compartilharCatalogo() {
-        const texto = `📋 *Catálogo Comercial — Acreaves | Dom Porquito | Fripal*\n\nAcesse nosso catálogo completo com todos os produtos, fotos e especificações:\n\n👉 ${URL_CATALOGO}`;
-        window.open('https://wa.me/?text=' + encodeURIComponent(texto), '_blank');
-    }
-
-    // ══════════════════════════════════════════
-    //  SEARCH INPUT
-    // ══════════════════════════════════════════
-    document.getElementById('search').addEventListener('input', e => {
-        busca = e.target.value;
-        document.getElementById('search-clear').classList.toggle('show', busca.length > 0);
-        renderizar();
-    });
-
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') fecharModal(); });
-
-    // ══════════════════════════════════════════
-    //  INIT — estatísticas na capa
-    // ══════════════════════════════════════════
-    window.onload = function () {
-        document.getElementById('stat-total').textContent = PRODUTOS.length;
-        const grupos = new Set(PRODUTOS.map(p => p.grupo));
-        document.getElementById('stat-grupos').textContent = grupos.size;
-        renderizar();
-    };
+// ══════════════════════════════════════════
+//  INIT
+// ══════════════════════════════════════════
+window.onload = function () {
+    document.getElementById('stat-total').textContent = PRODUTOS.length;
+    const grupos = new Set(PRODUTOS.map(p => p.grupo));
+    document.getElementById('stat-grupos').textContent = grupos.size;
+    // FAB só visível no catálogo
+    document.getElementById('fab-share').style.display = 'none';
+    renderizar();
+};
 </script>
 </body>
 </html>
