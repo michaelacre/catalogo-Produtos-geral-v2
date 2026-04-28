@@ -1616,13 +1616,13 @@ const PRODUTOS = [
   
 
   // ══════════════════════════════════════════
-  //  FRIPAL
+  //  Fripal
   // ══════════════════════════════════════════
 
   {
     cod: "481",
     nome: "BATATA CRISPY COATED PREMIUM 10mm 12kg",
-    empresa: "FRIPAL",
+    empresa: "Fripal",
     marca: "FARM FRITE",
     grupo: "BATATA",
     tipo: "CONGELADO",
@@ -1636,7 +1636,7 @@ const PRODUTOS = [
   {
     cod: "488",
     nome: "BATATA FARM FRITES FRIES 7mm 12.5kg",
-    empresa: "FRIPAL",
+    empresa: "Fripal",
     marca: "FARM FRITE",
     grupo: "BATATA",
     tipo: "CONGELADO",
@@ -1650,7 +1650,7 @@ const PRODUTOS = [
   {
     cod: "60108",
     nome: "BATATA FARM FRITES TRAD 10MM 12kg",
-    empresa: "FRIPAL",
+    empresa: "Fripal",
     marca: "FARM FRITE",
     grupo: "BATATA",
     tipo: "CONGELADO",
@@ -1664,7 +1664,7 @@ const PRODUTOS = [
   {
     cod: "60109",
     nome: "BATATA STAR FRITES 10 MM 10kg",
-    empresa: "FRIPAL",
+    empresa: "Fripal",
     marca: "FARM FRITE",
     grupo: "BATATA",
     tipo: "CONGELADO",
@@ -1678,7 +1678,7 @@ const PRODUTOS = [
   {
     cod: "460",
     nome: "MANTEIGA SABBOR 500G",
-    empresa: "FRIPAL",
+    empresa: "Fripal",
     marca: "SABBOR",
     grupo: "MANTEIGA",
     tipo: "RESFRIADO",
@@ -1692,7 +1692,7 @@ const PRODUTOS = [
   {
     cod: "461",
     nome: "MANTEIGA SABBOR 200G",
-    empresa: "FRIPAL",
+    empresa: "Fripal",
     marca: "SABBOR",
     grupo: "MANTEIGA",
     tipo: "RESFRIADO",
