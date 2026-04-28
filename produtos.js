@@ -691,7 +691,7 @@ const PRODUTOS = [
     nome: "LOMBO TIPO CANADENSE",
     empresa: "Dom Porquito",
     marca: "MISTER PIG",
-    grupo: "CORTE",
+    grupo: "EMBUTIDOS",
     tipo: "DEFUMADOS",
     complemento: "PV (CX C/ 10 KG)",
     peso: "10 KG",
