@@ -663,7 +663,7 @@ const PRODUTOS = [
     nome: "LANCHE",
     empresa: "Dom Porquito",
     marca: "SABBOR",
-    grupo: "CORTE",
+    grupo: "EMBUTIDOS",
     tipo: "RESFRIADO",
     complemento: "PV (CX  C/ 10 KG)",
     peso: "10 KG",
