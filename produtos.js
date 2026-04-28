@@ -914,7 +914,7 @@ const PRODUTOS = [
   {
     cod: "20227",
     nome: "Bisteca de Carré Congelada",
-    empresa: "Dom Poquito",
+    empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "CORTES CONGELADOS",
     tipo: "CONGELADO",
@@ -928,7 +928,7 @@ const PRODUTOS = [
   {
     cod: "20231",
     nome: "Lombo Suíno Congelado",
-    empresa: "Dom Poquito",
+    empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "CORTES CONGELADOS",
     tipo: "CONGELADO",
@@ -942,7 +942,7 @@ const PRODUTOS = [
   {
     cod: "20500",
     nome: "Carré com Costela e Barriga",
-    empresa: "Dom Poquito",
+    empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "CORTES CONGELADOS",
     tipo: "CONGELADO",
@@ -956,7 +956,7 @@ const PRODUTOS = [
   {
     cod: "20569",
     nome: "Pernil Suíno com Osso e Pele Congelado",
-    empresa: "Dom Poquito",
+    empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "CORTES CONGELADOS",
     tipo: "CONGELADO",
@@ -970,7 +970,7 @@ const PRODUTOS = [
   {
     cod: "20577",
     nome: "Bisteca de Carré com Pele",
-    empresa: "Dom Poquito",
+    empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "CORTES CONGELADOS",
     tipo: "CONGELADO",
@@ -984,7 +984,7 @@ const PRODUTOS = [
   {
     cod: "20710",
     nome: "Filé Mignon Suíno Congelado",
-    empresa: "Dom Poquito",
+    empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "CORTES CONGELADOS",
     tipo: "CONGELADO",
@@ -998,7 +998,7 @@ const PRODUTOS = [
   {
     cod: "20712",
     nome: "Carré Suíno Congelado",
-    empresa: "Dom Poquito",
+    empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "CORTES CONGELADOS",
     tipo: "CONGELADO",
@@ -1012,7 +1012,7 @@ const PRODUTOS = [
   {
     cod: "20714",
     nome: "Picanha Suína Congelada",
-    empresa: "Dom Poquito",
+    empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "CORTES CONGELADOS",
     tipo: "CONGELADO",
@@ -1026,7 +1026,7 @@ const PRODUTOS = [
   {
     cod: "20717",
     nome: "Pernil Suíno Congelado",
-    empresa: "Dom Poquito",
+    empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "CORTES CONGELADOS",
     tipo: "CONGELADO",
@@ -1040,7 +1040,7 @@ const PRODUTOS = [
   {
     cod: "20718",
     nome: "Paleta Suína Congelada",
-    empresa: "Dom Poquito",
+    empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "CORTES CONGELADOS",
     tipo: "CONGELADO",
@@ -1054,7 +1054,7 @@ const PRODUTOS = [
   {
     cod: "20720",
     nome: "Bisteca de Copa Lombo Congelada",
-    empresa: "Dom Poquito",
+    empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "CORTES CONGELADOS",
     tipo: "CONGELADO",
@@ -1068,7 +1068,7 @@ const PRODUTOS = [
   {
     cod: "20721",
     nome: "Pele Suína Congelada",
-    empresa: "Dom Poquito",
+    empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "CORTES CONGELADOS",
     tipo: "CONGELADO",
@@ -1082,7 +1082,7 @@ const PRODUTOS = [
   {
     cod: "20724",
     nome: "Costela Suína em Manta Congelada",
-    empresa: "Dom Poquito",
+    empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "CORTES CONGELADOS",
     tipo: "CONGELADO",
@@ -1096,7 +1096,7 @@ const PRODUTOS = [
   {
     cod: "20725",
     nome: "Costela Suína Congelada",
-    empresa: "Dom Poquito",
+    empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "CORTES CONGELADOS",
     tipo: "CONGELADO",
@@ -1110,7 +1110,7 @@ const PRODUTOS = [
   {
     cod: "20732",
     nome: "Alcatra Suína Congelada",
-    empresa: "Dom Poquito",
+    empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "CORTES CONGELADOS",
     tipo: "CONGELADO",
@@ -1124,7 +1124,7 @@ const PRODUTOS = [
   {
     cod: "20738",
     nome: "Copa Lombo Suíno Congelado",
-    empresa: "Dom Poquito",
+    empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "CORTES CONGELADOS",
     tipo: "CONGELADOS",
@@ -1138,7 +1138,7 @@ const PRODUTOS = [
   {
     cod: "20739",
     nome: "Ponta de Costela Congelada",
-    empresa: "Dom Poquito",
+    empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "CORTES CONGELADOS",
     tipo: "CONGELADO",
@@ -1152,7 +1152,7 @@ const PRODUTOS = [
   {
     cod: "20744",
     nome: "Pés Suínos Congelados",
-    empresa: "Dom Poquito",
+    empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "CORTES CONGELADOS",
     tipo: "CONGELADO",
@@ -1166,7 +1166,7 @@ const PRODUTOS = [
   {
     cod: "20746",
     nome: "Máscara com Orelha Suína Congelada",
-    empresa: "Dom Poquito",
+    empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "CORTES CONGELADOS",
     tipo: "CONGELADO",
@@ -1180,7 +1180,7 @@ const PRODUTOS = [
   {
     cod: "20735",
     nome: "Joelho Suíno Congelado",
-    empresa: "Dom Poquito",
+    empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "CORTES CONGELADOS",
     tipo: "CONGELADO",
@@ -1194,7 +1194,7 @@ const PRODUTOS = [
   {
     cod: "20763",
     nome: "Meia Carcaça Suína Congelada",
-    empresa: "Dom Poquito",
+    empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "CORTES CONGELADOS",
     tipo: "CONGELADO",
@@ -1208,7 +1208,7 @@ const PRODUTOS = [
   {
     cod: "20766",
     nome: "Pernil Suíno Bolinha Congelado",
-    empresa: "Dom Poquito",
+    empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "CORTES CONGELADOS",
     tipo: "CONGELADO",
@@ -1222,7 +1222,7 @@ const PRODUTOS = [
   {
     cod: "20769",
     nome: "Costela Premium Congelada",
-    empresa: "Dom Poquito",
+    empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "CORTES CONGELADOS",
     tipo: "CONGELADO",
@@ -1236,7 +1236,7 @@ const PRODUTOS = [
   {
     cod: "20770",
     nome: "Carré Sem Couro Inteiro Congelado",
-    empresa: "Dom Poquito",
+    empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "CORTES CONGELADOS",
     tipo: "CONGELADO",
@@ -1250,7 +1250,7 @@ const PRODUTOS = [
   {
     cod: "20772",
     nome: "Carré Inteiro com Couro Congelado",
-    empresa: "Dom Poquito",
+    empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "CORTES CONGELADOS",
     tipo: "CONGELADO",
@@ -1264,7 +1264,7 @@ const PRODUTOS = [
   {
     cod: "20923",
     nome: "Bisteca de Pernil Congelada",
-    empresa: "Dom Poquito",
+    empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "CORTES CONGELADOS",
     tipo: "CONGELADO",
@@ -1279,7 +1279,7 @@ const PRODUTOS = [
   {
     cod: "20925",
     nome: "Barriga Suína Resfriada",
-    empresa: "Dom Poquito",
+    empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "CORTES CONGELADOS",
     tipo: "CONGELADO",
@@ -1293,7 +1293,7 @@ const PRODUTOS = [
   {
     cod: "20928",
     nome: "Sobrepaleta Suína em Cubos Congelada",
-    empresa: "Dom Poquito",
+    empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "CORTES CONGELADOS",
     tipo: "CONGELADO",
@@ -1307,7 +1307,7 @@ const PRODUTOS = [
   {
     cod: "20985",
     nome: "Pernil Desossado com Pele Congelado",
-    empresa: "Dom Poquito",
+    empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "CORTES CONGELADOS",
     tipo: "CONGELADO",
@@ -1321,7 +1321,7 @@ const PRODUTOS = [
   {
     cod: "20989",
     nome: "Paleta Suína Bolinha Congelada",
-    empresa: "Dom Poquito",
+    empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "CORTES CONGELADOS",
     tipo: "CONGELADO",
@@ -1335,7 +1335,7 @@ const PRODUTOS = [
   {
     cod: "20579",
     nome: "Costela Suína Premium sem Pele Resfriada",
-    empresa: "Dom Poquito",
+    empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "CORTES REFRIADOS",
     tipo: "RESFRIADO",
@@ -1349,7 +1349,7 @@ const PRODUTOS = [
   {
     cod: "20711",
     nome: "Filé Mignon Suíno Resfriado",
-    empresa: "Dom Poquito",
+    empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "CORTES REFRIADOS",
     tipo: "RESFRIADO",
@@ -1363,7 +1363,7 @@ const PRODUTOS = [
   {
     cod: "20715",
     nome: "Picanha Suína Resfriada",
-    empresa: "Dom Poquito",
+    empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "CORTES REFRIADOS",
     tipo: "RESFRIADO",
@@ -1377,7 +1377,7 @@ const PRODUTOS = [
   {
     cod: "20716",
     nome: "Pernil Suíno Resfriado",
-    empresa: "Dom Poquito",
+    empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "CORTES REFRIADOS",
     tipo: "RESFRIADO",
@@ -1391,7 +1391,7 @@ const PRODUTOS = [
   {
     cod: "20719",
     nome: "Paleta Suína Resfriada",
-    empresa: "Dom Poquito",
+    empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "CORTES REFRIADOS",
     tipo: "RESFRIADO",
@@ -1405,7 +1405,7 @@ const PRODUTOS = [
   {
     cod: "20726",
     nome: "Costela Suína Resfriada",
-    empresa: "Dom Poquito",
+    empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "CORTES REFRIADOS",
     tipo: "RESFRIADO",
@@ -1419,7 +1419,7 @@ const PRODUTOS = [
   {
     cod: "20733",
     nome: "Alcatra Suína Resfriada",
-    empresa: "Dom Poquito",
+    empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "CORTES REFRIADOS",
     tipo: "RESFRIADO",
@@ -1433,7 +1433,7 @@ const PRODUTOS = [
   {
     cod: "20737",
     nome: "Copa Lombo Suíno Resfriado",
-    empresa: "Dom Poquito",
+    empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "CORTES REFRIADOS",
     tipo: "RESFRIADO",
@@ -1447,7 +1447,7 @@ const PRODUTOS = [
   {
     cod: "20745",
     nome: "Costela Suína Premium Resfriada",
-    empresa: "Dom Poquito",
+    empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "CORTES REFRIADOS",
     tipo: "RESFRIADO",
@@ -1461,7 +1461,7 @@ const PRODUTOS = [
   {
     cod: "20751",
     nome: "Lombo Suíno Resfriado",
-    empresa: "Dom Poquito",
+    empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "CORTES REFRIADOS",
     tipo: "RESFRIADO",
@@ -1475,7 +1475,7 @@ const PRODUTOS = [
   {
     cod: "20748",
     nome: "Carcaça Suína Resfriada",
-    empresa: "Dom Poquito",
+    empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "CORTES REFRIADOS",
     tipo: "RESFRIADO",
@@ -1489,7 +1489,7 @@ const PRODUTOS = [
   {
     cod: "20924",
     nome: "Barriga Suína Resfriada",
-    empresa: "Dom Poquito",
+    empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "CORTES REFRIADOS",
     tipo: "RESFRIADO",
@@ -1500,11 +1500,11 @@ const PRODUTOS = [
     imgs: ["https://i.postimg.cc/2SM8Fn7X/20924.png"],
     desc: "Corte suculento, ideal para torresmo e assados."
   },
-  // CORTES SALGADOS DOM POQUITO
+  // CORTES SALGADOS Dom Porquito
   {
     cod: "20760",
     nome: "Ponta de Costela Salgada",
-    empresa: "Dom Poquito",
+    empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "SALGADOS",
     tipo: "SALGADO",
@@ -1518,7 +1518,7 @@ const PRODUTOS = [
   {
     cod: "20753",
     nome: "Joelho Suíno Salgado",
-    empresa: "Dom Poquito",
+    empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "SALGADOS",
     tipo: "SALGADO",
@@ -1532,7 +1532,7 @@ const PRODUTOS = [
   {
     cod: "20755",
     nome: "Língua Suína Salgada",
-    empresa: "Dom Poquito",
+    empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "SALGADOS",
     tipo: "SALGADO",
@@ -1546,7 +1546,7 @@ const PRODUTOS = [
   {
     cod: "20756",
     nome: "Rabo Suíno Salgado",
-    empresa: "Dom Poquito",
+    empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "SALGADOS",
     tipo: "SALGADO",
@@ -1560,7 +1560,7 @@ const PRODUTOS = [
   {
     cod: "20757",
     nome: "Pé Suíno Salgado",
-    empresa: "Dom Poquito",
+    empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "SALGADOS",
     tipo: "SALGADO",
@@ -1574,7 +1574,7 @@ const PRODUTOS = [
   {
     cod: "20758",
     nome: "Costela Suína Salgada",
-    empresa: "Dom Poquito",
+    empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "SALGADOS",
     tipo: "SALGADO",
@@ -1588,7 +1588,7 @@ const PRODUTOS = [
   {
     cod: "20759",
     nome: "Máscara Suína Salgada",
-    empresa: "Dom Poquito",
+    empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "SALGADOS",
     tipo: "SALGADO",
@@ -1602,7 +1602,7 @@ const PRODUTOS = [
   {
     cod: "20900",
     nome: "Pele Suína Salgada",
-    empresa: "Dom Poquito",
+    empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "SALGADOS",
     tipo: "SALGADO",
