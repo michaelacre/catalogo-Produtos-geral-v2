@@ -1320,17 +1320,17 @@ const PRODUTOS = [
   },
   {
     cod: "20989",
-    nome: "Paleta Suína Bolinha Resfriada",
+    nome: "Paleta Suína Bolinha Congelada",
     empresa: "Dom Ponquito",
     marca: "MISTER PIG",
-    grupo: "CORTES REFRIADOS",
+    grupo: "CORTES CONGELADOS",
     tipo: "CONGELADO",
     complemento: "PV (CX C/ 16 KG)",
     peso: "16 KG",
     conserva: "MANTENHA CONGELADO A -12°C",
     promo: false,
     imgs: ["https://i.postimg.cc/NjM5xsqf/20989.png"],
-    desc: "Corte resfriado, ideal para preparo imediato."
+    desc: "Corte suíno congelado, com formato arredondado e excelente rendimento, ideal para assados, cozidos e preparações diversas, garantindo sabor e suculência.."
   },
   {
     cod: "20579",
