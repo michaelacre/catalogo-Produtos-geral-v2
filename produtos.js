@@ -873,7 +873,7 @@ const PRODUTOS = [
     nome: "MINI MORTADELA TIPO BOLOGNA",
     empresa: "Dom Porquito",
     marca: "MISTER PIG",
-    grupo: "CORTE",
+    grupo: "EMBUTIDOS",
     tipo: "DEFUMADOS",
     complemento: "PV CX C/ 10 KG",
     peso: "10 KG",
