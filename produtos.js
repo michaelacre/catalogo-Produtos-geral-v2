@@ -593,7 +593,7 @@ const PRODUTOS = [
     nome: "PRESUNTO COZIDO SABBOR 3.6KG",
     empresa: "Dom Porquito",
     marca: "SABBOR",
-    grupo: "CORTE",
+    grupo: "EMBUTIDOS",
     tipo: "RESFRIADO",
     complemento: "PV (CX  C/ 10,80 KG)",
     peso: "10,8 KG",
