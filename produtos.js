@@ -216,7 +216,8 @@ const PRODUTOS = [
     conserva: "MANTENHA CONGELADO A -12°C",
     promo: false,
     imgs: ["https://i.postimg.cc/MTSPZ77N/SABBOR-Cortes-Coxa-e-sobrecoxa-dorsal-324.png"],
-    desc: "Cortes de coxa e sobrecoxa com porção dorsal, congelados, oferecendo ótimo custo-benefício e sabor."
+    desc: "Frango a Passarinho Marinado (Congelado)
+O petisco perfeito para qualquer momento. Cortes selecionados de frango, marinados em um tempero especial que garante suculência por dentro e crocância por fora. Pronto para o preparo, oferece agilidade na cozinha e o sabor irresistível que agrada a todos.."
   },
   {
     cod: "410",
