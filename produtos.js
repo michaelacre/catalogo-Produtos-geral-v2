@@ -33,8 +33,7 @@ const PRODUTOS = [
     peso: "18 KG",
     conserva: "MANTENHA CONGELADO A -12°C",
     promo: false,
-    imgs: ["https://i.postimg.cc/RFBsC77p/SABBOR-Cortes-Coxa-e-sobrecoxa-225.png",
-          "https://i.postimg.cc/cHBDvvTL/SABBOR-Cortes-File-de-peito-226.png"],
+    imgs: ["https://i.postimg.cc/RFBsC77p/SABBOR-Cortes-Coxa-e-sobrecoxa-225.png"],
     desc: "Cortes de coxa e sobrecoxa de frango, congelados, ideais para diversas preparações, com suculência e sabor garantidos."
   },
   {
