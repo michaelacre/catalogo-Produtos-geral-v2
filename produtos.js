@@ -192,7 +192,7 @@ const PRODUTOS = [
   },
   {
     cod: "322",
-    nome: "PE DE FRANGO CONGELADO SABBOR",
+    nome: "PÉ DE FRANGO CONGELADO SABBOR",
     empresa: "ACREAVES",
     marca: "SABBOR",
     grupo: "CORTE",
