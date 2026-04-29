@@ -150,7 +150,7 @@ const PRODUTOS = [
   },
   {
     cod: "320",
-    nome: "CORACAO CONGELADO SABBOR",
+    nome: "CORAÇÃO CONGELADO SABBOR",
     empresa: "ACREAVES",
     marca: "SABBOR",
     grupo: "CORTE",
@@ -206,7 +206,7 @@ const PRODUTOS = [
   },
   {
     cod: "324",
-    nome: "COXA/SOBRECOXA PORCAO DORSAL CONG SABBOR",
+    nome: "COXA/SOBRECOXA PORÇÃO DORSAL CONG SABBOR",
     empresa: "ACREAVES",
     marca: "SABBOR",
     grupo: "CORTE",
@@ -506,7 +506,7 @@ const PRODUTOS = [
   },
   {
     cod: "20562",
-    nome: "PERNIL SUINO TEMPERADO",
+    nome: "PERNIL SUÍNO TEMPERADO",
     empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "CORTE",
@@ -688,7 +688,7 @@ const PRODUTOS = [
   },
   {
     cod: "20933",
-    nome: "BACON EM PEDACOS",
+    nome: "BACON EM PEDAÇOS",
     empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "CORTE",
@@ -772,7 +772,7 @@ const PRODUTOS = [
   },
   {
     cod: "20916",
-    nome: "LOMBO SUINO TEMPERADO",
+    nome: "LOMBO SUÍNO TEMPERADO",
     empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "CORTE",
