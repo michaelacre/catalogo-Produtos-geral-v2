@@ -879,7 +879,6 @@ const PRODUTOS = [
     peso: "10 KG",
     conserva: "MANTER RESFRIADO 0°C A +7°C",
     promo: false,
-    imgs: ["https://i.postimg.cc/D01qJ0kW/20677.jpg"],
     imgs: ["https://i.postimg.cc/c6qFvfYD/20638-V01-Mister-Pig-Mortadela-Tipo-Bologna-GRANDE.png"],
     desc: "Tradição em formato prático. Sabor marcante e textura delicada, perfeita para tábuas de frios e lanches gourmet."
   },
