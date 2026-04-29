@@ -38,7 +38,7 @@ const PRODUTOS = [
   },
   {
     cod: "226",
-    nome: "FILE DE PEITO  CONGELADO SABBOR",
+    nome: "FILÉ DE PEITO  CONGELADO SABBOR",
     empresa: "ACREAVES",
     marca: "SABBOR",
     grupo: "CORTE",
