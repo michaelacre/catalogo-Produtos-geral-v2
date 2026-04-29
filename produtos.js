@@ -216,7 +216,7 @@ const PRODUTOS = [
     conserva: "MANTENHA CONGELADO A -12°C",
     promo: false,
     imgs: ["https://i.postimg.cc/MTSPZ77N/SABBOR-Cortes-Coxa-e-sobrecoxa-dorsal-324.png"],
-    desc: "O petisco perfeito para qualquer momento. Cortes selecionados de frango, marinados em um tempero especial que garante suculência por dentro e crocância por fora. Pronto para o preparo, oferece agilidade na cozinha e o sabor irresistível que agrada a todos.."
+    desc: "Cortes de coxa e sobrecoxa com porção dorsal, congelados, oferecendo ótimo custo-benefício e sabor."
   },
   {
     cod: "410",
@@ -230,7 +230,7 @@ const PRODUTOS = [
     conserva: "MANTENHA CONGELADO A -12°C",
     promo: false,
     imgs: ["https://i.postimg.cc/L8xpp04h/Whats-App-Image-2026-04-29-at-6-49-06-PM.png"],
-    desc: "Cortes de coxa e sobrecoxa com porção dorsal, congelados, oferecendo ótimo custo-benefício e sabor."
+    desc: "O petisco perfeito para qualquer momento. Cortes selecionados de frango, marinados em um tempero especial que garante suculência por dentro e crocância por fora. Pronto para o preparo, oferece agilidade na cozinha e o sabor irresistível que agrada a todos."
   },
   {
     cod: "249",
