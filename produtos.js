@@ -341,7 +341,7 @@ const PRODUTOS = [
     peso: "18 kg",
     conserva: "MANTENHA CONGELADO A -12°C",
     promo: false,
-    imgs: ["https://i.postimg.cc/C5vm49Wk/SABBOR-Miudos-Pe-322.png"],
+    imgs: ["https://i.postimg.cc/x8GtNqFx/PE-DE-FRANGO-322.png"],
     desc: "Pé de frango congelado, indicado para caldos ricos e gelatinosos, muito utilizado na culinária tradicional."
   },
   {
