@@ -1828,7 +1828,7 @@ const PRODUTOS = [
   },
   {
     cod: "263",
-    nome: "QUEIJO MUSSARELA PROCESSADO",
+    nome: "QUEIJO MUSSARELA PROCESSADO EM BARRA",
     empresa: "Fripal",
     marca: "PURANATA",
     grupo: "QUEIJO",
