@@ -1837,12 +1837,12 @@ const PRODUTOS = [
     peso: "16 kg",
     conserva: "MANTENHA RESFRIADO 1ºC A 10ºC",
     promo: false,
-    imgs: ["https://i.postimg.cc/RCTF6h4v/461-MANTEIGA-SABBOR-200G.png"],
-    desc: "A clássica Manteiga Sabbor em embalagem compacta e prática. Perfeita para o consumo diário, garante frescor e cremosidade em cada uso. Possui o equilíbrio ideal de sal para realçar o sabor dos seus cafés da manhã e lanches."
+    imgs: ["https://i.postimg.cc/BbCc7GLC/263.png"],
+    desc: "Opção versátil e de alto rendimento, este Queijo Mussarela Processado é a solução inteligente para o dia a dia na cozinha. Apresenta uma textura macia, ótimo custo-benefício e desempenho consistente sob aquecimento, sendo indispensável para montagem de sanduíches, salgados e gratinados rápidos."
   },
   {
     cod: "603",
-    nome: "QUEIJO MUSSARELA PROCESSADO",
+    nome: "QUEIJO MUSSARELA PROCESSADO LAT VIDA",
     empresa: "Fripal",
     marca: "LAT VIDA",
     grupo: "QUEIJO",
@@ -1851,8 +1851,8 @@ const PRODUTOS = [
     peso: "18 kg",
     conserva: "MANTENHA RESFRIADO  1°C A 7ºC",
     promo: false,
-    imgs: ["https://i.postimg.cc/RCTF6h4v/461-MANTEIGA-SABBOR-200G.png"],
-    desc: "A clássica Manteiga Sabbor em embalagem compacta e prática. Perfeita para o consumo diário, garante frescor e cremosidade em cada uso. Possui o equilíbrio ideal de sal para realçar o sabor dos seus cafés da manhã e lanches."
+    imgs: ["https://i.postimg.cc/GtjJg18x/603-quijo-musarela-latvida.png"],
+    desc: "O Queijo Mussarela Processado Lat Vida oferece o equilíbrio perfeito entre sabor suave e funcionalidade. Desenvolvido para garantir uma derretibilidade uniforme e excelente fatiamento, é ideal para o uso profissional em lanches, pizzas e preparos culinários que exigem padronização e um toque lácteo de qualidade."
   },
 
   // ══════════════════════════════════════════
