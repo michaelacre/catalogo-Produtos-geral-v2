@@ -1826,6 +1826,34 @@ const PRODUTOS = [
     imgs: ["https://i.postimg.cc/RCTF6h4v/461-MANTEIGA-SABBOR-200G.png"],
     desc: "A clássica Manteiga Sabbor em embalagem compacta e prática. Perfeita para o consumo diário, garante frescor e cremosidade em cada uso. Possui o equilíbrio ideal de sal para realçar o sabor dos seus cafés da manhã e lanches."
   },
+  {
+    cod: "263",
+    nome: "QUEIJO MUSSARELA PROCESSADO",
+    empresa: "Fripal",
+    marca: "PURANATA",
+    grupo: "QUEIJO",
+    tipo: "RESFRIADO",
+    complemento: "4 kg — 4 un",
+    peso: "16 kg",
+    conserva: "MANTENHA RESFRIADO 1ºC A 10ºC",
+    promo: false,
+    imgs: ["https://i.postimg.cc/RCTF6h4v/461-MANTEIGA-SABBOR-200G.png"],
+    desc: "A clássica Manteiga Sabbor em embalagem compacta e prática. Perfeita para o consumo diário, garante frescor e cremosidade em cada uso. Possui o equilíbrio ideal de sal para realçar o sabor dos seus cafés da manhã e lanches."
+  },
+  {
+    cod: "603",
+    nome: "QUEIJO MUSSARELA PROCESSADO",
+    empresa: "Fripal",
+    marca: "LAT VIDA",
+    grupo: "QUEIJO",
+    tipo: "RESFRIADO",
+    complemento: "3 kg — 6 un",
+    peso: "18 kg",
+    conserva: "MANTENHA RESFRIADO  1°C A 7ºC",
+    promo: false,
+    imgs: ["https://i.postimg.cc/RCTF6h4v/461-MANTEIGA-SABBOR-200G.png"],
+    desc: "A clássica Manteiga Sabbor em embalagem compacta e prática. Perfeita para o consumo diário, garante frescor e cremosidade em cada uso. Possui o equilíbrio ideal de sal para realçar o sabor dos seus cafés da manhã e lanches."
+  },
 
   // ══════════════════════════════════════════
   //  TEMPLATE — adicione novos produtos aqui
