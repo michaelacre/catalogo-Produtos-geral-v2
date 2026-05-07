@@ -464,14 +464,14 @@ const PRODUTOS = [
   },
   {
     cod: "20986",
-    nome: "FRALDINHA SUÍNA TEMPERADA",
+    nome: "FRALDINHA SUÍNA TEMPERADA CONGELADA",
     empresa: "Dom Porquito",
     marca: "MISTER PIG",
     grupo: "CORTE",
     tipo: "TEMPERADO",
     complemento: "PESO VARIÁVEL",
-    peso: "Aprox. 20 kg",
-    conserva: "MANTENHA CONGELADO A -12°C",
+    peso: "Aprox. 10 kg",
+    conserva: "MANTENHA CONGELADO A -12\A7C",
     promo: false,
     imgs: ["https://i.postimg.cc/8kqGR3bT/20986-V01-Mister-Pig-Fraldinha-Suina-Temperada-Congelada-mockup.png"],
     desc: "Corte suíno selecionado, já temperado, ideal para preparo rápido com sabor marcante e suculência garantida."
