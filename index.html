@@ -847,12 +847,13 @@ let produtoAtual = null;
 let filtroAtivo = {
     empresa: 'TODOS',
     grupo: null,
+    tipo: null,
     promo: false
 };
 
 const ICON = { CONGELADO: '❄️', RESFRIADO: '🌡️', TEMPERADO: '🌿', DEFUMADOS: '🔥' };
 const EMPRESA_LOGOS = {
-    'ACREAVES': 'https://i.postimg.cc/ydjBT4qc/logo-acreaves.png',
+    'Acreaves': 'https://i.postimg.cc/ydjBT4qc/logo-acreaves.png',
     'Dom Porquito': 'https://i.postimg.cc/769DN8vS/LOGO-DOMPORQUITO.png',
     'Fripal': 'https://i.postimg.cc/769DN8vM/FRIPAL-LOGO.jpg'
 };
@@ -906,49 +907,45 @@ const observer = new IntersectionObserver(entries => {
 //  FILTROS — LÓGICA HIERÁRQUICA INTELIGENTE
 // ══════════════════════════════════════════
 
-// Filtro empresa: limpa grupo mas mantém promo
+// Filtro empresa: limpa grupo e tipo ao mudar de marca
 function setFiltroEmpresa(empresa, el) {
     filtroAtivo.empresa = empresa;
-    filtroAtivo.grupo = null; // não limpa — empresa pode coexistir com grupo
+    filtroAtivo.grupo = null; 
+    filtroAtivo.tipo = null; // Limpa o novo filtro também
     busca = '';
+    
     document.getElementById('search').value = '';
     document.getElementById('search-clear').classList.remove('show');
 
-    // Atualiza chips de empresa
+    // Atualiza interface das marcas
     document.querySelectorAll('.chip-logo-wrap, #chip-todos').forEach(c => c.classList.remove('active'));
     el.classList.add('active');
 
-    // Limpa seleção de grupo
-    document.querySelectorAll('[data-grupo]').forEach(c => c.classList.remove('active'));
-    filtroAtivo.grupo = null;
+    // Limpa visualmente os chips de grupo e tipo
+    document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
 
     atualizarBotaoLimpar();
     renderizar();
 }
 
-// Filtro grupo: limpa empresa (mostra produto do grupo em TODAS marcas)
+// Filtro grupo: limpa tipo e alterna o estado do grupo
 function setFiltroGrupo(grupo, el) {
-    if (filtroAtivo.grupo === grupo) {
-        // Toggle off
-        filtroAtivo.grupo = null;
-        el.classList.remove('active');
-    } else {
-        // Limpa empresa ao selecionar categoria (ver todas as marcas)
-        filtroAtivo.empresa = 'TODOS';
-        document.querySelectorAll('.chip-logo-wrap, #chip-todos').forEach(c => c.classList.remove('active'));
-        document.getElementById('chip-todos').classList.add('active');
+    filtroAtivo.grupo = (filtroAtivo.grupo === grupo) ? null : grupo;
+    filtroAtivo.tipo = null; // Evita conflito: ou filtra por Grupo ou por Tipo
 
-        // Limpa outros grupos
-        document.querySelectorAll('[data-grupo]').forEach(c => c.classList.remove('active'));
-        filtroAtivo.grupo = grupo;
-        el.classList.add('active');
+    document.querySelectorAll('[data-grupo], [data-tipo]').forEach(c => c.classList.remove('active'));
+    if (filtroAtivo.grupo) el.classList.add('active');
+    atualizarBotaoLimpar();
+    renderizar();
+}
 
-        // Limpa busca textual
-        busca = '';
-        document.getElementById('search').value = '';
-        document.getElementById('search-clear').classList.remove('show');
-    }
+// Filtro tipo: limpa grupo e alterna o estado do tipo
+function setFiltroTipo(tipo, el) {
+    filtroAtivo.tipo = (filtroAtivo.tipo === tipo) ? null : tipo;
+    filtroAtivo.grupo = null; // Evita conflito
 
+    document.querySelectorAll('[data-grupo], [data-tipo]').forEach(c => c.classList.remove('active'));
+    if (filtroAtivo.tipo) el.classList.add('active');
     atualizarBotaoLimpar();
     renderizar();
 }
@@ -963,7 +960,7 @@ function togglePromo(el) {
 // Limpar TUDO
 function limparTudo() {
     busca = '';
-    filtroAtivo = { empresa: 'TODOS', grupo: null, promo: false };
+    filtroAtivo = { empresa: 'TODOS', grupo: null, tipo: null, promo: false };
 
     document.getElementById('search').value = '';
     document.getElementById('search-clear').classList.remove('show');
@@ -991,6 +988,7 @@ function atualizarBotaoLimpar() {
     const ativo = busca.trim() !== '' ||
                   filtroAtivo.empresa !== 'TODOS' ||
                   filtroAtivo.grupo !== null ||
+                  filtroAtivo.tipo !== null ||  
                   filtroAtivo.promo;
     document.getElementById('btn-limpar').classList.toggle('visivel', ativo);
 }
@@ -1006,6 +1004,7 @@ document.getElementById('search').addEventListener('input', e => {
     if (busca.trim().length > 0) {
         filtroAtivo.empresa = 'TODOS';
         filtroAtivo.grupo = null;
+        
         document.querySelectorAll('.chip-logo-wrap, #chip-todos').forEach(c => c.classList.remove('active'));
         document.getElementById('chip-todos').classList.add('active');
         document.querySelectorAll('[data-grupo]').forEach(c => c.classList.remove('active'));
