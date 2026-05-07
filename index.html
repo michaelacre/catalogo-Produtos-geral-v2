@@ -1033,6 +1033,7 @@ function filtrarProdutos() {
         matchBusca(p, busca.toLowerCase()) &&
         (filtroAtivo.empresa === 'TODOS' || p.empresa === filtroAtivo.empresa) &&
         (!filtroAtivo.grupo || p.grupo === filtroAtivo.grupo) &&
+        (!filtroAtivo.tipo || p.tipo === filtroAtivo.tipo) && // <-- Nova linha
         (!filtroAtivo.promo || p.promo === true)
     );
 }
