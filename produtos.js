@@ -1302,20 +1302,7 @@ const PRODUTOS = [
     imgs: ["https://i.postimg.cc/brS6YmGw/20606-V00-Mister-Pig-Linguica-Tipo-Calabresa-2-Gomos.png"],
     desc: "Linguiça calabresa tradicional, versátil e saborosa, indicada para churrascos e receitas variadas."
   },
-  {
-    cod: "20640",
-    nome: "LINGUIÇA DE FRANGO FINA APIMENTADA 800G",
-    empresa: "Dom Porquito",
-    marca: "SABBOR",
-    grupo: "LINGUIÇAS",
-    tipo: "CONGELADO",
-    complemento: "800g — 18 un",
-    peso: "14,4 kg",
-    conserva: "MANTENHA CONGELADO A -12°C",
-    promo: false,
-    imgs: ["https://i.postimg.cc/XXMsr9Fm/20640-V01-SABBOR-Linguica-de-Frango-Fina-Apimentada-800-g-Congelada.png"],
-    desc: "Linguiça fina de frango com leve picância, em embalagem de 800g, ideal para preparo rápido."
-  },
+ 
   {
     cod: "20905",
     nome: "LINGUIÇA CHURRASCO CONGELADA 800G",
