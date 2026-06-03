@@ -1,24 +1,4 @@
-// ============================================================
-//  GRUPO DP — BASE DE PRODUTOS
-//  Edite este arquivo para adicionar/remover/atualizar produtos
-//
-//  Campos:
-//    cod          → código do produto
-//    nome         → nome comercial
-//    empresa      → Acreaves | Dom Porquito | Fripal
-//    marca        → SABBOR | MISTER PIG | ACREAVES | LAT VIDA | FARM FRITE
-//    grupo        → CORTE | INTEIRO | LINGUIÇAS | FATIADO | EMBUTIDOS | BATATA | SALGADOS | BANDEJA | MANTEIGA
-//    tipo         → CONGELADO | RESFRIADO | TEMPERADO | DEFUMADOS | SALGADOS
-//    complemento  → embalagem / qtd por caixa
-//    peso         → peso total da caixa
-//    conserva     → instrução de conservação
-//    promo        → true = aparece no filtro PROMOÇÃO
-//    imgs         → array de URLs (até 3 fotos)
-//    desc         → descrição comercial
-// ============================================================
-
 const PRODUTOS = [
-
   {
     cod: "105",
     nome: "GALINHA CONGELADA C/ MIÚDOS",
@@ -1867,23 +1847,4 @@ const PRODUTOS = [
     imgs: ["https://i.postimg.cc/B6xWVbRD/20728-1.png", "https://i.postimg.cc/gJv9Tj18/20728-2.png", "https://i.postimg.cc/zBnmcv4n/20728-3.png", "https://i.postimg.cc/0jPgRxqz/20728-4.png"],
     desc: "Praticidade e economia para o seu negócio. Carne selecionada, limpa e pronta para o preparo. Ideal para assados, recheados ou para a produção de embutidos e pratos de grande escala, garantindo o melhor aproveitamento da peça."
   }
-];
-
-  // ══════════════════════════════════════════
-  //  TEMPLATE — adicione novos produtos aqui
-  // ══════════════════════════════════════════
-  // {
-  //   cod: "XXXXX", nome: "NOME DO PRODUTO",
-  //   empresa: "Fripal",        // Acreaves | Dom Porquito | Fripal
-  //   marca: "SABBOR",          // SABBOR | MISTER PIG | ACREAVES | LAT VIDA | FARM FRITE
-  //   grupo: "FATIADO",
-  //   tipo: "RESFRIADO",
-  //   complemento: "Aprox. 150g",
-  //   peso: "4,5 KG",
-  //   conserva: "MANTER RESFRIADO 0°C A +7°C",
-  //   promo: false,
-  //   imgs: ["URL_DA_FOTO"],
-  //   desc: "Descrição comercial."
-  // },
-
 ];
