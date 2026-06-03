@@ -18,9 +18,6 @@
 // ============================================================
 
 const PRODUTOS = [
-  // ══════════════════════════════════════════
-  //  ACREAVES
-  // ══════════════════════════════════════════
 
   {
     cod: "105",
@@ -386,12 +383,6 @@ const PRODUTOS = [
     imgs: ["https://i.postimg.cc/Vk6tQd1q/50632.png"],
     desc: "Sabor e textura ideais para o hot dog perfeito. Versátil e prática, nossa salsicha mantém a suculência e o padrão de qualidade da grelha ao cozimento."
   },
-
-
-  // ══════════════════════════════════════════
-  //  DOM PORQUITO
-  // ══════════════════════════════════════════
-
   {
     cod: "20561",
     nome: "FILÉ DA PANCETA SUÍNA TEMPERADA",
@@ -471,7 +462,7 @@ const PRODUTOS = [
     tipo: "TEMPERADO",
     complemento: "PESO VARIÁVEL",
     peso: "Aprox. 10 kg",
-    conserva: "MANTENHA CONGELADO A -12\A7C",
+    conserva: "MANTENHA CONGELADO A -12°C",
     promo: false,
     imgs: ["https://i.postimg.cc/8kqGR3bT/20986-V01-Mister-Pig-Fraldinha-Suina-Temperada-Congelada-mockup.png"],
     desc: "Corte suíno selecionado, já temperado, ideal para preparo rápido com sabor marcante e suculência garantida."
@@ -529,7 +520,7 @@ const PRODUTOS = [
     peso: "Aprox. 25 kg",
     conserva: "MANTENHA CONGELADO A -12°C",
     promo: false,
-    imgs: ["https://i.postimg.cc/Y26GrDzW/20500.png"],
+    imgs: ["https://i.postimg.cc/Y26GrDzW/20500.png", "https://i.postimg.cc/LsgFjNTx/20500-1.png", "https://i.postimg.cc/Zqvz6Vcf/20500-2.png", "https://i.postimg.cc/QMKZc0b0/20500-3.png", "https://i.postimg.cc/Zqvz6Vcj/20500-4.png"],
     desc: "Corte suíno completo com costela e barriga, ideal para churrasco e assados."
   },
   {
@@ -571,7 +562,7 @@ const PRODUTOS = [
     peso: "Aprox. 10 kg",
     conserva: "MANTENHA CONGELADO A -12°C",
     promo: false,
-    imgs: ["https://i.postimg.cc/kMQ6JYvN/20710.png"],
+    imgs: ["https://i.postimg.cc/kMQ6JYvN/20710.png", "https://i.postimg.cc/tT0QkWSd/20710-1.png", "https://i.postimg.cc/LXdKDLCB/20710-2.png", "https://i.postimg.cc/d1MP6rH9/20710-3.png", "https://i.postimg.cc/nz8b2BRk/20710-4.png"],
     desc: "Corte nobre, macio e suculento, ideal para receitas sofisticadas."
   },
   {
@@ -599,7 +590,7 @@ const PRODUTOS = [
     peso: "Aprox. 10 kg",
     conserva: "MANTENHA CONGELADO A -12°C",
     promo: false,
-    imgs: ["https://i.postimg.cc/bYxDyV9T/20714.png"],
+    imgs: ["https://i.postimg.cc/bYxDyV9T/20714.png", "https://i.postimg.cc/G20wKG7M/20714-1.png", "https://i.postimg.cc/KzXSfBq0/20714-2.png", "https://i.postimg.cc/tT0QkWSS/20714-3.png", "https://i.postimg.cc/k4r3sK1Y/20714-4.png"],
     desc: "Corte especial, macio e suculento, ideal para churrasco."
   },
   {
@@ -627,7 +618,7 @@ const PRODUTOS = [
     peso: "Aprox. 15 kg",
     conserva: "MANTENHA CONGELADO A -12°C",
     promo: false,
-    imgs: ["https://i.postimg.cc/c4dKr7FM/20718.png"],
+    imgs: ["https://i.postimg.cc/c4dKr7FM/20718.png", "https://i.postimg.cc/QtLGm1Yr/20718-1.png", "https://i.postimg.cc/Tw8M0gNG/20718-2.png", "https://i.postimg.cc/C1yT7krF/20718-3.png", "https://i.postimg.cc/KzXSfBpc/20718-4.png"],
     desc: "Corte com excelente custo-benefício, ideal para cozidos e assados."
   },
   {
@@ -655,7 +646,7 @@ const PRODUTOS = [
     peso: "Aprox. 20 kg",
     conserva: "MANTENHA CONGELADA A -12°C",
     promo: false,
-    imgs: ["https://i.postimg.cc/CLwZzCc7/20721.png"],
+    imgs: ["https://i.postimg.cc/CLwZzCc7/20721.png", "https://i.postimg.cc/mDxfjCpB/20721-1.png", "https://i.postimg.cc/RFcrDh2m/20721-2.png", "https://i.postimg.cc/LXzdb5G9/20721-3.png", "https://i.postimg.cc/V6jyVv2z/20721-4.png"],
     desc: "Produto ideal para preparo de torresmo e derivados."
   },
   {
@@ -669,7 +660,7 @@ const PRODUTOS = [
     peso: "Aprox. 10 kg",
     conserva: "MANTENHA CONGELADO A -12°C",
     promo: false,
-    imgs: ["https://i.postimg.cc/fTM3J78r/20724.png"],
+    imgs: ["https://i.postimg.cc/fTM3J78r/20724.png", "https://i.postimg.cc/4dzCSyj4/20724-1.png", "https://i.postimg.cc/9MG3n0sf/20724-2.png", "https://i.postimg.cc/ZRrkMnXn/20724-3.png", "https://i.postimg.cc/3RgMcNzW/20724-4.png"],
     desc: "Costela inteira em manta, ideal para assados e churrasco."
   },
   {
@@ -697,7 +688,7 @@ const PRODUTOS = [
     peso: "Aprox. 10 kg",
     conserva: "MANTENHA CONGELADO A -12°C",
     promo: false,
-    imgs: ["https://i.postimg.cc/m2Tct3mp/20732.png"],
+    imgs: ["https://i.postimg.cc/m2Tct3mp/20732.png", "https://i.postimg.cc/4ysCkZTK/20732-1.png", "https://i.postimg.cc/Gtd0wr1y/20732-2.png", "https://i.postimg.cc/FzNt5mQ3/20732-3.png", "https://i.postimg.cc/brpXc8jQ/20732-4.png"],
     desc: "Corte nobre, macio e versátil."
   },
   {
@@ -739,7 +730,7 @@ const PRODUTOS = [
     peso: "Aprox. 10 kg",
     conserva: "MANTENHA CONGELADO A -12°C",
     promo: false,
-    imgs: ["https://i.postimg.cc/fTM3J786/20739.png"],
+    imgs: ["https://i.postimg.cc/fTM3J786/20739.png", "https://i.postimg.cc/VvmyQ1cZ/20744-1.png", "https://i.postimg.cc/yxsq4Bzb/20744-2.png", "https://i.postimg.cc/QChLGsrz/20744-3.png", "https://i.postimg.cc/SRk0FqpH/20744-4.png"],
     desc: "Produto tradicional para feijoadas e caldos."
   },
   {
@@ -767,7 +758,7 @@ const PRODUTOS = [
     peso: "Aprox. 10 kg",
     conserva: "MANTENHA CONGELADO A -12°C",
     promo: false,
-    imgs: ["https://i.postimg.cc/X7nZpK26/20746.png"],
+    imgs: ["https://i.postimg.cc/X7nZpK26/20746.png", "https://i.postimg.cc/prRNbxtf/20735-1.png", "https://i.postimg.cc/sxsFdyRP/20735-2.png", "https://i.postimg.cc/Xq4MS30k/20735-3.png", "https://i.postimg.cc/8cN8QDVb/20735-4.png"],
     desc: "Corte ideal para preparo de pratos típicos e assados."
   },
   {
@@ -795,7 +786,7 @@ const PRODUTOS = [
     peso: "Aprox. 16 kg",
     conserva: "MANTENHA CONGELADO A -12°C",
     promo: false,
-    imgs: ["https://i.postimg.cc/8Pw7WFYn/20766.png"],
+    imgs: ["https://i.postimg.cc/8Pw7WFYn/20766.png", "https://i.postimg.cc/PfQsbLmW/20766-1.png", "https://i.postimg.cc/Y2zKN41N/20766-2.png", "https://i.postimg.cc/c1By7KQw/20766-3.png", "https://i.postimg.cc/wxQ85thF/20766-4.png"],
     desc: "Corte arredondado, ideal para porcionamento."
   },
   {
@@ -809,7 +800,7 @@ const PRODUTOS = [
     peso: "Aprox. 10 kg",
     conserva: "MANTENHA CONGELADO A -12°C",
     promo: false,
-    imgs: ["https://i.postimg.cc/c4TvYKzp/20769.png"],
+    imgs: ["https://i.postimg.cc/c4TvYKzp/20769.png", "https://i.postimg.cc/gcHFywvD/20769-1.png", "https://i.postimg.cc/h41W8J9s/20769-2.png", "https://i.postimg.cc/KcDS7Kn6/20769-3.png", "https://i.postimg.cc/xj3DGkKW/20769-4.png"],
     desc: "Corte selecionado com alto padrão de qualidade."
   },
   {
@@ -865,7 +856,7 @@ const PRODUTOS = [
     peso: "Aprox. 10 kg",
     conserva: "MANTENHA CONGELADO A -12°C",
     promo: false,
-    imgs: ["https://i.postimg.cc/KvQ1LKVc/20925.png"],
+    imgs: ["https://i.postimg.cc/KvQ1LKVc/20925.png", "https://i.postimg.cc/4N4CWJPk/20925-1.png", "https://i.postimg.cc/rFy6f8jk/20925-2.png", "https://i.postimg.cc/X7NMsVL3/20925-3.png", "https://i.postimg.cc/ncV83H2p/20925-4.png"],
     desc: "Corte suculento com excelente camada de gordura, ideal para preparo de torresmo, assados e receitas que valorizam sabor e maciez."
   },
   {
@@ -907,7 +898,7 @@ const PRODUTOS = [
     peso: "Aprox. 16 kg",
     conserva: "MANTENHA CONGELADO A -12°C",
     promo: false,
-    imgs: ["https://i.postimg.cc/NjM5xsqf/20989.png"],
+    imgs: ["https://i.postimg.cc/NjM5xsqf/20989.png", "https://i.postimg.cc/CLMycF7z/20989-1.png", "https://i.postimg.cc/J47wp1xs/20989-2.png", "https://i.postimg.cc/Yq2cdpR4/20989-3.png", "https://i.postimg.cc/4N4CWJP7/20989-4.png"],
     desc: "Corte suíno congelado, com formato arredondado e excelente rendimento, ideal para assados, cozidos e preparações diversas, garantindo sabor e suculência."
   },
   {
@@ -1302,7 +1293,6 @@ const PRODUTOS = [
     imgs: ["https://i.postimg.cc/brS6YmGw/20606-V00-Mister-Pig-Linguica-Tipo-Calabresa-2-Gomos.png"],
     desc: "Linguiça calabresa tradicional, versátil e saborosa, indicada para churrascos e receitas variadas."
   },
- 
   {
     cod: "20905",
     nome: "LINGUIÇA CHURRASCO CONGELADA 800G",
@@ -1625,12 +1615,6 @@ const PRODUTOS = [
     imgs: ["https://i.postimg.cc/59ZJBGS5/20942-V00-Mister-Pig-Bisteca-Suina-Congelada-mockup.png"],
     desc: "Corte tradicional suíno, versátil e saboroso, ideal para fritar ou grelhar."
   },
-
-
-  // ══════════════════════════════════════════
-  //  FRIPAL
-  // ══════════════════════════════════════════
-
   {
     cod: "481",
     nome: "BATATA CRISPY COATED PREMIUM 10mm 12kg",
@@ -1841,6 +1825,49 @@ const PRODUTOS = [
     imgs: ["https://i.postimg.cc/GtjJg18x/603-quijo-musarela-latvida.png"],
     desc: "O Queijo Mussarela Processado Lat Vida oferece o equilíbrio perfeito entre sabor suave e funcionalidade. Desenvolvido para garantir uma derretibilidade uniforme e excelente fatiamento, é ideal para o uso profissional em lanches, pizzas e preparos culinários que exigem padronização e um toque lácteo de qualidade."
   },
+  {
+    cod: "20749",
+    nome: "MEIA CARCACA",
+    empresa: "Dom Porquito",
+    marca: "MISTER PIG",
+    grupo: "CORTE",
+    tipo: "CONGELADO",
+    complemento: "PV (CX C/ 70 KG)",
+    peso: "70 kg",
+    conserva: "MANTENHA CONGELADO A -12C",
+    promo: false,
+    imgs: ["https://i.postimg.cc/mkwvTqLx/20749-10.png", "https://i.postimg.cc/Y035tVpJ/20749-11.png", "https://i.postimg.cc/brT7qMz3/20749-2.png", "https://i.postimg.cc/KjN6mVZQ/20749-3.png", "https://i.postimg.cc/QCb2jPX4/20749-5.png"],
+    desc: "Produto de alta versatilidade, ideal para açougues, frigoríficos e indústrias de processamento. Oferece excelente rendimento, carne fresca e padrão de qualidade rigoroso para cortes personalizados."
+  },
+  {
+    cod: "20750",
+    nome: "LOMBO SUINO CONGELADO",
+    empresa: "Dom Porquito",
+    marca: "MISTER PIG",
+    grupo: "CORTE",
+    tipo: "CONGELADO",
+    complemento: "PV (CX C/ 10 KG)",
+    peso: "10 kg",
+    conserva: "MANTENHA CONGELADO A -12°C",
+    promo: false,
+    imgs: ["https://i.postimg.cc/kGc07ZnL/20750-1.png", "https://i.postimg.cc/sxck38jz/20750-2.png", "https://i.postimg.cc/yxPM751s/20750-3.png", "https://i.postimg.cc/L5Tcm79F/20750-4.png", "https://i.postimg.cc/KjN6mVGy/20750-5.png"],
+    desc: "Corte nobre e macio, com baixo teor de gordura. Congelado individualmente para preservar o sabor, a suculência e os nutrientes. Perfeito para pratos elaborados, assados ou grelhados de alta gastronomia."
+  },
+  {
+    cod: "20728",
+    nome: "PERNIL SUINO SEM OSSO",
+    empresa: "Dom Porquito",
+    marca: "MISTER PIG",
+    grupo: "CORTE",
+    tipo: "CONGELADO",
+    complemento: "PV (CX C/ 18 KG)",
+    peso: "18 kg",
+    conserva: "MANTENHA CONGELADO A -12°C",
+    promo: false,
+    imgs: ["https://i.postimg.cc/B6xWVbRD/20728-1.png", "https://i.postimg.cc/gJv9Tj18/20728-2.png", "https://i.postimg.cc/zBnmcv4n/20728-3.png", "https://i.postimg.cc/0jPgRxqz/20728-4.png"],
+    desc: "Praticidade e economia para o seu negócio. Carne selecionada, limpa e pronta para o preparo. Ideal para assados, recheados ou para a produção de embutidos e pratos de grande escala, garantindo o melhor aproveitamento da peça."
+  }
+];
 
   // ══════════════════════════════════════════
   //  TEMPLATE — adicione novos produtos aqui
