@@ -475,20 +475,7 @@ const PRODUTOS = [
     imgs: ["https://i.postimg.cc/pVfhWcJz/20227.png"],
     desc: "Corte suíno congelado, com osso, ideal para grelha ou fritura, garantindo sabor e suculência."
   },
-  {
-    cod: "20231",
-    nome: "Lombo Suíno Congelado",
-    empresa: "Dom Porquito",
-    marca: "MISTER PIG",
-    grupo: "CORTES CONGELADOS",
-    tipo: "CONGELADO",
-    complemento: "PESO VARIÁVEL",
-    peso: "Aprox. 10 kg",
-    conserva: "MANTENHA CONGELADO A -12°C",
-    promo: false,
-    imgs: ["https://i.postimg.cc/MZ7M63mf/20231.png"],
-    desc: "Corte magro e macio, congelado, ideal para assados e preparações variadas."
-  },
+ 
   {
     cod: "20500",
     nome: "Carré com Costela e Barriga",
@@ -1831,7 +1818,7 @@ const PRODUTOS = [
     peso: "10 kg",
     conserva: "MANTENHA CONGELADO A -12°C",
     promo: false,
-    imgs: ["https://i.postimg.cc/kGc07ZnL/20750-1.png", "https://i.postimg.cc/sxck38jz/20750-2.png", "https://i.postimg.cc/yxPM751s/20750-3.png", "https://i.postimg.cc/L5Tcm79F/20750-4.png", "https://i.postimg.cc/KjN6mVGy/20750-5.png"],
+    imgs: ["https://i.postimg.cc/MZ7M63mf/20231.png", "https://i.postimg.cc/kGc07ZnL/20750-1.png", "https://i.postimg.cc/sxck38jz/20750-2.png", "https://i.postimg.cc/yxPM751s/20750-3.png", "https://i.postimg.cc/L5Tcm79F/20750-4.png", "https://i.postimg.cc/KjN6mVGy/20750-5.png"],
     desc: "Corte nobre e macio, com baixo teor de gordura. Congelado individualmente para preservar o sabor, a suculência e os nutrientes. Perfeito para pratos elaborados, assados ou grelhados de alta gastronomia."
   },
   {
