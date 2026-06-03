@@ -1816,7 +1816,8 @@ const PRODUTOS = [
     peso: "70 kg",
     conserva: "MANTENHA CONGELADO A -12C",
     promo: false,
-    imgs: ["https://i.postimg.cc/mkwvTqLx/20749-10.png", "https://i.postimg.cc/Y035tVpJ/20749-11.png", "https://i.postimg.cc/brT7qMz3/20749-2.png", "https://i.postimg.cc/KjN6mVZQ/20749-3.png", "https://i.postimg.cc/QCb2jPX4/20749-5.png"],
+    imgs: ["https://i.postimg.cc/mkwvTqLx/20749-10.png", "https://i.postimg.cc/Y035tVpJ/20749-11.png", "https://i.postimg.cc/brT7qMz3/20749-2.png", "https://i.postimg.cc/KjN6mVZQ/20749-3.png", "https://i.postimg.cc/QCb2jPX4/20749-5.png","https://i.postimg.cc/ZncGJgTs/20749-6.png"	,"https://i.postimg.cc/J0qfRg1d/20749-7.png"	,"https://i.postimg.cc/yxPM75VL/20749-8.png"	,"https://i.postimg.cc/fyKGMFwF/20749-9.png"
+],
     desc: "Produto de alta versatilidade, ideal para açougues, frigoríficos e indústrias de processamento. Oferece excelente rendimento, carne fresca e padrão de qualidade rigoroso para cortes personalizados."
   },
   {
