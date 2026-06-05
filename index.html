@@ -1397,9 +1397,103 @@ function verificarDeepLink() {
 }
 
 // ══════════════════════════════════════════
+//  MANUTENÇÃO — defina true para ativar
+// ══════════════════════════════════════════
+const MODO_MANUTENCAO = true; // ← mude para false para reativar o sistema
+
+function exibirManutencao() {
+    document.body.innerHTML = `
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap');
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: #0f0a08;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+        .wrap {
+            text-align: center;
+            max-width: 420px;
+        }
+        .icon {
+            font-size: 52px;
+            margin-bottom: 20px;
+            display: block;
+            animation: pulsar 2.4s ease-in-out infinite;
+        }
+        @keyframes pulsar {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: .6; transform: scale(.95); }
+        }
+        .titulo {
+            font-size: 22px;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: -.3px;
+            margin-bottom: 10px;
+        }
+        .subtitulo {
+            font-size: 14px;
+            color: rgba(255,255,255,.45);
+            line-height: 1.6;
+            margin-bottom: 28px;
+        }
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(192,57,43,.15);
+            border: 1px solid rgba(192,57,43,.35);
+            border-radius: 50px;
+            padding: 8px 18px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #e07060;
+            letter-spacing: .5px;
+            text-transform: uppercase;
+        }
+        .dot {
+            width: 7px; height: 7px;
+            border-radius: 50%;
+            background: #c0392b;
+            animation: piscar 1.2s ease-in-out infinite;
+        }
+        @keyframes piscar {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .2; }
+        }
+        .rodape {
+            margin-top: 40px;
+            font-size: 11px;
+            color: rgba(255,255,255,.18);
+            letter-spacing: .5px;
+        }
+    </style>
+    <div class="wrap">
+        <span class="icon">🔧</span>
+        <div class="titulo">Sistema em Manutenção</div>
+        <div class="subtitulo">
+            O catálogo está temporariamente indisponível.<br>
+            Em breve voltaremos com novidades.
+        </div>
+        <div class="status-pill">
+            <span class="dot"></span>
+            Instabilidade nos servidores
+        </div>
+        <div class="rodape">Acreaves · Dom Porquito · Fripal</div>
+    </div>`;
+}
+
+// ══════════════════════════════════════════
 //  INIT
 // ══════════════════════════════════════════
 window.onload = function () {
+    if (MODO_MANUTENCAO) { exibirManutencao(); return; }
     document.getElementById('stat-total').textContent = PRODUTOS.length;
     const grupos = new Set(PRODUTOS.map(p => p.grupo));
     document.getElementById('stat-grupos').textContent = grupos.size;
