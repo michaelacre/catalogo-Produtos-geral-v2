@@ -669,7 +669,7 @@ const PRODUTOS = [
     peso: "Aprox. 10 kg",
     conserva: "MANTENHA CONGELADO A -12°C",
     promo: false,
-    imgs: ["https://i.postimg.cc/15ygf0vY/20735.png"],
+    imgs: ["https://i.postimg.cc/hPKJf82N/20738.png"],
     desc: "Corte suculento e macio, ideal para grelha."
   },
   {
@@ -683,7 +683,7 @@ const PRODUTOS = [
     peso: "Aprox. 10 kg",
     conserva: "MANTENHA CONGELADO A -12°C",
     promo: false,
-    imgs: ["https://i.postimg.cc/hPKJf82N/20738.png"],
+    imgs: ["https://i.postimg.cc/fTM3J786/20739.png"],
     desc: "Parte saborosa da costela, ideal para cozidos e assados."
   },
   {
@@ -697,7 +697,7 @@ const PRODUTOS = [
     peso: "Aprox. 10 kg",
     conserva: "MANTENHA CONGELADO A -12°C",
     promo: false,
-    imgs: ["https://i.postimg.cc/fTM3J786/20739.png", "https://i.postimg.cc/VvmyQ1cZ/20744-1.png", "https://i.postimg.cc/yxsq4Bzb/20744-2.png", "https://i.postimg.cc/QChLGsrz/20744-3.png", "https://i.postimg.cc/SRk0FqpH/20744-4.png"],
+    imgs: ["https://i.postimg.cc/7YqCf1B8/20744.png", "https://i.postimg.cc/VvmyQ1cZ/20744-1.png", "https://i.postimg.cc/yxsq4Bzb/20744-2.png", "https://i.postimg.cc/QChLGsrz/20744-3.png", "https://i.postimg.cc/SRk0FqpH/20744-4.png"],
     desc: "Produto tradicional para feijoadas e caldos."
   },
   {
@@ -711,7 +711,7 @@ const PRODUTOS = [
     peso: "Aprox. 10 kg",
     conserva: "MANTENHA CONGELADO A -12°C",
     promo: false,
-    imgs: ["https://i.postimg.cc/7YqCf1B8/20744.png"],
+    imgs: ["https://i.postimg.cc/X7nZpK26/20746.png"],
     desc: "Corte típico para pratos regionais."
   },
   {
@@ -725,7 +725,7 @@ const PRODUTOS = [
     peso: "Aprox. 10 kg",
     conserva: "MANTENHA CONGELADO A -12°C",
     promo: false,
-    imgs: ["https://i.postimg.cc/X7nZpK26/20746.png", "https://i.postimg.cc/prRNbxtf/20735-1.png", "https://i.postimg.cc/sxsFdyRP/20735-2.png", "https://i.postimg.cc/Xq4MS30k/20735-3.png", "https://i.postimg.cc/8cN8QDVb/20735-4.png"],
+    imgs: ["https://i.postimg.cc/15ygf0vY/20735.png", "https://i.postimg.cc/prRNbxtf/20735-1.png", "https://i.postimg.cc/sxsFdyRP/20735-2.png", "https://i.postimg.cc/Xq4MS30k/20735-3.png", "https://i.postimg.cc/8cN8QDVb/20735-4.png"],
     desc: "Corte ideal para preparo de pratos típicos e assados."
   },
   {
