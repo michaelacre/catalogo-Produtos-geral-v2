@@ -380,9 +380,11 @@
         #overlay.show { display: flex; }
         .modal {
             background: var(--white); width: 100%; max-width: 540px;
-            border-radius: 28px 28px 0 0; overflow: hidden;
-            max-height: 95dvh; height: 95dvh;
-            display: flex; flex-direction: column;
+            border-radius: 28px 28px 0 0;
+            max-height: 95dvh;
+            overflow-y: auto; overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+            overscroll-behavior: contain;
             transform: translateY(60px); transition: transform .35s cubic-bezier(.34,1.4,.64,1);
         }
         #overlay.show .modal { transform: translateY(0); }
@@ -392,25 +394,27 @@
         @media (min-width: 900px) {
             #overlay { align-items: center; padding: 30px; }
             .modal {
-                flex-direction: row;
+                display: flex; flex-direction: row;
                 max-width: 920px; width: 90vw;
-                height: auto; max-height: 88vh;
+                max-height: 88vh;
+                overflow-y: hidden; /* o scroll fica em cada coluna */
                 border-radius: 28px;
             }
             .modal-drag { display: none; }
             .modal-gallery {
                 width: 46%; flex-shrink: 0;
                 border-radius: 0;
-                display: flex; flex-direction: column;
+                overflow-y: auto;
             }
-            .modal-gallery .gal-track { flex: 1; }
+            .modal-gallery .gal-viewport { flex: 1; aspect-ratio: unset; }
             .modal-gallery .gal-slide {
                 aspect-ratio: unset;
                 min-height: 420px;
                 flex: 1;
             }
             .modal-body {
-                width: 54%; overflow-y: auto;
+                width: 54%;
+                overflow-y: auto;
                 max-height: 88vh;
                 padding: 28px 26px 28px;
             }
@@ -421,23 +425,42 @@
             .modal-drag { display: none; }
         }
 
-        .modal-gallery { position: relative; background: var(--bg2); flex-shrink: 0; overflow: hidden; min-height: 300px; }
+        .modal-gallery { position: relative; background: var(--bg2); overflow: hidden; display: flex; flex-direction: column; }
         @media (min-width: 600px) and (max-width: 899px) { .modal-gallery { min-height: 380px; } }
-        .gal-track { display: flex; transition: transform .3s ease; height: 100%; }
+
+        /* Área principal da imagem */
+        .gal-viewport { position: relative; overflow: hidden; aspect-ratio: 1; width: 100%; }
+        .gal-track { display: flex; transition: transform .35s cubic-bezier(.4,0,.2,1); height: 100%; }
         .gal-slide { min-width: 100%; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; padding: 20px; overflow: hidden; cursor: zoom-in; }
         .gal-slide img { width: 100%; height: 100%; object-fit: contain; display: block; transition: transform .3s ease; pointer-events: none; }
         .gal-slide.zoomed { cursor: zoom-out; }
         .gal-slide.zoomed img { transform: scale(2.5); }
-        .gal-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(26,24,20,.5); border: none; color: #fff; width: 34px; height: 34px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 5; transition: .15s; }
-        .gal-btn:hover { background: rgba(26,24,20,.85); }
-        .gal-btn.prev { left: 10px; } .gal-btn.next { right: 10px; } .gal-btn.hidden { display: none; }
-        .gal-dots { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); display: flex; gap: 5px; }
-        .gal-dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,.3); cursor: pointer; transition: .15s; }
-        .gal-dot.active { background: #fff; transform: scale(1.4); }
+
+        /* Botões laterais - menos proeminentes, existem mas não são o foco */
+        .gal-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(26,24,20,.45); border: none; color: #fff; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 5; transition: .15s; backdrop-filter: blur(4px); }
+        .gal-btn:hover { background: rgba(26,24,20,.8); }
+        .gal-btn.prev { left: 8px; } .gal-btn.next { right: 8px; } .gal-btn.hidden { display: none; }
+
+        /* Indicador de progresso (substitui dots) */
+        .gal-progress { position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: rgba(0,0,0,.1); }
+        .gal-progress-bar { height: 100%; background: var(--red); transition: width .35s ease; }
+
+        /* Contador de fotos */
+        .gal-counter { position: absolute; top: 10px; left: 12px; background: rgba(26,24,20,.55); backdrop-filter: blur(6px); color: #fff; font-size: 11px; font-weight: 700; padding: 3px 9px; border-radius: 20px; letter-spacing: .5px; z-index: 5; }
+        .gal-counter.hidden { display: none; }
+
+        /* Mini-galeria thumbnails */
+        .gal-thumbs { display: flex; gap: 6px; padding: 8px 10px; background: var(--bg2); border-top: 1px solid var(--border); overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; flex-shrink: 0; }
+        .gal-thumbs::-webkit-scrollbar { display: none; }
+        .gal-thumbs.hidden { display: none; }
+        .gal-thumb { width: 52px; height: 52px; flex-shrink: 0; border-radius: 8px; overflow: hidden; cursor: pointer; border: 2px solid transparent; transition: all .2s ease; scroll-snap-align: start; background: var(--bg); }
+        .gal-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .gal-thumb.active { border-color: var(--red); transform: scale(1.05); box-shadow: 0 2px 8px rgba(192,57,43,.3); }
+        .gal-thumb:hover:not(.active) { border-color: var(--border); opacity: .85; }
         .btn-close { position: absolute; top: 10px; right: 10px; background: rgba(26,24,20,.5); border: none; color: #fff; width: 32px; height: 32px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 10; transition: .15s; backdrop-filter: blur(4px); }
         .btn-close:hover { background: rgba(26,24,20,.85); }
 
-        .modal-body { padding: 16px 18px 20px; overflow-y: auto; flex: 1; }
+        .modal-body { padding: 16px 18px 24px; }
         .modal-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
         .m-tag { font-size: 10px; font-weight: 700; padding: 5px 11px; border-radius: 6px; text-transform: uppercase; letter-spacing: .7px; }
         .m-tag-cod { background: var(--text); color: #fff; }
@@ -796,14 +819,18 @@
         <span class="modal-drag"></span>
         <div class="modal-gallery" id="modal-gallery">
             <button class="btn-close" onclick="fecharModal()">✕</button>
-            <div class="gal-track" id="gal-track"></div>
-            <button class="gal-btn prev hidden" id="gal-prev">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg>
-            </button>
-            <button class="gal-btn next hidden" id="gal-next">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
-            </button>
-            <div class="gal-dots" id="gal-dots"></div>
+            <div class="gal-counter hidden" id="gal-counter">1/1</div>
+            <div class="gal-viewport">
+                <div class="gal-track" id="gal-track"></div>
+                <button class="gal-btn prev hidden" id="gal-prev">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg>
+                </button>
+                <button class="gal-btn next hidden" id="gal-next">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
+                </button>
+                <div class="gal-progress hidden" id="gal-progress"><div class="gal-progress-bar" id="gal-progress-bar" style="width:100%"></div></div>
+            </div>
+            <div class="gal-thumbs hidden" id="gal-thumbs"></div>
         </div>
         <div class="modal-body">
             <div class="modal-tags" id="m-tags"></div>
@@ -1156,15 +1183,43 @@ function fecharModal() {
 
 function renderGaleria() {
     const track = document.getElementById('gal-track');
+    const thumbsEl = document.getElementById('gal-thumbs');
+    const counterEl = document.getElementById('gal-counter');
+    const progressEl = document.getElementById('gal-progress');
+    const hasMultiple = galImgs.length > 1;
+
     track.innerHTML = galImgs.map((url, i) =>
         `<div class="gal-slide" onclick="toggleZoom(this,event)">
             <img src="${url}" alt="Foto ${i + 1}" loading="${i === 0 ? 'eager' : 'lazy'}">
         </div>`
     ).join('');
-    document.getElementById('gal-dots').innerHTML = galImgs.length > 1
-        ? galImgs.map((_, i) => `<span class="gal-dot${i === 0 ? ' active' : ''}" onclick="irSlide(${i})"></span>`).join('') : '';
-    document.getElementById('gal-prev').classList.toggle('hidden', galImgs.length <= 1);
-    document.getElementById('gal-next').classList.toggle('hidden', galImgs.length <= 1);
+
+    // Thumbnails — só mostra se tiver mais de 1 imagem
+    if (hasMultiple) {
+        thumbsEl.innerHTML = galImgs.map((url, i) =>
+            `<div class="gal-thumb${i === 0 ? ' active' : ''}" onclick="irSlide(${i})" data-idx="${i}">
+                <img src="${url}" alt="Miniatura ${i + 1}" loading="lazy">
+            </div>`
+        ).join('');
+        thumbsEl.classList.remove('hidden');
+        counterEl.textContent = `1/${galImgs.length}`;
+        counterEl.classList.remove('hidden');
+        progressEl.classList.remove('hidden');
+    } else {
+        thumbsEl.innerHTML = '';
+        thumbsEl.classList.add('hidden');
+        counterEl.classList.add('hidden');
+        progressEl.classList.add('hidden');
+    }
+
+    // Botões laterais ficam mas só aparecem com múltiplas imagens
+    document.getElementById('gal-prev').classList.toggle('hidden', !hasMultiple);
+    document.getElementById('gal-next').classList.toggle('hidden', !hasMultiple);
+
+    // Remove dots antigos se existirem
+    const oldDots = document.getElementById('gal-dots');
+    if (oldDots) oldDots.innerHTML = '';
+
     irSlide(0);
 }
 
@@ -1186,9 +1241,31 @@ function irSlide(idx) {
     document.querySelectorAll('.gal-slide').forEach(s => s.classList.remove('zoomed'));
     galIdx = Math.max(0, Math.min(idx, galImgs.length - 1));
     document.getElementById('gal-track').style.transform = `translateX(-${galIdx * 100}%)`;
-    document.querySelectorAll('.gal-dot').forEach((d, i) => d.classList.toggle('active', i === galIdx));
+
+    // Atualiza botões laterais
     document.getElementById('gal-prev').classList.toggle('hidden', galIdx === 0 || galImgs.length <= 1);
     document.getElementById('gal-next').classList.toggle('hidden', galIdx === galImgs.length - 1 || galImgs.length <= 1);
+
+    // Atualiza contador
+    const counterEl = document.getElementById('gal-counter');
+    if (!counterEl.classList.contains('hidden')) counterEl.textContent = `${galIdx + 1}/${galImgs.length}`;
+
+    // Atualiza barra de progresso
+    const bar = document.getElementById('gal-progress-bar');
+    if (bar) bar.style.width = `${((galIdx + 1) / galImgs.length) * 100}%`;
+
+    // Atualiza thumbnails
+    const thumbs = document.querySelectorAll('.gal-thumb');
+    thumbs.forEach((t, i) => {
+        t.classList.toggle('active', i === galIdx);
+        if (i === galIdx) {
+            // Scroll suave para a thumb ativa
+            t.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        }
+    });
+
+    // Dots legados (compatibilidade)
+    document.querySelectorAll('.gal-dot').forEach((d, i) => d.classList.toggle('active', i === galIdx));
 }
 
 document.getElementById('gal-prev').onclick = () => irSlide(galIdx - 1);
@@ -1198,13 +1275,25 @@ document.getElementById('gal-next').onclick = () => irSlide(galIdx + 1);
 (function () {
     let sx = 0, sy = 0, swiping = false;
     const gal = document.getElementById('modal-gallery');
-    gal.addEventListener('touchstart', e => { sx = e.touches[0].clientX; sy = e.touches[0].clientY; swiping = false; gal.querySelector('.gal-track').dataset.swiping = 'false'; }, { passive: true });
-    gal.addEventListener('touchmove', e => { const dx = Math.abs(e.touches[0].clientX - sx); if (dx > 10) { swiping = true; gal.querySelector('.gal-track').dataset.swiping = 'true'; } }, { passive: true });
+    const getViewport = () => gal.querySelector('.gal-viewport') || gal;
+    gal.addEventListener('touchstart', e => {
+        // Ignora swipe iniciado nas thumbs
+        if (e.target.closest('.gal-thumbs')) return;
+        sx = e.touches[0].clientX; sy = e.touches[0].clientY; swiping = false;
+        const track = gal.querySelector('.gal-track');
+        if (track) track.dataset.swiping = 'false';
+    }, { passive: true });
+    gal.addEventListener('touchmove', e => {
+        if (e.target.closest('.gal-thumbs')) return;
+        const dx = Math.abs(e.touches[0].clientX - sx);
+        if (dx > 10) { swiping = true; const track = gal.querySelector('.gal-track'); if (track) track.dataset.swiping = 'true'; }
+    }, { passive: true });
     gal.addEventListener('touchend', e => {
+        if (e.target.closest('.gal-thumbs')) return;
         const dx = e.changedTouches[0].clientX - sx;
         const dy = e.changedTouches[0].clientY - sy;
         if (swiping && Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) irSlide(galIdx + (dx < 0 ? 1 : -1));
-        setTimeout(() => { if (gal.querySelector('.gal-track')) gal.querySelector('.gal-track').dataset.swiping = 'false'; }, 100);
+        setTimeout(() => { const track = gal.querySelector('.gal-track'); if (track) track.dataset.swiping = 'false'; }, 100);
     }, { passive: true });
 })();
 
