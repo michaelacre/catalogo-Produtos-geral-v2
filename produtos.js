@@ -1680,20 +1680,7 @@ const PRODUTOS = [
     imgs: ["https://i.postimg.cc/2SKQcdX6/Mockup-Lingiuca-Calabresa-Fatiada-fundo-transparente-277.png"],
     desc: "A clássica calabresa Sabbor pronta para uso. Fatias com espessura ideal para coberturas de pizzas, recheios de salgados e finalização de massas."
   },
-  {
-    cod: "443",
-    nome: "LOMBO TIPO CANADENSE DEFUMADO FATIADO",
-    empresa: "Fripal",
-    marca: "MISTER PIG",
-    grupo: "FATIADO",
-    tipo: "RESFRIADO",
-    complemento: "Aprox. 150g",
-    peso: "4,5 kg",
-    conserva: "MANTER RESFRIADO 0°C A +7°C",
-    promo: false,
-    imgs: ["https://i.postimg.cc/y8bmQhrx/Mockup-Lombo-Canadense-fundo-transparente443.png"],
-    desc: "Nobreza e leveza em cada fatia. Defumação cuidadosa, sabor sofisticado e baixo teor de gordura. Perfeito para tábuas de frios premium e lanches naturais."
-  },
+
   {
     cod: "276",
     nome: "MORTADELA BOLOGNA MISTER PIG FATIADO",
@@ -1708,20 +1695,7 @@ const PRODUTOS = [
     imgs: ["https://i.postimg.cc/K8HPq7sL/Mockup-Mortadela-fatiado-fundo-transparente276.png"],
     desc: "Inspirada na tradição italiana, textura macia e bouquet de especiarias único. Fatiada finamente para realçar o sabor em lanches e petiscos."
   },
-  {
-    cod: "604",
-    nome: "QUEIJO MUSSARELA LAT VIDA FATIADO",
-    empresa: "Fripal",
-    marca: "LAT VIDA",
-    grupo: "FATIADO",
-    tipo: "RESFRIADO",
-    complemento: "Aprox. 150g",
-    peso: "4,5 kg",
-    conserva: "MANTER RESFRIADO 0°C A +7°C",
-    promo: false,
-    imgs: ["https://i.postimg.cc/3xcXSjbv/Mockup-Mussarela-fundo-transparente604.png"],
-    desc: "Mussarela selecionada com excelente derretimento e elasticidade. Fatias padronizadas para montagem de pratos, garantindo aquele visual dourado e apetitoso."
-  },
+ 
   {
     cod: "272",
     nome: "PRESUNTO COZIDO SABBOR FATIADO",
@@ -1834,5 +1808,50 @@ const PRODUTOS = [
     promo: false,
     imgs: ["https://i.postimg.cc/B6xWVbRD/20728-1.png", "https://i.postimg.cc/gJv9Tj18/20728-2.png", "https://i.postimg.cc/zBnmcv4n/20728-3.png", "https://i.postimg.cc/0jPgRxqz/20728-4.png"],
     desc: "Praticidade e economia para o seu negócio. Carne selecionada, limpa e pronta para o preparo. Ideal para assados, recheados ou para a produção de embutidos e pratos de grande escala, garantindo o melhor aproveitamento da peça."
-  }
+  },
+   {
+  cod: "604",
+    nome: "QUEIJO MUSSARELA LAT VIDA FATIADO",
+    empresa: "Fripal",
+    marca: "LAT VIDA",
+    grupo: "FATIADO",
+    tipo: "RESFRIADO",
+    complemento: "Aprox. 150g",
+    peso: "4,5 kg",
+    conserva: "MANTER RESFRIADO 1°C A +7°C",
+    promo: false,
+    imgs: ["https://i.postimg.cc/fRtbLdbn/604.jpg","https://i.postimg.cc/3xcXSjbv/Mockup-Mussarela-fundo-transparente604.png"],
+    desc: "Mussarela selecionada com excelente derretimento e elasticidade. Fatias padronizadas para montagem de pratos, garantindo aquele visual dourado e apetitoso."
+  },
+
+ {
+    cod: "270",
+    nome: "QUEIJO MUSS. PROC. FAT. SABOR DE MINAS",
+    empresa: "Fripal",
+    marca: "LAT VIDA",
+    grupo: "PURANATA",
+    tipo: "RESFRIADO",
+    complemento: "Aprox. 160g",
+    peso: "4,5 kg",
+    conserva: "MANTENHA RESFRIADO  1°C A 7ºC",
+    promo: false,
+    imgs: ["https://i.postimg.cc/7ZGL6zLv/270.jpg"],
+    desc: "Leve mais sabor e praticidade para suas refeições com o Queijo Mussarela Processado Sabor Minas. Com textura macia, excelente derretimento e o delicioso sabor inspirado no tradicional queijo minas, é a escolha ideal para sanduíches, tapiocas, pizzas, lanches, salgados e diversas receitas do dia a dia."
+  },
+ {
+    cod: "443",
+    nome: "LOMBO TIPO CANADENSE DEFUMADO FATIADO",
+    empresa: "Fripal",
+    marca: "MISTER PIG",
+    grupo: "FATIADO",
+    tipo: "RESFRIADO",
+    complemento: "Aprox. 150g",
+    peso: "4,5 kg",
+    conserva: "MANTER RESFRIADO 1°C A +7°C",
+    promo: false,
+    imgs: ["https://i.postimg.cc/sD0Xsm3D/443.jpg","https://i.postimg.cc/y8bmQhrx/Mockup-Lombo-Canadense-fundo-transparente443.png"],
+    desc: "Nobreza e leveza em cada fatia. Defumação cuidadosa, sabor sofisticado e baixo teor de gordura. Perfeito para tábuas de frios premium e lanches naturais."
+  },
+  
+  
 ];
