@@ -336,14 +336,14 @@ const PRODUTOS = [
     desc: "Cortes de coxa e sobrecoxa com porção dorsal, congelados, oferecendo ótimo custo-benefício e sabor."
   },
   {
-    cod: "410",
+    cod: "256",
     nome: "FRANGO A PASSARINHO CONGELADO MARINADO",
     empresa: "Acreaves",
     marca: "SABBOR",
     grupo: "CORTE",
     tipo: "CONGELADO",
     complemento: "PESO VARIÁVEL",
-    peso: "20 kg",
+    peso: "18 kg",
     conserva: "MANTENHA CONGELADO A -12°C",
     promo: false,
     imgs: ["https://i.postimg.cc/L8xpp04h/Whats-App-Image-2026-04-29-at-6-49-06-PM.png"],
