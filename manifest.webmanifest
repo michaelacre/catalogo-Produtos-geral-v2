@@ -3,7 +3,7 @@
   "short_name": "Catálogo",
   "start_url": "./",
   "display": "standalone",
-  "background_color": "#f6f1e8",
-  "theme_color": "#7e2d27",
+  "background_color": "#f6f3ec",
+  "theme_color": "#991f2b",
   "icons": []
 }

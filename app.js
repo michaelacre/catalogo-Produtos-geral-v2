@@ -2,13 +2,27 @@
   'use strict';
 
   const PAGE_SIZE = 24;
-  const WHATSAPP = '5568999314248';
-  const state = { search:'', company:'TODOS', category:'TODOS', type:'TODOS', visible:PAGE_SIZE, current:null, galleryIndex:0 };
+  const state = { screen:'inicio', search:'', company:'TODOS', category:'TODOS', type:'TODOS', visible:PAGE_SIZE, current:null, galleryIndex:0 };
   const $ = (s, root=document) => root.querySelector(s);
   const $$ = (s, root=document) => [...root.querySelectorAll(s)];
   const normalize = (v='') => String(v).normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
   const esc = (v='') => String(v).replace(/[&<>'"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
   const catalogUrl = () => location.href.split('?')[0].split('#')[0];
+  const COMPANY_LOGOS = {
+    'Acreaves':'assets/logos/acreaves.png',
+    'Dom Porquito':'assets/logos/dom-porquito.png',
+    'Fripal':'assets/logos/fripal.jpg'
+  };
+
+  function goToScreen(name, {updateHash=true}={}){
+    if(!['inicio','catalogo','contato'].includes(name)) name='inicio';
+    state.screen=name;
+    $$('.screen').forEach(s=>s.classList.toggle('active',s.dataset.screenName===name));
+    $$('[data-screen]').forEach(b=>b.classList.toggle('active',b.dataset.screen===name));
+    window.scrollTo({top:0,behavior:'auto'});
+    if(updateHash && !state.current) history.replaceState(null,'',catalogUrl() + (name==='inicio'?'':`#${name}`));
+    if(name==='catalogo') setTimeout(()=>bindCardImages(),0);
+  }
 
   function unique(field){ return [...new Set(PRODUTOS.map(p=>p[field]).filter(Boolean))].sort((a,b)=>String(a).localeCompare(String(b),'pt-BR')); }
   function stats(){
@@ -17,14 +31,15 @@
     $('#stat-marcas').textContent=unique('marca').length;
   }
 
-  function chip(label, kind, value, active){
-    return `<button class="chip${active?' active':''}" type="button" data-kind="${kind}" data-value="${esc(value)}">${esc(label)}</button>`;
+  function chip(label, kind, value, active, logo=''){
+    const logoHtml = logo ? `<img class="chip-logo-img" src="${esc(logo)}" alt="">` : '';
+    return `<button class="chip${active?' active':''}" type="button" data-kind="${kind}" data-value="${esc(value)}">${logoHtml}${esc(label)}</button>`;
   }
   function renderFilters(){
-    $('#company-chips').innerHTML = chip('Todas','company','TODOS',state.company==='TODOS') + unique('empresa').map(v=>chip(v,'company',v,state.company===v)).join('');
+    $('#company-chips').innerHTML = chip('Todas','company','TODOS',state.company==='TODOS') + unique('empresa').map(v=>chip(v,'company',v,state.company===v,COMPANY_LOGOS[v]||'')).join('');
     $('#category-chips').innerHTML = chip('Todas','category','TODOS',state.category==='TODOS') + unique('grupo').map(v=>chip(v,'category',v,state.category===v)).join('');
     $('#type-chips').innerHTML = chip('Todos','type','TODOS',state.type==='TODOS') + unique('tipo').map(v=>chip(v,'type',v,state.type===v)).join('');
-    $$('.chip').forEach(b=>b.addEventListener('click',()=>{state[b.dataset.kind]=b.dataset.value; state.visible=PAGE_SIZE; renderFilters(); renderProducts();}));
+    $$('.chip').forEach(b=>b.addEventListener('click',()=>{state[b.dataset.kind]=b.dataset.value;state.visible=PAGE_SIZE;renderFilters();renderProducts();}));
     const count=[state.company,state.category,state.type].filter(v=>v!=='TODOS').length;
     $('#filter-count').textContent=count;
     $('#filter-count').hidden=count===0;
@@ -91,6 +106,7 @@
   }
   function openProduct(code){
     const p=PRODUTOS.find(x=>String(x.cod)===String(code)); if(!p)return;
+    goToScreen('catalogo',{updateHash:false});
     state.current=p;state.galleryIndex=0;
     $('#modal-code').textContent=`Cód. ${p.cod}`;$('#modal-company').textContent=p.empresa||'';$('#modal-title').textContent=p.nome||'';$('#modal-description').textContent=p.desc||'';
     $('#modal-specs').innerHTML=[spec('Marca',p.marca),spec('Categoria',p.grupo),spec('Tipo',p.tipo),spec('Embalagem',p.complemento),spec('Peso',p.peso),spec('Conservação',p.conserva)].join('');
@@ -105,7 +121,7 @@
     const modal=$('#product-modal'); if(modal.hidden)return; modal.hidden=true;document.body.style.overflow='';state.current=null;
     history.replaceState(null,'',catalogUrl()+'#catalogo');
   }
-  function productLink(p){return catalogUrl()+`?produto=${encodeURIComponent(p.cod)}`;}
+  function productLink(p){return catalogUrl()+`?produto=${encodeURIComponent(p.cod)}#catalogo`;}
   function shareProduct(){
     const p=state.current;if(!p)return;
     const text=`*${p.nome}*\nCód. ${p.cod} · ${p.empresa}${p.marca?` · ${p.marca}`:''}\n${p.complemento?`Embalagem: ${p.complemento}\n`:''}${p.peso?`Peso: ${p.peso}\n`:''}\n${p.desc||''}\n\nVer no catálogo: ${productLink(p)}`;
@@ -124,18 +140,23 @@
 
   function setup(){
     stats();renderFilters();renderProducts();
+    $$('[data-screen]').forEach(btn=>btn.addEventListener('click',()=>goToScreen(btn.dataset.screen)));
     $('#search').addEventListener('input',e=>{state.search=e.target.value;state.visible=PAGE_SIZE;renderProducts();});
     $('#clear-search').addEventListener('click',()=>{$('#search').value='';state.search='';state.visible=PAGE_SIZE;renderProducts();$('#search').focus();});
     $('#clear-filters').addEventListener('click',clearAll);$('#empty-clear').addEventListener('click',clearAll);
     $('#filter-toggle').addEventListener('click',e=>{const f=$('#filters');const open=f.classList.toggle('open');e.currentTarget.setAttribute('aria-expanded',String(open));});
     $('#load-more').addEventListener('click',()=>{state.visible+=PAGE_SIZE;renderProducts();});
-    const sentinel=new IntersectionObserver(entries=>{if(entries[0]?.isIntersecting&&!$('#load-more').hidden){state.visible+=PAGE_SIZE;renderProducts();}},{rootMargin:'300px'});sentinel.observe($('#load-sentinel'));
+    const sentinel=new IntersectionObserver(entries=>{if(entries[0]?.isIntersecting&&!$('#load-more').hidden&&state.screen==='catalogo'){state.visible+=PAGE_SIZE;renderProducts();}},{rootMargin:'300px'});sentinel.observe($('#load-sentinel'));
     $('#modal-close').addEventListener('click',closeProduct);$('#product-modal').addEventListener('click',e=>{if(e.target.id==='product-modal')closeProduct();});
     document.addEventListener('keydown',e=>{if(e.key==='Escape')closeProduct();if(!state.current)return;if(e.key==='ArrowRight'&&state.galleryIndex<state.current.imgs.length-1)setGallery(state.galleryIndex+1);if(e.key==='ArrowLeft'&&state.galleryIndex>0)setGallery(state.galleryIndex-1);});
     $('#modal-whatsapp').addEventListener('click',shareProduct);$('#modal-copy').addEventListener('click',copyProduct);
     ['#share-catalog-top','#share-catalog-hero'].forEach(id=>$(id).addEventListener('click',shareCatalog));
-    $('#back-top').addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
-    const params=new URLSearchParams(location.search);const code=params.get('produto');if(code)setTimeout(()=>openProduct(code),80);
+
+    const params=new URLSearchParams(location.search);const code=params.get('produto');
+    if(code){setTimeout(()=>openProduct(code),80);} else {
+      const hash=location.hash.replace('#','');
+      goToScreen(['catalogo','contato'].includes(hash)?hash:'inicio',{updateHash:false});
+    }
     if('serviceWorker' in navigator) window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js').catch(()=>{}));
   }
   document.addEventListener('DOMContentLoaded',setup);

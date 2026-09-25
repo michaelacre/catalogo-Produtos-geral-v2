@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#7e2d27">
-  <meta name="description" content="Catálogo comercial Acreaves, Dom Porquito e Fripal. Consulte produtos, especificações, fotos e compartilhe com facilidade.">
+  <meta name="theme-color" content="#991f2b">
+  <meta name="description" content="Catálogo comercial Acreaves, Dom Porquito e Fripal. Consulte produtos, especificações e fotos.">
   <title>Catálogo Comercial | Acreaves · Dom Porquito · Fripal</title>
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="stylesheet" href="styles.css">
@@ -13,113 +13,135 @@
   <a class="skip-link" href="#catalogo">Ir para o catálogo</a>
 
   <header class="site-header">
-    <a class="brand" href="#inicio" aria-label="Início">
+    <button class="brand" type="button" data-screen="inicio" aria-label="Ir para o início">
       <span class="brand-mark">AC</span>
       <span class="brand-copy"><strong>Catálogo Comercial</strong><small>Acreaves · Dom Porquito · Fripal</small></span>
-    </a>
+    </button>
     <nav class="desktop-nav" aria-label="Navegação principal">
-      <a href="#inicio">Início</a>
-      <a href="#catalogo">Produtos</a>
-      <a href="#contato">Contato</a>
+      <button type="button" data-screen="inicio" class="nav-link active">Início</button>
+      <button type="button" data-screen="catalogo" class="nav-link">Catálogo</button>
+      <button type="button" data-screen="contato" class="nav-link">Contato</button>
       <button class="btn btn-ghost btn-small" id="share-catalog-top" type="button">Compartilhar</button>
     </nav>
   </header>
 
   <main>
-    <section class="hero" id="inicio">
-      <div class="hero-glow hero-glow-one"></div>
-      <div class="hero-glow hero-glow-two"></div>
-      <div class="hero-inner">
-        <div class="hero-copy">
+    <section class="screen active" id="inicio" data-screen-name="inicio">
+      <div class="home-shell">
+        <div class="home-copy">
           <p class="eyebrow">CATÁLOGO COMERCIAL 2026</p>
-          <h1>Produtos para quem compra com <em>confiança.</em></h1>
-          <p class="hero-lead">Um catálogo leve, direto e feito para consulta rápida. Encontre cortes, congelados, embutidos e muito mais sem perder tempo.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#catalogo">Ver produtos</a>
+          <h1>Qualidade que se <em>prova.</em></h1>
+          <p class="home-lead">Proteínas selecionadas, tradição e sabor. Consulte produtos, especificações e fotos em um catálogo feito para compra profissional.</p>
+          <div class="home-actions">
+            <button class="btn btn-primary" type="button" data-screen="catalogo">Ver catálogo</button>
             <button class="btn btn-secondary" id="share-catalog-hero" type="button">Enviar catálogo</button>
           </div>
-          <div class="brand-strip" aria-label="Empresas do catálogo">
-            <span>Acreaves</span><i></i><span>Dom Porquito</span><i></i><span>Fripal</span>
-          </div>
+          <div class="home-note"><span></span> Fotos locais otimizadas para carregamento mais rápido</div>
         </div>
-        <aside class="hero-panel" aria-label="Resumo do catálogo">
-          <p class="hero-panel-label">Visão geral</p>
-          <div class="hero-stat"><strong id="stat-total">—</strong><span>produtos</span></div>
-          <div class="hero-stat"><strong id="stat-categorias">—</strong><span>categorias</span></div>
-          <div class="hero-stat"><strong id="stat-marcas">—</strong><span>marcas</span></div>
-          <div class="hero-panel-note"><span class="dot"></span> Fotos otimizadas e carregamento progressivo</div>
+
+        <aside class="brand-showcase" aria-label="Empresas do catálogo">
+          <div class="brand-showcase-head">
+            <span>Empresas do catálogo</span>
+            <strong>3 marcas, um só acesso</strong>
+          </div>
+          <div class="brand-cards">
+            <article class="brand-card">
+              <img src="assets/logos/acreaves.png" alt="Acreaves" loading="eager">
+              <span>Acreaves</span>
+            </article>
+            <article class="brand-card">
+              <img src="assets/logos/dom-porquito.png" alt="Dom Porquito" loading="eager">
+              <span>Dom Porquito</span>
+            </article>
+            <article class="brand-card">
+              <img src="assets/logos/fripal.jpg" alt="Fripal" loading="eager">
+              <span>Fripal</span>
+            </article>
+          </div>
+          <div class="home-stats">
+            <div><strong id="stat-total">—</strong><span>produtos</span></div>
+            <div><strong id="stat-categorias">—</strong><span>categorias</span></div>
+            <div><strong id="stat-marcas">—</strong><span>marcas</span></div>
+          </div>
         </aside>
       </div>
     </section>
 
-    <section class="catalog-section" id="catalogo">
-      <div class="section-head">
+    <section class="screen" id="catalogo" data-screen-name="catalogo">
+      <div class="catalog-page-head">
         <div>
-          <p class="eyebrow eyebrow-dark">PRODUTOS</p>
-          <h2>Encontre o que precisa</h2>
-          <p>Busque por nome, código, marca, tipo ou embalagem.</p>
+          <p class="eyebrow eyebrow-red">CATÁLOGO</p>
+          <h2>Encontre o produto certo</h2>
+          <p>Busque por nome, código, empresa, marca, categoria ou conservação.</p>
         </div>
         <div class="result-counter"><strong id="result-count">0</strong><span>itens encontrados</span></div>
       </div>
 
-      <div class="catalog-toolbar" id="catalog-toolbar">
-        <label class="search-box" for="search">
-          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.4-3.4"></path></svg>
-          <input id="search" type="search" autocomplete="off" placeholder="Buscar produto, código, marca...">
-          <button id="clear-search" class="clear-search" type="button" aria-label="Limpar busca">×</button>
-        </label>
-        <button class="filter-toggle" id="filter-toggle" type="button" aria-expanded="false">
-          <span>Filtros</span><span class="filter-count" id="filter-count">0</span>
-        </button>
-      </div>
+      <div class="catalog-section">
+        <div class="catalog-toolbar" id="catalog-toolbar">
+          <label class="search-box" for="search">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.4-3.4"></path></svg>
+            <input id="search" type="search" autocomplete="off" placeholder="Buscar produto, código, marca...">
+            <button id="clear-search" class="clear-search" type="button" aria-label="Limpar busca">×</button>
+          </label>
+          <button class="filter-toggle" id="filter-toggle" type="button" aria-expanded="false">
+            <span>Filtros</span><span class="filter-count" id="filter-count">0</span>
+          </button>
+        </div>
 
-      <div class="filters" id="filters" aria-label="Filtros do catálogo">
-        <div class="filter-block"><span class="filter-label">Empresa</span><div class="chips" id="company-chips"></div></div>
-        <div class="filter-block"><span class="filter-label">Categoria</span><div class="chips" id="category-chips"></div></div>
-        <div class="filter-block"><span class="filter-label">Conservação</span><div class="chips" id="type-chips"></div></div>
-        <button id="clear-filters" class="clear-filters" type="button">Limpar filtros</button>
-      </div>
+        <div class="filters" id="filters" aria-label="Filtros do catálogo">
+          <div class="filter-block"><span class="filter-label">Empresa</span><div class="chips chips-company" id="company-chips"></div></div>
+          <div class="filter-block"><span class="filter-label">Categoria</span><div class="chips" id="category-chips"></div></div>
+          <div class="filter-block"><span class="filter-label">Conservação</span><div class="chips" id="type-chips"></div></div>
+          <button id="clear-filters" class="clear-filters" type="button">Limpar filtros</button>
+        </div>
 
-      <div class="active-context" id="active-context" hidden></div>
-      <div class="product-grid" id="product-grid" aria-live="polite"></div>
-      <div class="empty-state" id="empty-state" hidden>
-        <div class="empty-icon">⌕</div>
-        <h3>Nenhum produto encontrado</h3>
-        <p>Tente limpar os filtros ou buscar por outro termo.</p>
-        <button class="btn btn-secondary" id="empty-clear" type="button">Limpar filtros</button>
+        <div class="active-context" id="active-context" hidden></div>
+        <div class="product-grid" id="product-grid" aria-live="polite"></div>
+        <div class="empty-state" id="empty-state" hidden>
+          <div class="empty-icon">⌕</div>
+          <h3>Nenhum produto encontrado</h3>
+          <p>Tente limpar os filtros ou buscar por outro termo.</p>
+          <button class="btn btn-secondary" id="empty-clear" type="button">Limpar filtros</button>
+        </div>
+        <div class="load-more-wrap"><button class="btn btn-secondary" id="load-more" type="button" hidden>Mostrar mais produtos</button></div>
+        <div id="load-sentinel" class="load-sentinel" aria-hidden="true"></div>
       </div>
-      <div class="load-more-wrap"><button class="btn btn-secondary" id="load-more" type="button" hidden>Mostrar mais produtos</button></div>
-      <div id="load-sentinel" class="load-sentinel" aria-hidden="true"></div>
     </section>
 
-    <section class="contact-section" id="contato">
-      <div class="contact-card contact-main">
-        <p class="eyebrow">ATENDIMENTO</p>
-        <h2>Precisa de informação sobre algum produto?</h2>
-        <p>Fale com o representante ou compartilhe o produto diretamente pelo WhatsApp.</p>
-        <div class="contact-actions">
-          <a class="btn btn-light" href="https://wa.me/5568999314248" target="_blank" rel="noopener">WhatsApp</a>
-          <a class="contact-phone" href="tel:+5568999314248">(68) 99931-4248</a>
+    <section class="screen" id="contato" data-screen-name="contato">
+      <div class="contact-page">
+        <div class="contact-intro">
+          <p class="eyebrow eyebrow-red">ATENDIMENTO</p>
+          <h2>Fale com o representante</h2>
+          <p>Para preço, disponibilidade ou condição comercial, entre em contato diretamente. O catálogo foi feito para consulta rápida de produtos.</p>
+          <div class="contact-actions">
+            <a class="btn btn-primary" href="https://wa.me/5568999314248" target="_blank" rel="noopener">Abrir WhatsApp</a>
+            <a class="contact-phone" href="tel:+5568999314248">(68) 99931-4248</a>
+          </div>
         </div>
-      </div>
-      <div class="contact-card contact-secondary">
-        <p class="contact-kicker">Redes oficiais</p>
-        <a href="https://www.instagram.com/acreaves/" target="_blank" rel="noopener">@acreaves <span>↗</span></a>
-        <a href="https://www.instagram.com/domporquitobr/" target="_blank" rel="noopener">@domporquitobr <span>↗</span></a>
-        <p class="contact-note">Catálogo de consulta comercial. Informações de preço e disponibilidade devem ser confirmadas com o representante.</p>
+
+        <div class="contact-brands">
+          <p class="contact-label">Empresas representadas</p>
+          <div class="contact-brand-grid">
+            <div class="contact-brand"><img src="assets/logos/acreaves.png" alt="Acreaves"><span>Acreaves</span></div>
+            <div class="contact-brand"><img src="assets/logos/dom-porquito.png" alt="Dom Porquito"><span>Dom Porquito</span></div>
+            <div class="contact-brand"><img src="assets/logos/fripal.jpg" alt="Fripal"><span>Fripal</span></div>
+          </div>
+          <div class="contact-links">
+            <a href="https://www.instagram.com/acreaves/" target="_blank" rel="noopener">@acreaves <span>↗</span></a>
+            <a href="https://www.instagram.com/domporquitobr/" target="_blank" rel="noopener">@domporquitobr <span>↗</span></a>
+          </div>
+          <p class="contact-note">Preços e disponibilidade não são exibidos no catálogo e devem ser confirmados com o representante.</p>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <div><strong>Acreaves · Dom Porquito · Fripal</strong><span>Catálogo Comercial 2026</span></div>
-    <button id="back-top" type="button">Voltar ao topo ↑</button>
-  </footer>
-
   <nav class="mobile-nav" aria-label="Navegação móvel">
-    <a href="#inicio"><span>⌂</span>Início</a>
-    <a href="#catalogo"><span>▦</span>Produtos</a>
-    <a href="#contato"><span>◌</span>Contato</a>
+    <button type="button" data-screen="inicio" class="active"><span>⌂</span>Início</button>
+    <button type="button" data-screen="catalogo"><span>▦</span>Catálogo</button>
+    <button type="button" data-screen="contato"><span>◌</span>Contato</button>
   </nav>
 
   <div class="modal-backdrop" id="product-modal" hidden>
