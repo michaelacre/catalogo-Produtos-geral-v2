@@ -95,6 +95,54 @@
   }
   function clearAll(){state.search='';state.company=state.category=state.type='TODOS';state.visible=PAGE_SIZE;$('#search').value='';renderFilters();renderProducts();}
 
+  function modalProductList(){
+    const list=filtered();
+    return list.length ? list : PRODUTOS;
+  }
+
+  function navigateModalProduct(direction){
+    const current=state.current;
+    if(!current)return;
+    const list=modalProductList();
+    const index=list.findIndex(p=>String(p.cod)===String(current.cod));
+    if(index<0)return;
+
+    const nextIndex=index+direction;
+    if(nextIndex<0){toast('Este é o primeiro produto.');return;}
+    if(nextIndex>=list.length){toast('Este é o último produto.');return;}
+
+    openProduct(list[nextIndex].cod);
+  }
+
+  function setupProductSwipe(){
+    const modal=$('.product-modal');
+    if(!modal)return;
+
+    let startX=0,startY=0,startTime=0,tracking=false;
+    const ignoreTarget=(target)=>target.closest('button,a,input,textarea,select,.modal-thumbs');
+
+    modal.addEventListener('touchstart',e=>{
+      if(e.touches.length!==1 || ignoreTarget(e.target)){tracking=false;return;}
+      const t=e.touches[0];
+      startX=t.clientX;startY=t.clientY;startTime=Date.now();tracking=true;
+    },{passive:true});
+
+    modal.addEventListener('touchend',e=>{
+      if(!tracking || !e.changedTouches.length){tracking=false;return;}
+      const t=e.changedTouches[0];
+      const dx=t.clientX-startX;
+      const dy=t.clientY-startY;
+      const elapsed=Date.now()-startTime;
+      tracking=false;
+
+      // Exige um gesto horizontal intencional para não atrapalhar a rolagem vertical.
+      if(elapsed>900 || Math.abs(dx)<70 || Math.abs(dx)<=Math.abs(dy)*1.25)return;
+      navigateModalProduct(dx<0 ? 1 : -1);
+    },{passive:true});
+
+    modal.addEventListener('touchcancel',()=>{tracking=false;},{passive:true});
+  }
+
   function spec(label,value){ if(!value)return ''; return `<div class="spec"><dt>${esc(label)}</dt><dd>${esc(value)}</dd></div>`; }
   function setGallery(index){
     const p=state.current;if(!p)return;state.galleryIndex=index;
@@ -178,6 +226,7 @@
     $('#load-more').addEventListener('click',()=>{state.visible+=PAGE_SIZE;renderProducts();});
     const sentinel=new IntersectionObserver(entries=>{if(entries[0]?.isIntersecting&&!$('#load-more').hidden&&state.screen==='catalogo'){state.visible+=PAGE_SIZE;renderProducts();}},{rootMargin:'300px'});sentinel.observe($('#load-sentinel'));
     $('#modal-close').addEventListener('click',closeProduct);$('#product-modal').addEventListener('click',e=>{if(e.target.id==='product-modal')closeProduct();});
+    setupProductSwipe();
     document.addEventListener('keydown',e=>{if(e.key==='Escape')closeProduct();if(!state.current)return;if(e.key==='ArrowRight'&&state.galleryIndex<state.current.imgs.length-1)setGallery(state.galleryIndex+1);if(e.key==='ArrowLeft'&&state.galleryIndex>0)setGallery(state.galleryIndex-1);});
     $('#modal-whatsapp').addEventListener('click',shareProduct);$('#modal-copy').addEventListener('click',copyProduct);
     ['#share-catalog-top','#share-catalog-hero'].forEach(id=>$(id).addEventListener('click',shareCatalog));
