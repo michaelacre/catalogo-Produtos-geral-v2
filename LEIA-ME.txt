@@ -1,17 +1,2 @@
-Substitua no GitHub:
-- app.js
-- styles.css
-- assets/logos/acreaves.png
-- assets/logos/dom-porquito.png
-- assets/logos/fripal.png
-
-O que mudou:
-- identidade visual consolidada em marfim/bege quente + grafite + vermelho
-- logos normalizadas em PNG transparente, sem caixas brancas
-- filtros fechados por padrão também no PC; abrem no botão Filtros
-- filtro de empresa ficou compacto
-- modal refeconomizado para qualquer proporção de imagem
-- foto sempre fica dentro de um quadro próprio; título/descrição nunca invadem a imagem
-- área de miniaturas separada da foto
-- contato e barra inferior seguem a mesma identidade visual
-- ao trocar de produto por swipe, modal volta para o topo
+Substitua somente o styles.css no GitHub.
+A correção faz qualquer imagem do modal aparecer inteira no celular, independentemente de ser alta, larga ou quadrada.
