@@ -3,10 +3,22 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#991f2b">
+  <meta name="theme-color" id="theme-color-meta" content="#f4efe5">
   <meta name="description" content="Catálogo comercial Acreaves, Dom Porquito e Fripal. Consulte produtos, especificações e fotos.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Catálogo Comercial | Acreaves · Dom Porquito · Fripal">
+  <meta property="og:description" content="Consulte produtos, fotos e especificações em um catálogo rápido de compartilhar.">
+  <meta property="og:image" content="/assets/share-dom-porquito.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Catálogo Comercial | Acreaves · Dom Porquito · Fripal">
+  <meta name="twitter:description" content="Consulte produtos, fotos e especificações em um catálogo rápido de compartilhar.">
+  <meta name="twitter:image" content="/assets/share-dom-porquito.png">
   <title>Catálogo Comercial | Acreaves · Dom Porquito · Fripal</title>
   <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/png" href="assets/icon-dom-porquito.png">
+  <link rel="apple-touch-icon" href="assets/icon-dom-porquito.png">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -14,15 +26,19 @@
 
   <header class="site-header">
     <button class="brand" type="button" data-screen="inicio" aria-label="Ir para o início">
-      <span class="brand-mark">AC</span>
       <span class="brand-copy"><strong>Catálogo Comercial</strong><small>Acreaves · Dom Porquito · Fripal</small></span>
     </button>
-    <nav class="desktop-nav" aria-label="Navegação principal">
-      <button type="button" data-screen="inicio" class="nav-link active">Início</button>
-      <button type="button" data-screen="catalogo" class="nav-link">Catálogo</button>
-      <button type="button" data-screen="contato" class="nav-link">Contato</button>
-      <button class="btn btn-ghost btn-small" id="share-catalog-top" type="button">Compartilhar</button>
-    </nav>
+    <div class="header-actions">
+      <nav class="desktop-nav" aria-label="Navegação principal">
+        <button type="button" data-screen="inicio" class="nav-link active">Início</button>
+        <button type="button" data-screen="catalogo" class="nav-link">Catálogo</button>
+        <button type="button" data-screen="contato" class="nav-link">Contato</button>
+        <button class="btn btn-ghost btn-small" id="share-catalog-top" type="button">Compartilhar</button>
+      </nav>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Ativar modo escuro" title="Ativar modo escuro">
+        <span class="theme-toggle-icon" aria-hidden="true">☾</span>
+      </button>
+    </div>
   </header>
 
   <main>
@@ -42,7 +58,7 @@
         <aside class="brand-showcase" aria-label="Empresas do catálogo">
           <div class="brand-showcase-head">
             <span>Empresas do catálogo</span>
-            <strong>3 marcas, um só acesso</strong>
+            <strong>3 empresas e 7 marcas no catálogo</strong>
           </div>
           <div class="brand-cards">
             <article class="brand-card">

@@ -3,7 +3,13 @@
   "short_name": "Catálogo",
   "start_url": "./",
   "display": "standalone",
-  "background_color": "#f6f3ec",
-  "theme_color": "#991f2b",
-  "icons": []
+  "background_color": "#f4efe5",
+  "theme_color": "#f4efe5",
+  "icons": [
+    {
+      "src": "assets/icon-dom-porquito.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
 }
