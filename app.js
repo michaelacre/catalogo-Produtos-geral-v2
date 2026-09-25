@@ -55,6 +55,12 @@
     $$('[data-screen]').forEach(b => b.classList.toggle('active', b.dataset.screen === name));
     window.scrollTo({ top: 0, behavior: 'auto' });
     if (updateHash && !state.current) history.replaceState(null, '', catalogUrl() + (name === 'inicio' ? '' : `#${name}`));
+    if (name !== 'catalogo') {
+      const filters = $('#filters');
+      const toggle = $('#filter-toggle');
+      filters?.classList.remove('open');
+      toggle?.setAttribute('aria-expanded', 'false');
+    }
     if (name === 'catalogo') setTimeout(() => bindCardImages(), 0);
   }
 
@@ -172,6 +178,9 @@
     setGallery(0);
     const modal = $('#product-modal');
     modal.hidden = false;
+    modal.scrollTop = 0;
+    const modalCard = $('.product-modal');
+    if (modalCard) modalCard.scrollTop = 0;
     document.body.style.overflow = 'hidden';
     history.replaceState(null, '', `?produto=${encodeURIComponent(p.cod)}#catalogo`);
     setTimeout(() => $('#modal-close').focus(), 0);

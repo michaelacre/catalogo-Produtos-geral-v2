@@ -111,162 +111,449 @@ html[data-theme="dark"] .toast{background:#edf1ec;color:#15201a}
 }
 
 
-/* ===== Refinamento visual: uma paleta mais coerente ===== */
-.brand-showcase{
-  background:#e9e0d3;
+/* ==============================================================
+   IDENTIDADE FINAL — catálogo comercial
+   Marfim quente + grafite + vermelho como acento
+   ============================================================== */
+:root{
+  --red:#a62637;
+  --red-dark:#7f1d2a;
+  --red-soft:#ead4d7;
+  --cream:#eee7db;
+  --paper:#f7f1e7;
+  --surface:#e5dacb;
+  --surface-2:#d9cbb8;
+  --ink:#202622;
+  --muted:#68706b;
+  --line:#cfc1ae;
+  --gold:#aa8a54;
+  --charcoal:#232b27;
+  --charcoal-2:#2e3833;
+  --shadow:0 16px 42px rgba(45,38,30,.10);
+}
+html[data-theme="dark"]{
+  --cream:#101512;
+  --paper:#161d19;
+  --surface:#1d2621;
+  --surface-2:#27322c;
+  --ink:#edf0eb;
+  --muted:#abb5ae;
+  --line:#334038;
+  --red:#d04a5c;
+  --red-dark:#ae3344;
+  --red-soft:#321c22;
+  --gold:#c5a166;
+  --charcoal:#0d120f;
+  --charcoal-2:#151c18;
+  --shadow:0 18px 48px rgba(0,0,0,.28);
+}
+
+body{background:var(--cream);color:var(--ink)}
+.site-header{
+  background:color-mix(in srgb,var(--paper) 94%,transparent);
+  border-bottom:1px solid var(--line);
+}
+.btn-secondary{background:var(--paper);border-color:var(--line);color:var(--ink)}
+.btn-ghost{background:transparent;border-color:color-mix(in srgb,var(--red) 32%,var(--line));color:var(--red)}
+.nav-link{color:var(--muted)}
+.nav-link:hover,.nav-link.active{
+  background:var(--surface);
+  color:var(--red);
+  box-shadow:none;
+}
+.theme-toggle{
+  background:var(--surface);
+  border-color:var(--line);
   color:var(--ink);
-  border:1px solid #dbd0c0;
-  box-shadow:0 18px 48px rgba(53,45,35,.08);
+  box-shadow:none;
+}
+
+/* Início: nenhuma caixa branca/preta brigando com o fundo */
+.brand-showcase{
+  background:var(--surface);
+  color:var(--ink);
+  border:1px solid var(--line);
+  box-shadow:var(--shadow);
 }
 .brand-showcase::after{
-  width:210px;
-  height:210px;
-  right:-86px;
-  top:-86px;
-  background:radial-gradient(circle,rgba(163,35,51,.09),transparent 68%);
+  background:radial-gradient(circle,color-mix(in srgb,var(--red) 10%,transparent),transparent 68%);
 }
-.brand-showcase-head span{
-  color:var(--red);
-}
-.brand-showcase-head strong{
-  color:var(--ink);
-  max-width:none;
-}
-.brand-cards{
-  gap:10px;
-}
+.brand-showcase-head span{color:var(--red)}
+.brand-showcase-head strong{color:var(--ink)}
 .brand-card{
-  background:#ded3c4;
-  border:1px solid #d2c6b5;
+  background:transparent;
+  border:0;
+  border-radius:14px;
   box-shadow:none;
 }
 .brand-card img{
-  mix-blend-mode:multiply;
-}
-.brand-card span{
-  color:#343a36;
-}
-.home-stats{
-  border-top-color:#cfc3b2;
-}
-.home-stats div{
-  border-left-color:#cfc3b2;
-}
-.home-stats strong{
-  color:var(--ink);
-}
-.home-stats span{
-  color:#6f746f;
-}
-
-/* Filtro de empresa como cartão visual, sem logo "solta" ao lado do nome */
-.filter-block:first-child{
   width:100%;
-}
-.chips-company{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(128px,1fr));
-  gap:10px;
-  width:100%;
-}
-.chips-company .chip{
-  min-height:80px;
-  padding:10px 9px;
-  border-radius:18px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:7px;
-  text-align:center;
-  background:#e9e0d3;
-  border-color:#d7ccbc;
-  color:var(--ink);
-  box-shadow:none;
-}
-.chips-company .chip-logo-img{
-  width:42px;
-  height:42px;
-  border-radius:10px;
+  height:86px;
   object-fit:contain;
   background:transparent;
-  padding:2px;
+}
+.brand-card span{color:var(--ink)}
+.home-stats{border-top-color:var(--line)}
+.home-stats div{border-left-color:var(--line)}
+.home-stats strong{color:var(--ink)}
+.home-stats span{color:var(--muted)}
+
+html[data-theme="dark"] .brand-card,
+html[data-theme="dark"] .contact-brand{
+  background:transparent;
+  color:var(--ink);
+}
+
+/* Contato: mesma linguagem visual da página, sem painel preto vs painel claro */
+.contact-intro,
+.contact-brands{
+  background:var(--surface);
+  color:var(--ink);
+  border:1px solid var(--line);
   box-shadow:none;
-  mix-blend-mode:multiply;
 }
-.chips-company .chip.active{
-  background:#d8cbbb;
-  color:var(--red);
-  border-color:#c8b7a1;
-  box-shadow:inset 0 0 0 1px rgba(163,35,51,.08);
+.contact-intro .eyebrow{color:var(--red)}
+.contact-intro h2{color:var(--ink)}
+.contact-intro>p:not(.eyebrow){color:var(--muted)}
+.contact-phone{color:var(--ink)}
+.contact-brand{
+  background:transparent;
+  border:0;
 }
-
-/* As fotos ficam sempre em uma superfície quente padronizada */
-.product-image,
-.modal-gallery{
-  background:#eee6da;
+.contact-brand img{
+  height:78px;
+  object-fit:contain;
+  background:transparent;
 }
-.product-image img{
-  padding:14px;
-}
-
-/* Rodapé da página de contato */
+.contact-brand span{color:var(--ink)}
+.contact-links a{color:var(--ink);border-bottom-color:var(--line)}
 .contact-footer{
   grid-column:1 / -1;
-  margin-top:6px;
+  margin-top:8px;
   padding:18px 8px 0;
   border-top:1px solid var(--line);
   text-align:center;
-  font-size:12px;
-  font-weight:700;
   color:var(--muted);
+  font-size:12px;
+  font-weight:750;
 }
 
-/* Modo escuro preserva a mesma lógica visual, sem voltar ao branco puro */
-html[data-theme="dark"] .brand-showcase{
-  background:#19211e;
+/* ==============================================================
+   FILTROS — fechados por padrão também no desktop
+   ============================================================== */
+.catalog-page-head{padding-bottom:20px}
+.catalog-toolbar{
+  top:calc(var(--header) + 10px);
+  background:color-mix(in srgb,var(--paper) 94%,transparent);
+  border-color:var(--line);
+  box-shadow:0 10px 28px rgba(45,38,30,.07);
+}
+.search-box{
+  background:var(--surface);
+}
+.search-box input{color:var(--ink)}
+.filter-toggle{
+  display:flex;
+  min-height:50px;
+  align-items:center;
+  gap:8px;
+  padding:0 17px;
+  border:1px solid color-mix(in srgb,var(--red) 35%,var(--line));
+  border-radius:13px;
+  background:var(--paper);
+  color:var(--red);
+  font-weight:850;
+}
+.filter-count{background:var(--red);color:#fff}
+
+.filters{
+  display:none;
+  margin:10px 0 24px;
+  padding:16px;
+  gap:16px;
+  border:1px solid var(--line);
+  border-radius:18px;
+  background:var(--surface);
+  box-shadow:0 12px 30px rgba(45,38,30,.06);
+}
+.filters.open{
+  display:grid;
+  grid-template-columns:minmax(260px,1.05fr) minmax(360px,1.65fr) minmax(260px,1fr);
+  align-items:start;
+}
+.filter-block{min-width:0}
+.filter-label{color:var(--muted);margin-bottom:8px}
+.clear-filters{
+  grid-column:1 / -1;
+  justify-self:start;
+  margin:0;
+  padding:2px 0;
+}
+
+/* Empresas: compacto, sem quadros brancos e sem imagem solta */
+.chips-company{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:8px;
+  width:100%;
+}
+.chips-company .chip{
+  min-height:48px;
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content:flex-start;
+  gap:8px;
+  padding:7px 10px;
+  border-radius:13px;
+  background:var(--paper);
+  border:1px solid var(--line);
   color:var(--ink);
-  border-color:#2b3530;
-  box-shadow:0 20px 54px rgba(0,0,0,.22);
+  box-shadow:none;
+  text-align:left;
 }
-html[data-theme="dark"] .brand-showcase-head span{
-  color:var(--gold);
+.chips-company .chip-logo-img{
+  width:34px;
+  height:28px;
+  flex:0 0 34px;
+  object-fit:contain;
+  background:transparent;
+  padding:0;
+  border-radius:0;
+  box-shadow:none;
 }
-html[data-theme="dark"] .brand-showcase-head strong,
-html[data-theme="dark"] .home-stats strong{
-  color:#edf0eb;
-}
-html[data-theme="dark"] .home-stats{
-  border-top-color:#334039;
-}
-html[data-theme="dark"] .home-stats div{
-  border-left-color:#334039;
-}
-html[data-theme="dark"] .home-stats span{
-  color:#aeb8b2;
-}
-html[data-theme="dark"] .brand-card,
-html[data-theme="dark"] .chips-company .chip{
-  background:#d8cebf;
-  border-color:#cbbdaa;
-  color:#232824;
+.chips-company .chip.active{
+  background:var(--charcoal);
+  border-color:var(--charcoal);
+  color:#fff;
 }
 html[data-theme="dark"] .chips-company .chip.active{
-  background:#cfc1ae;
-  color:#922333;
-  border-color:#bba991;
+  background:var(--red);
+  border-color:var(--red);
 }
-html[data-theme="dark"] .product-image,
-html[data-theme="dark"] .modal-gallery{
-  background:#e5dccf;
+.chip{
+  background:var(--paper);
+  color:var(--ink);
+  border-color:var(--line);
+}
+.chip.active{
+  background:var(--charcoal);
+  color:#fff;
+  border-color:var(--charcoal);
+}
+
+/* ==============================================================
+   PRODUTOS — mesma superfície em cards e fotos
+   ============================================================== */
+.product-card{
+  background:var(--paper);
+  border-color:var(--line);
+  box-shadow:none;
+}
+.product-card:hover{
+  border-color:color-mix(in srgb,var(--red) 28%,var(--line));
+  box-shadow:0 12px 28px rgba(45,38,30,.08);
+}
+.product-image{
+  background:var(--surface);
+  border-bottom:1px solid var(--line);
+}
+.product-image img{
+  padding:14px;
+  object-fit:contain;
+}
+.product-open{background:var(--red-soft);color:var(--red)}
+.badge{background:var(--paper);color:var(--red)}
+.modal-meta span,.spec{background:var(--surface)}
+
+/* ==============================================================
+   MODAL — mídia e conteúdo nunca ocupam a mesma área
+   ============================================================== */
+.modal-backdrop{
+  background:rgba(14,18,15,.68);
+  backdrop-filter:blur(10px);
+}
+.product-modal{
+  width:min(1080px,100%);
+  max-height:calc(100dvh - 40px);
+  min-height:620px;
+  grid-template-columns:minmax(0,1.06fr) minmax(380px,.94fr);
+  background:var(--paper);
+  border:1px solid color-mix(in srgb,var(--line) 70%,transparent);
+  overflow:hidden;
+}
+.modal-gallery{
+  min-width:0;
+  min-height:0;
+  height:100%;
+  display:grid;
+  grid-template-rows:minmax(0,1fr) auto;
+  background:var(--surface);
+  border-right:1px solid var(--line);
+  overflow:hidden;
+}
+.modal-stage{
+  min-height:0;
+  height:auto;
+  display:grid;
+  place-items:center;
+  padding:28px;
+  overflow:hidden;
+}
+.modal-stage img{
+  display:block;
+  width:auto;
+  height:auto;
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain;
+}
+.modal-thumbs{
+  min-height:82px;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:12px 16px;
+  overflow-x:auto;
+  background:color-mix(in srgb,var(--surface) 82%,var(--paper));
+  border-top:1px solid var(--line);
+}
+.modal-thumb{
+  width:60px;
+  height:60px;
+  background:var(--paper);
+  border-color:transparent;
+}
+.modal-thumb.active{border-color:var(--red)}
+.modal-content{
+  min-width:0;
+  min-height:0;
+  padding:42px 38px;
+  overflow:auto;
+  background:var(--paper);
+}
+.modal-content h2{
+  overflow-wrap:anywhere;
+  text-wrap:balance;
+}
+.modal-description{
+  color:var(--muted);
+  overflow-wrap:anywhere;
+}
+.modal-actions{
+  background:var(--paper);
+}
+
+/* Navegação móvel também segue a identidade, sem barra preta solta */
+.mobile-nav{
+  background:color-mix(in srgb,var(--paper) 94%,transparent);
+  border:1px solid var(--line);
+  box-shadow:0 12px 30px rgba(45,38,30,.14);
+}
+.mobile-nav button{color:var(--muted)}
+.mobile-nav button span{color:var(--gold)}
+.mobile-nav button.active{color:var(--red)}
+.mobile-nav button.active span{color:var(--red)}
+html[data-theme="dark"] .mobile-nav{
+  background:rgba(22,29,25,.96);
+}
+
+/* ==============================================================
+   RESPONSIVO
+   ============================================================== */
+@media(max-width:1050px){
+  .filters.open{
+    grid-template-columns:1fr 1fr;
+  }
+  .filters.open .filter-block:first-child{
+    grid-column:1 / -1;
+  }
+  .chips-company{
+    grid-template-columns:repeat(4,minmax(0,1fr));
+  }
 }
 
 @media(max-width:720px){
+  .filters{
+    padding:13px;
+  }
+  .filters.open{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:15px;
+  }
+  .filters.open .filter-block:first-child{
+    grid-column:auto;
+  }
   .chips-company{
     grid-template-columns:repeat(2,minmax(0,1fr));
-    overflow:visible!important;
+    overflow:visible;
   }
   .chips-company .chip{
-    min-height:76px;
+    min-height:46px;
+  }
+
+  .product-modal{
+    display:block;
+    width:100%;
+    max-height:none;
+    min-height:0;
+    margin:4vh 0 0;
+    border-radius:24px 24px 0 0;
+    overflow:visible;
+  }
+  .modal-gallery{
+    display:grid;
+    grid-template-rows:minmax(320px,56vh) auto;
+    height:auto;
+    border-right:0;
+    border-bottom:1px solid var(--line);
+    overflow:hidden;
+  }
+  .modal-stage{
+    min-height:320px;
+    height:auto;
+    padding:22px 18px;
+    overflow:hidden;
+  }
+  .modal-stage img{
+    width:auto;
+    height:auto;
+    max-width:100%;
+    max-height:100%;
+  }
+  .modal-thumbs{
+    min-height:78px;
+    padding:10px 14px;
+    position:static;
+  }
+  .modal-content{
+    position:relative;
+    z-index:1;
+    min-height:0;
+    padding:24px 18px 105px;
+    overflow:visible;
+    border-top:0;
+  }
+  .modal-content h2{
+    margin-top:0;
+    font-size:clamp(28px,8vw,36px);
+    line-height:1.03;
+  }
+  .modal-actions{
+    background:linear-gradient(transparent,var(--paper) 20%);
+  }
+  .modal-close{
+    position:fixed;
+    top:calc(4vh + 10px);
+  }
+}
+
+@media(max-width:430px){
+  .chips-company{
+    grid-template-columns:1fr 1fr;
+  }
+  .chips-company .chip{
+    font-size:10px;
   }
 }

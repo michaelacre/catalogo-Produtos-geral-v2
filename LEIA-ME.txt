@@ -1,18 +1,17 @@
-Arquivos para substituir/adicionar no GitHub:
-
-Substituir:
-- index.html
+Substitua no GitHub:
 - app.js
 - styles.css
-
-Adicionar:
+- assets/logos/acreaves.png
+- assets/logos/dom-porquito.png
 - assets/logos/fripal.png
 
-Alterações:
-- caixa da capa integrada à paleta bege, sem bloco preto destoando
-- cards das empresas sem fundo branco puro
-- Fripal convertido para PNG transparente
-- texto alterado para "3 empresas, um só acesso"
-- gesto de arrastar para cima na capa abre a aba Catálogo
-- mantém tema escuro, swipe de produtos e demais funções
-- rodapé "Feito por Michael Andrade" mantido
+O que mudou:
+- identidade visual consolidada em marfim/bege quente + grafite + vermelho
+- logos normalizadas em PNG transparente, sem caixas brancas
+- filtros fechados por padrão também no PC; abrem no botão Filtros
+- filtro de empresa ficou compacto
+- modal refeconomizado para qualquer proporção de imagem
+- foto sempre fica dentro de um quadro próprio; título/descrição nunca invadem a imagem
+- área de miniaturas separada da foto
+- contato e barra inferior seguem a mesma identidade visual
+- ao trocar de produto por swipe, modal volta para o topo
