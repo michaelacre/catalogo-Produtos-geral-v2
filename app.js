@@ -122,10 +122,40 @@
     history.replaceState(null,'',catalogUrl()+'#catalogo');
   }
   function productLink(p){return catalogUrl()+`?produto=${encodeURIComponent(p.cod)}#catalogo`;}
-  function shareProduct(){
+  async function shareProduct(){
     const p=state.current;if(!p)return;
-    const text=`*${p.nome}*\nCód. ${p.cod} · ${p.empresa}${p.marca?` · ${p.marca}`:''}\n${p.complemento?`Embalagem: ${p.complemento}\n`:''}${p.peso?`Peso: ${p.peso}\n`:''}\n${p.desc||''}\n\nVer no catálogo: ${productLink(p)}`;
-    window.open(`https://wa.me/?text=${encodeURIComponent(text)}`,'_blank','noopener');
+
+    const imageUrl=(p.imgs&&p.imgs[state.galleryIndex]) || (p.imgs&&p.imgs[0]) || '';
+    const link=productLink(p);
+    const text=`${p.nome}\nCód. ${p.cod} · ${p.empresa}${p.marca?` · ${p.marca}`:''}\n${p.complemento?`Embalagem: ${p.complemento}\n`:''}${p.peso?`Peso: ${p.peso}\n`:''}\n${p.desc||''}\n\nVer no catálogo: ${link}`;
+
+    // No Android/Chrome, usa o compartilhamento nativo com a FOTO anexada.
+    // O usuário escolhe o WhatsApp na folha de compartilhamento do sistema.
+    if(imageUrl && navigator.share){
+      try{
+        const response=await fetch(imageUrl,{cache:'force-cache'});
+        if(!response.ok) throw new Error('Falha ao carregar imagem');
+        const blob=await response.blob();
+        const ext=(blob.type&&blob.type.includes('png'))?'png':(blob.type&&blob.type.includes('jpeg'))?'jpg':'webp';
+        const file=new File([blob],`${String(p.cod).replace(/[^a-z0-9_-]/gi,'-')}-${state.galleryIndex+1}.${ext}`,{type:blob.type||'image/webp'});
+
+        if(!navigator.canShare || navigator.canShare({files:[file]})){
+          await navigator.share({
+            title:p.nome,
+            text,
+            files:[file]
+          });
+          return;
+        }
+      }catch(e){
+        if(e && e.name==='AbortError') return;
+        console.warn('Compartilhamento com imagem indisponível; usando fallback.',e);
+      }
+    }
+
+    // Fallback: abre o WhatsApp com o texto, link do produto e link da imagem.
+    const fallback=`${text}${imageUrl?`\n\nImagem do produto: ${new URL(imageUrl,location.href).href}`:''}`;
+    window.open(`https://wa.me/?text=${encodeURIComponent(fallback)}`,'_blank','noopener');
   }
   async function copyProduct(){
     const p=state.current;if(!p)return;const link=productLink(p);
