@@ -17,7 +17,7 @@
   const COMPANY_LOGOS = {
     'Acreaves': 'assets/logos/acreaves.png',
     'Dom Porquito': 'assets/logos/dom-porquito.png',
-    'Fripal': 'assets/logos/fripal.jpg'
+    'Fripal': 'assets/logos/fripal.png'
   };
 
   function applyTheme(theme, persist = true) {
@@ -289,6 +289,41 @@
     modal.addEventListener('touchcancel', () => { tracking = false; }, { passive: true });
   }
 
+
+  function setupHomeSwipe() {
+    const home = $('#inicio');
+    if (!home) return;
+
+    let startX = 0;
+    let startY = 0;
+    let tracking = false;
+
+    home.addEventListener('touchstart', (e) => {
+      if (state.screen !== 'inicio' || state.current) return;
+      if (e.target.closest('button, a, input, .theme-toggle')) return;
+      const t = e.changedTouches[0];
+      startX = t.clientX;
+      startY = t.clientY;
+      tracking = true;
+    }, { passive: true });
+
+    home.addEventListener('touchend', (e) => {
+      if (!tracking || state.screen !== 'inicio') return;
+      tracking = false;
+
+      const t = e.changedTouches[0];
+      const dx = t.clientX - startX;
+      const dy = t.clientY - startY;
+
+      // Gesto intencional para cima: abre a aba Catálogo.
+      if (dy < -72 && Math.abs(dy) > Math.abs(dx) * 1.25) {
+        goToScreen('catalogo');
+      }
+    }, { passive: true });
+
+    home.addEventListener('touchcancel', () => { tracking = false; }, { passive: true });
+  }
+
   function setup() {
     initTheme();
     stats(); renderFilters(); renderProducts();
@@ -312,6 +347,7 @@
     $('#modal-close').addEventListener('click', closeProduct);
     $('#product-modal').addEventListener('click', e => { if (e.target.id === 'product-modal') closeProduct(); });
     setupModalSwipe();
+    setupHomeSwipe();
 
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape') closeProduct();

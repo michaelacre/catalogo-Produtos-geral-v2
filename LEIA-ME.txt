@@ -1,0 +1,18 @@
+Arquivos para substituir/adicionar no GitHub:
+
+Substituir:
+- index.html
+- app.js
+- styles.css
+
+Adicionar:
+- assets/logos/fripal.png
+
+Alterações:
+- caixa da capa integrada à paleta bege, sem bloco preto destoando
+- cards das empresas sem fundo branco puro
+- Fripal convertido para PNG transparente
+- texto alterado para "3 empresas, um só acesso"
+- gesto de arrastar para cima na capa abre a aba Catálogo
+- mantém tema escuro, swipe de produtos e demais funções
+- rodapé "Feito por Michael Andrade" mantido
