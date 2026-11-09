@@ -1,5 +1,22 @@
 const PRODUTOS = [
   {
+    "cod": "20520",
+    "nome": "COSTELA EM MANTA TEMPERADA",
+    "empresa": "Dom Porquito",
+    "marca": "MISTER PIG",
+    "grupo": "CORTE",
+    "tipo": "CONGELADO",
+    "complemento": "UNIDADE DE 2,0 A 2,7 KG",
+    "peso": "2,3 kg (peso médio)",
+    "conserva": "MANTER CONGELADO A -12°C OU MAIS FRIO",
+    "promo": false,
+    "imgs": [
+      "assets/produtos/20520/1.webp"
+    ],
+    "desc": "Costela suína em manta, sem pele, temperada por injeção de salmoura condimentada. Produto cru e congelado, pronto para o preparo. Peso por unidade de 2,0 a 2,7 kg (média de 2,3 kg). Validade de 180 dias. SIF 2524 — registro DIPOA/SIF 0083/2524.",
+    "thumb": "assets/thumbs/20520.webp"
+  },
+  {
     "cod": "105",
     "nome": "GALINHA CONGELADA C/ MIÚDOS",
     "empresa": "Acreaves",
