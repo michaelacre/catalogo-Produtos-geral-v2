@@ -1,5 +1,73 @@
 const PRODUTOS = [
   {
+    "cod": "20522",
+    "nome": "COSTELA PURURUCA TEMPERADA",
+    "empresa": "Dom Porquito",
+    "marca": "MISTER PIG",
+    "grupo": "CORTE",
+    "tipo": "CONGELADO",
+    "complemento": "UNIDADE DE 2,0 A 3,0 KG",
+    "peso": "2,5 kg (peso médio)",
+    "conserva": "MANTER CONGELADO A -12°C OU MAIS FRIO",
+    "promo": false,
+    "imgs": [
+      "assets/produtos/20522/1.webp"
+    ],
+    "desc": "Costela com barriga suína e pele, seccionada em duas tiras e temperada por injeção de salmoura condimentada. Faixa de peso de 2,0 a 3,0 kg por unidade, peso médio de 2,5 kg. Validade de 180 dias. Registro DIPOA/SIF 0083/2524.",
+    "thumb": "assets/thumbs/20522.webp"
+  },
+  {
+    "cod": "20523",
+    "nome": "PANCETA SUÍNA CONGELADA",
+    "empresa": "Dom Porquito",
+    "marca": "MISTER PIG",
+    "grupo": "CORTE",
+    "tipo": "CONGELADO",
+    "complemento": "UNIDADE DE 1,5 A 2,5 KG",
+    "peso": "2,0 kg (peso médio)",
+    "conserva": "MANTER CONGELADO A -12°C OU MAIS FRIO",
+    "promo": false,
+    "imgs": [
+      "assets/produtos/20523/1.webp"
+    ],
+    "desc": "Corte de barriga suína sem osso, com pele, obtido da região torácico-abdominal, seccionado em duas metades. Faixa de peso de 1,5 a 2,5 kg por unidade, peso médio aproximado de 2,0 kg. Validade de 365 dias. Registro DIPOA/SIF 0006/2524.",
+    "thumb": "assets/thumbs/20523.webp"
+  },
+  {
+    "cod": "20524",
+    "nome": "PANCETA SUÍNA TEMPERADA",
+    "empresa": "Dom Porquito",
+    "marca": "MISTER PIG",
+    "grupo": "CORTE",
+    "tipo": "CONGELADO",
+    "complemento": "UNIDADE DE 1,6 A 2,7 KG",
+    "peso": "2,3 kg (peso médio)",
+    "conserva": "MANTER CONGELADO A -12°C OU MAIS FRIO",
+    "promo": false,
+    "imgs": [
+      "assets/produtos/20524/1.webp"
+    ],
+    "desc": "Barriga suína sem osso, com pele, seccionada em duas tiras após remoção da ponta do peito e temperada por injeção de salmoura condimentada. Faixa de peso de 1,6 a 2,7 kg por unidade, peso médio de 2,3 kg. Validade de 180 dias. Registro DIPOA/SIF 0098/2524.",
+    "thumb": "assets/thumbs/20524.webp"
+  },
+  {
+    "cod": "20527",
+    "nome": "COPA LOMBO TEMPERADA",
+    "empresa": "Dom Porquito",
+    "marca": "MISTER PIG",
+    "grupo": "CORTE",
+    "tipo": "CONGELADO",
+    "complemento": "UNIDADE DE 1,5 A 2,3 KG",
+    "peso": "1,8 kg (peso médio)",
+    "conserva": "MANTER CONGELADO A -12°C OU MAIS FRIO",
+    "promo": false,
+    "imgs": [
+      "assets/produtos/20527/1.webp"
+    ],
+    "desc": "Sobrepaleta suína desossada, sem pele, temperada por injeção de salmoura condimentada. Faixa de peso de 1,5 a 2,3 kg por unidade, peso médio de 1,8 kg. Validade de 180 dias. Registro DIPOA/SIF 0095/2524.",
+    "thumb": "assets/thumbs/20527.webp"
+  },
+  {
     "cod": "20520",
     "nome": "COSTELA EM MANTA TEMPERADA",
     "empresa": "Dom Porquito",
