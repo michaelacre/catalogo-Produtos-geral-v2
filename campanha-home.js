@@ -23,34 +23,34 @@
     const list = products.filter(p => filter === 'todos' || p.group === filter);
     $('#result-count').textContent = `${list.length} produtos`;
     $('#product-grid').innerHTML = list.map(p => `<article class="product-card" data-code="${esc(p.code)}">
-      <button class="product-visual" type="button" data-product="${esc(p.code)}" aria-label="Ver detalhes de ${esc(p.name)}"><span class="product-tag">${p.group === 'linguicas' ? 'CONFRATERNIZAÃ‡ÃƒO' : 'SELEÃ‡ÃƒO PARA A CEIA'}</span><img src="${esc(p.image)}" alt="${esc(p.name)}" width="800" height="800" loading="lazy" decoding="async"><span class="visual-arrow" aria-hidden="true">â†—</span></button>
-      <div class="product-meta"><span>DOM PORQUITO</span><span>CÃ“D. ${esc(p.code)}</span></div><h3>${esc(p.name)}</h3><p>${esc(p.descricao)}</p>
-      <button class="add-product" type="button" data-add="${esc(p.code)}" aria-pressed="${selected.has(p.code)}" aria-label="${selected.has(p.code) ? 'Remover' : 'Adicionar'} ${esc(p.name)} ${selected.has(p.code) ? 'da' : 'Ã '} seleÃ§Ã£o"><span>${selected.has(p.code) ? 'Na sua seleÃ§Ã£o' : 'Adicionar Ã  seleÃ§Ã£o'}</span><span aria-hidden="true">${selected.has(p.code) ? 'âœ“' : '+'}</span></button>
+      <button class="product-visual" type="button" data-product="${esc(p.code)}" aria-label="Ver detalhes de ${esc(p.name)}"><span class="product-tag">${p.group === 'linguicas' ? 'CONFRATERNIZAÇÃO' : 'SELEÇÃO PARA A CEIA'}</span><img src="${esc(p.image)}" alt="${esc(p.name)}" width="800" height="800" loading="lazy" decoding="async"><span class="visual-arrow" aria-hidden="true">↗</span></button>
+      <div class="product-meta"><span>DOM PORQUITO</span><span>CÓD. ${esc(p.code)}</span></div><h3>${esc(p.name)}</h3><p>${esc(p.descricao)}</p>
+      <button class="add-product" type="button" data-add="${esc(p.code)}" aria-pressed="${selected.has(p.code)}" aria-label="${selected.has(p.code) ? 'Remover' : 'Adicionar'} ${esc(p.name)} ${selected.has(p.code) ? 'da' : 'à'} seleção"><span>${selected.has(p.code) ? 'Na sua seleção' : 'Adicionar à seleção'}</span><span aria-hidden="true">${selected.has(p.code) ? '✓' : '+'}</span></button>
     </article>`).join('');
   }
 
   function syncSelection() {
     $('#selection-count').textContent = selected.size;
     const list = products.filter(p => selected.has(p.code));
-    $('#selection-list').innerHTML = list.map(p => `<li><img src="${esc(p.image)}" width="65" height="75" alt=""><div>${esc(p.name)}<small>CÃ³d. ${esc(p.code)}</small></div><button type="button" data-remove="${esc(p.code)}" aria-label="Remover ${esc(p.name)} da seleÃ§Ã£o">Ã—</button></li>`).join('');
+    $('#selection-list').innerHTML = list.map(p => `<li><img src="${esc(p.image)}" width="65" height="75" alt=""><div>${esc(p.name)}<small>Cód. ${esc(p.code)}</small></div><button type="button" data-remove="${esc(p.code)}" aria-label="Remover ${esc(p.name)} da seleção">×</button></li>`).join('');
     $('#selection-empty').hidden = Boolean(list.length);
     $('#selection-send').hidden = !list.length;
-    $('#selection-send').href = whatsapp('OlÃ¡! Gostaria de consultar estes produtos para o Natal:\n\n' + list.map(p => `â€¢ ${p.name} â€” CÃ³d. ${p.code}`).join('\n'));
+    $('#selection-send').href = whatsapp('Olá! Gostaria de consultar estes produtos para o Natal:\n\n' + list.map(p => `• ${p.name} — Cód. ${p.code}`).join('\n'));
     $$('#product-grid [data-add]').forEach(button => {
       const active = selected.has(button.dataset.add);
       const product = products.find(p => p.code === button.dataset.add);
       button.setAttribute('aria-pressed', String(active));
-      button.setAttribute('aria-label', `${active ? 'Remover' : 'Adicionar'} ${product.name} ${active ? 'da' : 'Ã '} seleÃ§Ã£o`);
-      button.innerHTML = `<span>${active ? 'Na sua seleÃ§Ã£o' : 'Adicionar Ã  seleÃ§Ã£o'}</span><span aria-hidden="true">${active ? 'âœ“' : '+'}</span>`;
+      button.setAttribute('aria-label', `${active ? 'Remover' : 'Adicionar'} ${product.name} ${active ? 'da' : 'à'} seleção`);
+      button.innerHTML = `<span>${active ? 'Na sua seleção' : 'Adicionar à seleção'}</span><span aria-hidden="true">${active ? '✓' : '+'}</span>`;
     });
-    if (current) $('#dialog-add').innerHTML = `${selected.has(current.code) ? 'Remover da seleÃ§Ã£o' : 'Adicionar Ã  seleÃ§Ã£o'} <span aria-hidden="true">${selected.has(current.code) ? 'âœ“' : '+'}</span>`;
+    if (current) $('#dialog-add').innerHTML = `${selected.has(current.code) ? 'Remover da seleção' : 'Adicionar à seleção'} <span aria-hidden="true">${selected.has(current.code) ? '✓' : '+'}</span>`;
   }
 
   function toggleProduct(code) {
     const active = selected.has(code);
     if (active) selected.delete(code); else selected.add(code);
     syncSelection();
-    toast(active ? 'Produto removido da seleÃ§Ã£o.' : 'Produto adicionado Ã  sua seleÃ§Ã£o.');
+    toast(active ? 'Produto removido da seleção.' : 'Produto adicionado à sua seleção.');
   }
 
   function openProduct(code) {
@@ -58,17 +58,17 @@
     if (!current) return;
     $('#dialog-image').src = current.photo || current.image;
     $('#dialog-image').alt = current.name;
-    $('#dialog-code').textContent = `${current.company} Â· CÃ³d. ${current.code}`;
+    $('#dialog-code').textContent = `${current.company} · Cód. ${current.code}`;
     $('#dialog-title').textContent = current.name;
     $('#dialog-description').textContent = current.descricao;
-    $('#dialog-specs').innerHTML = [['Marca', current.brand],['ConservaÃ§Ã£o', current.conservation]].filter(([,value]) => value).map(([label,value]) => `<div><dt>${esc(label)}</dt><dd>${esc(value)}</dd></div>`).join('');
-    $('#dialog-contact').href = whatsapp(`OlÃ¡! Gostaria de consultar ${current.name}, cÃ³digo ${current.code}, para o Natal.`);
+    $('#dialog-specs').innerHTML = [['Marca', current.brand],['Conservação', current.conservation]].filter(([,value]) => value).map(([label,value]) => `<div><dt>${esc(label)}</dt><dd>${esc(value)}</dd></div>`).join('');
+    $('#dialog-contact').href = whatsapp(`Olá! Gostaria de consultar ${current.name}, código ${current.code}, para o Natal.`);
     syncSelection();
     $('#product-dialog').showModal();
   }
 
   const chapterCodes = ['20914','20915','20562'];
-  const chapterLabels = ['PARA ACENDER A CONFRATERNIZAÃ‡ÃƒO','PARA REUNIR EM VOLTA DO ASSADO','PARA COMPARTILHAR A CEIA'];
+  const chapterLabels = ['PARA ACENDER A CONFRATERNIZAÇÃO','PARA REUNIR EM VOLTA DO ASSADO','PARA COMPARTILHAR A CEIA'];
   const chapterWords = ['picanha','costela','pernil'];
   let chapter = 0;
   let ignoreScrollUntil = 0;
@@ -83,7 +83,7 @@
     $('#chapter-label').textContent = chapterLabels[index];
     $('.chapter-detail h3').textContent = item.name;
     $('.chapter-detail>p:not(.chapter-label)').textContent = item.descricao;
-    $('#chapter-code').textContent = `CÃ“D. ${item.code}`;
+    $('#chapter-code').textContent = `CÓD. ${item.code}`;
     $('#chapter-open').dataset.product = item.code;
     $$('[data-chapter]').forEach(button => button.setAttribute('aria-pressed', String(Number(button.dataset.chapter) === index)));
     $('#chapter-image').style.transform = '';
