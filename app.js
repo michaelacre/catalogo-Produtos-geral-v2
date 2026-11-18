@@ -6,7 +6,7 @@
   const THEME_COLORS = { light: '#f4efe5', dark: '#111614' };
   const state = {
     screen: 'inicio', search: '', company: 'TODOS', category: 'TODOS', type: 'TODOS',
-    visible: PAGE_SIZE, current: null, galleryIndex: 0, theme: 'light'
+    visible: PAGE_SIZE, current: null, galleryIndex: 0, theme: 'light', returnToChristmas: false, christmasScroll: 0, christmasCode: null
   };
 
   const $ = (s, root = document) => root.querySelector(s);
@@ -49,6 +49,7 @@
   }
 
   function goToScreen(name, { updateHash = true } = {}) {
+    if (name === 'inicio') { location.assign('./'); return; }
     if (!['inicio', 'catalogo', 'contato'].includes(name)) name = 'inicio';
     state.screen = name;
     $$('.screen').forEach(s => s.classList.toggle('active', s.dataset.screenName === name));
@@ -65,12 +66,6 @@
   }
 
   function unique(field) { return [...new Set(PRODUTOS.map(p => p[field]).filter(Boolean))].sort((a, b) => String(a).localeCompare(String(b), 'pt-BR')); }
-  function stats() {
-    $('#stat-total').textContent = PRODUTOS.length;
-    $('#stat-categorias').textContent = unique('grupo').length;
-    $('#stat-marcas').textContent = unique('marca').length;
-  }
-
   function chip(label, kind, value, active, logo = '') {
     const logoHtml = logo ? `<img class="chip-logo-img" src="${esc(logo)}" alt="">` : '';
     return `<button class="chip${active ? ' active' : ''}" type="button" data-kind="${kind}" data-value="${esc(value)}">${logoHtml}${esc(label)}</button>`;
@@ -149,14 +144,20 @@
 
   function spec(label, value) { if (!value) return ''; return `<div class="spec"><dt>${esc(label)}</dt><dd>${esc(value)}</dd></div>`; }
 
+  function productGallery(p) {
+    const official = NATAL_FOTOS[p.cod];
+    return official ? [official, ...(p.imgs || []).filter(src => src !== official)] : (p.imgs || []);
+  }
+
   function setGallery(index) {
     const p = state.current; if (!p) return;
     state.galleryIndex = index;
-    const img = p.imgs[index] || p.imgs[0];
+    const gallery = productGallery(p);
+    const img = gallery[index] || gallery[0];
     $('#modal-stage').innerHTML = `<img src="${esc(img)}" alt="${esc(p.nome)}" decoding="async">`;
     $$('.modal-thumb').forEach((b, i) => b.classList.toggle('active', i === index));
     $('#modal-download').href = img;
-    $('#modal-download').setAttribute('download', `${String(p.cod).replace(/[^a-z0-9_-]/gi, '-')}-${index + 1}.webp`);
+    $('#modal-download').setAttribute('download', `${String(p.cod).replace(/[^a-z0-9_-]/gi, '-')}-${index + 1}.${img.split('.').pop()}`);
   }
 
   function currentList() {
@@ -171,9 +172,9 @@
     $('#modal-code').textContent = `Cód. ${p.cod}`;
     $('#modal-company').textContent = p.empresa || '';
     $('#modal-title').textContent = p.nome || '';
-    $('#modal-description').textContent = p.desc || '';
+    $('#modal-description').textContent = (state.returnToChristmas && NATAL_EDITORIAL[p.cod]?.descricao) || p.desc || '';
     $('#modal-specs').innerHTML = [spec('Marca', p.marca), spec('Categoria', p.grupo), spec('Tipo', p.tipo), spec('Embalagem', p.complemento), spec('Peso', p.peso), spec('Conservação', p.conserva)].join('');
-    $('#modal-thumbs').innerHTML = (p.imgs || []).map((img, i) => `<button class="modal-thumb${i === 0 ? ' active' : ''}" type="button" data-index="${i}" aria-label="Foto ${i + 1}"><img src="${esc(img)}" alt="" loading="lazy" decoding="async"></button>`).join('');
+    $('#modal-thumbs').innerHTML = productGallery(p).map((img, i) => `<button class="modal-thumb${i === 0 ? ' active' : ''}" type="button" data-index="${i}" aria-label="Foto ${i + 1}"><img src="${esc(img)}" alt="" loading="lazy" decoding="async"></button>`).join('');
     $$('.modal-thumb').forEach(b => b.addEventListener('click', () => setGallery(Number(b.dataset.index))));
     setGallery(0);
     const modal = $('#product-modal');
@@ -193,6 +194,14 @@
     document.body.style.overflow = '';
     state.current = null;
     history.replaceState(null, '', catalogUrl() + '#catalogo');
+    if (state.returnToChristmas) {
+      state.returnToChristmas = false;
+      goToScreen('inicio');
+      window.scrollTo(0, state.christmasScroll);
+      const candidates = $$('[data-christmas-product]');
+      const target = candidates.find(button => button.dataset.christmasProduct === state.christmasCode && button.closest('.christmas-grid')) || candidates.find(button => button.dataset.christmasProduct === state.christmasCode);
+      target?.focus({ preventScroll: true });
+    }
   }
 
   function openSiblingProduct(step) {
@@ -205,7 +214,7 @@
   }
 
   function productLink(p) { return catalogUrl() + `?produto=${encodeURIComponent(p.cod)}#catalogo`; }
-  function currentImageUrl(p) { return new URL((p.imgs && (p.imgs[state.galleryIndex] || p.imgs[0])) || '', location.href).href; }
+  function currentImageUrl(p) { const gallery = productGallery(p); return new URL(gallery[state.galleryIndex] || gallery[0] || '', location.href).href; }
 
   async function fileFromImage(url, baseName) {
     try {
@@ -299,43 +308,9 @@
   }
 
 
-  function setupHomeSwipe() {
-    const home = $('#inicio');
-    if (!home) return;
-
-    let startX = 0;
-    let startY = 0;
-    let tracking = false;
-
-    home.addEventListener('touchstart', (e) => {
-      if (state.screen !== 'inicio' || state.current) return;
-      if (e.target.closest('button, a, input, .theme-toggle')) return;
-      const t = e.changedTouches[0];
-      startX = t.clientX;
-      startY = t.clientY;
-      tracking = true;
-    }, { passive: true });
-
-    home.addEventListener('touchend', (e) => {
-      if (!tracking || state.screen !== 'inicio') return;
-      tracking = false;
-
-      const t = e.changedTouches[0];
-      const dx = t.clientX - startX;
-      const dy = t.clientY - startY;
-
-      // Gesto intencional para cima: abre a aba Catálogo.
-      if (dy < -72 && Math.abs(dy) > Math.abs(dx) * 1.25) {
-        goToScreen('catalogo');
-      }
-    }, { passive: true });
-
-    home.addEventListener('touchcancel', () => { tracking = false; }, { passive: true });
-  }
-
   function setup() {
     initTheme();
-    stats(); renderFilters(); renderProducts();
+    renderFilters(); renderProducts();
     $$('[data-screen]').forEach(btn => btn.addEventListener('click', () => goToScreen(btn.dataset.screen)));
     $('#search').addEventListener('input', e => { state.search = e.target.value; state.visible = PAGE_SIZE; renderProducts(); });
     $('#clear-search').addEventListener('click', () => { $('#search').value = ''; state.search = ''; state.visible = PAGE_SIZE; renderProducts(); $('#search').focus(); });
@@ -356,29 +331,29 @@
     $('#modal-close').addEventListener('click', closeProduct);
     $('#product-modal').addEventListener('click', e => { if (e.target.id === 'product-modal') closeProduct(); });
     setupModalSwipe();
-    setupHomeSwipe();
 
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape') closeProduct();
       if (!state.current) return;
-      if (e.key === 'ArrowRight' && state.galleryIndex < state.current.imgs.length - 1) setGallery(state.galleryIndex + 1);
+      if (e.key === 'ArrowRight' && state.galleryIndex < productGallery(state.current).length - 1) setGallery(state.galleryIndex + 1);
       if (e.key === 'ArrowLeft' && state.galleryIndex > 0) setGallery(state.galleryIndex - 1);
     });
 
     $('#modal-whatsapp').addEventListener('click', shareProduct);
     $('#modal-copy').addEventListener('click', copyProduct);
-    ['#share-catalog-top', '#share-catalog-hero'].forEach(id => $(id).addEventListener('click', shareCatalog));
+    $('#share-catalog-top').addEventListener('click', shareCatalog);
 
     const params = new URLSearchParams(location.search);
     const code = params.get('produto');
     if (code) {
-      setTimeout(() => openProduct(code), 80);
+      openProduct(code);
     } else {
       const hash = location.hash.replace('#', '');
-      goToScreen(['catalogo', 'contato'].includes(hash) ? hash : 'inicio', { updateHash: false });
+      goToScreen(['catalogo', 'contato'].includes(hash) ? hash : 'catalogo', { updateHash: false });
     }
     if ('serviceWorker' in navigator) window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(() => {}));
   }
 
-  document.addEventListener('DOMContentLoaded', setup);
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', setup, { once: true });
+  else setup();
 })();

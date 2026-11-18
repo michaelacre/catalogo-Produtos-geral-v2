@@ -1,5 +1,5 @@
-const CACHE='catalogo-shell-v4';
-const SHELL=['./','./index.html','./styles.css','./app.js','./produtos.js','./manifest.webmanifest','./assets/logos/acreaves.png','./assets/logos/dom-porquito.png','./assets/logos/fripal.jpg'];
+const CACHE='catalogo-shell-v11-natal-aprovado';
+const SHELL=['./','./index.html','./catalogo.html','./campanha.css','./campanha-home.js','./campanha-produtos.js','./styles.css','./app.js','./campanha-natal.js','./produtos.js','./manifest.webmanifest','./assets/logos/acreaves.png','./assets/logos/dom-porquito.png','./assets/logos/fripal.png'];
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(SHELL)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
 self.addEventListener('fetch',e=>{
