@@ -7,8 +7,8 @@
   "theme_color": "#f4efe5",
   "icons": [
     {
-      "src": "assets/icon-dom-porquito.png",
-      "sizes": "512x512",
+      "src": "assets/logos/dom-porquito.png",
+      "sizes": "640x360",
       "type": "image/png"
     }
   ]
