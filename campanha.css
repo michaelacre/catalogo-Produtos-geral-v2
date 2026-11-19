@@ -46,3 +46,7 @@ dialog{border:0;background:var(--cream);color:var(--ink);padding:0;width:min(960
 
 .hero-bird-art{background:#f3dfaa}.hero-bird-art img{aspect-ratio:1.3;object-fit:contain;object-position:center;padding:14px 20px;filter:drop-shadow(0 16px 12px #65451c22)}
 @media(max-width:760px){.hero-bird-art img{aspect-ratio:1.15;padding:12px}}
+
+/* Transparent product stage with a light Christmas frame. */
+.hero-bird-art{position:relative;isolation:isolate;background:transparent;border-radius:0;overflow:visible}.hero-bird-art::before{content:"";position:absolute;inset:0;background:url("assets/natal-exclusivo/campanha/moldura-natal.svg") center/100% 100% no-repeat;pointer-events:none;z-index:2}.hero-bird-art img{padding:26px 32px;filter:drop-shadow(0 12px 10px #65451c18)}
+@media(max-width:760px){.hero-bird-art img{padding:24px}}
