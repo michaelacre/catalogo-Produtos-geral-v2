@@ -695,10 +695,12 @@ const PRODUTOS = [
     "conserva": "MANTENHA CONGELADO A -12°C",
     "promo": false,
     "imgs": [
-      "assets/produtos/20569/1.webp"
+      "assets/produtos/20569/sem-fundo-1.webp",
+      "assets/produtos/20569/sem-fundo-2.webp",
+      "assets/produtos/20569/sem-fundo-3.webp"
     ],
     "desc": "Corte tradicional com osso e pele, perfeito para assados suculentos.",
-    "thumb": "assets/thumbs/20569.webp"
+    "thumb": "assets/produtos/20569/sem-fundo-1.webp"
   },
   {
     "cod": "20577",
