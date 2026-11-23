@@ -685,13 +685,13 @@ const PRODUTOS = [
   },
   {
     "cod": "20569",
-    "nome": "Pernil Suíno com Osso e Pele Congelado",
+    "nome": "Pernil em Pedaços",
     "empresa": "Dom Porquito",
     "marca": "MISTER PIG",
     "grupo": "CORTES CONGELADOS",
     "tipo": "CONGELADO",
     "complemento": "PESO VARIÁVEL",
-    "peso": "Aprox. 10 kg",
+    "peso": "",
     "conserva": "MANTENHA CONGELADO A -12°C",
     "promo": false,
     "imgs": [
@@ -699,7 +699,7 @@ const PRODUTOS = [
       "assets/produtos/20569/sem-fundo-2.webp",
       "assets/produtos/20569/sem-fundo-3.webp"
     ],
-    "desc": "Corte tradicional com osso e pele, perfeito para assados suculentos.",
+    "desc": "Pernil suíno em pedaços para preparar os assados da sua mesa.",
     "thumb": "assets/produtos/20569/sem-fundo-1.webp"
   },
   {
